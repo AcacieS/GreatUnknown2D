@@ -15,4 +15,5 @@ MonoBehaviour:
   fishName: Flounder
   normalFishes:
   - {fileID: -4514028072581230517, guid: b7405e08d3ed9094fa993ad47661de1c, type: 3}
-  mutatedFishes: []
+  mutatedFishes:
+  - {fileID: 5298989240296614239, guid: b5b521f8e6c8bf944b54d9c018fd26a8, type: 3}

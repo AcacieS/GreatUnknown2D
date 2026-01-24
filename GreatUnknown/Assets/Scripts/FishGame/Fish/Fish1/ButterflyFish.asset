@@ -15,4 +15,5 @@ MonoBehaviour:
   fishName: Butterfly Fish
   normalFishes:
   - {fileID: -1362009629785773760, guid: 33773d8dc04437d4a8f97905032b760f, type: 3}
-  mutatedFishes: []
+  mutatedFishes:
+  - {fileID: -1439811036552212216, guid: d60398e9022e66a47991aeb3d4986d9c, type: 3}

@@ -15,4 +15,5 @@ MonoBehaviour:
   fishName: Grouper
   normalFishes:
   - {fileID: -5711527513427289021, guid: 662afb74a49cbc341b1ebc5446985730, type: 3}
-  mutatedFishes: []
+  mutatedFishes:
+  - {fileID: -2539092641583608905, guid: ed41cd22ebbd7c045a21feaab3d26ff9, type: 3}

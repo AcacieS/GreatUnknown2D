@@ -15,4 +15,5 @@ MonoBehaviour:
   fishName: FlyingFish
   normalFishes:
   - {fileID: 7039903757665188126, guid: 367c0f2edf1452f49b53145f27df8d8f, type: 3}
-  mutatedFishes: []
+  mutatedFishes:
+  - {fileID: -6951682993850121100, guid: a65974967ae37f144bd753affdd559f1, type: 3}

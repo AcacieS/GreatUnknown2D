@@ -121,8 +121,13 @@ public class FishManagement : MonoBehaviour
         }
         currentFishNb = fishGameInfo.GetNbOfFishPerGame(fishGame);
         RandomFishes();
-        NextFish();
+        ShowFirstFish();
         fishGame++;
+    }
+    private void ShowFirstFish()
+    {
+        fishPlace.GetComponent<SpriteRenderer>().sprite = currentFishes[currentFishIndex].GetSprite();
+        currentFishIndex++;
     }
     
     public void NextFish(){

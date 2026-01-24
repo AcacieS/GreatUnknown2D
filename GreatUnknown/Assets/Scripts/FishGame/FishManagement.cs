@@ -98,7 +98,6 @@ public class FishManagement : MonoBehaviour
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGamePlace;
 
-    public static int fishGame = 0;
     [Header("Show for Debug")]
     [SerializeField] List<Fish> currentFishes = new List<Fish>();
     private int currentFishNb = 0;
@@ -114,15 +113,19 @@ public class FishManagement : MonoBehaviour
     }
     public void StartFishGame()
     {
-        if(fishGame >= fishGameInfo.GetNbGame())
+        if(GameManagement.Instance.GetNbDayPassed() >= fishGameInfo.GetNbGame())
         {
             Debug.LogError("No info for this nb of Game");
             return;
         }
-        currentFishNb = fishGameInfo.GetNbOfFishPerGame(fishGame);
+        if(GameManagement.Instance.isFishGameFinished) return;
+        GameManagement.Instance.isFishGameFinished = true;
+        fishGamePlace.SetActive(true);
+        workPlace.SetActive(false);
+
+        currentFishNb = fishGameInfo.GetNbOfFishPerGame(GameManagement.Instance.GetNbDayPassed());
         RandomFishes();
         ShowFirstFish();
-        fishGame++;
     }
     private void ShowFirstFish()
     {
@@ -150,7 +153,7 @@ public class FishManagement : MonoBehaviour
         currentFishIndex = 0;
         for(int i = 0; i<currentFishNb; i++)
         {
-            bool isMutate = IsFishMutated(fishGameInfo.GetPercentageMutatedFishes(fishGame));
+            bool isMutate = IsFishMutated(fishGameInfo.GetPercentageMutatedFishes(GameManagement.Instance.GetNbDayPassed()));
             if (isMutate)
             {
                 int randomIndex = UnityEngine.Random.Range(0, fishGameInfo.GetTotalFishType());

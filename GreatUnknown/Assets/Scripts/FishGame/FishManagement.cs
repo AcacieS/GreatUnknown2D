@@ -103,6 +103,7 @@ public class FishManagement : MonoBehaviour
 
     private int currentFishNb = 0;
     int currentFishIndex = 0;
+    private bool isAnimatingOut = false;
     
     //To easily get the current Fish in other modules
     public Fish GetCurrentFish()
@@ -125,6 +126,7 @@ public class FishManagement : MonoBehaviour
             Debug.LogError("No info for this nb of Game");
             return;
         }
+        
         if(GameManagement.Instance.isFishGameFinished) return;
         GameManagement.Instance.isFishGameFinished = true;
         fishGamePlace.SetActive(true);
@@ -137,21 +139,28 @@ public class FishManagement : MonoBehaviour
     private void ShowFirstFish()
     {
         fishPlace.GetComponent<SpriteRenderer>().sprite = currentFishes[currentFishIndex].GetSprite();
-        currentFishIndex++;
+        // currentFishIndex++;
     }
     
     public void NextFish(){
+        if(isAnimatingOut) return;
+        //TODO: mutation check
+        fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
+        isAnimatingOut = true;
+        currentFishIndex++;
+    }
+    public void ShowNewFish()
+    {
+        isAnimatingOut = false;
         if(currentFishIndex >= currentFishes.Count)
         {
             Debug.Log("No more fish to show");
-            //TODO: score to finish
+            //TODO: score fish game
             fishGamePlace.SetActive(false);
             workPlace.SetActive(true);
             return;
         }
-        //TODO: mutation check
         fishPlace.GetComponent<SpriteRenderer>().sprite = currentFishes[currentFishIndex].GetSprite();
-        currentFishIndex++;
     }
     
     private void RandomFishes()

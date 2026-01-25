@@ -100,9 +100,16 @@ public class FishManagement : MonoBehaviour
 
     [Header("Show for Debug")]
     [SerializeField] List<Fish> currentFishes = new List<Fish>();
+
     private int currentFishNb = 0;
     int currentFishIndex = 0;
     
+    //To easily get the current Fish in other modules
+    public Fish GetCurrentFish()
+    {
+        
+        return currentFishes[currentFishIndex-1];
+    }
     private void OnValidate()
     {
         fishGameInfo?.Validate();

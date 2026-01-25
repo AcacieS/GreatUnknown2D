@@ -1,14 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
-
-using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class ClickHandler : MonoBehaviour
 {
-    [SerializeField] 
-    private UnityEvent _clicked;
+    [SerializeField]
+    private GameObjectEvent _clicked;
 
     private MouseInputProvider _mouse;
     private BoxCollider2D _collider;
@@ -18,9 +14,9 @@ public class ClickHandler : MonoBehaviour
     {
         _collider = GetComponent<BoxCollider2D>();
         _mouse = FindObjectOfType<MouseInputProvider>();
-        _mouse.Clicked += MouseOnClicked;
+        if (_mouse != null)
+            _mouse.Clicked += MouseOnClicked;
 
-        // Cache interface if implemented on this object
         _clickable = GetComponent<IClickable>();
     }
 
@@ -32,13 +28,17 @@ public class ClickHandler : MonoBehaviour
 
     private void MouseOnClicked()
     {
+        if (_mouse == null) return;
+
         if (_collider.bounds.Contains(_mouse.WorldPosition))
         {
-            // Call interface method
+            // Code-level behavior (optional)
             _clickable?.OnClick();
+            Debug.Log($"ClickHandler fired on {gameObject.name}", gameObject);
 
-            // Also still invoke UnityEvent
-            _clicked?.Invoke();
+            // Inspector-wired behavior, with context
+            _clicked?.Invoke(gameObject);
+            Debug.Log($"ClickHandler fired on {gameObject.name}", gameObject);
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using TMPro;
 
 [Serializable] 
 public class NbFishPerGame
@@ -92,6 +93,7 @@ public class FishManagement : MonoBehaviour
     public static FishManagement Instance {get; private set;}
     
     [SerializeField] private FishGameInfo fishGameInfo;
+    [SerializeField] private TextMeshProUGUI fishCorrectText;
     
     [Header("Places")]
     [SerializeField] private GameObject fishPlace;
@@ -146,8 +148,26 @@ public class FishManagement : MonoBehaviour
         // currentFishIndex++;
     }
     
-    public void NextFish(){
+    public void NextFish(bool isMutated){
         if(isAnimatingOut) return;
+        if(currentFishes[currentFishIndex].GetIsMutated() && isMutated)
+        {
+            fishCorrectText.color = Color.green;
+            fishCorrectText.text = "Correctly identified mutated fish";
+            Debug.Log("Correctly identified mutated fish");
+        }
+        else if(!currentFishes[currentFishIndex].GetIsMutated() && !isMutated)
+        {
+            fishCorrectText.color = Color.green;
+            fishCorrectText.text = "Correctly identified normal fish";
+            Debug.Log("Correctly identified normal fish");
+        }
+        else
+        {
+            fishCorrectText.color = Color.red;
+            fishCorrectText.text = "Incorrectly identified fish";
+            Debug.Log("Incorrectly identified fish");
+        }
         //TODO: mutation check
         fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
         isAnimatingOut = true;
@@ -156,6 +176,7 @@ public class FishManagement : MonoBehaviour
     public void ShowNewFish()
     {
         isAnimatingOut = false;
+        fishCorrectText.text = "";
         if(currentFishIndex >= currentFishes.Count)
         {
             Debug.Log("No more fish to show");

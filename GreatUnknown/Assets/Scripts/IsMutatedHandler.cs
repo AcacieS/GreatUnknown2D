@@ -19,14 +19,14 @@ public class IsMutatedHandler : MonoBehaviour
         {
             if (isMutated)
             {
-                fishManagement.NextFish();
+                fishManagement.NextFish(true);
             }
         }
         else if (clickedButton.name == "ButtonIsNotMutated")
         {
             if (!isMutated)
             {
-                fishManagement.NextFish();
+                fishManagement.NextFish(false);
             }
         }
     }

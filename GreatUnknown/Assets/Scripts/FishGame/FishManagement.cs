@@ -112,6 +112,17 @@ public class FishManagement : MonoBehaviour
     {
         
     }
+    public Fish GetCurrentFish()
+    {
+    if (currentFishes == null || currentFishes.Count == 0)
+        return null;
+
+    if (currentFishIndex < 0 || currentFishIndex >= currentFishes.Count)
+        return null;
+
+    return currentFishes[currentFishIndex];
+    }
+
     public void StartFishGame()
     {
         if(GameManagement.Instance.GetNbDayPassed() >= fishGameInfo.GetNbGame())
@@ -124,7 +135,7 @@ public class FishManagement : MonoBehaviour
         GameManagement.Instance.isFishGameFinished = true;
         fishGamePlace.SetActive(true);
         workPlace.SetActive(false);
-
+        
         currentFishNb = fishGameInfo.GetNbOfFishPerGame(GameManagement.Instance.GetNbDayPassed());
         RandomFishes();
         ShowFirstFish();

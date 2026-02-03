@@ -11,6 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f03f138ad34074163966d043eedc3d04
+  - enabled: 1
+    path: Assets/Scenes/FishGame.unity
+    guid: f7dbf5050f5159a4199d3cce785e71f7
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: cfd268277eb6a4b11949ea4fa05d5bd9, type: 2}
   m_UseUCBPForAssetBundles: 0

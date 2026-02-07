@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Menu Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Menu
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
+  m_TableCollectionNameGuidString: f61e517317aaf45e6b508e3d3994687c
   m_Entries: []
   m_Metadata:
     m_Items: []

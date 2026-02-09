@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-using UnityEngine;
-using UnityEngine.Events;
-
 [RequireComponent(typeof(BoxCollider2D))]
 public class ClickHandler : MonoBehaviour
 {

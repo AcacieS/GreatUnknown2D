@@ -723,7 +723,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
         m_Mode: 1
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 1036729372}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
         m_Mode: 6
@@ -1122,8 +1122,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1996232119
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -1206,7 +1206,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1362009629785773760, guid: 33773d8dc04437d4a8f97905032b760f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1214,7 +1214,7 @@ SpriteRenderer:
   m_Size: {x: 29.48, y: 21.372288}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &199457379
 Transform:
@@ -1225,8 +1225,8 @@ Transform:
   m_GameObject: {fileID: 199457377}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: 0.06, z: 0}
-  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2008047734}
@@ -1280,7 +1280,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.24505019}
+  m_Offset: {x: 0.29728603, y: -0.26686573}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1290,7 +1290,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 29.48, y: 13.694086}
+  m_Size: {x: 9.219347, y: 4.6626377}
   m_EdgeRadius: 0
 --- !u!114 &199457382
 MonoBehaviour:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000ad821adff5f8747189e4a51de5b4fe17f52ffe02abe22f70c58ce7f75b703dee4ff43c9cb715fc76
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1948,8 +1948,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1996232119
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6635454064966195081, guid: 4617053a0de3d2349bd27e4af0c3f3f1, type: 3}
@@ -2258,7 +2258,7 @@ Transform:
   m_GameObject: {fileID: 859283774}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 0.96, y: 0.9461138, z: 0.97789544}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2520,6 +2520,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1482561774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1036729370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036729371}
+  - component: {fileID: 1036729372}
+  m_Layer: 0
+  m_Name: FishManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036729371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036729370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518715762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036729372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036729370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce8850bb5d71244e95c50c1a435f4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  fishGameInfo:
+    fishesType:
+    - {fileID: 11400000, guid: c3011184f90ab6143a9c9588c7e8080c, type: 2}
+    - {fileID: 11400000, guid: eabdb3497c36a3a429ee972e65eeca67, type: 2}
+    - {fileID: 11400000, guid: 16fac47f77821cc4885e12c2fabe68c0, type: 2}
+    - {fileID: 11400000, guid: 6f3fdfcf94422494bb1bb1d9481d73c1, type: 2}
+    - {fileID: 11400000, guid: d02a046b4cdc4fe42956c74968d85855, type: 2}
+    nbOfFishPerGames:
+    - minNbOfFish: 2
+      maxNbOfFish: 4
+    - minNbOfFish: 3
+      maxNbOfFish: 5
+    - minNbOfFish: 5
+      maxNbOfFish: 7
+    - minNbOfFish: 6
+      maxNbOfFish: 9
+    - minNbOfFish: 8
+      maxNbOfFish: 10
+    percentageMutatedFishes:
+    - percentage: 20
+    - percentage: 50
+    - percentage: 75
+    - percentage: 80
+    - percentage: 90
+    nbMutationPerFishMax: 0100000001000000010000000100000001000000
+  fishCorrectText: {fileID: 1093276976}
+  fishPlace: {fileID: 199457377}
+  fishShowPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}
+  workPlace: {fileID: 130434681}
+  fishGamePlace: {fileID: 2008047733}
+  currentFishLists: []
+  currentFishList: []
+  currentFishIndex: -1
 --- !u!1 &1093276974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,7 +3016,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
         m_Mode: 1
@@ -3415,7 +3492,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 1036729372}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: StartFishGame
         m_Mode: 1
@@ -3659,6 +3736,7 @@ Transform:
   - {fileID: 1286527693}
   - {fileID: 2111449527}
   - {fileID: 1181629487}
+  - {fileID: 1036729371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771854208
@@ -4300,7 +4378,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 1036729372}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
         m_Mode: 6
@@ -4403,8 +4481,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1996232119
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -4429,7 +4507,6 @@ GameObject:
   - component: {fileID: 2111449528}
   - component: {fileID: 2111449529}
   - component: {fileID: 2111449530}
-  - component: {fileID: 2111449531}
   - component: {fileID: 2111449533}
   - component: {fileID: 2111449532}
   m_Layer: 0
@@ -4513,46 +4590,6 @@ MonoBehaviour:
   isFishGameTrue: 0
   isFishGameFinished: 0
   isSlidingGameFinished: 1
---- !u!114 &2111449531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111449526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce8850bb5d71244e95c50c1a435f4a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  fishGameInfo:
-    fishesType:
-    - {fileID: 11400000, guid: c3011184f90ab6143a9c9588c7e8080c, type: 2}
-    - {fileID: 11400000, guid: eabdb3497c36a3a429ee972e65eeca67, type: 2}
-    - {fileID: 11400000, guid: 16fac47f77821cc4885e12c2fabe68c0, type: 2}
-    - {fileID: 11400000, guid: 6f3fdfcf94422494bb1bb1d9481d73c1, type: 2}
-    nbOfFishPerGames:
-    - minNbOfFish: 2
-      maxNbOfFish: 4
-    - minNbOfFish: 3
-      maxNbOfFish: 5
-    - minNbOfFish: 5
-      maxNbOfFish: 7
-    - minNbOfFish: 6
-      maxNbOfFish: 9
-    - minNbOfFish: 8
-      maxNbOfFish: 10
-    percentageMutatedFishes:
-    - percentage: 20
-    - percentage: 50
-    - percentage: 75
-    - percentage: 80
-    - percentage: 90
-  fishCorrectText: {fileID: 1093276976}
-  fishPlace: {fileID: 199457377}
-  workPlace: {fileID: 130434681}
-  fishGamePlace: {fileID: 2008047733}
-  currentFishes: []
 --- !u!114 &2111449532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4578,7 +4615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b61ffa50a7bba428befc50ebac5ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsMutatedHandler
-  fishManagement: {fileID: 2111449531}
+  fishManagement: {fileID: 0}
 --- !u!1 &2113324519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,7 +4724,7 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
         m_Mode: 1

@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,35 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Body
+    uniqueID: 50212853
+    locked: 0
+  - name: Pectoral
+    uniqueID: 4159147205
+    locked: 0
+  - name: Dorsal
+    uniqueID: 2621240399
+    locked: 0
+  - name: Fin
+    uniqueID: 497411209
+    locked: 0
+  - name: Tail
+    uniqueID: 1903491317
+    locked: 0
+  - name: Mouth
+    uniqueID: 402568421
+    locked: 0
+  - name: Eye
+    uniqueID: 3743056557
+    locked: 0
+  - name: Other
+    uniqueID: 3997003867
+    locked: 0
+  - name: Overlay
+    uniqueID: 1882186411
+    locked: 0
+  - name: Foreground
+    uniqueID: 1996232119
+    locked: 0
+  m_RenderingLayers:
+  - Default

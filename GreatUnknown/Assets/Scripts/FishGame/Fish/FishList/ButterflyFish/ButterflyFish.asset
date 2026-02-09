@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6666a2f2774a644a2e7ef73a838d4a, type: 3}
+  m_Name: ButterflyFish
+  m_EditorClassIdentifier: Assembly-CSharp::FishInfo
+  fishName: Butterfly Fish
+  fishBasicBody: {fileID: -1880120661550918566, guid: c73f39f4d8ec27e4493fd6c19070bd87, type: 3}
+  categoriesFishLayer:
+  - {fileID: 11400000, guid: e01641a848f20f34e829e268ecbc99c1, type: 2}
+  - {fileID: 11400000, guid: 981a7c59e6294f94ba3b4c808f251e68, type: 2}
+  - {fileID: 11400000, guid: 065580f591959f346b09f7bc812ab0e0, type: 2}
+  - {fileID: 11400000, guid: 39f3365bf201aa74db09b2876daa9dc4, type: 2}
+  - {fileID: 11400000, guid: 4c28dd5275e5005458a46480cba32be9, type: 2}

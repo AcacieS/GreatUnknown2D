@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6666a2f2774a644a2e7ef73a838d4a, type: 3}
+  m_Name: FlyingFish
+  m_EditorClassIdentifier: Assembly-CSharp::FishInfo
+  fishName: FlyingFish
+  fishBasicBody: {fileID: 8808159328443877996, guid: 799f971439b17a942a2456d7b143ca3b, type: 3}
+  categoriesFishLayer:
+  - {fileID: 11400000, guid: d427985cd9db43a4eace125f11060ef3, type: 2}
+  - {fileID: 11400000, guid: 586088770bd670544b81a4413a75a6f5, type: 2}
+  - {fileID: 11400000, guid: d1aed023cfc8c2f4997313a0c0793558, type: 2}
+  - {fileID: 11400000, guid: 21737aa555481dd4c8c4536bebe2f6e6, type: 2}
+  - {fileID: 11400000, guid: c18f35eb6a9306840997f1e51ddcdd91, type: 2}
+  - {fileID: 11400000, guid: cb630e20fa945cc42a62290aaa4a70be, type: 2}
+  - {fileID: 11400000, guid: 04d0375a4a41dcb4ea7b36272d22a636, type: 2}

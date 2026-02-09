@@ -12,6 +12,6 @@ public class FishSound : MonoBehaviour, IClickable
     }
     public void NextFish()
     {
-        FishManagement.Instance.ShowNewFish();
+        FishManagement.Instance.InitializeNewFish();
     }
 }

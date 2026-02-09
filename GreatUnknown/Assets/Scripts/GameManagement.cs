@@ -5,6 +5,7 @@ public class GameManagement : MonoBehaviour
 {
     public static GameManagement Instance {get; private set;}
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private FishSession fishSession;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -20,6 +21,7 @@ public class GameManagement : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(gameObject);
+        fishSession.ResetSession();
         
     }
     public int GetNbDayPassed()
@@ -35,6 +37,7 @@ public class GameManagement : MonoBehaviour
             isFishGameFinished = false;
             isSlidingGameFinished = false;
             nbDaysPassed++;
+            fishSession.ResetSession();
             dayText.text = "Day " + nbDaysPassed.ToString();
             if (isSlidingGameTrue)
             {

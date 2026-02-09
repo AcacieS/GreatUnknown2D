@@ -19,7 +19,6 @@ public class FishManagement : MonoBehaviour
     [Header("Show for Debug")]
 
     [SerializeField] List<Fish> currentFishLists = new List<Fish>();
-    [SerializeField] List<Fish> currentFishList = new List<Fish>();
     private int currentFishNb = 0;
     [SerializeField] int currentFishIndex = -1;
     private bool isAnimatingOut = false;

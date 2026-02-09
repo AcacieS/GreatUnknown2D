@@ -3,31 +3,23 @@ using UnityEngine;
 public class IsMutatedHandler : MonoBehaviour
 {
     [SerializeField] private FishManagement fishManagement;
+    [SerializeField] private FishSession session;
 
-    // This method is wired to ClickHandler → Clicked (GameObject)
-    public void HandleMutationChoice(GameObject clickedButton)
+    public void ClickIsMutated()    => HandleChoice(true);
+    public void ClickIsNotMutated() => HandleChoice(false);
+
+    private void HandleChoice(bool playerSaysMutated)
     {
-        // 1. Get current fish
+        if (fishManagement == null || session == null) return;
+
         Fish currentFish = fishManagement.GetCurrentFish();
-        if (currentFish == null)
-            return;
+        if (currentFish == null) return;
 
-        bool isMutated = currentFish.isMutated;
+        bool correct = (currentFish.isMutated == playerSaysMutated);
 
-        // 2. Check which button was clicked
-        if (clickedButton.name == "ButtonIsMutated")
-        {
-            if (isMutated)
-            {
-                fishManagement.NextFish(true);
-            }
-        }
-        else if (clickedButton.name == "ButtonIsNotMutated")
-        {
-            if (!isMutated)
-            {
-                fishManagement.NextFish(false);
-            }
-        }
+        if (correct) session.AddCorrect();
+        else         session.AddWrong();
+
+        fishManagement.NextFish();
     }
 }

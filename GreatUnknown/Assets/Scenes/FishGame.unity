@@ -1022,7 +1022,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2111449531}
         m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
         m_MethodName: NextFish
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2939,9 +2939,9 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
-        m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
-        m_MethodName: NextFish
+      - m_Target: {fileID: 2111449533}
+        m_TargetAssemblyTypeName: IsMutatedHandler, Assembly-CSharp
+        m_MethodName: ClickIsNotMutated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4300,10 +4300,10 @@ MonoBehaviour:
   _clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111449531}
-        m_TargetAssemblyTypeName: FishManagement, Assembly-CSharp
-        m_MethodName: NextFish
-        m_Mode: 6
+      - m_Target: {fileID: 2111449533}
+        m_TargetAssemblyTypeName: IsMutatedHandler, Assembly-CSharp
+        m_MethodName: ClickIsMutated
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4548,7 +4548,7 @@ MonoBehaviour:
     - percentage: 75
     - percentage: 80
     - percentage: 90
-  fishCorrectText: {fileID: 1093276976}
+  fishCorrectText: {fileID: 0}
   fishPlace: {fileID: 199457377}
   workPlace: {fileID: 130434681}
   fishGamePlace: {fileID: 2008047733}
@@ -4579,6 +4579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IsMutatedHandler
   fishManagement: {fileID: 2111449531}
+  session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
 --- !u!1 &2113324519
 GameObject:
   m_ObjectHideFlags: 0

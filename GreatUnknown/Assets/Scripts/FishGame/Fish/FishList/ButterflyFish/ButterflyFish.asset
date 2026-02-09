@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ButterflyFish
   m_EditorClassIdentifier: Assembly-CSharp::FishInfo
   fishName: Butterfly Fish
-  fishBasicBody: {fileID: -1880120661550918566, guid: c73f39f4d8ec27e4493fd6c19070bd87, type: 3}
   categoriesFishLayer:
   - {fileID: 11400000, guid: e01641a848f20f34e829e268ecbc99c1, type: 2}
   - {fileID: 11400000, guid: 981a7c59e6294f94ba3b4c808f251e68, type: 2}
   - {fileID: 11400000, guid: 065580f591959f346b09f7bc812ab0e0, type: 2}
   - {fileID: 11400000, guid: 39f3365bf201aa74db09b2876daa9dc4, type: 2}
   - {fileID: 11400000, guid: 4c28dd5275e5005458a46480cba32be9, type: 2}
+  - {fileID: 11400000, guid: c2966502d8c784b4396cd3c9e6c5fbb5, type: 2}

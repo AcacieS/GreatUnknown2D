@@ -113,9 +113,9 @@ public class FishManagement : MonoBehaviour
     }
     
     
-    public void NextFish(bool isMutated){
+    public void NextFish(){
         if(isAnimatingOut) return;
-        if(currentFishLists[currentFishIndex].GetIsMutated() && isMutated)
+        /*if(currentFishLists[currentFishIndex].GetIsMutated() && isMutated)
         {
             fishCorrectText.color = Color.green;
             fishCorrectText.text = "Correctly identified mutated fish";
@@ -132,7 +132,7 @@ public class FishManagement : MonoBehaviour
             fishCorrectText.color = Color.red;
             fishCorrectText.text = "Incorrectly identified fish";
             Debug.Log("Incorrectly identified fish");
-        }
+        }*/
         //TODO: mutation check
         fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
         isAnimatingOut = true;

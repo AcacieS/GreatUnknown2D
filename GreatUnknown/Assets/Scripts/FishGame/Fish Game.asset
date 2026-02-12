@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597924f6c57e9494e92fb1d5d41e4191, type: 3}
+  m_Name: Fish Game
+  m_EditorClassIdentifier: Assembly-CSharp::FishDaysInfo
+  fishesType:
+  - {fileID: 11400000, guid: c3011184f90ab6143a9c9588c7e8080c, type: 2}
+  - {fileID: 11400000, guid: eabdb3497c36a3a429ee972e65eeca67, type: 2}
+  - {fileID: 11400000, guid: 16fac47f77821cc4885e12c2fabe68c0, type: 2}
+  - {fileID: 11400000, guid: 6f3fdfcf94422494bb1bb1d9481d73c1, type: 2}
+  - {fileID: 11400000, guid: d02a046b4cdc4fe42956c74968d85855, type: 2}
+  fishDaysInfo:
+  - {fileID: 11400000, guid: 94102899556bf3649be3e0bfaa836323, type: 2}
+  - {fileID: 11400000, guid: 119196c7d1151784798ed3a45bbc3bb2, type: 2}
+  - {fileID: 11400000, guid: d762aa34329f3c344b6324c44538dcbc, type: 2}
+  - {fileID: 11400000, guid: d4226f6c7f7150144a142fb4e1fc3150, type: 2}

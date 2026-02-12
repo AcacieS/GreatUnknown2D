@@ -2398,31 +2398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce8850bb5d71244e95c50c1a435f4a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fishGameInfo:
-    fishesType:
-    - {fileID: 11400000, guid: c3011184f90ab6143a9c9588c7e8080c, type: 2}
-    - {fileID: 11400000, guid: eabdb3497c36a3a429ee972e65eeca67, type: 2}
-    - {fileID: 11400000, guid: 16fac47f77821cc4885e12c2fabe68c0, type: 2}
-    - {fileID: 11400000, guid: 6f3fdfcf94422494bb1bb1d9481d73c1, type: 2}
-    - {fileID: 11400000, guid: d02a046b4cdc4fe42956c74968d85855, type: 2}
-    nbOfFishPerGames:
-    - minNbOfFish: 2
-      maxNbOfFish: 4
-    - minNbOfFish: 3
-      maxNbOfFish: 5
-    - minNbOfFish: 5
-      maxNbOfFish: 7
-    - minNbOfFish: 6
-      maxNbOfFish: 9
-    - minNbOfFish: 8
-      maxNbOfFish: 10
-    percentageMutatedFishes:
-    - percentage: 20
-    - percentage: 50
-    - percentage: 75
-    - percentage: 80
-    - percentage: 90
-    nbMutationPerFishMax: 0100000001000000010000000100000001000000
+  fishDaysInfo: {fileID: 0}
   fishCorrectText: {fileID: 1093276976}
   fishPlace: {fileID: 199457377}
   fishShowPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}

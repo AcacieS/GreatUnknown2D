@@ -7,7 +7,7 @@ public class FishManagement : MonoBehaviour
 {
     public static FishManagement Instance {get; private set;}
     
-    [SerializeField] private FishGameInfo fishGameInfo;
+    [SerializeField] private FishDaysInfo fishDaysInfo;
     [SerializeField] private TextMeshProUGUI fishCorrectText;
     
     [Header("Places")]
@@ -22,10 +22,11 @@ public class FishManagement : MonoBehaviour
     private int currentFishNb = 0;
     [SerializeField] int currentFishIndex = -1;
     private bool isAnimatingOut = false;
+    private int currentDay = 0;
     
     private void OnValidate()
     {
-        fishGameInfo?.Validate();
+        // fishGameInfo.?.Validate();
     }
     void Start()
     {
@@ -45,7 +46,8 @@ public class FishManagement : MonoBehaviour
 
     public void StartFishGame()
     {
-        if(GameManagement.Instance.GetNbDayPassed() >= fishGameInfo.GetNbGame() || GameManagement.Instance.isFishGameFinished)
+        currentDay = GameManagement.Instance.GetNbDayPassed();
+        if(currentDay>= fishDaysInfo.GetNbGame() || GameManagement.Instance.isFishGameFinished)
         {
             return;
         }
@@ -53,7 +55,7 @@ public class FishManagement : MonoBehaviour
 
         fishGamePlace.SetActive(true);
         workPlace.SetActive(false);
-        currentFishNb = fishGameInfo.GetNbOfFishPerGame(GameManagement.Instance.GetNbDayPassed());
+        currentFishNb = fishDaysInfo.GetNbOfFishPerGame(currentDay);
         RandomFishes();
         InitializeNewFish();
     }
@@ -148,23 +150,22 @@ public class FishManagement : MonoBehaviour
         for(int i = 0; i<currentFishNb; i++)
         {
             //want mutated or not
-            bool isMutate = IsFishMutated(fishGameInfo.GetPercentageMutatedFishes(GameManagement.Instance.GetNbDayPassed()));
+            bool isMutate = fishDaysInfo.GetIsMutated(currentDay);
 
             //fish type
-            int randomIndex = UnityEngine.Random.Range(0, fishGameInfo.GetTotalFishType());
-            FishTypeInfo fishType = fishGameInfo.GetFishInfo(randomIndex);
+            int randomIndex = UnityEngine.Random.Range(0, fishDaysInfo.GetTotalFishType());
+
+            FishTypeInfo fishType = fishDaysInfo.GetFishInfo(randomIndex);
             Fish newFish = new Fish(fishType,isMutate);
             currentFishLists.Add(newFish);
-            Debug.Log("fish added of currentFishList: "+newFish);
 
-            //ss
-            //TODO: many mutated example, but not for now
             //TODO: for now is equivalent chance of bodypart;
             int nbMutated = 0;
             if (isMutate)
             {
-                nbMutated = fishGameInfo.GetRandomNbMutationPerFish(GameManagement.Instance.GetNbDayPassed());
+                nbMutated = fishDaysInfo.GetRandomNbMutationPerFish(GameManagement.Instance.GetNbDayPassed());
             }
+
             ChooseBodyParts(fishType, newFish, nbMutated);
             
         }

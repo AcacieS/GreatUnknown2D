@@ -2,13 +2,9 @@ using UnityEngine;
 using System;
 
 [Serializable] 
-public class MutatedPercentage
+public class Percentage
 {
     [SerializeField, Range(0f,100f)] private float percentage;
-    public MutatedPercentage()
-    {
-        
-    }
     public float GetPercentage()
     {
         return percentage;

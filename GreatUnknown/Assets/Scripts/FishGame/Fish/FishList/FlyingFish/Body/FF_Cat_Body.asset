@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
   fishLayerName: Flying Fish Body Category
   baseBodyPartFish: {fileID: 11400000, guid: deb222c1567162646a74c2ddb20ff3cf, type: 2}
+  isOptional: 0
   fishPartsMutated:
-  - {fileID: 11400000, guid: 5763c41a65067154b88aa76b468b4a7d, type: 2}
+    EasyFishParts: []
+    HardFishParts:
+    - {fileID: 11400000, guid: 5763c41a65067154b88aa76b468b4a7d, type: 2}
   fishPartsNormal:
-  - {fileID: 11400000, guid: 8998f01621312a9498eb22661af11903, type: 2}
+    EasyFishParts: []
+    HardFishParts:
+    - {fileID: 11400000, guid: 8998f01621312a9498eb22661af11903, type: 2}
   CategoryRestriction:
     day1: 0
     day2: 0

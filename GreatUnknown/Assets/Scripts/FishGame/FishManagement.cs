@@ -19,19 +19,12 @@ public class FishManagement : MonoBehaviour
     [Header("Show for Debug")]
 
     [SerializeField] List<Fish> currentFishLists = new List<Fish>();
-    private int currentFishNb = 0;
     [SerializeField] int currentFishIndex = -1;
+    private int currentFishNb = 0;
+    private FishDayInfo currentFishDayInfo;
     private bool isAnimatingOut = false;
     private int currentDay = 0;
     
-    private void OnValidate()
-    {
-        // fishGameInfo.?.Validate();
-    }
-    void Start()
-    {
-        // currentFishList.Add(new Fish(fishGameInfo.))
-    }
     
     public Fish GetCurrentFish()
     {
@@ -51,11 +44,11 @@ public class FishManagement : MonoBehaviour
         {
             return;
         }
+        currentFishDayInfo = fishDaysInfo.GetCurrentFishDayInfo(currentDay);
         GameManagement.Instance.isFishGameFinished = true;
 
         fishGamePlace.SetActive(true);
         workPlace.SetActive(false);
-        currentFishNb = fishDaysInfo.GetNbOfFishPerGame(currentDay);
         RandomFishes();
         InitializeNewFish();
     }
@@ -141,104 +134,144 @@ public class FishManagement : MonoBehaviour
     
     private void RandomFishes()
     {
-        Debug.LogWarning("+++++++++++++++ Random Fishes");
         //Initialize
         currentFishLists = new List<Fish>();
         currentFishIndex = -1;
+        currentFishNb = fishDaysInfo.GetNbOfFishPerGame(currentDay);
 
         //add fishes
         for(int i = 0; i<currentFishNb; i++)
         {
-            //want mutated or not
+            //======= want mutated or not
             bool isMutate = fishDaysInfo.GetIsMutated(currentDay);
 
-            //fish type
-            int randomIndex = UnityEngine.Random.Range(0, fishDaysInfo.GetTotalFishType());
+            //======= fish type
+            int randomFishTypeIndex = Random.Range(0, fishDaysInfo.GetTotalFishType());
 
-            FishTypeInfo fishType = fishDaysInfo.GetFishInfo(randomIndex);
+            FishTypeInfo fishType = fishDaysInfo.GetFishInfo(randomFishTypeIndex);
             Fish newFish = new Fish(fishType,isMutate);
             currentFishLists.Add(newFish);
 
-            //TODO: for now is equivalent chance of bodypart;
-            int nbMutated = 0;
+            //======= searching for what bodyPart
+            int nbMutationCurrentFish = 0;
             if (isMutate)
             {
-                nbMutated = fishDaysInfo.GetRandomNbMutationPerFish(GameManagement.Instance.GetNbDayPassed());
+                nbMutationCurrentFish = Mathf.Min(fishDaysInfo.GetRandomNbMutationPerFish(currentDay), fishType.GetNbPossibleMutation());
             }
 
-            ChooseBodyParts(fishType, newFish, nbMutated);
-            
+            ChooseBodyParts(fishType, newFish, nbMutationCurrentFish);
         }
-        Debug.LogWarning("count: "+currentFishLists.Count);
     }
-    private void ChooseBodyParts(FishTypeInfo fishType, Fish newFish, int nbMutated)
+    private void ChooseBodyParts(FishTypeInfo fishType, Fish newFish, int nbMutationCurrentFish)
     {
+        //======= nb of mutation prepare
         List<int> mutatedFishIndex = new List<int>();
-        int currentMutatedFishIndex = -1;
-        for(int i=0; i<nbMutated; i++)
+        int currentMutatedFishIndex = -1; // if no mutation: -1
+        for(int i=0; i<nbMutationCurrentFish; i++)
         {
-            ChooseMutatedFish(fishType, newFish, mutatedFishIndex);
+            ChooseMutatedFish(fishType, newFish, mutatedFishIndex, nbMutationCurrentFish);
             currentMutatedFishIndex = 0;
         }
         mutatedFishIndex.Sort();
-        
+
+
+        //======== getting body part
         for(int i=0; i< fishType.categoriesFishLayer.Count; i++)
         {
-            if(currentMutatedFishIndex>=0 && currentMutatedFishIndex < mutatedFishIndex.Count)
-            {
-                Debug.LogWarning("mutatedFishIndex[currentMutatedFishIndex]: "+mutatedFishIndex[currentMutatedFishIndex]);
-            }
+            // IS MUTATED: SKIP
             if(currentMutatedFishIndex>=0 && currentMutatedFishIndex < mutatedFishIndex.Count && mutatedFishIndex[currentMutatedFishIndex]==i)
             {
-                currentMutatedFishIndex++;
+                currentMutatedFishIndex++; //already assigned
             }
-            else
+            else //IS NORMAL
             {
                 CategoryFishBodyPart fishPartCat = fishType.categoriesFishLayer[i];
-                if (fishPartCat.baseBodyPartFish) //so if not optional
+                FishBodyPart naturalBodyPartChoosen = ChooseNaturalFishBodyPart(fishPartCat);
+                if (naturalBodyPartChoosen)
                 {
-                    //TODO: how to made possible different normal?
-                    newFish.AddFishBodyPart(fishPartCat, fishPartCat.baseBodyPartFish);
-                }
-                else
-                {
-                    //TODO: if optional when do we add it?
+                    newFish.AddFishBodyPart(fishPartCat, naturalBodyPartChoosen);
                 }
             }
             
         }
     }
-    
-    private void ChooseMutatedFish(FishTypeInfo fishType, Fish newFish, List<int> mutatedFishIndex)
+    private FishBodyPart ChooseNaturalFishBodyPart(CategoryFishBodyPart fishPartCat)
     {
+        bool isNormalBase = currentFishDayInfo.GetIsBaseNormal();
+        if (isNormalBase || fishPartCat.GetNbPossibleSpecialNormal() == 0)
+        {
+            return fishPartCat.baseBodyPartFish;
+        }
+        //========= if is Special Normal
+        //----- Difficulty
+        List<FishBodyPart> fishBodyParts;
+        FishBodyPartDifficultyList fishBodyPartsDifficultyList = fishPartCat.fishPartsNormal;
+        if (fishBodyPartsDifficultyList.GetNbFishParts(FishBPDifficulty.Easy) == 0)
+        {
+            fishBodyParts = fishBodyPartsDifficultyList.GetFishParts(FishBPDifficulty.Hard);
+        }else if(fishBodyPartsDifficultyList.GetNbFishParts(FishBPDifficulty.Hard) == 0)
+        {
+            fishBodyParts = fishBodyPartsDifficultyList.GetFishParts(FishBPDifficulty.Easy);
+        }
+        else
+        {
+            FishBPDifficulty difficulty = currentFishDayInfo.GetIsNormalEasy();
+            fishBodyParts = fishPartCat.fishPartsNormal.GetFishParts(difficulty);
+        }
+
+        FishBodyPart fishBodyPart = fishBodyParts[Random.Range(0, fishBodyParts.Count)];
+        return fishBodyPart;
+    }
+    
+    private void ChooseMutatedFish(FishTypeInfo fishType, Fish newFish, List<int> mutatedFishIndex, int nbMutationCurrentFish)
+    {
+        // ======== Choose Body Type Category
         int randMutatedPartCatIndex = 0;
         do 
         {
             randMutatedPartCatIndex = UnityEngine.Random.Range(0, fishType.categoriesFishLayer.Count); 
         }
-        while (mutatedFishIndex.Contains(randMutatedPartCatIndex)|| fishType.categoriesFishLayer[randMutatedPartCatIndex].fishPartsMutated.Count == 0); 
+        while (mutatedFishIndex.Contains(randMutatedPartCatIndex)|| !fishType.categoriesFishLayer[randMutatedPartCatIndex].HasMutation()); 
+        
         mutatedFishIndex.Add(randMutatedPartCatIndex);
+
+        //======== Choose part of the category?
         CategoryFishBodyPart mutatedPartCat = fishType.categoriesFishLayer[randMutatedPartCatIndex];
-        int randMutatedPartIndex = UnityEngine.Random.Range(0, mutatedPartCat.fishPartsMutated.Count); 
-        FishBodyPart mutatedPart = mutatedPartCat.fishPartsMutated[randMutatedPartIndex];
+        List<FishBodyPart> fishBodyPartsDifficulty;
+        //in case only 1 mutation: so no need check Difficulty TODO-> need every part if has mutation: have easy, hard
+        if(IsOnlyOneDifficultyPossible(mutatedPartCat, mutatedPartCat.fishPartsMutated))
+        {
+            //found that one
+            if (mutatedPartCat.fishPartsMutated.GetNbFishParts(FishBPDifficulty.Easy) > 0)
+            {
+                //random inside
+                fishBodyPartsDifficulty = mutatedPartCat.fishPartsMutated.GetFishParts(FishBPDifficulty.Easy);
+            }
+            else //hard one
+            {
+                fishBodyPartsDifficulty = mutatedPartCat.fishPartsMutated.GetFishParts(FishBPDifficulty.Hard);
+            }
+        }
+        else
+        {
+            FishBPDifficulty difficulty = currentFishDayInfo.GetIsMutationEasy(nbMutationCurrentFish);
+            fishBodyPartsDifficulty = mutatedPartCat.fishPartsMutated.GetFishParts(difficulty);
+        }
+        
+        
+        int randMutatedPartIndex = UnityEngine.Random.Range(0, fishBodyPartsDifficulty.Count); 
+        FishBodyPart mutatedPart = fishBodyPartsDifficulty[randMutatedPartIndex];
+        
         newFish.AddFishBodyPart(mutatedPartCat, mutatedPart);
     }
-    private void ChooseNormalFish()
-    {
-        
-    }
-    private bool IsFishMutated(float mutationRate)
-    {
-        float roll = UnityEngine.Random.Range(0f, 100f);
-        return roll < mutationRate;
-    }
 
-    // Update is called once per frame
-    void Update()
+    private bool IsOnlyOneDifficultyPossible(CategoryFishBodyPart partCat, FishBodyPartDifficultyList fishBodyPartsDifficultyList)
     {
-        
+        if(partCat.GetNbPossibleMutation() == 1) return true;
+        if(partCat.fishPartsMutated.GetNbFishParts(FishBPDifficulty.Easy) == 0 || partCat.fishPartsMutated.GetNbFishParts(FishBPDifficulty.Hard) == 0) return true;
+        return false;
     }
-
+    
     public void Awake()
     {
         if(Instance == null)
@@ -247,6 +280,13 @@ public class FishManagement : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         
+    }
+    private void OnValidate()
+    {
+        // fishGameInfo.?.Validate();
+    }
+    void Start()
+    {
     }
     
 }

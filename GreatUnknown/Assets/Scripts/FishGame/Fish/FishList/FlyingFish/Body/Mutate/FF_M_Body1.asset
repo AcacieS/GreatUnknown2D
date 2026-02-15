@@ -14,11 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Body Large Scales
   bodyPartSprite: {fileID: -8087731606836624859, guid: e7cd1e96d4a9dbb45923733a78b70b0b, type: 3}
-  percentage: 0
   isMutated: 1
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 1

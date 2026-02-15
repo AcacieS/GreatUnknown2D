@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce8850bb5d71244e95c50c1a435f4a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fishDaysInfo: {fileID: 0}
+  fishDaysInfo: {fileID: 11400000, guid: 302ab5d85aac2ee4f8cc6df892e75894, type: 2}
   fishCorrectText: {fileID: 1093276976}
   fishPlace: {fileID: 199457377}
   fishShowPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}

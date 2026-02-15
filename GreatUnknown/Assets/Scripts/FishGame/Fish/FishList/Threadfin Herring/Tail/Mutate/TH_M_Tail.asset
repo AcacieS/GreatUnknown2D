@@ -14,11 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
   bodyPartSprite: {fileID: -5271304022790580625, guid: 75d4371a896ea4c48999ce9dc0affba9, type: 3}
-  percentage: 0
   isMutated: 1
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 1

@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
   fishLayerName: Flounder Eye
   baseBodyPartFish: {fileID: 11400000, guid: cb095705f62332041b5ab1756ee6cbfb, type: 2}
+  isOptional: 0
   fishPartsMutated:
-  - {fileID: 11400000, guid: 90f147157b5acfe4d80ad955ef8aa4e9, type: 2}
-  fishPartsNormal: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 90f147157b5acfe4d80ad955ef8aa4e9, type: 2}
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0
@@ -24,3 +29,4 @@ MonoBehaviour:
     day4: 0
     day5: 0
   CategoryPercentage: 0
+  sortingLayer: 0

@@ -15,8 +15,12 @@ MonoBehaviour:
   fishLayerName: Eye
   baseBodyPartFish: {fileID: 11400000, guid: fa775a9d1219bab49962eb582ab98644, type: 2}
   isOptional: 0
-  fishPartsMutated: []
-  fishPartsNormal: []
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0

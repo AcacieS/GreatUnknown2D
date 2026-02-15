@@ -10,7 +10,10 @@ public class FishDaysInfo : ScriptableObject
     public int GetNbGame(){
         return fishDaysInfo.Count;
     }
-
+    public FishDayInfo GetCurrentFishDayInfo(int currentDay)
+    {
+        return fishDaysInfo[currentDay];
+    }
     public int GetRandomNbMutationPerFish(int currentDay)
     {
         return fishDaysInfo[currentDay].GetRandomNbMutationPerFish();
@@ -19,9 +22,9 @@ public class FishDaysInfo : ScriptableObject
     {
         return fishDaysInfo[currentDay].GetIsMutated();
     }
-    public bool GetIsSpecialNormal(int currentDay)
+    public bool GetIsBaseNormal(int currentDay)
     {
-        return fishDaysInfo[currentDay].GetIsSpecialNormal();
+        return fishDaysInfo[currentDay].GetIsBaseNormal();
     }
     public int GetNbOfFishPerGame(int currentDay)
     {

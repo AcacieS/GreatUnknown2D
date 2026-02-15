@@ -7,7 +7,18 @@ public class MutationLikeliHood
 {
     [SerializeField]
     private List<MutationNbChance> mutationsNbChance;
-
+    public FishBPDifficulty GetIsMutationEasy(int nbMutation)
+    {
+        foreach(MutationNbChance mutationNbChance in mutationsNbChance)
+        {
+            if (mutationNbChance.GetMutationCount() == nbMutation)
+            {
+                return mutationNbChance.GetIsEasy(); 
+            }
+        }
+        Debug.LogError("Not found nb mutation");
+        return FishBPDifficulty.Easy;
+    }
     public int Roll()
     {
         float total = 0f;

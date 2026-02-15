@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c16d6a815e75e7e40b452a68308fce11, type: 3}
-  m_Name: Fish Day 0
+  m_Name: Fish Day 4
   m_EditorClassIdentifier: Assembly-CSharp::FishDayInfo
   nbOfFish:
-    minNbOfFish: 3
-    maxNbOfFish: 5
+    minNbOfFish: 9
+    maxNbOfFish: 12
   mutationLikeliHood:
     mutationsNbChance:
     - mutationCount: 1
-      percentage:
-        percentage: 100
+      percentage: 25
+      easiness: 35
     - mutationCount: 2
-      percentage:
-        percentage: 0
+      percentage: 50
+      easiness: 25
     - mutationCount: 3
-      percentage:
-        percentage: 0
-    - mutationCount: 4
-      percentage:
-        percentage: 0
+      percentage: 25
+      easiness: 10
   mutationChance:
-    percentage: 30
+    percentage: 80
   normalLikeliHood:
-    percentage: 0
+    percentage: 25
+  normalEasyChance:
+    percentage: 35

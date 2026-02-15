@@ -16,8 +16,12 @@ MonoBehaviour:
   baseBodyPartFish: {fileID: 11400000, guid: 336ca117eceb3b44d9ff6859c92d77b5, type: 2}
   isOptional: 0
   fishPartsMutated:
-  - {fileID: 11400000, guid: 5e954b7c256f7bf4a9a8a14b179460cb, type: 2}
-  fishPartsNormal: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 5e954b7c256f7bf4a9a8a14b179460cb, type: 2}
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0

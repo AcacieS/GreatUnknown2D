@@ -13,11 +13,22 @@ MonoBehaviour:
   m_Name: Fish Day 3
   m_EditorClassIdentifier: Assembly-CSharp::FishDayInfo
   nbOfFish:
-    minNbOfFish: 0
-    maxNbOfFish: 0
+    minNbOfFish: 7
+    maxNbOfFish: 10
   mutationLikeliHood:
-    mutationsNbChance: []
+    mutationsNbChance:
+    - mutationCount: 1
+      percentage: 50
+      easiness: 50
+    - mutationCount: 2
+      percentage: 35
+      easiness: 35
+    - mutationCount: 3
+      percentage: 15
+      easiness: 50
   mutationChance:
-    percentage: 0
+    percentage: 75
   normalLikeliHood:
-    percentage: 0
+    percentage: 35
+  normalEasyChance:
+    percentage: 60

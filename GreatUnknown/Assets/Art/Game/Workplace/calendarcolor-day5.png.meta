@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 6f2beacef3e611941aa66b6da2bc1075
+guid: 4383e95bdaf514a49b2bb6264a7d45fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1333401826788945531
-    second: alien_0
-  - first:
-      213: -3445709363609947430
-    second: alien_1
+      213: 4909560085436170216
+    second: calendarcolor-day5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alien_0
+      name: calendarcolor-day5_0
       rect:
         serializedVersion: 2
-        x: 319
-        y: 903
-        width: 11
-        height: 9
+        x: 1506
+        y: 807
+        width: 361
+        height: 273
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7eac9495e1318210800000000000000
-      internalID: 1333401826788945531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alien_1
-      rect:
-        serializedVersion: 2
-        x: 735
-        y: 363
-        width: 127
-        height: 181
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ad2bac607916e20d0800000000000000
-      internalID: -3445709363609947430
+      spriteID: 8effbdfb2e2422440800000000000000
+      internalID: 4909560085436170216
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      alien_0: 1333401826788945531
-      alien_1: -3445709363609947430
+      calendarcolor-day5_0: 4909560085436170216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

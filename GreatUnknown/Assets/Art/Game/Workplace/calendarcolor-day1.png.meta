@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 51b5951e80df8204ab1e02708851b04e
+guid: b4cbcba25e3bc914598209d8f60fd81a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 408963125973678179
-    second: fax_0
+      213: 833873733825027819
+    second: calendarcolor-day1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fax_0
+      name: calendarcolor-day1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
-        width: 608
-        height: 535
+        x: 1506
+        y: 807
+        width: 361
+        height: 273
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 368f4e9dbcdeca500800000000000000
-      internalID: 408963125973678179
+      spriteID: bee5b2c2eb3829b00800000000000000
+      internalID: 833873733825027819
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fax_0: 408963125973678179
+      calendarcolor-day1_0: 833873733825027819
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

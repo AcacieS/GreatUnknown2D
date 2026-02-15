@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0c75273d2da48614eaca51de5d27a29e
+guid: c83b8cf7217b9d145a1a1f149323e294
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7049752581813627975
-    second: tray_0
+      213: -2377022691162800107
+    second: faxcolor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tray_0
+      name: faxcolor_0
       rect:
         serializedVersion: 2
-        x: 603
-        y: 23
-        width: 534
-        height: 166
+        x: 0
+        y: 10
+        width: 608
+        height: 535
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b31b96c06f3a2e90800000000000000
-      internalID: -7049752581813627975
+      spriteID: 510c236d47e130fd0800000000000000
+      internalID: -2377022691162800107
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tray_0: -7049752581813627975
+      faxcolor_0: -2377022691162800107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

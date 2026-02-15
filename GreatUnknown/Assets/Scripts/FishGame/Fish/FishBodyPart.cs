@@ -1,5 +1,6 @@
+using System;
 using UnityEngine;
-
+[Serializable]
 [CreateAssetMenu(fileName = "FishPart", menuName = "Scriptable Objects/FishPart")]
 public class FishBodyPart : ScriptableObject
 {

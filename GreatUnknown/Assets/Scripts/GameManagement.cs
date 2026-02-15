@@ -1,11 +1,13 @@
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
 {
     public static GameManagement Instance {get; private set;}
-    [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private FishSession fishSession;
+    [SerializeField] private SpriteRenderer daySpriteRenderer;
+    [SerializeField] private Sprite[] daySprites;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -38,7 +40,7 @@ public class GameManagement : MonoBehaviour
             isSlidingGameFinished = false;
             nbDaysPassed++;
             fishSession.ResetSession();
-            dayText.text = "Day " + nbDaysPassed.ToString();
+            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
             if (isSlidingGameTrue)
             {
                 isSlidingGameFinished = true;

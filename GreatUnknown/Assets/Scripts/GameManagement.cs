@@ -35,12 +35,18 @@ public class GameManagement : MonoBehaviour
     {
         return daySprites.Length - nbDaysPassed-1;
     }
-    
+    public void StartSlidingGame()
+    {
+        if (isFishGameFinished)
+        {
+            Debug.Log("Start Fish Game");
+            // TODO: Start Sliding Game
+        }
+    }
     public void NextDay()
     {
         if(isFishGameFinished && isSlidingGameFinished)
         {
-            
             isFishGameFinished = false;
             isSlidingGameFinished = false;
             nbDaysPassed++;

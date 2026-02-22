@@ -747,7 +747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &963704990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -858,6 +858,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce8850bb5d71244e95c50c1a435f4a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!1 &1073112060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5148275691414695617, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+  m_PrefabInstance: {fileID: 6742697664825621344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073112063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073112060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b14bba212cc6f409d1aff1b1b1c068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
+  _clicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2111449530}
+        m_TargetAssemblyTypeName: GameManagement, Assembly-CSharp
+        m_MethodName: StartSlidingGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1073112064
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073112060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.3651365, y: 1.5962279}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.93, y: 7.53}
+    newSize: {x: 6.93, y: 7.53}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.373001, y: 4.337545}
+  m_EdgeRadius: 0
 --- !u!1 &1093276974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +2455,42 @@ PrefabInstance:
       propertyPath: BGMusic
       value: 
       objectReference: {fileID: 1286527694}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: RadioOn
+      value: 
+      objectReference: {fileID: 11400000, guid: b17b8991f695beb44acb2308c2503a2b, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: RadioOff
+      value: 
+      objectReference: {fileID: 11400000, guid: 8174bbcf286bc804a87af589ea0ba7a0, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: radioChannels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: 'radioChannels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a525583fa5907874bba192d657d41bd1, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: 'radioChannels.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c408015443d9e444aba996f5e234d88, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: 'radioChannels.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b28e5fbc452b4c8ed5d557483fefc, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: radioChannels.Array.data[0].radioChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: a525583fa5907874bba192d657d41bd1, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: radioChannels.Array.data[1].radioChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c408015443d9e444aba996f5e234d88, type: 2}
+    - target: {fileID: 3323904323204098554, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: radioChannels.Array.data[2].radioChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 187b28e5fbc452b4c8ed5d557483fefc, type: 2}
     - target: {fileID: 5093732256181838770, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2425,6 +2539,34 @@ PrefabInstance:
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1036729372}
+    - target: {fileID: 6892511845382541178, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892511845382541178, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314383531423520766, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0442376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314383531423520766, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.5978813
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300687694954215455, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6461332
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300687694954215455, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.63693345
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300687694954215455, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6615908
+      objectReference: {fileID: 0}
     - target: {fileID: 8367250568826542263, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
       propertyPath: m_Name
       value: ======= Work Place ======
@@ -2432,7 +2574,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5148275691414695617, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1073112064}
+    - targetCorrespondingSourceObject: {fileID: 5148275691414695617, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1073112063}
   m_SourcePrefab: {fileID: 100100000, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
 --- !u!1001 &7017139622219028386
 PrefabInstance:

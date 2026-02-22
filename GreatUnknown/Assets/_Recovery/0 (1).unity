@@ -261,7 +261,6 @@ GameObject:
   - component: {fileID: 484301419}
   - component: {fileID: 484301421}
   - component: {fileID: 484301420}
-  - component: {fileID: 484301422}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -388,21 +387,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484301418}
   m_CullTransparentMesh: 1
---- !u!114 &484301422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484301418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66c8abdfab5b124e81d44f4ec536d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TypingEffect
-  currentDayCanvas: {fileID: 2020774455}
-  typingSpeed: 0.1
-  waitSecondAfterTyping: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66c8abdfab5b124e81d44f4ec536d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  currentDayCanvas: {fileID: 0}
   typingSpeed: 0.05
   waitSecondAfterTyping: 3
 --- !u!1 &1402317635
@@ -2129,7 +2112,7 @@ GameObject:
   - component: {fileID: 2020774458}
   - component: {fileID: 2020774457}
   m_Layer: 5
-  m_Name: Day X Left
+  m_Name: Day 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,10 +2481,6 @@ PrefabInstance:
       propertyPath: bookViewerUI
       value: 
       objectReference: {fileID: 1482561773}
-    - target: {fileID: 7148832294861221490, guid: b12422728fefbc84bba5792c709741ae, type: 3}
-      propertyPath: dayAnimation
-      value: 
-      objectReference: {fileID: 484301422}
     - target: {fileID: 7148832294861221490, guid: b12422728fefbc84bba5792c709741ae, type: 3}
       propertyPath: daySpriteRenderer
       value: 

@@ -8,6 +8,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private FishSession fishSession;
     [SerializeField] private SpriteRenderer daySpriteRenderer;
     [SerializeField] private Sprite[] daySprites;
+    [SerializeField] private TypingEffect dayAnimation;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -30,6 +31,10 @@ public class GameManagement : MonoBehaviour
     {
         return nbDaysPassed;
     }
+    public int GetNbDayLeft()
+    {
+        return daySprites.Length - nbDaysPassed-1;
+    }
     
     public void NextDay()
     {
@@ -49,6 +54,7 @@ public class GameManagement : MonoBehaviour
             {
                 isFishGameFinished = true;
             }
+            dayAnimation.NextDay();
         }
     }
     void Start()

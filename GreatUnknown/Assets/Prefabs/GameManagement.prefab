@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: -4329382853265178440, guid: 1334fd18a7b822e4c9aae45858918ddd, type: 3}
   - {fileID: 4909560085436170216, guid: 4383e95bdaf514a49b2bb6264a7d45fa, type: 3}
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
+  dayAnimation: {fileID: 0}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
   isFishGameFinished: 0

@@ -50,5 +50,8 @@ MonoBehaviour:
   fishShowPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}
   workPlace: {fileID: 0}
   fishGamePlace: {fileID: 0}
-  currentFishLists: []
+  currentFishLists:
+  - isMutated: 0
+    fishType: {fileID: 0}
+    fishBodyPartsGameObj: []
   currentFishIndex: -1

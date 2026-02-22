@@ -13,7 +13,10 @@ public class TypingEffect : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        textToShow = text.text;
+        if (textToShow == null || textToShow == "")
+        {
+            textToShow = text.text;
+        }
         text.text = "";
         if(currentDayCanvas == null)
         {
@@ -30,12 +33,14 @@ public class TypingEffect : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         yield return new WaitForSeconds(waitSecondAfterTyping);
+        text.text = "";
         currentDayCanvas.SetActive(false);
     }
     public void NextDay()
     {
         currentDayCanvas.SetActive(true);
-        textToShow = "Day "+GameManagement.Instance.GetNbDayLeft()+" left ...";
+        textToShow = GameManagement.Instance.GetNbDayLeft()+" Day left ...";
+        StopAllCoroutines();
         StartCoroutine(TypeText());
     }
 

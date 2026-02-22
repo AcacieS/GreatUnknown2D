@@ -33,7 +33,7 @@ public class GameManagement : MonoBehaviour
     }
     public int GetNbDayLeft()
     {
-        return daySprites.Length - nbDaysPassed-1;
+        return daySprites.Length - nbDaysPassed -1;
     }
     public void StartSlidingGame()
     {

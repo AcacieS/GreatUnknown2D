@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8446c751ecbc96b40afc62cd3012c95f, type: 3}
+  m_Name: BF_Cat_Overlay
+  m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
+  fishLayerName: Mouth
+  baseBodyPartFish: {fileID: 0}
+  isOptional: 0
+  fishPartsMutated:
+    EasyFishParts:
+    - {fileID: 11400000, guid: b6425a35a2f7a984f8cfb3b527b611a2, type: 2}
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
+  CategoryRestriction:
+    day1: 0
+    day2: 0
+    day3: 0
+    day4: 0
+    day5: 0
+  CategoryPercentage: 0
+  sortingLayer: 5

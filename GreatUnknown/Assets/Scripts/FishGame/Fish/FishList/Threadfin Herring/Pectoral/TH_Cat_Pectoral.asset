@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8446c751ecbc96b40afc62cd3012c95f, type: 3}
+  m_Name: TH_Cat_Pectoral
+  m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
+  fishLayerName: Mouth
+  baseBodyPartFish: {fileID: 11400000, guid: 1ebf62074b9aab44f98314db72c6643f, type: 2}
+  isOptional: 0
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts:
+    - {fileID: 11400000, guid: 0e9534644d31a0841b7de14d99be977d, type: 2}
+  fishPartsNormal:
+    EasyFishParts:
+    - {fileID: 11400000, guid: e099a3870e74551469001336a230b3db, type: 2}
+    HardFishParts: []
+  CategoryRestriction:
+    day1: 0
+    day2: 0
+    day3: 0
+    day4: 0
+    day5: 0
+  CategoryPercentage: 0
+  sortingLayer: 6

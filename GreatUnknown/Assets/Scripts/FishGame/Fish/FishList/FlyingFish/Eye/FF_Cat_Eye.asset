@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8446c751ecbc96b40afc62cd3012c95f, type: 3}
+  m_Name: FF_Cat_Eye
+  m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
+  fishLayerName: Mouth
+  baseBodyPartFish: {fileID: 11400000, guid: 400745029de85444fb6eb0fcd3032cf0, type: 2}
+  isOptional: 0
+  fishPartsMutated:
+    EasyFishParts:
+    - {fileID: 11400000, guid: bef0e6faf0746164a89fc8dc1aebabf2, type: 2}
+    HardFishParts:
+    - {fileID: 11400000, guid: 7d3c1952203daf842a43d250ef22c94c, type: 2}
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
+  CategoryRestriction:
+    day1: 0
+    day2: 0
+    day3: 0
+    day4: 0
+    day5: 0
+  CategoryPercentage: 0
+  sortingLayer: 0

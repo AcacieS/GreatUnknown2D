@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db626ad063b13545924a9839ac5fa83, type: 3}
+  m_Name: Menu
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.AssetTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: f61e517317aaf45e6b508e3d3994687c, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 79560275416ff43169f6abdda725f2e7, type: 2}
+  - {fileID: 11400000, guid: 6c2270f92216743c3885949bab79e6a1, type: 2}
+  - {fileID: 11400000, guid: 550311b85b41143a19bd404ef53477d9, type: 2}
+  - {fileID: 11400000, guid: 598a9e7dabbd947e2b1519353bb5e1b8, type: 2}
+  m_Extensions: []
+  m_Group: Asset Table
+  references:
+    version: 2
+    RefIds: []

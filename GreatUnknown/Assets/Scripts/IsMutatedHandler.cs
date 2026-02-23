@@ -1,33 +1,35 @@
+using TMPro;
 using UnityEngine;
 
 public class IsMutatedHandler : MonoBehaviour
 {
     [SerializeField] private FishManagement fishManagement;
+    [SerializeField] private FishSession session;
+    [SerializeField] private TextMeshProUGUI fishTxt;
 
-    // This method is wired to ClickHandler → Clicked (GameObject)
-    public void HandleMutationChoice(GameObject clickedButton)
+    public void ClickIsMutated()    => HandleChoice(true);
+    public void ClickIsNotMutated() => HandleChoice(false);
+
+    private void HandleChoice(bool playerSaysMutated)
     {
-        // 1. Get current fish
+        if (fishManagement == null || session == null) return;
+
         Fish currentFish = fishManagement.GetCurrentFish();
-        if (currentFish == null)
-            return;
+        if (currentFish == null) return;
 
-        bool isMutated = currentFish.isMutated;
+        bool correct = (currentFish.isMutated == playerSaysMutated);
 
-        // 2. Check which button was clicked
-        if (clickedButton.name == "ButtonIsMutated")
-        {
-            if (isMutated)
-            {
-                fishManagement.NextFish();
-            }
+        if (correct) {
+            session.AddCorrect();
+            fishTxt.color = Color.green;
+            fishTxt.text = "Correctly identified fish";
         }
-        else if (clickedButton.name == "ButtonIsNotMutated")
-        {
-            if (!isMutated)
-            {
-                fishManagement.NextFish();
-            }
+        else{
+            fishTxt.color = Color.red;
+            fishTxt.text = "Incorrectly identified fish";
+            session.AddWrong();
         }
+
+        fishManagement.NextFish();
     }
 }

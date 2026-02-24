@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 /// <summary>
 /// Single source of truth at runtime:
 /// - Holds the active IceGrid + PlayerStart
@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class IceGridBehaviour : MonoBehaviour
 {
+    [Header("Tilemap Mapping (preferred when using Tilemap injection)")]
+    public Tilemap mappingTilemap;      // assign at runtime via injector
+    public Vector3Int mappingBoundsMin; // assign at runtime via injector
     [Header("Grid Runtime")]
     [Tooltip("If true, builds from the ASCII level in Awake unless a grid was injected first.")]
     [SerializeField] private bool buildFromAsciiIfNotInjected = true;
@@ -88,10 +91,18 @@ public class IceGridBehaviour : MonoBehaviour
     }
 
     // --- World/Grid mapping helpers ---
-    public Vector3 GridToWorldCenter(Vector2Int c)
+public Vector3 GridToWorldCenter(Vector2Int c)
+{
+    // If we have a tilemap mapping, use it (exact alignment)
+    if (mappingTilemap != null)
     {
-        return (Vector3)(origin + new Vector2((c.x + 0.5f) * cellSize, (c.y + 0.5f) * cellSize));
+        Vector3Int cell = new Vector3Int(mappingBoundsMin.x + c.x, mappingBoundsMin.y + c.y, 0);
+        return mappingTilemap.GetCellCenterWorld(cell);
     }
+
+    // Fallback to old math mapping (ASCII mode)
+    return origin + new Vector2((c.x + 0.5f) * cellSize, (c.y + 0.5f) * cellSize);
+}
 
     public Vector2Int WorldToGrid(Vector2 world)
     {

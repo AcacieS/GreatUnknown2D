@@ -35,6 +35,11 @@ public class IceGridInjector : MonoBehaviour
 
         // 3) Inject into the runtime owner
         gridRoot.SetGrid(tilemapBuilder.Grid, tilemapBuilder.PlayerStart);
+
+        // hard-align world mapping to tilemap
+        gridRoot.mappingTilemap = tilemapBuilder.wallsTilemap;
+         gridRoot.mappingBoundsMin = tilemapBuilder.BoundsMin;
+
         
     }
 

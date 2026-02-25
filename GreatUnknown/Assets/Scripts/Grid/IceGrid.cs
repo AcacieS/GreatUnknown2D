@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum TileType { Empty, Wall, Stop, Goal }
+public enum TileType { Empty, Wall, Stop, Goal, Death }
 
 public class IceGrid
 {
@@ -38,7 +38,7 @@ private bool IsBlocked(Vector2Int c)
     return false;
 }
 
-    private bool IsStoppingTile(TileType t) => t == TileType.Stop || t == TileType.Goal;
+    private bool IsStoppingTile(TileType t) => t == TileType.Stop || t == TileType.Goal || t == TileType.Death;
 
    public Vector2Int Slide(Vector2Int start, Vector2Int dir)
 {

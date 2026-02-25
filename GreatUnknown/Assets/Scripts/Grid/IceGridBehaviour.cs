@@ -33,6 +33,7 @@ public class IceGridBehaviour : MonoBehaviour
     public GameObject icePrefab;   // TileType.Empty
     public GameObject stopPrefab;
     public GameObject goalPrefab;  // optional
+    public GameObject deathPrefab; // TileType.Death (hazard)
 
     [Header("ASCII Level (debug fallback)")]
     [TextArea(6, 20)]
@@ -138,6 +139,7 @@ public Vector3 GridToWorldCenter(Vector2Int c)
                     case '.': Grid.Set(c, TileType.Empty); break;
                     case 'S': Grid.Set(c, TileType.Stop); break;
                     case 'G': Grid.Set(c, TileType.Goal); break;
+                    case 'X': Grid.Set(c, TileType.Death); break;
                     case 'P':
                         Grid.Set(c, TileType.Empty);
                         PlayerStart = c;
@@ -193,6 +195,7 @@ public Vector3 GridToWorldCenter(Vector2Int c)
                 TileType.Wall => wallPrefab,
                 TileType.Stop => stopPrefab,
                 TileType.Goal => goalPrefab != null ? goalPrefab : stopPrefab,
+                TileType.Death => deathPrefab != null ? deathPrefab : icePrefab,
                 _ => icePrefab
             };
 

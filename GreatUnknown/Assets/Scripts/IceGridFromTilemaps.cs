@@ -23,6 +23,9 @@ public class IceGridFromTilemap : MonoBehaviour
     [Tooltip("Any tile placed here becomes a Goal tile (stops sliding + win). Optional.")]
     public Tilemap goalTilemap;
 
+    [Tooltip("Any tile placed here becomes a Death tile (hazard: kills + respawns). Optional.")]
+    public Tilemap deathTilemap;
+
     [Header("Start")]
     [Tooltip("If assigned, we compute the player's start cell from this marker's world position.")]
     public Transform startMarker;
@@ -54,6 +57,7 @@ public class IceGridFromTilemap : MonoBehaviour
     wallsTilemap.CompressBounds();
     if (stopTilemap != null) stopTilemap.CompressBounds();
     if (goalTilemap != null) goalTilemap.CompressBounds();
+    if (deathTilemap != null) deathTilemap.CompressBounds();
 
     // Now compute bounds AFTER compression
     CombinedBounds = wallsTilemap.cellBounds;
@@ -63,6 +67,9 @@ public class IceGridFromTilemap : MonoBehaviour
 
     if (goalTilemap != null)
         CombinedBounds = Union(CombinedBounds, goalTilemap.cellBounds);
+
+    if (deathTilemap != null)
+        CombinedBounds = Union(CombinedBounds, deathTilemap.cellBounds);
 
     BoundsMin = CombinedBounds.min;
 
@@ -86,6 +93,13 @@ public class IceGridFromTilemap : MonoBehaviour
             if (wallsTilemap.HasTile(cell))
             {
                 Grid.Set(new Vector2Int(x, y), TileType.Wall);
+                continue;
+            }
+
+            // Death is non-blocking but stops sliding + triggers respawn.
+            if (deathTilemap != null && deathTilemap.HasTile(cell))
+            {
+                Grid.Set(new Vector2Int(x, y), TileType.Death);
                 continue;
             }
 

@@ -129,17 +129,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8561581991034032588, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
   m_PrefabInstance: {fileID: 3441905592802071231}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &484301422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6100584525026412606, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
-  m_PrefabInstance: {fileID: 1375206400447592239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66c8abdfab5b124e81d44f4ec536d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TypingEffect
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +497,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968725573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3350467918320477518, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+  m_PrefabInstance: {fileID: 1375206400447592239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa546a9de7b2f9498460aa1de7ae7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayTransition
 --- !u!1 &2008047733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1054762214580407646, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
@@ -535,17 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9de055decbc8a47ac4aad5fc767df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Codex
---- !u!114 &2111449533 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367798790156397693, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
-  m_PrefabInstance: {fileID: 6464793881367385233}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b61ffa50a7bba428befc50ebac5ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsMutatedHandler
 --- !u!1001 &1375206400447592239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -554,9 +543,74 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1155709712040620994, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_text
+      value: "\u201Cthe sea twists our flesh. A thousand eyes, and yet not one scream\u201D\r\nThe
+        final transmission from a stray fishing vessel near the heart of the anomaly
+        shortly after its discovery\r\n\r\nThe waters nearby muffle all but the strongest
+        transmissions, making unmanned probes an impossibility. The Shorelife Oceanographic
+        Institute has volunteered to research this phenomenon. You are the first
+        manned mission to the center of the anomaly.\r\n\r\nPress any key to continue\u2026\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_fontSize
+      value: 40.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_margin.w
+      value: -551.0065
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_margin.z
+      value: -303.8247
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2767493480578719879, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836085327106526953, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2836085327106526953, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2836085327106526953, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3472665470921338435, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5222924301889230007, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480494138611976442, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -421
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480494138611976442, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 257
       objectReference: {fileID: 0}
     - target: {fileID: 8402480102383122001, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
       propertyPath: m_Pivot.x
@@ -638,6 +692,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8864779154549312862, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: currentDayTransition
+      value: 
+      objectReference: {fileID: 1968725573}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -655,10 +713,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ===== FishGame Place ======
       objectReference: {fileID: 0}
+    - target: {fileID: 1054762214580407646, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1962567264864519102, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2111449533}
+      objectReference: {fileID: 1036729372}
+    - target: {fileID: 1962567264864519102, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
+      propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickIsMutated
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962567264864519102, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
+      propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FishManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4645889411454420166, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -706,7 +776,15 @@ PrefabInstance:
     - target: {fileID: 8178552014282780669, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2111449533}
+      objectReference: {fileID: 1036729372}
+    - target: {fileID: 8178552014282780669, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
+      propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickIsNotMutated
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178552014282780669, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
+      propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FishManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -720,6 +798,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1208876724883717315, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
+      propertyPath: fishTxt
+      value: 
+      objectReference: {fileID: 1093276976}
     - target: {fileID: 1208876724883717315, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: fishPlace
       value: 
@@ -739,7 +821,7 @@ PrefabInstance:
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: dayAnimation
       value: 
-      objectReference: {fileID: 484301422}
+      objectReference: {fileID: 1968725573}
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: daySpriteRenderer
       value: 
@@ -788,10 +870,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4367798790156397693, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
-      propertyPath: fishTxt
-      value: 
-      objectReference: {fileID: 1093276976}
     - target: {fileID: 7259786885288031524, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: m_Name
       value: ======= GENERAL ========
@@ -868,6 +946,10 @@ PrefabInstance:
     - target: {fileID: 8367250568826542263, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
       propertyPath: m_Name
       value: ======= Work Place ======
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367250568826542263, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9128041609923349634, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target

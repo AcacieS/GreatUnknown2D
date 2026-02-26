@@ -60,7 +60,7 @@ public class GameManagement : MonoBehaviour
             {
                 isFishGameFinished = true;
             }
-            dayAnimation.NextDay();
+            dayAnimation.WriteText();
         }
     }
     void Start()

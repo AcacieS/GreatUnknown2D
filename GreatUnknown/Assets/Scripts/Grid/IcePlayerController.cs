@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class IcePlayerController : MonoBehaviour
 {
-    [SerializeField] private IceGridFromTilemap gridSource;
-    [SerializeField] private Restart restart;
-    [SerializeField] private float moveSpeed = 6f;
-    [SerializeField] private LevelState levelState;
+    [SerializeField]
+    private IceGridFromTilemap gridSource;
+
+    [SerializeField]
+    private Restart restart;
+
+    [SerializeField]
+    private float moveSpeed = 6f;
+
+    [SerializeField]
+    private LevelState levelState;
 
     private IceGrid grid;
     private Vector2Int pos;
@@ -15,9 +22,12 @@ public class IcePlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (gridSource == null) gridSource = FindFirstObjectByType<IceGridFromTilemap>();
-        if (restart == null)   restart   = FindFirstObjectByType<Restart>();
-        if (levelState == null) levelState = FindFirstObjectByType<LevelState>();
+        if (gridSource == null)
+            gridSource = FindFirstObjectByType<IceGridFromTilemap>();
+        if (restart == null)
+            restart = FindFirstObjectByType<Restart>();
+        if (levelState == null)
+            levelState = FindFirstObjectByType<LevelState>();
     }
 
     private void Start()
@@ -29,7 +39,8 @@ public class IcePlayerController : MonoBehaviour
             return;
         }
 
-        if (gridSource.Grid == null) gridSource.BuildGridFromTilemaps();
+        if (gridSource.Grid == null)
+            gridSource.BuildGridFromTilemaps();
         grid = gridSource.Grid;
 
         pos = gridSource.PlayerStart;
@@ -39,13 +50,20 @@ public class IcePlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (grid == null || gridSource == null) return;
-        if (isRespawning) return;
-        if (levelState != null && levelState.GameOver) return;
+        if (grid == null || gridSource == null)
+            return;
+        if (isRespawning)
+            return;
+        if (levelState != null && levelState.GameOver)
+            return;
 
         if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetWorld, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetWorld,
+                moveSpeed * Time.deltaTime
+            );
 
             if ((transform.position - targetWorld).sqrMagnitude < 0.0001f)
             {
@@ -72,14 +90,20 @@ public class IcePlayerController : MonoBehaviour
         }
 
         Vector2Int dir = Vector2Int.zero;
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) dir = Vector2Int.up;
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) dir = Vector2Int.down;
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) dir = Vector2Int.left;
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) dir = Vector2Int.right;
-        else return;
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            dir = Vector2Int.up;
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            dir = Vector2Int.down;
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            dir = Vector2Int.left;
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            dir = Vector2Int.right;
+        else
+            return;
 
         Vector2Int newPos = grid.Slide(pos, dir);
-        if (newPos == pos) return;
+        if (newPos == pos)
+            return;
 
         pos = newPos;
         targetWorld = gridSource.GridIndexToWorldCenter(pos);

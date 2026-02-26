@@ -2,24 +2,27 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
-    [SerializeField]
-    private Transform startPoint;
-
-    [SerializeField]
-    private GameObject playerPrefab;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private GameObject playerPrefab;
 
     // If you already had a field like this, keep it:
-    [SerializeField]
-    private GameObject Player;
+    [SerializeField] private GameObject Player;
 
-    // ✅ NEW: respawn the specific instance that died
+    // ✅ UI Button can call this (no parameters)
+    public void OnRespawnButtonClicked()
+    {
+        // Prefer respawning the *current* player in the scene, in case Player reference is stale
+        var controller = FindFirstObjectByType<IcePlayerController>();
+        var currentPlayer = controller != null ? controller.gameObject : Player;
+
+        Respawn(currentPlayer);
+    }
+
+    // ✅ respawn the specific instance that died
     public void Respawn(GameObject deadPlayer)
     {
         if (deadPlayer != null)
-        {
-            deadPlayer.SetActive(false); // hard stop immediately
             Destroy(deadPlayer);
-        }
 
         if (playerPrefab == null || startPoint == null)
         {
@@ -30,7 +33,7 @@ public class Restart : MonoBehaviour
         Player = Instantiate(playerPrefab, startPoint.position, Quaternion.identity);
     }
 
-    // ✅ KEEP: old API still works
+    // ✅ old API still works
     public void Respawn()
     {
         Respawn(Player);

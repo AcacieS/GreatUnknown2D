@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// NOTE: Keep this enum in sync with any tilemap/ASCII builders.
 public enum TileType { Empty, Wall, Stop, Goal, Death }
 
 public class IceGrid
@@ -40,23 +41,34 @@ private bool IsBlocked(Vector2Int c)
 
     private bool IsStoppingTile(TileType t) => t == TileType.Stop || t == TileType.Goal || t == TileType.Death;
 
-   public Vector2Int Slide(Vector2Int start, Vector2Int dir)
-{
-    Vector2Int current = start;
-
-    while (true)
+    public Vector2Int Slide(Vector2Int start, Vector2Int dir)
     {
-        Vector2Int next = current + dir;
+        Vector2Int current = start;
 
-        // 🔥 ADD THIS LINE
-        Debug.Log($"Slide from {start} dir {dir}: checking {next}, blocked={IsBlocked(next)}, type={Get(next)}");
+        while (true)
+        {
+            Vector2Int next = current + dir;
 
-        if (IsBlocked(next)) return current;
+            // IMPORTANT: never call Get(next) unless InBounds(next), otherwise you'll crash.
+            if (!InBounds(next))
+            {
+                Debug.Log($"Slide from {start} dir {dir}: next {next} is OUT OF BOUNDS (stop at {current})");
+                return current;
+            }
 
-        current = next;
+            TileType nextType = Get(next);
+            if (nextType == TileType.Wall)
+            {
+                Debug.Log($"Slide from {start} dir {dir}: next {next} is WALL (stop at {current})");
+                return current;
+            }
 
-        if (IsStoppingTile(Get(current)))
-            return current;
+            // Move into the cell.
+            current = next;
+
+            // Stop tiles: Stop/Goal/Death stop sliding.
+            if (IsStoppingTile(nextType))
+                return current;
+        }
     }
-}
 }

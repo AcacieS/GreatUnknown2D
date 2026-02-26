@@ -96,7 +96,7 @@ public class IceGridFromTilemap : MonoBehaviour
                 continue;
             }
 
-            // Death is non-blocking but stops sliding + triggers respawn.
+            // Death: stops sliding and should trigger respawn when the player lands on it.
             if (deathTilemap != null && deathTilemap.HasTile(cell))
             {
                 Grid.Set(new Vector2Int(x, y), TileType.Death);

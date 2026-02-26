@@ -2,39 +2,37 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private Transform startPoint;
+    [SerializeField]
+    private Transform startPoint;
 
-    [SerializeField] private GameObject currentPlayer; // optional: assign if player already exists in scene
+    [SerializeField]
+    private GameObject playerPrefab;
 
+    // If you already had a field like this, keep it:
+    [SerializeField]
+    private GameObject Player;
 
-    /// <summary>
-    /// Optional: lets the player register itself so Respawn() knows what to destroy.
-    /// </summary>
-    public void RegisterCurrentPlayer(GameObject player)
+    // ✅ NEW: respawn the specific instance that died
+    public void Respawn(GameObject deadPlayer)
     {
-        currentPlayer = player;
-    }
-
-    // Call this function whenever you want death + respawn
-    public void Respawn()
-    {
-        // Destroy old instance if it exists
-        if (currentPlayer == null)
+        if (deadPlayer != null)
         {
-            // Try to find an existing player in the scene (optional)
-            var tagged = GameObject.FindGameObjectWithTag("Player");
-            if (tagged != null) currentPlayer = tagged;
+            deadPlayer.SetActive(false); // hard stop immediately
+            Destroy(deadPlayer);
         }
 
-        if (currentPlayer != null)
-            Destroy(currentPlayer);
+        if (playerPrefab == null || startPoint == null)
+        {
+            Debug.LogError("Restart: Missing playerPrefab or startPoint.");
+            return;
+        }
 
-        // Instantiate new instance at start position
-        currentPlayer = Instantiate(
-            playerPrefab,
-            startPoint.position,
-            startPoint.rotation
-        );
+        Player = Instantiate(playerPrefab, startPoint.position, Quaternion.identity);
+    }
+
+    // ✅ KEEP: old API still works
+    public void Respawn()
+    {
+        Respawn(Player);
     }
 }

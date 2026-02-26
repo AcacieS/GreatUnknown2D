@@ -2,74 +2,87 @@ using UnityEngine;
 
 public class IcePlayerController : MonoBehaviour
 {
-    public IceGridBehaviour gridBehaviour;
-    public Restart restart;
+    [SerializeField] private IceGridFromTilemap gridSource;
+    [SerializeField] private Restart restart;
+    [SerializeField] private float moveSpeed = 6f;
+    [SerializeField] private LevelState levelState;
 
-    [Header("Movement")]
-    public float moveSpeed = 10f; // visual smoothing
-
-    private Vector2Int gridPos;
-    private Vector3 targetWorldPos;
+    private IceGrid grid;
+    private Vector2Int pos;
+    private Vector3 targetWorld;
     private bool isMoving;
-    private bool wasMoving;
+    private bool isRespawning; // guard
+
+    private void Awake()
+    {
+        if (gridSource == null) gridSource = FindFirstObjectByType<IceGridFromTilemap>();
+        if (restart == null)   restart   = FindFirstObjectByType<Restart>();
+        if (levelState == null) levelState = FindFirstObjectByType<LevelState>();
+    }
 
     private void Start()
     {
-        if (gridBehaviour == null)
-            gridBehaviour = FindObjectOfType<IceGridBehaviour>();
+        if (gridSource == null)
+        {
+            Debug.LogError("IcePlayerController: No IceGridFromTilemap found in scene.");
+            enabled = false;
+            return;
+        }
 
-        if (restart == null)
-            restart = FindObjectOfType<Restart>();
+        if (gridSource.Grid == null) gridSource.BuildGridFromTilemaps();
+        grid = gridSource.Grid;
 
-        if (restart != null)
-            restart.RegisterCurrentPlayer(gameObject);
-
-        gridPos = gridBehaviour.PlayerStart;
-        targetWorldPos = gridBehaviour.GridToWorldCenter(gridPos);
-        transform.position = targetWorldPos;
+        pos = gridSource.PlayerStart;
+        targetWorld = gridSource.GridIndexToWorldCenter(pos);
+        transform.position = targetWorld;
     }
 
     private void Update()
     {
-        // Smooth move
-        transform.position = Vector3.MoveTowards(transform.position, targetWorldPos, moveSpeed * Time.deltaTime);
-        isMoving = (transform.position - targetWorldPos).sqrMagnitude > 0.0001f;
+        if (grid == null || gridSource == null) return;
+        if (isRespawning) return;
+        if (levelState != null && levelState.GameOver) return;
 
-        // If we just arrived on a cell this frame, resolve tile effects.
-        if (wasMoving && !isMoving)
-            OnArrivedAtCell();
-        wasMoving = isMoving;
-
-        if (isMoving) return; // lock input until we arrive
-
-        Vector2Int dir = ReadDir();
-        if (dir == Vector2Int.zero) return;
-
-        Vector2Int end = gridBehaviour.Grid.Slide(gridPos, dir);
-        if (end != gridPos)
+        if (isMoving)
         {
-            gridPos = end;
-            targetWorldPos = gridBehaviour.GridToWorldCenter(gridPos);
+            transform.position = Vector3.MoveTowards(transform.position, targetWorld, moveSpeed * Time.deltaTime);
+
+            if ((transform.position - targetWorld).sqrMagnitude < 0.0001f)
+            {
+                transform.position = targetWorld;
+                isMoving = false;
+
+                TileType landed = grid.Get(pos);
+
+                if (landed == TileType.Death && restart != null)
+                {
+                    isRespawning = true;
+                    restart.Respawn(gameObject);
+                    return;
+                }
+
+                if (landed == TileType.Goal && levelState != null)
+                {
+                    levelState.SetGameOver();
+                    return;
+                }
+            }
+
+            return; // no input mid-move
         }
-    }
 
+        Vector2Int dir = Vector2Int.zero;
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) dir = Vector2Int.up;
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) dir = Vector2Int.down;
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) dir = Vector2Int.left;
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) dir = Vector2Int.right;
+        else return;
 
-    private void OnArrivedAtCell()
-    {
-        if (gridBehaviour == null || gridBehaviour.Grid == null) return;
-        TileType t = gridBehaviour.Grid.Get(gridPos);
-        if (t == TileType.Death && restart != null)
-        {
-            restart.Respawn();
-        }
-    }
+        Vector2Int newPos = grid.Slide(pos, dir);
+        if (newPos == pos) return;
 
-    private Vector2Int ReadDir()
-    {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) return Vector2Int.up;
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) return Vector2Int.down;
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) return Vector2Int.left;
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) return Vector2Int.right;
-        return Vector2Int.zero;
+        pos = newPos;
+        targetWorld = gridSource.GridIndexToWorldCenter(pos);
+        isMoving = true;
     }
 }

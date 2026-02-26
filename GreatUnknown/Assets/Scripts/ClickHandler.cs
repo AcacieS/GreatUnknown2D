@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class ClickHandler : MonoBehaviour
@@ -29,6 +30,9 @@ public class ClickHandler : MonoBehaviour
 
     private void MouseOnClicked()
     {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        return;
+        
         if (_collider.bounds.Contains(_mouse.WorldPosition))
         {
             // Call interface method

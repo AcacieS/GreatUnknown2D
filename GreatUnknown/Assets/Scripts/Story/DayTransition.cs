@@ -13,7 +13,7 @@ public class DayTransition : TypingEffect
     {
         currentDayCanvas.SetActive(true);
         textToShow = GameManagement.Instance.GetNbDayLeft()+" DAYS FROM THE ANOMALY";
-        SoundManager.instance.PlaySound(dayTransitionSound);
+        SoundManager.instance.PlaySound(dayTransitionSound, SoundState.FadeOut);
         StopAllCoroutines();
         StartCoroutine(TypeText());
     }

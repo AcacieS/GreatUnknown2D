@@ -15,7 +15,7 @@ public class ClickHandler : MonoBehaviour
     private void Awake()
     {
         _collider = GetComponent<BoxCollider2D>();
-        _mouse = FindObjectOfType<MouseInputProvider>();
+        _mouse = FindFirstObjectByType<MouseInputProvider>();
         _mouse.Clicked += MouseOnClicked;
 
         // Cache interface if implemented on this object

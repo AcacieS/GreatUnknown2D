@@ -42,8 +42,12 @@ public class GameManagement : MonoBehaviour
         {
             Debug.Log("Start Fish Game");
             // TODO: Start Sliding Game
+<<<<<<< Updated upstream
             SceneManager.LoadScene("SampleScene");
 
+=======
+            SceneManager.LoadSceneAsync("IceSlidingGame");
+>>>>>>> Stashed changes
         }
     }
     public void NextDay()

@@ -38,11 +38,6 @@ public class BookViewerUI : MonoBehaviour
         Refresh();
     }
 
-    public void CloseBook()
-    {
-        gameObject.SetActive(false);
-    }
-
     /// <summary>
     /// Go to the next spread (typically +2 pages).
     /// </summary>
@@ -133,11 +128,6 @@ public class BookViewerUI : MonoBehaviour
             SetPage(rightPageImage, blankPageSprite, blankPageSprite != null);
             UpdateButtons();
             UpdatePageText(singleShownIndex: last);
-
-	    // Flip last page on left
-	    var temp = leftPageImage.transform.localScale;
-	    temp.x = -1;
-	    leftPageImage.transform.localScale = temp;
             return;
         }
 
@@ -160,9 +150,6 @@ public class BookViewerUI : MonoBehaviour
         if (img == null) return;
         img.sprite = sprite;
         img.enabled = enabled;
-	var temp = leftPageImage.transform.localScale;
-	temp.x = 1;
-	leftPageImage.transform.localScale = temp;
     }
 
     private void UpdateButtons()

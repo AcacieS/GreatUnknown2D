@@ -680,7 +680,6 @@ GameObject:
   - component: {fileID: 4514349772164379891}
   - component: {fileID: 3426631898173104863}
   - component: {fileID: 7314383531423520766}
-  - component: {fileID: 5478576692745331900}
   m_Layer: 0
   m_Name: codex_1
   m_TagString: Untagged
@@ -808,33 +807,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.0442376, y: 4.18}
   m_EdgeRadius: 0
---- !u!114 &5478576692745331900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401817386456584569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b14bba212cc6f409d1aff1b1b1c068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
-  _clicked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Codex, Assembly-CSharp
-        m_MethodName: ToggleBook
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4581316215841359920
 GameObject:
   m_ObjectHideFlags: 0

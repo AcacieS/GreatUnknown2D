@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Grid
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - DragItem
+  - 
   - Water
   - UI
   - 
@@ -38,9 +39,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3616481345
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

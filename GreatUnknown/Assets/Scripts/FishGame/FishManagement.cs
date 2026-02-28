@@ -15,6 +15,9 @@ public class FishManagement : MonoBehaviour
     [SerializeField] private GameObject fishShowPrefab;
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGamePlace;
+    [Header("Mutation")]
+    [SerializeField] private FishSession session;
+    [SerializeField] private TextMeshProUGUI fishTxt;
 
     [Header("Show for Debug")]
 
@@ -106,28 +109,38 @@ public class FishManagement : MonoBehaviour
         Debug.LogWarning("count after destroy: "+currentFishLists.Count);
     }
     
-    
+    public bool GetIsAnimating()
+    {
+        return isAnimatingOut;
+    }
+
+    public void ClickIsMutated()    => HandleChoice(true);
+    public void ClickIsNotMutated() => HandleChoice(false);
+
+    private void HandleChoice(bool playerSaysMutated)
+    {
+        if (session == null||GetIsAnimating()) return;
+
+        Fish currentFish = GetCurrentFish();
+        if (currentFish == null) return;
+
+        bool correct = (currentFish.isMutated == playerSaysMutated);
+
+        if (correct) {
+            session.AddCorrect();
+            fishTxt.color = Color.green;
+            fishTxt.text = "Correctly identified fish";
+        }
+        else{
+            fishTxt.color = Color.red;
+            fishTxt.text = "Incorrectly identified fish";
+            session.AddWrong();
+        }
+
+        NextFish();
+    }
     public void NextFish(){
         if(isAnimatingOut) return;
-        /*if(currentFishLists[currentFishIndex].GetIsMutated() && isMutated)
-        {
-            fishCorrectText.color = Color.green;
-            fishCorrectText.text = "Correctly identified mutated fish";
-            Debug.Log("Correctly identified mutated fish");
-        }
-        else if(!currentFishLists[currentFishIndex].GetIsMutated() && !isMutated)
-        {
-            fishCorrectText.color = Color.green;
-            fishCorrectText.text = "Correctly identified normal fish";
-            Debug.Log("Correctly identified normal fish");
-        }
-        else
-        {
-            fishCorrectText.color = Color.red;
-            fishCorrectText.text = "Incorrectly identified fish";
-            Debug.Log("Incorrectly identified fish");
-        }*/
-        //TODO: mutation check
         fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
         isAnimatingOut = true;
     }

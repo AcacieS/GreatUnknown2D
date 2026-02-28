@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
@@ -24,28 +25,82 @@ public class SoundManager : MonoBehaviour
             source.PlayOneShot(_sound);
         }
     }
-    public void PlaySound(AudioInfo _audioInfo, bool stopPrevious = false, AudioSource otherSource = null)
+    public void PlaySound(AudioInfo _audioInfo, SoundState changePreviousState = SoundState.None, PlaySoundState playSoundState = PlaySoundState.PlayOneShot, AudioSource otherSource = null)
     {
-        if(otherSource != null)
+        if(otherSource == null)
         {
-            if(stopPrevious)
-            {
-                otherSource.Stop();
-            }
-            Debug.Log("pLAY sound");
-            otherSource.clip = _audioInfo.soundClip;
-            otherSource.Play();
-            otherSource.volume = _audioInfo.volume;
-            otherSource.loop = _audioInfo.isLooping;
+            otherSource = source;
+        }
+
+        if(changePreviousState == SoundState.FadeOut)
+        {
+            FadeOut(1f, _audioInfo, playSoundState, otherSource);
         }
         else
         {
-            if(stopPrevious)
+            if(changePreviousState == SoundState.Cut)
             {
-                source.Stop();
+                otherSource.Stop(); //might not the right source
             }
-            source.PlayOneShot(_audioInfo.soundClip, _audioInfo.volume);
-            source.loop = _audioInfo.isLooping;
+
+            if(playSoundState == PlaySoundState.Play)
+            {
+                PlayNormalSound(_audioInfo, otherSource);
+            }
+            else
+            {
+                PlayOneShotSound(_audioInfo, otherSource);
+            }
+            
         }
+
+    }
+    private void PlayNormalSound(AudioInfo _audioInfo, AudioSource otherSource)
+    {
+        otherSource.clip = _audioInfo.soundClip;
+        otherSource.Play();
+        otherSource.volume = _audioInfo.volume;
+        otherSource.loop = _audioInfo.isLooping;
+    }
+
+    private void PlayOneShotSound(AudioInfo _audioInfo, AudioSource otherSource)
+    {
+        Debug.Log("Play sound");
+        otherSource.PlayOneShot(_audioInfo.soundClip, _audioInfo.volume);
+        otherSource.loop = _audioInfo.isLooping;
+    }
+
+    public void FadeOut(float duration, AudioInfo _audioInfo, PlaySoundState playSoundState, AudioSource otherSource = null)
+    {
+        if (otherSource == null)
+        {
+            otherSource = source;
+        }
+        StartCoroutine(FadeOutCoroutine(duration, _audioInfo, playSoundState,otherSource));
+    }
+
+    private IEnumerator FadeOutCoroutine(float duration, AudioInfo _audioInfo, PlaySoundState playSoundState,AudioSource sourceToFade)
+    {
+        float startVolume = sourceToFade.volume;
+
+        float time = 0f;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            sourceToFade.volume = Mathf.Lerp(startVolume, 0f, time / duration);
+            yield return null;
+        }
+
+        sourceToFade.volume = 0f;
+        sourceToFade.Stop();
+        if(playSoundState == PlaySoundState.Play)
+        {
+            PlayNormalSound(_audioInfo, sourceToFade);
+        }
+        else
+        {
+            PlayOneShotSound(_audioInfo, sourceToFade);
+        }
+        sourceToFade.volume = 1f;
     }
 }

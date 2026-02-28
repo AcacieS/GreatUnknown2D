@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RadioOn
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 52a0701910a1b0340a9e601df05ab836, type: 3}
-  volume: 0.5
+  volume: 1
   isLooping: 0

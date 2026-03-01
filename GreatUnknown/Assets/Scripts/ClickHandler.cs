@@ -1,45 +1,66 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class ClickHandler : MonoBehaviour
-{
-    [SerializeField] 
-    private UnityEvent _clicked;
 
-    private MouseInputProvider _mouse;
-    private BoxCollider2D _collider;
+public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+{
+    private Camera _camera;
+    private Vector3 _offset;
+
+    [Header("Modes")]
+    [SerializeField] private bool enableDrag = false;
+    [Header("Events")]
+    [FormerlySerializedAs("_clicked")]
+    [SerializeField] private UnityEvent onClick;
     private IClickable _clickable;
+    private BoxCollider2D _collider;
 
     private void Awake()
     {
-        _collider = GetComponent<BoxCollider2D>();
-        _mouse = FindObjectOfType<MouseInputProvider>();
-        _mouse.Clicked += MouseOnClicked;
-
-        // Cache interface if implemented on this object
+        _camera = Camera.main;
         _clickable = GetComponent<IClickable>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
-    private void OnDestroy()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (_mouse != null)
-            _mouse.Clicked -= MouseOnClicked;
-    }
-
-    private void MouseOnClicked()
-    {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        return;
-        
-        if (_collider.bounds.Contains(_mouse.WorldPosition))
+        Debug.Log("Pointer Down");
+        if (enableDrag)
         {
-            // Call interface method
-            _clickable?.OnClick();
-
-            // Also still invoke UnityEvent
-            _clicked?.Invoke();
+            Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
+            mouseWorld.z = 0f;
+            _offset = transform.position - mouseWorld;
         }
+        onClick?.Invoke();
+        _clickable?.OnClick();
     }
+    public void OnDrag(PointerEventData eventData)
+    {
+        if(!enableDrag) return;
+        Debug.Log("Dragging");
+        Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
+        mouseWorld.z = 0f;
+
+        transform.position = mouseWorld + _offset;
+    }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if(!enableDrag) return;
+        Debug.Log("Begin Drag");
+        _collider.enabled = false;  
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if(!enableDrag) return;
+        Debug.Log("End Drag");
+        _collider.enabled = true;
+    }
+    public void OnDrop(PointerEventData eventData)
+    {
+        
+    }
+    
 }

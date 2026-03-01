@@ -6,13 +6,21 @@ public class MouseInputProvider : MonoBehaviour
 {
     public Vector2 WorldPosition {get; private set;}
     public event Action Clicked;
+    public event Action Released;
 
     private void OnMousePosition(InputValue value)
     {
         WorldPosition = Camera.main.ScreenToWorldPoint(value.Get<Vector2>());
     }
-    private void OnInteraction(InputValue _)
+    private void OnInteraction(InputValue value)
     {
-        Clicked?.Invoke();
+        if (value.isPressed)
+        {
+            Clicked?.Invoke();
+        }
+        else
+        {
+            Released?.Invoke();
+        }
     }
 }

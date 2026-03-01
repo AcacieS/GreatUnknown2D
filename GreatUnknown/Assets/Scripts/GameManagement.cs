@@ -18,6 +18,11 @@ public class GameManagement : MonoBehaviour
     public bool isFishGameFinished = false;
     // TODO: isSliding Game, for now assume is finished;
     public bool isSlidingGameFinished = false;
+    [Header("Initialization of Game")]
+    [SerializeField] private GameObject workGame;
+    [SerializeField] private GameObject fishGame;
+    [SerializeField] private GameObject iceSlidingGame;
+    [SerializeField] private GameObject Canvas;
     public void Awake()
     {
         if(Instance == null)
@@ -26,7 +31,14 @@ public class GameManagement : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         fishSession.ResetSession();
-        
+        OrganizeGame();
+    }
+    private void OrganizeGame()
+    {
+        Canvas.SetActive(true);
+        workGame.SetActive(true);
+        fishGame.SetActive(false);
+        iceSlidingGame.SetActive(false);
     }
     public int GetNbDayPassed()
     {

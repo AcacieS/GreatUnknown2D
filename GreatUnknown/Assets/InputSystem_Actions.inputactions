@@ -1019,7 +1019,7 @@
                 {
                     "name": "",
                     "id": "fc522b2a-e110-4a76-b1f5-4021d4eef8a7",
-                    "path": "<Mouse>/position",
+                    "path": "<Pointer>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1030,7 +1030,7 @@
                 {
                     "name": "",
                     "id": "368de52f-87a9-40ff-ad32-9a5d36f00b0b",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Pointer>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

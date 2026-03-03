@@ -1,7 +1,6 @@
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
@@ -54,8 +53,6 @@ public class GameManagement : MonoBehaviour
         {
             Debug.Log("Start Fish Game");
             // TODO: Start Sliding Game
-            SceneManager.LoadScene("SampleScene");
-
         }
     }
     public void NextDay()
@@ -75,7 +72,7 @@ public class GameManagement : MonoBehaviour
             {
                 isFishGameFinished = true;
             }
-            dayAnimation.WriteText();
+            dayAnimation.NextDay();
         }
     }
     void Start()

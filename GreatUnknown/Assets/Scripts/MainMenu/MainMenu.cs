@@ -5,6 +5,6 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("GameOpenTest3");
+        SceneManager.LoadSceneAsync("Game");
     }
 }

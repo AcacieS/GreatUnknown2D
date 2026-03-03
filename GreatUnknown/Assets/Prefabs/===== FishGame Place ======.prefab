@@ -500,7 +500,6 @@ GameObject:
   - component: {fileID: 958519159208884871}
   - component: {fileID: 8913829566385221775}
   - component: {fileID: 4263200857162658423}
-  - component: {fileID: 4645889411454420166}
   m_Layer: 0
   m_Name: Codex
   m_TagString: Untagged

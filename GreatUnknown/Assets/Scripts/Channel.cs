@@ -18,7 +18,7 @@ public class Channel
             previousChannel.SaveTime(source);
         }
         Debug.Log("pLAY CHANNEL");
-        SoundManager.instance.PlaySound(radioChannel, SoundState.None, PlaySoundState.Play, source);
+        SoundManager.instance.PlaySound(radioChannel, false, source);
         source.time = Mathf.Clamp(time, 0f, source.clip.length - 0.01f);
     }
 }

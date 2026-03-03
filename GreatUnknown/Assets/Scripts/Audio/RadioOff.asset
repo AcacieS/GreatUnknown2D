@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RadioOff
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: d6908e1cb5affa546ae1d1d508253585, type: 3}
-  volume: 1
+  volume: 0.5
   isLooping: 0

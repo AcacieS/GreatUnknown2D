@@ -15,6 +15,9 @@ public class FishManagement : MonoBehaviour
     [SerializeField] private GameObject fishShowPrefab;
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGamePlace;
+    [Header("Mutation")]
+    [SerializeField] private FishSession session;
+    [SerializeField] private TextMeshProUGUI fishTxt;
 
     [Header("Show for Debug")]
 

@@ -147,17 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Codex
   bookViewerUI: {fileID: 1482561773}
---- !u!114 &484301422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6100584525026412606, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
-  m_PrefabInstance: {fileID: 1375206400447592239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66c8abdfab5b124e81d44f4ec536d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TypingEffect
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,17 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8219f57ff399ae441a25ef8d89fe0c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &2111449533 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367798790156397693, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
-  m_PrefabInstance: {fileID: 6464793881367385233}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b61ffa50a7bba428befc50ebac5ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IsMutatedHandler
 --- !u!1001 &1375206400447592239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,6 +582,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5222924301889230007, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5565797093576319117, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: 'pages.Array.data[1]'
+      value: 
+      objectReference: {fileID: -1161800661886380761, guid: f11bec482d224784eb957eab4565f40a, type: 3}
+    - target: {fileID: 5565797093576319117, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: 'pages.Array.data[2]'
+      value: 
+      objectReference: {fileID: -3436079711258359664, guid: c1022373ee6d91b45ab06d9525bf7811, type: 3}
+    - target: {fileID: 5565797093576319117, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: 'pages.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3040180568116506053, guid: 6f6ee5bd6b483334dad6e00d5fe33b2a, type: 3}
+    - target: {fileID: 5565797093576319117, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: 'pages.Array.data[4]'
+      value: 
+      objectReference: {fileID: 6820725844231227403, guid: ca5767ca4d0468e42b20b495fdbfd34c, type: 3}
+    - target: {fileID: 5565797093576319117, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+      propertyPath: 'pages.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2055317663843129367, guid: 0f7a74c7c8a853e4e9057722843fe440, type: 3}
     - target: {fileID: 8402480102383122001, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -704,7 +706,7 @@ PrefabInstance:
     - target: {fileID: 1962567264864519102, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2111449533}
+      objectReference: {fileID: 0}
     - target: {fileID: 4645889411454420166, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -752,7 +754,7 @@ PrefabInstance:
     - target: {fileID: 8178552014282780669, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
       propertyPath: _clicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2111449533}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -788,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: dayAnimation
       value: 
-      objectReference: {fileID: 484301422}
+      objectReference: {fileID: 0}
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: daySpriteRenderer
       value: 
@@ -867,6 +869,14 @@ PrefabInstance:
       propertyPath: BGMusic
       value: 
       objectReference: {fileID: 1286527694}
+    - target: {fileID: 4370606878360158361, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370606878360158361, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5093732256181838770, guid: 49e4e82d3277d1949a942fa25baf5999, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

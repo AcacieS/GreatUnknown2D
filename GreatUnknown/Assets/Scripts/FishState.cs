@@ -8,6 +8,7 @@ public class FishState : MonoBehaviour, IDropable
     [SerializeField] private Transform InPos;
     [SerializeField] private Transform fishPos;
     [SerializeField] private Transform OutPos;
+    [SerializeField] private Sprite stickerOnFish;
     [SerializeField] private float speed = 1f;
 
     private void Start()
@@ -27,6 +28,7 @@ public class FishState : MonoBehaviour, IDropable
     {
         if(droppedObject.tag == "sticker")
         {
+            droppedObject.GetComponent<SpriteRenderer>().sprite = stickerOnFish;
             SetChoiceIsMutated(true);
             // Make it a child of this object
             droppedObject.transform.SetParent(transform);

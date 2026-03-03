@@ -137,13 +137,13 @@ public class FishManagement : MonoBehaviour
             session.AddWrong();
         }
 
-        NextFish();
+        fishPlace.GetComponent<FishState>().NextFish();
     }
-    public void NextFish(){
-        if(isAnimatingOut) return;
-        fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
-        isAnimatingOut = true;
-    }
+    // public void NextFish(){
+    //     //if(isAnimatingOut) return;
+    //     //fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
+    //     //isAnimatingOut = true;
+    // }
     
     private void RandomFishes()
     {

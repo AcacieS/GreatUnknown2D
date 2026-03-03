@@ -9,8 +9,4 @@ public class FishSound : MonoBehaviour, IClickable
         SoundManager.instance.PlaySound(
             fishSounds[Random.Range(0, fishSounds.Count)]);
     }
-    public void NextFish()
-    {
-        FishManagement.Instance.InitializeNewFish();
-    }
 }

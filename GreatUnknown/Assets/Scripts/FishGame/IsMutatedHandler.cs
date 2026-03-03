@@ -30,6 +30,6 @@ public class IsMutatedHandler : MonoBehaviour
             session.AddWrong();
         }
 
-        fishManagement.NextFish();
+        //fishManagement.NextFish();
     }
 }

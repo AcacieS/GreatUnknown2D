@@ -18,12 +18,12 @@ public class Drop: MonoBehaviour, IDropHandler
             //needs verify if is the one you want;
             _dropable?.OnDropEvent(eventData.pointerDrag);
             onDropEvent?.Invoke();
-            eventData.pointerDrag.transform.position = transform.position;
-            if (_dropable == null && onDropEvent == null)
-            {
-                //this doesn't work
-                eventData.pointerDrag.transform.position = transform.position;
-            }
+            //eventData.pointerDrag.transform.position = transform.position;
+            // if (_dropable == null && onDropEvent == null)
+            // {
+            //     //this doesn't work
+            //     eventData.pointerDrag.transform.position = transform.position;
+            // }
         }
     }
 }

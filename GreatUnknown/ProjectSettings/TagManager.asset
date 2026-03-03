@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Grid
+  - sticker
   layers:
   - Default
   - TransparentFX

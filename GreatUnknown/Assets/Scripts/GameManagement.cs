@@ -76,14 +76,12 @@ public class GameManagement : MonoBehaviour
     iceSlidingGame.SetActive(true);
     animator.SetBool("StartingSlidingGame", false);
     }
-<<<<<<< Updated upstream
     private void ResetDataDay()
     {
         isFishGameFinished = false;
         isSlidingGameFinished = false;
         fishSession.ResetSession();
     }
-=======
 
     public void ExitSlidingGame()
 {
@@ -98,7 +96,6 @@ public class GameManagement : MonoBehaviour
 }
 
 
->>>>>>> Stashed changes
     public void NextDay()
     {
         if(isFishGameFinished && isSlidingGameFinished)

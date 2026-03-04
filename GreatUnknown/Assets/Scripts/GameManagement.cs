@@ -60,6 +60,7 @@ public class GameManagement : MonoBehaviour
     {
     workplace.SetActive(false);
     iceSlidingGame.SetActive(true);
+    animator.SetBool("StartingSlidingGame", false);
     }
     public void NextDay()
     {

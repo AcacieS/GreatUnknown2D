@@ -40,6 +40,10 @@ public class GameManagement : MonoBehaviour
         fishGame.SetActive(false);
         iceSlidingGame.SetActive(false);
     }
+    public void ResetDay()
+    {
+        ResetDataDay();
+    }
     public int GetNbDayPassed()
     {
         return nbDaysPassed;
@@ -58,14 +62,18 @@ public class GameManagement : MonoBehaviour
 
         }
     }
+    private void ResetDataDay()
+    {
+        isFishGameFinished = false;
+        isSlidingGameFinished = false;
+        fishSession.ResetSession();
+    }
     public void NextDay()
     {
         if(isFishGameFinished && isSlidingGameFinished)
         {
-            isFishGameFinished = false;
-            isSlidingGameFinished = false;
+            ResetDataDay();
             nbDaysPassed++;
-            fishSession.ResetSession();
             daySpriteRenderer.sprite = daySprites[nbDaysPassed];
             if (isSlidingGameTrue)
             {
@@ -77,6 +85,10 @@ public class GameManagement : MonoBehaviour
             }
             dayAnimation.WriteText();
         }
+    }
+    public void GetCurrentMusic()
+    {
+        
     }
     void Start()
     {

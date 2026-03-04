@@ -90,6 +90,7 @@ public class FishState : MonoBehaviour, IDropable
                 StickerManagement.Instance.ResetSticker();
                 Destroy(stickerObj);
                 stickerObj = null;
+                SetChoiceIsMutated(false);
             }
             Debug.Log("Stop");
             isGettingOut = false;

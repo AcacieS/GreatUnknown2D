@@ -10,6 +10,7 @@ public class FishGetOut : MonoBehaviour, IDropable
         }
         
         bool choiceIsMutated = droppedObject.GetComponent<FishState>().GetChoiceIsMutated();
+        Debug.Log("Choice is mutated: "+choiceIsMutated);
         if (choiceIsMutated)
         {
             FishManagement.Instance.ClickIsMutated();

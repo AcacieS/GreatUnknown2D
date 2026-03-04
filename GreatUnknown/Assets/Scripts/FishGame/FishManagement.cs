@@ -128,13 +128,20 @@ public class FishManagement : MonoBehaviour
 
         if (correct) {
             session.AddCorrect();
+            //DO NOTHING
             fishTxt.color = Color.green;
             fishTxt.text = "Correctly identified fish";
         }
         else{
+            //
             fishTxt.color = Color.red;
             fishTxt.text = "Incorrectly identified fish";
             session.AddWrong();
+            if(session.Wrong >= 3)
+            {
+                GameManagement.Instance.ResetDay();
+                return;
+            }
         }
 
         fishPlace.GetComponent<FishState>().NextFish();

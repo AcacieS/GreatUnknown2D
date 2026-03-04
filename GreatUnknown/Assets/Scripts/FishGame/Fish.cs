@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
+
 
 [Serializable] 
 public class Fish{
@@ -9,14 +9,19 @@ public class Fish{
     public FishTypeInfo fishType;
     public Dictionary<CategoryFishBodyPart, FishBodyPart> fishBodyParts;
     public List<GameObject> fishBodyPartsGameObj;
+    public List<FishBodyPart> fishBodyPartsList;
     public Fish(FishTypeInfo fishTypeInfo, bool isMutated)
     {
         fishType = fishTypeInfo;
         fishBodyParts = new Dictionary<CategoryFishBodyPart, FishBodyPart>();
         fishBodyPartsGameObj = new List<GameObject>();
+        fishBodyPartsList = new List<FishBodyPart>();
         this.isMutated = isMutated;
     }
-    
+    public void AddFishBodyPartList(FishBodyPart fishBodyPart)
+    {
+        fishBodyPartsList.Add(fishBodyPart);
+    }
     public void AddFishBodyPart(CategoryFishBodyPart fishCategoryBodyPart, FishBodyPart fishBodyPart)
     {
         if (fishBodyParts.ContainsKey(fishCategoryBodyPart))
@@ -27,6 +32,7 @@ public class Fish{
         else
         {
             fishBodyParts.Add(fishCategoryBodyPart, fishBodyPart);
+            AddFishBodyPartList(fishBodyPart);
         }
         
     }

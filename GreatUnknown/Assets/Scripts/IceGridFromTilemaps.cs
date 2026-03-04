@@ -117,7 +117,7 @@ public class IceGridFromTilemap : MonoBehaviour
             }
 
             Grid.Set(new Vector2Int(x, y), TileType.Empty);
-            Debug.Log("Built grid from tilemap with size: " + width + "x" + height);
+            //Debug.Log("Built grid from tilemap with size: " + width + "x" + height);
         }
 
         // Determine player start from marker.

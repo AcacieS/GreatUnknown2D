@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +12,8 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private SpriteRenderer daySpriteRenderer;
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject workplace;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -56,11 +60,21 @@ public class GameManagement : MonoBehaviour
     {
         if (isFishGameFinished)
         {
-            Debug.Log("Start Fish Game");
-            // TODO: Start Sliding Game
-            SceneManager.LoadScene("SampleScene");
-
+            Debug.Log("Fish game artificially started (and it works).");
+            //SlidingGameAnimation();
+            animator.SetBool("StartingSlidingGame", true);
+            
+            //MakeNotIceSlidingGame elemnt Dead()
+            //Animate Ice Sliding Game.
+            
         }
+        
+    }
+    public void OnSlidingTransitionComplete()
+    {
+    workplace.SetActive(false);
+    iceSlidingGame.SetActive(true);
+    animator.SetBool("StartingSlidingGame", false);
     }
     private void ResetDataDay()
     {

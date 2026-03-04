@@ -14,5 +14,19 @@ public class SlidingTransitionRelay : MonoBehaviour
         }
 
         gameManagement.OnSlidingTransitionComplete();
+        
     }
+
+    public void OnSlidingExitComplete()
+    {
+                if (gameManagement == null)
+        {
+            Debug.LogError("GameManagement reference missing on SlidingTransitionRelay.");
+            return;
+        }
+
+        gameManagement.OnSlidingExitComplete();
+    }
+
+
 }

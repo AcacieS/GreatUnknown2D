@@ -27,7 +27,13 @@ public class FishManagement : MonoBehaviour
     private FishDayInfo currentFishDayInfo;
     private bool isAnimatingOut = false;
     private int currentDay = 0;
-    
+    public void ResetFishGame()
+    {
+        DestroyPreviousFish();
+        currentFishIndex = -1;
+        currentFishLists.Clear();
+        fishTxt.text = "";
+    }
     
     public Fish GetCurrentFish()
     {
@@ -39,6 +45,7 @@ public class FishManagement : MonoBehaviour
 
     return currentFishLists[currentFishIndex];
     }
+    
 
     public void StartFishGame()
     {
@@ -53,8 +60,9 @@ public class FishManagement : MonoBehaviour
         fishGamePlace.SetActive(true);
         workPlace.SetActive(false);
         RandomFishes();
-        InitializeNewFish();
+        fishPlace.GetComponent<FishState>().ResetFishGame();
     }
+    
 
     //============================================ SHOW CURRENT FISH =========================================
     public void InitializeNewFish()

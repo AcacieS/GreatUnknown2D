@@ -1,9 +1,4 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
@@ -47,6 +42,10 @@ public class GameManagement : MonoBehaviour
     public void ResetDay()
     {
         ResetDataDay();
+        fishGame.SetActive(false);
+        dayAnimation.WriteText();
+        workplace.SetActive(true);
+        FishManagement.Instance.ResetFishGame();
     }
     public int GetNbDayPassed()
     {

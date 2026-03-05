@@ -81,6 +81,20 @@ public class GameManagement : MonoBehaviour
         isSlidingGameFinished = false;
         fishSession.ResetSession();
     }
+
+    public void ExitSlidingGame()
+{
+    iceSlidingGame.SetActive(false);
+    workplace.SetActive(true);
+
+    animator.SetBool("ExitingSlidingGame", true);
+}
+    public void OnSlidingExitComplete()
+{
+    animator.SetBool("ExitingSlidingGame", false);
+}
+
+
     public void NextDay()
     {
         if(isFishGameFinished && isSlidingGameFinished)

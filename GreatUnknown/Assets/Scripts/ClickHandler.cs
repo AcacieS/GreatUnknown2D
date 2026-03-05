@@ -18,6 +18,12 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private IClickable _clickable;
     private BoxCollider2D _collider;
 
+    public void Start()
+    {
+        Debug.Log("gameObj"+gameObject+"Collider enabled: "+_collider.enabled);
+        _collider.enabled = true; 
+    }
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -27,7 +33,6 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pointer Down");
         if (enableDrag)
         {
             Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
@@ -40,7 +45,6 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        Debug.Log("Dragging");
         Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
         mouseWorld.z = 0f;
 
@@ -49,13 +53,11 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        Debug.Log("Begin Drag");
         _collider.enabled = false;  
     }
     public void OnEndDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        Debug.Log("End Drag");
         _collider.enabled = true;
     }
     public void OnDrop(PointerEventData eventData)

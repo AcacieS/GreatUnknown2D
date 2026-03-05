@@ -537,6 +537,97 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1464789736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1464789737}
+  - component: {fileID: 1464789738}
+  m_Layer: 0
+  m_Name: faxcolor-alert_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1464789737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464789736}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.3998, y: -2.3207, z: 0}
+  m_LocalScale: {x: 0.8323936, y: 0.7334565, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955210617503848658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1464789738
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464789736}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -7647225903572194271, guid: 906327d7bfee77745909f3777c68cb31, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.08, y: 5.35}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1771854208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,6 +2018,7 @@ Transform:
   - {fileID: 542484309651561141}
   - {fileID: 7421437680281986310}
   - {fileID: 5245813230557764556}
+  - {fileID: 1464789737}
   - {fileID: 7880539778755854516}
   - {fileID: 7148601284884451219}
   - {fileID: 6875153284246808374}
@@ -2103,7 +2195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &2445728081011610232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,7 +2453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &3033655840585559161
 SpriteRenderer:
   serializedVersion: 2
@@ -4018,9 +4110,9 @@ MonoBehaviour:
   - {fileID: -4329382853265178440, guid: 1334fd18a7b822e4c9aae45858918ddd, type: 3}
   - {fileID: 4909560085436170216, guid: 4383e95bdaf514a49b2bb6264a7d45fa, type: 3}
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
-  dayAnimation: {fileID: 4425620332833935969}
+  dayAnimation: {fileID: 0}
   animator: {fileID: 0}
-  workplace: {fileID: 2993958904492073943}
+  workplace: {fileID: 0}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
   isFishGameFinished: 0
@@ -4557,7 +4649,7 @@ Transform:
   m_GameObject: {fileID: 5128149040551091724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.39, y: 1.68, z: 0}
+  m_LocalPosition: {x: -7.08, y: 3.28, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5290,6 +5382,8 @@ GameObject:
   - component: {fileID: 5245813230557764556}
   - component: {fileID: 112022504354529876}
   - component: {fileID: 595996817551547771}
+  - component: {fileID: 7992193042460358839}
+  - component: {fileID: 7992193042460358840}
   m_Layer: 0
   m_Name: fax_0
   m_TagString: Untagged
@@ -5297,6 +5391,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7992193042460358839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992193042460358838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bb5f6ab58e23a468f59dd96fd0e54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FaxMachine
+  catalog: {fileID: 11400000, guid: 5f7aefbffc819e04dbf69518ac410867, type: 2}
+  state: {fileID: 11400000, guid: a9b864d2e8262b04c97c3413515f0d00, type: 2}
+  idleSprite: {fileID: -2377022691162800107, guid: c83b8cf7217b9d145a1a1f149323e294, type: 3}
+  blinkSpriteA: {fileID: -2377022691162800107, guid: c83b8cf7217b9d145a1a1f149323e294, type: 3}
+  blinkSpriteB: {fileID: -7647225903572194271, guid: 906327d7bfee77745909f3777c68cb31, type: 3}
+  blinkIntervalSeconds: 0.35
+--- !u!114 &7992193042460358840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992193042460358838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b14bba212cc6f409d1aff1b1b1c068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
+  enableDrag: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7992193042460358839}
+        m_TargetAssemblyTypeName: FaxMachine, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &8041314442075176991
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,14 +10,21 @@ public class FishState : MonoBehaviour, IDropable
     [SerializeField] private Transform OutPos;
     [SerializeField] private Sprite stickerOnFish;
     [SerializeField] private float speed = 1f;
-
+    private BoxCollider2D _collider;
     private void Start()
     {
-        isGettingIn = true;
+        _collider = GetComponent<BoxCollider2D>();
+        // isGettingIn = true;
     }
     public bool GetChoiceIsMutated()
     {
         return choiceIsMutated;
+    }
+    public void ResetFishGame()
+    {
+        isGettingIn = true;
+        choiceIsMutated = false;
+        isInitialPos = false;
     }
     public void SetChoiceIsMutated(bool choiceIsMutated)
     {
@@ -54,6 +61,7 @@ public class FishState : MonoBehaviour, IDropable
         isGettingOut = true;
     }
     private bool isInitialPos = false;
+
     private void GetIn()
     {
         if (!isInitialPos)
@@ -61,6 +69,14 @@ public class FishState : MonoBehaviour, IDropable
             transform.position = InPos.position;
             isInitialPos = true;
             FishManagement.Instance.InitializeNewFish();
+            if (stickerObj != null)
+            {
+                StickerManagement.Instance.ResetSticker();
+                Destroy(stickerObj);
+                stickerObj = null;
+                SetChoiceIsMutated(false);
+            }
+            _collider.enabled = true;
         }
 
         if (Vector2.Distance(transform.position, fishPos.position) <= 0.1f)
@@ -70,7 +86,6 @@ public class FishState : MonoBehaviour, IDropable
         }
         else
         {
-            Debug.Log("Moving In");
             transform.position = Vector2.MoveTowards(transform.position, fishPos.position,speed*Time.deltaTime);
         }
         
@@ -92,14 +107,12 @@ public class FishState : MonoBehaviour, IDropable
                 stickerObj = null;
                 SetChoiceIsMutated(false);
             }
-            Debug.Log("Stop");
             isGettingOut = false;
             isGettingIn = true;
             
         }
         else
         {
-            Debug.Log("Moving Out");
             Vector2 movePos = Vector2.MoveTowards(transform.position, OutPos.position,speed*Time.deltaTime);
             movePos.y = transform.position.y;
             transform.position = movePos;

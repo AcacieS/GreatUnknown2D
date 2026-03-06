@@ -11,6 +11,7 @@ public class FishState : MonoBehaviour, IDropable
     [SerializeField] private Sprite stickerOnFish;
     [SerializeField] private float speed = 1f;
     private BoxCollider2D _collider;
+    private Fish currentFish;
     private void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
@@ -35,16 +36,20 @@ public class FishState : MonoBehaviour, IDropable
     {
         if(droppedObject.tag == "sticker")
         {
+            Fish currentFish = FishManagement.Instance.GetCurrentFish();
+            Vector2 tagPos = currentFish.GetFishType().tagFishPos;
+
             droppedObject.GetComponent<SpriteRenderer>().sprite = stickerOnFish;
             SetChoiceIsMutated(true);
             // Make it a child of this object
             droppedObject.transform.SetParent(transform);
 
             // Reset local position so it aligns perfectly
-            droppedObject.transform.localPosition = Vector3.zero;
+            droppedObject.transform.localPosition = tagPos;
             stickerObj = droppedObject;
         }
     }
+
     private void Update()
     {
         if (isGettingIn)

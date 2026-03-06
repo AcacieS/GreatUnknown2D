@@ -7,9 +7,9 @@ public class Radio : MonoBehaviour, IClickable
     [SerializeField] private AudioSource BGMusic;
     [SerializeField] private AudioInfo RadioOn;
     [SerializeField] private AudioInfo RadioOff;
-    [SerializeField] private AudioSource[] casualChannelsSource;
     [SerializeField] private Channel[] radioChannels; 
     private int currentChannelIndex = -1;
+    private Channel previousChannelSource;
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -32,9 +32,9 @@ public class Radio : MonoBehaviour, IClickable
     }
     public bool RadioIsOn()
     {
-        foreach(AudioSource channelSource in casualChannelsSource)
+        foreach(Channel channel in radioChannels)
         {
-            if (channelSource.volume > 0f)
+            if (channel.GetChannelVolume() > 0f)
             {
                 return true;
             }
@@ -45,28 +45,29 @@ public class Radio : MonoBehaviour, IClickable
     {
         
     }
-    private Channel previousChannel;
-    AudioSource previousChannelSource;
+    
     public void Channel(bool isNext = true)
     {
 
         if (isNext||currentChannelIndex==-1)
         {
-            if(currentChannelIndex >= casualChannelsSource.Length-1)
+            if(currentChannelIndex >= radioChannels.Length-1)
             {
                 CloseRadio();
-                currentChannelIndex = (currentChannelIndex + 1) % casualChannelsSource.Length;
+                currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Length;
                 return;
             }
-            currentChannelIndex = (currentChannelIndex + 1) % casualChannelsSource.Length;
+            currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Length;
         }
         SoundManager.instance.PlaySound(RadioOn);
-        casualChannelsSource[currentChannelIndex].volume = 1f;
+        
+        radioChannels[currentChannelIndex].On();
         if (previousChannelSource != null)
         {
-            previousChannelSource.volume = 0f;
+            
+            previousChannelSource.Off();
         }
-        previousChannelSource = casualChannelsSource[currentChannelIndex];
+        previousChannelSource = radioChannels[currentChannelIndex];
     }
     public void OpenCloseRadio()
     {
@@ -85,7 +86,7 @@ public class Radio : MonoBehaviour, IClickable
         SoundManager.instance.PlaySound(RadioOff);
         //source.volume = 0f;
         BGMusic.volume = 0.5f;
-        previousChannelSource.volume= 0f;
+        previousChannelSource.Off();
         previousChannelSource = null;
     }
     private void OpenRadio()

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Flounder
   m_EditorClassIdentifier: Assembly-CSharp::FishInfo
   fishName: Flounder
-  fishBasicBody: {fileID: 4726649130824297140, guid: 0454c31b23ac2dd48b456f06e6521053, type: 3}
   categoriesFishLayer:
   - {fileID: 11400000, guid: 5a047ea6110fb674c89434bbb20dc4eb, type: 2}
   - {fileID: 11400000, guid: cd3af39dcec768543a255465f3395fd5, type: 2}
   - {fileID: 11400000, guid: e606d204f69c2df46b054fb8d1c8f291, type: 2}
   - {fileID: 11400000, guid: c91416935e4ed8b48b078aa1e9623362, type: 2}
   - {fileID: 11400000, guid: 74d7af3e17bfc5f43b57f757bc29a34a, type: 2}
+  tagFishPos: {x: 1.01, y: 0.54}

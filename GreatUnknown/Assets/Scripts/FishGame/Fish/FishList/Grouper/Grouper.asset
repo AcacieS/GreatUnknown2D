@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Grouper
   m_EditorClassIdentifier: Assembly-CSharp::FishInfo
   fishName: Grouper
-  fishBasicBody: {fileID: -1880120661550918566, guid: afd2e62f1506ef348a3a87f59b1c5d29, type: 3}
   categoriesFishLayer:
   - {fileID: 11400000, guid: b3b734a36eac8fb49843926a9063c769, type: 2}
   - {fileID: 11400000, guid: 19d10526c28a54444b053af821842338, type: 2}
   - {fileID: 11400000, guid: 9e3e23ebc89a23f4e8297709f9b3adcb, type: 2}
   - {fileID: 11400000, guid: 613d6499d64534448b10d38d2143500b, type: 2}
   - {fileID: 11400000, guid: d5c89f1846c08254b959478c352cc970, type: 2}
+  tagFishPos: {x: 0.95, y: 0.76}

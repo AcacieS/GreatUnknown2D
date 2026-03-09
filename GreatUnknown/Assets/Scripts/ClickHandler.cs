@@ -12,6 +12,8 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     [Header("Modes")]
     [SerializeField] private bool enableDrag = false;
+    [SerializeField] private bool RestrictedToAxisX = false;
+    [SerializeField] private bool RestrictedToAxisY = false;
     [Header("Events")]
     [FormerlySerializedAs("_clicked")]
     [SerializeField] private UnityEvent onClick;
@@ -47,8 +49,22 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if(!enableDrag) return;
         Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
         mouseWorld.z = 0f;
-
-        transform.position = mouseWorld + _offset;
+        if(RestrictedToAxisX)
+        {
+            transform.position = new Vector3(mouseWorld.x + _offset.x, transform.position.y, transform.position.z);
+        }else if(RestrictedToAxisY)
+        {
+            transform.position = new Vector3(transform.position.x, mouseWorld.y + _offset.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = mouseWorld + _offset;
+        }
+        
+    }
+    public void SetEnableDrag(bool enable)
+    {
+        enableDrag = enable;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

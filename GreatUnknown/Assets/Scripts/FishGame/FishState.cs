@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class FishState : MonoBehaviour, IDropable
 {
-    private bool choiceIsMutated = false;
-    private bool isGettingIn = false;
-    private bool isGettingOut = false;
+    
     [SerializeField] private Transform InPos;
     [SerializeField] private Transform fishPos;
     [SerializeField] private Transform OutPos;
     [SerializeField] private Sprite stickerOnFish;
     [SerializeField] private float speed = 1f;
+    private ClickHandler clickHandler;
     private BoxCollider2D _collider;
     private Fish currentFish;
+    private bool choiceIsMutated = false;
+    private bool isGettingIn = false;
+    private bool isGettingOut = false;
     private void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
-        // isGettingIn = true;
+        clickHandler = GetComponent<ClickHandler>();
     }
     public bool GetChoiceIsMutated()
     {
@@ -49,6 +51,7 @@ public class FishState : MonoBehaviour, IDropable
             stickerObj = droppedObject;
         }
     }
+    
 
     private void Update()
     {
@@ -69,6 +72,7 @@ public class FishState : MonoBehaviour, IDropable
 
     private void GetIn()
     {
+        clickHandler.SetEnableDrag(false);
         if (!isInitialPos)
         {
             transform.position = InPos.position;
@@ -86,6 +90,7 @@ public class FishState : MonoBehaviour, IDropable
 
         if (Vector2.Distance(transform.position, fishPos.position) <= 0.1f)
         {
+            clickHandler.SetEnableDrag(true);
             isGettingIn = false;
             isInitialPos = false;
         }
@@ -101,6 +106,7 @@ public class FishState : MonoBehaviour, IDropable
     }
     private void GetOut()
     {
+        clickHandler.SetEnableDrag(false);
         Vector2 positionWithoutY = transform.position;
         positionWithoutY.y = OutPos.position.y;
         if (Vector2.Distance(positionWithoutY, OutPos.position) <= 0.1f)

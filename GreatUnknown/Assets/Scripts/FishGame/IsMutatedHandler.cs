@@ -12,7 +12,7 @@ public class IsMutatedHandler : MonoBehaviour
 
     private void HandleChoice(bool playerSaysMutated)
     {
-        if (fishManagement == null || session == null||fishManagement.GetIsAnimating()) return;
+        if (fishManagement == null || session == null) return;
 
         Fish currentFish = fishManagement.GetCurrentFish();
         if (currentFish == null) return;

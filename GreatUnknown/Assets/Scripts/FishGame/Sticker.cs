@@ -20,7 +20,5 @@ public class Sticker : MonoBehaviour, IClickable
                 GetComponent<SpriteRenderer>().sprite = initialSticker;
             }
         }
-        
-        //StickerManagement.Instance.ResetSticker();
     }
 }

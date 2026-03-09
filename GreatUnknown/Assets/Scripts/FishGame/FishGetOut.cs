@@ -6,11 +6,11 @@ public class FishGetOut : MonoBehaviour, IDropable
     {
         if (droppedObject.GetComponent<FishState>() == null)
         {
+            Debug.Log("Dropped object is not a fish");
             return;
         }
         
         bool choiceIsMutated = droppedObject.GetComponent<FishState>().GetChoiceIsMutated();
-        Debug.Log("Choice is mutated: "+choiceIsMutated);
         if (choiceIsMutated)
         {
             FishManagement.Instance.ClickIsMutated();

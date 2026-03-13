@@ -1,28 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Radio : MonoBehaviour, IClickable
 {
+    public static Radio Instance {get; private set;}
     private AudioSource source;
     [SerializeField] private AudioSource BGMusic;
     [SerializeField] private AudioInfo RadioOn;
     [SerializeField] private AudioInfo RadioOff;
-    [SerializeField] private Channel[] radioChannels; 
+    [Header("Channel")]
+    [SerializeField] private List<Channel> radioChannels; 
+    [SerializeField] private RadiosStoryInfo radiosInfo;
+    [Header("Story Radio")]
+    [SerializeField] private float shootingCountDown = 30f;
+    [SerializeField] private Channel environmentalChannel;
+    [SerializeField] private Channel shootingChannel;
     private int currentChannelIndex = -1;
     private Channel previousChannelSource;
     void Start()
     {
         source = GetComponent<AudioSource>();
-        // source.volume = 0f;
     }
     public void OnClick()
     {
-        // Debug.Log("Channel changed");
-        // Channel();
         if(RadioIsOn()) //so is on
         {
-            //CloseRadio();
-            
+            //change Channel
             Channel();
         }
         else //so is off
@@ -30,6 +36,7 @@ public class Radio : MonoBehaviour, IClickable
             OpenRadio();
         }
     }
+    
     public bool RadioIsOn()
     {
         foreach(Channel channel in radioChannels)
@@ -41,46 +48,29 @@ public class Radio : MonoBehaviour, IClickable
         }
         return false;
     }
-    public void LowerSound(bool isNext)
-    {
-        
-    }
     
     public void Channel(bool isNext = true)
     {
-
         if (isNext||currentChannelIndex==-1)
         {
-            if(currentChannelIndex >= radioChannels.Length-1)
+            if(currentChannelIndex >= radioChannels.Count-1)
             {
                 CloseRadio();
-                currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Length;
+                currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
                 return;
             }
-            currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Length;
+            currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
         }
         SoundManager.instance.PlaySound(RadioOn);
         
         radioChannels[currentChannelIndex].On();
         if (previousChannelSource != null)
         {
-            
             previousChannelSource.Off();
         }
         previousChannelSource = radioChannels[currentChannelIndex];
     }
-    public void OpenCloseRadio()
-    {
-        Debug.Log("Toggle radio");
-        if(RadioIsOn()) //so is on
-        {
-            CloseRadio();
-        }
-        else //so is off
-        {
-            OpenRadio();
-        }
-    }
+
     private void CloseRadio()
     {
         SoundManager.instance.PlaySound(RadioOff);
@@ -94,5 +84,57 @@ public class Radio : MonoBehaviour, IClickable
         Channel(false);
         BGMusic.volume = 0f;
     }
+    
+    //--------------------- STORY ----------------------
+    private Channel channel3 = null;
+    public void ChangeRadioChannel()
+    {
+        channel3 = radioChannels[2];
+        radioChannels[2] = environmentalChannel;
+    }
+    
+    public void ShootingRadioChannel()
+    {
+        radioChannels[2] = channel3;
+        StopAllCoroutines();
+        StartCoroutine(StartCountDownShooting());
+    }
+    
+    private IEnumerator StartCountDownShooting()
+    {
+        yield return new WaitForSeconds(shootingCountDown);
+        //stop all radio
+        
+        previousChannelSource.Off();
+        previousChannelSource = null;
+        PlayRadioStory("");
+
+    }
+    public void PlayRadioStory(string id)
+    {
+        environmentalChannel.PlayChannel(radiosInfo.GetRadioStory(id).radioAudio);
+    }
+    public void OpenCloseRadio()
+    {
+        Debug.Log("Toggle radio");
+        if(RadioIsOn()) //so is on
+        {
+            CloseRadio();
+        }
+        else //so is off
+        {
+            OpenRadio();
+        }
+    }
+    
+    public void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
     
 }

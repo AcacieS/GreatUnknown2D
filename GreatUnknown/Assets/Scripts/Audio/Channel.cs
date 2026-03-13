@@ -37,6 +37,14 @@ public class Channel
     {
         return radioChannel.volume;
     }
+    public void PlayChannel(AudioInfo newStoryInfo)
+    {
+        radioChannel = newStoryInfo;
+        radioChannelSource.clip = radioChannel.soundClip;
+        radioChannelSource.volume = radioChannel.volume;
+        radioChannelSource.loop = radioChannel.isLooping;
+        radioChannelSource.Play();
+    }
     public void PlayChannelWithTime(Channel previousChannel)
     {
         if (previousChannel!=null)

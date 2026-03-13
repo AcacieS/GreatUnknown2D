@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameManagement : MonoBehaviour
     public bool isFishGameFinished = false;
     // TODO: isSliding Game, for now assume is finished;
     public bool isSlidingGameFinished = false;
+    [SerializeField] private Radio radioScript;
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workGame;
     [SerializeField] private GameObject fishGame;
@@ -47,6 +49,7 @@ public class GameManagement : MonoBehaviour
         workplace.SetActive(true);
         FishManagement.Instance.ResetFishGame();
     }
+    
     public int GetNbDayPassed()
     {
         return nbDaysPassed;
@@ -80,6 +83,7 @@ public class GameManagement : MonoBehaviour
         isFishGameFinished = false;
         isSlidingGameFinished = false;
         fishSession.ResetSession();
+        SpecialEventDay();
     }
 
     public void ExitSlidingGame()
@@ -111,6 +115,28 @@ public class GameManagement : MonoBehaviour
                 isFishGameFinished = true;
             }
             dayAnimation.WriteText();
+        }
+    }
+    private void SpecialEventDay()
+    {
+        switch(nbDaysPassed) 
+        {
+        case 3: //day 4
+            // code block
+            Debug.Log("Day 4");
+            //replace 4th day channel 3. 
+            //radioScript.ChangeRadioChannel();
+            break;
+        case 4: //day 5
+            // code block
+            Debug.Log("Day 5");
+            //radioScript.ShootingRadioChannel();
+            //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
+            break;
+        default:
+            Debug.Log("Nothing for now");
+            //6th day radio channel is off.
+            break;
         }
     }
     public void GetCurrentMusic()

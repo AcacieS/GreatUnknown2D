@@ -103,8 +103,8 @@ public class GameManagement : MonoBehaviour
     {
         if(isFishGameFinished && isSlidingGameFinished)
         {
-            ResetDataDay();
             nbDaysPassed++;
+            ResetDataDay();
             daySpriteRenderer.sprite = daySprites[nbDaysPassed];
             if (isSlidingGameTrue)
             {

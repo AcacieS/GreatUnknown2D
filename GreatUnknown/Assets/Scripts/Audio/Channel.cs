@@ -13,9 +13,28 @@ public class Channel
         if (source.clip != null)
         time = source.time;
     }
+    public bool IsFinish()
+    {
+        return time>radioChannelSource.clip.length - 0.01f;
+    }
     public AudioInfo GetChannelInfo()
     {
         return radioChannel;
+    }
+    public void SwitchAudio(AudioInfo newRadioChannel = null)
+    {
+        if(newRadioChannel == null)
+        {
+            newRadioChannel = radioChannel;
+        }
+        radioChannelSource.clip = newRadioChannel.soundClip;
+        radioChannelSource.loop = newRadioChannel.isLooping;
+        radioChannel = newRadioChannel;
+    }
+
+    public void SetTimeMusic(float newTime)
+    {
+        radioChannelSource.time = Mathf.Clamp(newTime, 0f, radioChannelSource.clip.length - 0.01f);
     }
     public void Off()
     {

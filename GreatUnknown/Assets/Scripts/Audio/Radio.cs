@@ -8,24 +8,32 @@ public class Radio : MonoBehaviour, IClickable
 {
     public static Radio Instance {get; private set;}
     private AudioSource source;
-    [SerializeField] private AudioSource BGMusic;
+    [Header("Radio SFX")]
     [SerializeField] private AudioInfo RadioOn;
     [SerializeField] private AudioInfo RadioOff;
+    [SerializeField] private AudioSource BGMusic;
     [Header("Channel")]
     [SerializeField] private List<Channel> radioChannels; 
     [SerializeField] private RadiosStoryInfo radiosInfo;
     [Header("Story Radio")]
+    [SerializeField] private AudioSource storyAudioSource;
     [SerializeField] private float shootingCountDown = 30f;
     [SerializeField] private Channel environmentalChannel;
     [SerializeField] private Channel shootingChannel;
     private int currentChannelIndex = -1;
     private Channel previousChannelSource;
+    //----- Story variable 
+    private bool isShootingStory = false;
+    private Channel channel3 = null;
+    private bool firstTimeEnvironmentalStory = true;
+
     void Start()
     {
         source = GetComponent<AudioSource>();
     }
     public void OnClick()
     {
+        if (OpenCloseRadioStory()) return;
         if(RadioIsOn()) //so is on
         {
             //change Channel
@@ -36,6 +44,7 @@ public class Radio : MonoBehaviour, IClickable
             OpenRadio();
         }
     }
+    
     
     public bool RadioIsOn()
     {
@@ -62,7 +71,13 @@ public class Radio : MonoBehaviour, IClickable
             currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
         }
         SoundManager.instance.PlaySound(RadioOn);
-        
+
+        if (GameManagement.Instance.GetNbDayPassed() == 3 && firstTimeEnvironmentalStory)
+        {
+            environmentalChannel.SetTimeMusic(0f);
+            firstTimeEnvironmentalStory = false;
+        }
+
         radioChannels[currentChannelIndex].On();
         if (previousChannelSource != null)
         {
@@ -84,9 +99,16 @@ public class Radio : MonoBehaviour, IClickable
         Channel(false);
         BGMusic.volume = 0f;
     }
+    public void ResetRadioDay()
+    {
+        
+    }
+    public void SaveRadios()
+    {
+        
+    }
     
-    //--------------------- STORY ----------------------
-    private Channel channel3 = null;
+    //-------------------------------- STORY ----------------------
     public void ChangeRadioChannel()
     {
         channel3 = radioChannels[2];
@@ -100,22 +122,42 @@ public class Radio : MonoBehaviour, IClickable
         StartCoroutine(StartCountDownShooting());
     }
     
+    
     private IEnumerator StartCountDownShooting()
     {
         yield return new WaitForSeconds(shootingCountDown);
         //stop all radio
-        
+        isShootingStory = true;
         previousChannelSource.Off();
         previousChannelSource = null;
-        PlayRadioStory("");
-
+        Debug.Log("Shooting!!");
+        shootingChannel.SwitchAudio();
+        shootingChannel.On();
     }
     public void PlayRadioStory(string id)
     {
         environmentalChannel.PlayChannel(radiosInfo.GetRadioStory(id).radioAudio);
     }
+    private bool OpenCloseRadioStory()
+    {
+        if (isShootingStory)
+        {
+            if(storyAudioSource.volume == 0f) //so is off
+            {
+                shootingChannel.On();
+            }
+            else //
+            {
+                shootingChannel.Off();
+            }
+            return true;
+        }
+        return false;
+    }
+    //----------------------------------- BUTTON RADIO --------------------
     public void OpenCloseRadio()
     {
+        if(OpenCloseRadioStory()) return;
         Debug.Log("Toggle radio");
         if(RadioIsOn()) //so is on
         {

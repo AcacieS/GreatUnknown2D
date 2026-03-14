@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -14,9 +13,7 @@ public class Radio : MonoBehaviour, IClickable
     [SerializeField] private AudioSource BGMusic;
     [Header("Channel")]
     [SerializeField] private List<Channel> radioChannels; 
-    [SerializeField] private RadiosStoryInfo radiosInfo;
     [Header("Story Radio")]
-    [SerializeField] private AudioSource storyAudioSource;
     [SerializeField] private float shootingCountDown = 30f;
     [SerializeField] private Channel environmentalChannel;
     [SerializeField] private Channel shootingChannel;
@@ -113,6 +110,7 @@ public class Radio : MonoBehaviour, IClickable
     {
         channel3 = radioChannels[2];
         radioChannels[2] = environmentalChannel;
+        Debug.Log("Hey channel 3 is removed");
     }
     
     public void ShootingRadioChannel()
@@ -134,15 +132,11 @@ public class Radio : MonoBehaviour, IClickable
         shootingChannel.SwitchAudio();
         shootingChannel.On();
     }
-    public void PlayRadioStory(string id)
-    {
-        environmentalChannel.PlayChannel(radiosInfo.GetRadioStory(id).radioAudio);
-    }
     private bool OpenCloseRadioStory()
     {
         if (isShootingStory)
         {
-            if(storyAudioSource.volume == 0f) //so is off
+            if(shootingChannel.GetChannelVolume() == 0f) //so is off
             {
                 shootingChannel.On();
             }

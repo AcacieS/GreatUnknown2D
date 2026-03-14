@@ -125,12 +125,12 @@ public class GameManagement : MonoBehaviour
             // code block
             Debug.Log("Day 4");
             //replace 4th day channel 3. 
-            //radioScript.ChangeRadioChannel();
+            radioScript.ChangeRadioChannel();
             break;
         case 4: //day 5
             // code block
             Debug.Log("Day 5");
-            //radioScript.ShootingRadioChannel();
+            radioScript.ShootingRadioChannel();
             //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
             break;
         default:

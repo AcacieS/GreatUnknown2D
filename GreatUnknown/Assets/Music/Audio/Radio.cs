@@ -30,7 +30,10 @@ public class Radio : MonoBehaviour, IClickable
     }
     public void OnClick()
     {
-        if (OpenCloseRadioStory()) return;
+        if (OpenCloseRadioStory()) {
+            
+            return;
+        }
         if(RadioIsOn()) //so is on
         {
             //change Channel
@@ -108,6 +111,11 @@ public class Radio : MonoBehaviour, IClickable
     //-------------------------------- STORY ----------------------
     public void ChangeRadioChannel()
     {
+        if(previousChannelSource == radioChannels[2])
+        {
+            previousChannelSource.Off();
+        }
+
         channel3 = radioChannels[2];
         radioChannels[2] = environmentalChannel;
         Debug.Log("Hey channel 3 is removed");
@@ -125,23 +133,28 @@ public class Radio : MonoBehaviour, IClickable
     {
         yield return new WaitForSeconds(shootingCountDown);
         //stop all radio
+        Debug.Log("Shooting!!");
         isShootingStory = true;
         previousChannelSource.Off();
         previousChannelSource = null;
-        Debug.Log("Shooting!!");
-        shootingChannel.SwitchAudio();
+        
+        shootingChannel.SetTimeMusic();
         shootingChannel.On();
     }
     private bool OpenCloseRadioStory()
     {
         if (isShootingStory)
         {
-            if(shootingChannel.GetChannelVolume() == 0f) //so is off
+            if(shootingChannel.GetChannelVolume() == 0.0f) //so is off
             {
+                SoundManager.instance.PlaySound(RadioOn);
+                Debug.Log("On");
                 shootingChannel.On();
             }
             else //
             {
+                Debug.Log("Off: "+shootingChannel.GetChannelVolume());
+                SoundManager.instance.PlaySound(RadioOff);
                 shootingChannel.Off();
             }
             return true;

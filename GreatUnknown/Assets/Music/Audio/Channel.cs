@@ -32,7 +32,7 @@ public class Channel
         radioChannel = newRadioChannel;
     }
 
-    public void SetTimeMusic(float newTime)
+    public void SetTimeMusic(float newTime = 0f)
     {
         radioChannelSource.time = Mathf.Clamp(newTime, 0f, radioChannelSource.clip.length - 0.01f);
     }
@@ -44,7 +44,7 @@ public class Channel
     {
         SetVolume(radioChannel.volume);
     }
-    private void SetVolume(float volume)
+    private void SetVolume(float volume = 0f)
     {
         radioChannelSource.volume = volume;
     }
@@ -54,8 +54,9 @@ public class Channel
     }
     public float GetChannelVolume()
     {
-        return radioChannel.volume;
+        return radioChannelSource.volume;
     }
+    
     public void PlayChannel(AudioInfo newStoryInfo)
     {
         radioChannel = newStoryInfo;

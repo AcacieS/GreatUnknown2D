@@ -18,8 +18,9 @@ public class FishManagement : MonoBehaviour
 
     [Header("Mutation")]
     [SerializeField] private FishSession session;
-    [SerializeField] private TextMeshProUGUI fishChoiceTxt;
-
+    [SerializeField] private GameObject wrongMessage;
+    [SerializeField] private TextMeshProUGUI wrongMessageTxt;
+    [SerializeField] private string[] wrongMessageText;
 
     [Header("Show for Debug")]
     [SerializeField] int currentFishIndex = -1;
@@ -36,7 +37,7 @@ public class FishManagement : MonoBehaviour
         DestroyPreviousFish();
         currentFishIndex = -1;
         currentFishLists.Clear();
-        fishChoiceTxt.text = "";
+        //fishChoiceTxt.text = "";
         isFishGameOn = false;
     }
 
@@ -70,7 +71,7 @@ public class FishManagement : MonoBehaviour
     public void InitializeNewFish()
     {
         Debug.Log("=================== Initialize new fish");
-        fishChoiceTxt.text = "";
+        //fishChoiceTxt.text = "";
         Debug.Log("destroy");
         DestroyPreviousFish();
 
@@ -311,19 +312,20 @@ public class FishManagement : MonoBehaviour
             session.AddCorrect();
             //DO NOTHING
             Debug.Log("Should appear: "+playerSaysMutated);
-            fishChoiceTxt.color = Color.green;
-            fishChoiceTxt.text = "Correctly identified fish";
         }
         else{
             //
             Debug.Log("Should appear: "+playerSaysMutated);
-            fishChoiceTxt.color = Color.red;
-            fishChoiceTxt.text = "Incorrectly identified fish";
             session.AddWrong();
             if(session.Wrong >= 3)
             {
                 GameManagement.Instance.ResetDay();
                 return;
+            }
+            else
+            {
+                wrongMessageTxt.text = wrongMessageText[session.Wrong-1];
+                wrongMessage.GetComponent<Animator>().SetTrigger("Wrong");
             }
         }
 

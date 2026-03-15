@@ -9,6 +9,7 @@ public class FaxMachine : MonoBehaviour, IClickable
     [SerializeField] private FaxState state;
 
     [Header("Visuals")]
+    [SerializeField] private FaxOverlayUI faxOverlayUI;
     [SerializeField] private Sprite idleSprite;
     [SerializeField] private Sprite blinkSpriteA;
     [SerializeField] private Sprite blinkSpriteB;
@@ -107,6 +108,9 @@ public class FaxMachine : MonoBehaviour, IClickable
             state.MarkAllRead();
 
         Debug.Log("[FaxMachine] Clicked: stop notify + mark read (UI later).");
+        
+        if (faxOverlayUI != null)
+        faxOverlayUI.Open();
     }
 
     // Quick manual test from Inspector

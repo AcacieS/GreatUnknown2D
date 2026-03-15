@@ -9,7 +9,6 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject workplace;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -19,8 +18,9 @@ public class GameManagement : MonoBehaviour
     // TODO: isSliding Game, for now assume is finished;
     public bool isSlidingGameFinished = false;
     [SerializeField] private Radio radioScript;
+    
     [Header("Initialization of Game")]
-    [SerializeField] private GameObject workGame;
+    [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
     [SerializeField] private GameObject Canvas;
@@ -37,7 +37,7 @@ public class GameManagement : MonoBehaviour
     private void OrganizeGame()
     {
         Canvas.SetActive(true);
-        workGame.SetActive(true);
+        workPlace.SetActive(true);
         fishGame.SetActive(false);
         iceSlidingGame.SetActive(false);
     }
@@ -46,7 +46,7 @@ public class GameManagement : MonoBehaviour
         ResetDataDay();
         fishGame.SetActive(false);
         dayAnimation.WriteText();
-        workplace.SetActive(true);
+        workPlace.SetActive(true);
         FishManagement.Instance.ResetFishGame();
     }
     
@@ -74,9 +74,9 @@ public class GameManagement : MonoBehaviour
     }
     public void OnSlidingTransitionComplete()
     {
-    workplace.SetActive(false);
-    iceSlidingGame.SetActive(true);
-    animator.SetBool("StartingSlidingGame", false);
+        workPlace.SetActive(false);
+        iceSlidingGame.SetActive(true);
+        animator.SetBool("StartingSlidingGame", false);
     }
     private void ResetDataDay()
     {
@@ -87,12 +87,12 @@ public class GameManagement : MonoBehaviour
     }
 
     public void ExitSlidingGame()
-{
-    iceSlidingGame.SetActive(false);
-    workplace.SetActive(true);
+    {
+        iceSlidingGame.SetActive(false);
+        workPlace.SetActive(true);
 
-    animator.SetBool("ExitingSlidingGame", true);
-}
+        animator.SetBool("ExitingSlidingGame", true);
+    }
     public void OnSlidingExitComplete()
 {
     animator.SetBool("ExitingSlidingGame", false);

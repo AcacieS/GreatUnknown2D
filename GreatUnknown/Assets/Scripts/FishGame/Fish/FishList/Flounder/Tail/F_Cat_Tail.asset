@@ -15,8 +15,13 @@ MonoBehaviour:
   fishLayerName: Flounder Tail
   baseBodyPartFish: {fileID: 11400000, guid: ed1f04b6f7b33fb46b26e7780ffca063, type: 2}
   isOptional: 0
-  fishPartsMutated: []
-  fishPartsNormal: []
+  fishParts: []
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0

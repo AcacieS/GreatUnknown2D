@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: TH_MouthDefault
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
-  bodyPartSprite: {fileID: 2945159615248658195, guid: 6dceea50ddfd04f49a5c37a828834c2a, type: 3}
-  percentage: 0
+  bodyPartSprite: {fileID: -9209990091003825956, guid: 380789132d392b6448727da8e40c8a84, type: 3}
   isMutated: 0
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 0

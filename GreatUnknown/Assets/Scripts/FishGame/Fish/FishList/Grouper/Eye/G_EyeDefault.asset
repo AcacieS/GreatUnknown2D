@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: G_EyeDefault
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
-  bodyPartSprite: {fileID: -4307615826991637055, guid: b56da3f00862cff45a14442f222a3d78, type: 3}
-  percentage: 0
+  bodyPartSprite: {fileID: -5699454206445078882, guid: 3e9b3a3c128765f4c84159e1c588d7f9, type: 3}
   isMutated: 0
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 0

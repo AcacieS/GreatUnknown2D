@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FF_M_Body1
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Body Large Scales
-  bodyPartSprite: {fileID: -8087731606836624859, guid: e7cd1e96d4a9dbb45923733a78b70b0b, type: 3}
+  bodyPartSprite: {fileID: 9215346927615789145, guid: b10825a4b3af4404e870c936f24f5762, type: 3}
   isMutated: 1
   difficulty: 1

@@ -19,4 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e3e23ebc89a23f4e8297709f9b3adcb, type: 2}
   - {fileID: 11400000, guid: 613d6499d64534448b10d38d2143500b, type: 2}
   - {fileID: 11400000, guid: d5c89f1846c08254b959478c352cc970, type: 2}
+  - {fileID: 11400000, guid: 6fbbc7f68dcaa6345827c7e89707f878, type: 2}
+  - {fileID: 11400000, guid: 063de6bed5d08eb4ba8a88e93c513019, type: 2}
   tagFishPos: {x: 0.95, y: 0.76}

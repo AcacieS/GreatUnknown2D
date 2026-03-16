@@ -34,6 +34,10 @@ public class FishDaysInfo : ScriptableObject
     {
         return fishesType[fishIndex];
     }
+    public List<FishTypeInfo> GetFishInfos()
+    {
+        return fishesType;
+    }
     public int GetTotalFishType()
     {
         return fishesType.Count;

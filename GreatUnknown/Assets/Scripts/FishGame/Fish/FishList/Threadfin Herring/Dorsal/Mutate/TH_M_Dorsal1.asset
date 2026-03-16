@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TH_M_Dorsal1
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
-  bodyPartSprite: {fileID: 7868165366898853208, guid: 46d7511c885e3c044bd470431cb968b2, type: 3}
+  bodyPartSprite: {fileID: -3500095926421342042, guid: 2190e1f4ae696594abc79fa6254290a4, type: 3}
   isMutated: 1
   difficulty: 0

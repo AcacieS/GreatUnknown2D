@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8446c751ecbc96b40afc62cd3012c95f, type: 3}
+  m_Name: G_Cat_Dorsal
+  m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
+  fishLayerName: Eye
+  baseBodyPartFish: {fileID: 11400000, guid: 8f4e10ac74ac211458515969418d8dad, type: 2}
+  isOptional: 0
+  fishParts:
+  - {fileID: 11400000, guid: 2ad0174d6c57ac34fa47dcf3b340faeb, type: 2}
+  - {fileID: 11400000, guid: 2580009605d66e24cab96a045e274e69, type: 2}
+  - {fileID: 11400000, guid: 23445a0ae861be84ab15f9b11a336e98, type: 2}
+  - {fileID: 11400000, guid: 5475192a7b136404aae378d9686f0653, type: 2}
+  - {fileID: 11400000, guid: e9189140df1697543b8cb8803ef03f40, type: 2}
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
+  CategoryRestriction:
+    day1: 0
+    day2: 0
+    day3: 0
+    day4: 0
+    day5: 0
+  CategoryPercentage: 0
+  sortingLayer: 7

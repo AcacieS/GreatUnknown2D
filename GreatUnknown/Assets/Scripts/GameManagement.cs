@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -142,6 +143,9 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Day 5");
             radioScript.ShootingRadioChannel();
             //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
+            break;
+        case 5:
+            LastDay.Instance.gameObject.SetActive(true);
             break;
         default:
             Debug.Log("Nothing for now");

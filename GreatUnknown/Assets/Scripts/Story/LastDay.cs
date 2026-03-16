@@ -14,7 +14,7 @@ public class LastDay : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    void OnEnable()
     {
         if (GameManagement.Instance.GetNbDayLeft() == 0)
         {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SocialPlatforms;
 
 public class LoadPrefs : MonoBehaviour
 {

@@ -15,8 +15,13 @@ MonoBehaviour:
   fishLayerName: Fin
   baseBodyPartFish: {fileID: 11400000, guid: a1af61f96140e8348bac4b92bd689cd7, type: 2}
   isOptional: 0
-  fishPartsMutated: []
-  fishPartsNormal: []
+  fishParts: []
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0

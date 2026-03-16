@@ -77,11 +77,13 @@ public class FishState : MonoBehaviour, IDropable
         {
             transform.position = InPos.position;
             isInitialPos = true;
+            //SetChoiceIsMutated(false);
+            //stickerObj = null;
             FishManagement.Instance.InitializeNewFish();
             if (stickerObj != null)
             {
+                Debug.LogWarning("Reset sticker get in");
                 StickerManagement.Instance.ResetSticker();
-                Destroy(stickerObj);
                 stickerObj = null;
                 SetChoiceIsMutated(false);
             }
@@ -113,8 +115,8 @@ public class FishState : MonoBehaviour, IDropable
         {
             if (stickerObj != null)
             {
+                Debug.LogWarning("Reset sticker get out");
                 StickerManagement.Instance.ResetSticker();
-                Destroy(stickerObj);
                 stickerObj = null;
                 SetChoiceIsMutated(false);
             }

@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: e038f99b0ee5c5b4f84bffa057271ca5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -838013380465526192
+    second: Bfbody_finless_0
+  - first:
+      213: 7093112257362587084
+    second: Bfbody_finless_1
+  - first:
+      213: 8083794904994716356
+    second: Bfbody_finless_2
+  - first:
+      213: 3681583361216679445
+    second: Bfbody_finless_3
+  - first:
+      213: -2372083379115587743
+    second: Bfbody_finless_4
+  - first:
+      213: 858680131186610595
+    second: Bfbody_finless_5
+  - first:
+      213: 556636013847304820
+    second: Bfbody_finless_6
+  - first:
+      213: -538598286335933410
+    second: Bfbody_finless_7
+  - first:
+      213: -3949104046956385860
+    second: Bfbody_finless_8
+  - first:
+      213: -1402902230695395550
+    second: Bfbody_finless_9
+  - first:
+      213: 6713799968367877957
+    second: Bfbody_finless_10
+  - first:
+      213: 4151618769651673362
+    second: Bfbody_finless_11
+  - first:
+      213: 7283633340389739678
+    second: Bfbody_finless_12
+  - first:
+      213: 5513108670172442335
+    second: Bfbody_finless_13
+  - first:
+      213: 8136279687714464030
+    second: Bfbody_finless_14
+  - first:
+      213: -8319101922639517218
+    second: Bfbody_finless_15
+  - first:
+      213: 4454514094462045118
+    second: Bfbody_finless_16
+  - first:
+      213: -9053926435469970629
+    second: Bfbody_finless_17
+  - first:
+      213: -1670893962082891881
+    second: Bfbody_finless_18
+  - first:
+      213: 3756516071819439352
+    second: Bfbody_finless_19
+  - first:
+      213: 3851360149579733607
+    second: Bfbody_finless_20
+  - first:
+      213: -8057050582899765593
+    second: Bfbody_finless_21
+  - first:
+      213: -7639230063957584788
+    second: Bfbody_finless_22
+  - first:
+      213: -4085034247305631238
+    second: Bfbody_finless_23
+  - first:
+      213: 412187833376728841
+    second: Bfbody_finless_24
+  - first:
+      213: -272978577242098367
+    second: Bfbody_finless_25
+  - first:
+      213: 3325798341040093294
+    second: Bfbody_finless_26
+  - first:
+      213: -4020637386940597583
+    second: Bfbody_finless_27
+  - first:
+      213: -6579532325260600626
+    second: Bfbody_finless_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bfbody_finless_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3508
+        height: 2480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05af35c3547ce54f0800000000000000
+      internalID: -838013380465526192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 09a0ee25921eb9849a8f54452a47553b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bfbody_finless_0: -838013380465526192
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -314,7 +314,6 @@ public class FishManagement : MonoBehaviour
             Debug.Log("Should appear: "+playerSaysMutated);
         }
         else{
-            //
             Debug.Log("Should appear: "+playerSaysMutated);
             session.AddWrong();
             if(session.Wrong >= 3)
@@ -335,13 +334,24 @@ public class FishManagement : MonoBehaviour
     //=============================== HELPER ===========================
     public Fish GetCurrentFish()
     {
-    if (currentFishLists == null || currentFishLists.Count == 0)
-        return null;
+        if (currentFishLists == null || currentFishLists.Count == 0)
+            return null;
 
-    if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
-        return null;
+        if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
+            return null;
 
-    return currentFishLists[currentFishIndex];
+        return currentFishLists[currentFishIndex];
+    }
+    [ContextMenu("Regenerate Fish Body List")]
+    void GenerateFish()
+    {
+        foreach(FishTypeInfo fishTypeInfo in fishDaysInfo.GetFishInfos())
+        {
+            foreach(CategoryFishBodyPart catFishBodyPart in fishTypeInfo.categoriesFishLayer)
+            {
+                catFishBodyPart.InitializeFishParts();
+            }
+        }
     }
 
     //=============================== OTHER ===========================
@@ -351,8 +361,7 @@ public class FishManagement : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
-        
+        DontDestroyOnLoad(gameObject); 
     }
     
 }

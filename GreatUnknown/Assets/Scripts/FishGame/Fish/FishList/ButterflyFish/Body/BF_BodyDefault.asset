@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: BF_BodyDefault
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Eye Default
-  bodyPartSprite: {fileID: -1880120661550918566, guid: c73f39f4d8ec27e4493fd6c19070bd87, type: 3}
-  percentage: 0
-  isMutated: 0
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  bodyPartSprite: {fileID: -6547989414520037104, guid: cc760a27dd530de40b9ef175eb7e7c1c, type: 3}
+  isMutated: 1
+  difficulty: 0

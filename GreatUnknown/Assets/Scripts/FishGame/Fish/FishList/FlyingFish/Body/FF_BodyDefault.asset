@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: FF_BodyDefault
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Flying Fish Body Default
-  bodyPartSprite: {fileID: 8808159328443877996, guid: 40f82a1a4ff62824ab2cd7e593eb6fa5, type: 3}
-  percentage: 0
+  bodyPartSprite: {fileID: -3238956258038115028, guid: cbf5ed80d341bcd4b9657ee98ae91f49, type: 3}
   isMutated: 0
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 0

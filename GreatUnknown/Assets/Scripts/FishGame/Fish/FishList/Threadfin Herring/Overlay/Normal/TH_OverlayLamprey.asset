@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce13af7192c739142b199333916a9cf2, type: 3}
+  m_Name: TH_OverlayLamprey
+  m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
+  description: Fin
+  bodyPartSprite: {fileID: 6103553108403918837, guid: 3f01ca486fe414c44be0fa94646e0372, type: 3}
+  isMutated: 0
+  difficulty: 0

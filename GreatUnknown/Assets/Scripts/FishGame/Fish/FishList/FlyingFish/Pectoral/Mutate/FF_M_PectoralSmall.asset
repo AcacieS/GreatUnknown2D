@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce13af7192c739142b199333916a9cf2, type: 3}
+  m_Name: FF_M_PectoralSmall
+  m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
+  description: Fin
+  bodyPartSprite: {fileID: -6626425885739482380, guid: 010d05c7ecd6ccb44a92fa3f6512aaf0, type: 3}
+  isMutated: 0
+  difficulty: 0

@@ -1,34 +1,64 @@
 fileFormatVersion: 2
-guid: 40f82a1a4ff62824ab2cd7e593eb6fa5
+guid: cbf5ed80d341bcd4b9657ee98ae91f49
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8808159328443877996
-    second: ffbody_0
+      213: -3238956258038115028
+    second: Ffbody_0
   - first:
-      213: 3327557480696226139
-    second: ffbody_1
+      213: -969316068119193854
+    second: Ffbody_1
   - first:
-      213: 2625626415743682929
-    second: ffbody_2
+      213: -18168668035526378
+    second: Ffbody_2
   - first:
-      213: 1500068084692285376
-    second: ffbody_3
+      213: 5902528951538457339
+    second: Ffbody_3
   - first:
-      213: -376376666825731345
-    second: ffbody_4
+      213: -5110345853325102060
+    second: Ffbody_4
   - first:
-      213: -4851030042958984683
-    second: ffbody_5
+      213: 5788324810349758045
+    second: Ffbody_5
   - first:
-      213: 3504043829046393393
-    second: ffbody_6
+      213: -785894169877691484
+    second: Ffbody_6
   - first:
-      213: -8175758932269960084
-    second: ffbody_7
+      213: -6962068030948382410
+    second: Ffbody_7
   - first:
-      213: 5365997126343048649
-    second: ffbody_8
+      213: -6219903202877939140
+    second: Ffbody_8
+  - first:
+      213: 5469290745327470057
+    second: Ffbody_9
+  - first:
+      213: -6186270649282889681
+    second: Ffbody_10
+  - first:
+      213: 1324759599126295578
+    second: Ffbody_11
+  - first:
+      213: -5359086145217626335
+    second: Ffbody_12
+  - first:
+      213: 7391004590728897276
+    second: Ffbody_13
+  - first:
+      213: -4548606643999127006
+    second: Ffbody_14
+  - first:
+      213: 2697246471464558802
+    second: Ffbody_15
+  - first:
+      213: 2343351989731968589
+    second: Ffbody_16
+  - first:
+      213: 4895108086930287526
+    second: Ffbody_17
+  - first:
+      213: -2701563928434064531
+    second: Ffbody_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +91,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +129,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +154,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ffbody_0
+      name: Ffbody_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6ac0f8dd3edc3a70800000000000000
-      internalID: 8808159328443877996
+      spriteID: c251c9ca17aec03d0800000000000000
+      internalID: -3238956258038115028
       vertices: []
       indices: 
       edges: []
@@ -149,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3e372495ff2c2b04e82a27d964927d0b
+    spriteID: 3cacf3959376c9641ba7cc1641d519d6
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +191,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ffbody_0: 8808159328443877996
+      Ffbody_0: -3238956258038115028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

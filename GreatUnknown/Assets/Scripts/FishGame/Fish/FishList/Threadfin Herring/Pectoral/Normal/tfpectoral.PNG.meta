@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 36905705bdda4fa41bee101eac9c5b2d
+guid: c8e02e6eb75339640999a5b21dd240d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3753437865327888392
-    second: tfpectoral_0
+      213: -2580176218457081879
+    second: Tfpectoral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tfpectoral_0
+      name: Tfpectoral_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2368
-        height: 1151
+        width: 2729
+        height: 1629
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f771a6e52c19ebc0800000000000000
-      internalID: -3753437865327888392
+      spriteID: 9e774f0566f513cd0800000000000000
+      internalID: -2580176218457081879
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0afb0a92e04bf1d459c47af78dc11d5c
+    spriteID: 84f32b2041ff5e84191af124f8962637
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +135,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2368.0,"y":1151.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2729.0,"y":1629.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tfpectoral_0: -3753437865327888392
+      Tfpectoral_0: -2580176218457081879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

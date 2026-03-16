@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: b10825a4b3af4404e870c936f24f5762
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9215346927615789145
+    second: Ffbody_largescales_0
+  - first:
+      213: -4032012998503823289
+    second: Ffbody_largescales_1
+  - first:
+      213: 2760754310440437877
+    second: Ffbody_largescales_2
+  - first:
+      213: -4578114733834861067
+    second: Ffbody_largescales_3
+  - first:
+      213: 7236000249278676448
+    second: Ffbody_largescales_4
+  - first:
+      213: 8924726281102599091
+    second: Ffbody_largescales_5
+  - first:
+      213: 8036121514575870563
+    second: Ffbody_largescales_6
+  - first:
+      213: 3868144836004431318
+    second: Ffbody_largescales_7
+  - first:
+      213: 6318192694109958557
+    second: Ffbody_largescales_8
+  - first:
+      213: 4702428417798360902
+    second: Ffbody_largescales_9
+  - first:
+      213: 6643910332707485092
+    second: Ffbody_largescales_10
+  - first:
+      213: 4838067831684616060
+    second: Ffbody_largescales_11
+  - first:
+      213: -5855215918705401991
+    second: Ffbody_largescales_12
+  - first:
+      213: -3770231703151828178
+    second: Ffbody_largescales_13
+  - first:
+      213: 7185309645582240748
+    second: Ffbody_largescales_14
+  - first:
+      213: 208157256727462679
+    second: Ffbody_largescales_15
+  - first:
+      213: 7466138204134849769
+    second: Ffbody_largescales_16
+  - first:
+      213: -5803406308991663879
+    second: Ffbody_largescales_17
+  - first:
+      213: -5494838963403551910
+    second: Ffbody_largescales_18
+  - first:
+      213: 8443056625605558985
+    second: Ffbody_largescales_19
+  - first:
+      213: -317602295006298561
+    second: Ffbody_largescales_20
+  - first:
+      213: -8735430763807536846
+    second: Ffbody_largescales_21
+  - first:
+      213: 2407621949642582470
+    second: Ffbody_largescales_22
+  - first:
+      213: 7850185439503668390
+    second: Ffbody_largescales_23
+  - first:
+      213: -1134433284783541337
+    second: Ffbody_largescales_24
+  - first:
+      213: 6729474111306677177
+    second: Ffbody_largescales_25
+  - first:
+      213: 3059028764680994606
+    second: Ffbody_largescales_26
+  - first:
+      213: -1139987539745004897
+    second: Ffbody_largescales_27
+  - first:
+      213: 7295693100231915253
+    second: Ffbody_largescales_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ffbody_largescales_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 3508
+        height: 2480
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958c686a43d73ef70800000000000000
+      internalID: 9215346927615789145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a73b9e1e84d63174488b45f3ade99449
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Ffbody_largescales_0: 9215346927615789145
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

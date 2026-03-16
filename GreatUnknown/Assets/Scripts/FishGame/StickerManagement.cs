@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class StickerManagement : MonoBehaviour, IClickable
+public class StickerManagement : MonoBehaviour
 {
     public static StickerManagement Instance {get; private set;}
-    public static bool hasSticker = false;
-    [SerializeField] private GameObject stickerPrefab;
-    [SerializeField] public GameObject stickerSpawnPlace;
-
+    public static GameObject sticker;
+    [SerializeField] private GameObject stickerColliderPrefab;
+    public void SetSticker(GameObject newSticker)
+    {
+        sticker = newSticker;
+    }
     public void Awake()
     {
         if(Instance == null)
@@ -15,17 +17,17 @@ public class StickerManagement : MonoBehaviour, IClickable
         }
         DontDestroyOnLoad(gameObject);
     }
+    
     public void ResetSticker()
     {
-        hasSticker = false;
+        SpawnNewStickerCollider();
     }
-    
-    public void OnClick()
+    public void SpawnNewStickerCollider()
     {
-        if(hasSticker) return;
-        hasSticker = true;
-        GameObject newStickerSpawn = Instantiate(stickerPrefab,
-        stickerSpawnPlace.transform.position,
-        stickerSpawnPlace.transform.rotation);
+        GameObject newStickerCollider = Instantiate(stickerColliderPrefab,
+        transform.position,
+        stickerColliderPrefab.transform.rotation);
+        Destroy(sticker);
     }
+
 }

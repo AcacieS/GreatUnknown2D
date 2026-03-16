@@ -4,6 +4,7 @@ using UnityEngine;
 public class FishDayInfo : ScriptableObject
 {
     [SerializeField] private NbFishPerGame nbOfFish;
+    [SerializeField] private int minNbOfMutatedFish;
     [Tooltip("be less than 100: Mutation likeliHood: index is nb mutation, value is percentage ")]
     [SerializeField] private MutationLikeliHood mutationLikeliHood;
     [SerializeField] private Percentage mutationChance;
@@ -13,6 +14,10 @@ public class FishDayInfo : ScriptableObject
     public int GetRandomNbMutationPerFish()
     {
         return mutationLikeliHood.Roll();
+    }
+    public int GetMinNbMutatedFish()
+    {
+        return minNbOfMutatedFish;
     }
     public FishBPDifficulty GetIsMutationEasy(int nbMutation)
     {

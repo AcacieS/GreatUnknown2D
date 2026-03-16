@@ -6,13 +6,22 @@ using UnityEngine;
 public class DayStoryInfo : ScriptableObject
 {
     public Sprite[] faxStorySprites;
-    public AudioClip[] radioStory;
-    public AudioClip GetAudioClip(int index)
+    public AudioInfo[] radioStory;
+    public AudioInfo GetRadioStory(int index)
     {
+        if(index >= faxStorySprites.Length)
+        {
+            return null;
+        }
         return radioStory[index];
     }
     public Sprite GetFaxStorySprite(int index)
     {
+        if(index >= faxStorySprites.Length)
+        {
+            return null;
+        }
+
         return faxStorySprites[index];
     }
 

@@ -12,11 +12,15 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     [Header("Modes")]
     [SerializeField] private bool enableDrag = false;
+    [SerializeField] private bool RestrictedToAxisX = false;
+    [SerializeField] private bool RestrictedToAxisY = false;
     [Header("Events")]
     [FormerlySerializedAs("_clicked")]
     [SerializeField] private UnityEvent onClick;
+    
     private IClickable _clickable;
     private BoxCollider2D _collider;
+    private IDraggable _draggable;
 
     public void Start()
     {
@@ -29,36 +33,57 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         _camera = Camera.main;
         _clickable = GetComponent<IClickable>();
         _collider = GetComponent<BoxCollider2D>();
+        _draggable = GetComponent<IDraggable>();
     }
-
+    Vector3 mouseWorld;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (enableDrag)
         {
-            Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
+            mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
             mouseWorld.z = 0f;
             _offset = transform.position - mouseWorld;
         }
         onClick?.Invoke();
         _clickable?.OnClick();
     }
+    public Vector3 StickerMousePos()
+    {
+        _offset = Vector3.zero;
+        return mouseWorld;
+    }
     public void OnDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        Vector3 mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
+        mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
         mouseWorld.z = 0f;
-
-        transform.position = mouseWorld + _offset;
+        if(RestrictedToAxisX)
+        {
+            transform.position = new Vector3(mouseWorld.x + _offset.x, transform.position.y, transform.position.z);
+        }else if(RestrictedToAxisY)
+        {
+            transform.position = new Vector3(transform.position.x, mouseWorld.y + _offset.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = mouseWorld + _offset;
+        }
+    }
+    public void SetEnableDrag(bool enable)
+    {
+        enableDrag = enable;
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        _collider.enabled = false;  
+        _collider.enabled = false;
     }
+    
     public void OnEndDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
         _collider.enabled = true;
+        _draggable?.OnDragEnd();
     }
     public void OnDrop(PointerEventData eventData)
     {

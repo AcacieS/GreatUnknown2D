@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -8,7 +9,6 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject workplace;
     public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
@@ -17,8 +17,10 @@ public class GameManagement : MonoBehaviour
     public bool isFishGameFinished = false;
     // TODO: isSliding Game, for now assume is finished;
     public bool isSlidingGameFinished = false;
+    [SerializeField] private Radio radioScript;
+    
     [Header("Initialization of Game")]
-    [SerializeField] private GameObject workGame;
+    [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
     [SerializeField] private GameObject Canvas;
@@ -35,7 +37,7 @@ public class GameManagement : MonoBehaviour
     private void OrganizeGame()
     {
         Canvas.SetActive(true);
-        workGame.SetActive(true);
+        workPlace.SetActive(true);
         fishGame.SetActive(false);
         iceSlidingGame.SetActive(false);
     }
@@ -44,9 +46,10 @@ public class GameManagement : MonoBehaviour
         ResetDataDay();
         fishGame.SetActive(false);
         dayAnimation.WriteText();
-        workplace.SetActive(true);
+        workPlace.SetActive(true);
         FishManagement.Instance.ResetFishGame();
     }
+    
     public int GetNbDayPassed()
     {
         return nbDaysPassed;
@@ -71,24 +74,25 @@ public class GameManagement : MonoBehaviour
     }
     public void OnSlidingTransitionComplete()
     {
-    workplace.SetActive(false);
-    iceSlidingGame.SetActive(true);
-    animator.SetBool("StartingSlidingGame", false);
+        workPlace.SetActive(false);
+        iceSlidingGame.SetActive(true);
+        animator.SetBool("StartingSlidingGame", false);
     }
     private void ResetDataDay()
     {
         isFishGameFinished = false;
         isSlidingGameFinished = false;
         fishSession.ResetSession();
+        SpecialEventDay();
     }
 
     public void ExitSlidingGame()
-{
-    iceSlidingGame.SetActive(false);
-    workplace.SetActive(true);
+    {
+        iceSlidingGame.SetActive(false);
+        workPlace.SetActive(true);
 
-    animator.SetBool("ExitingSlidingGame", true);
-}
+        animator.SetBool("ExitingSlidingGame", true);
+    }
     public void OnSlidingExitComplete()
 {
     animator.SetBool("ExitingSlidingGame", false);
@@ -99,8 +103,8 @@ public class GameManagement : MonoBehaviour
     {
         if(isFishGameFinished && isSlidingGameFinished)
         {
-            ResetDataDay();
             nbDaysPassed++;
+            ResetDataDay();
             daySpriteRenderer.sprite = daySprites[nbDaysPassed];
             if (isSlidingGameTrue)
             {
@@ -111,6 +115,28 @@ public class GameManagement : MonoBehaviour
                 isFishGameFinished = true;
             }
             dayAnimation.WriteText();
+        }
+    }
+    private void SpecialEventDay()
+    {
+        switch(nbDaysPassed) 
+        {
+        case 3: //day 4
+            // code block
+            Debug.Log("Day 4");
+            //replace 4th day channel 3. 
+            radioScript.ChangeRadioChannel();
+            break;
+        case 4: //day 5
+            // code block
+            Debug.Log("Day 5");
+            radioScript.ShootingRadioChannel();
+            //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
+            break;
+        default:
+            Debug.Log("Nothing for now");
+            //6th day radio channel is off.
+            break;
         }
     }
     public void GetCurrentMusic()

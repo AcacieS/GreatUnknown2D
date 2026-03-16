@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: FlyingFish
   m_EditorClassIdentifier: Assembly-CSharp::FishInfo
   fishName: FlyingFish
-  fishBasicBody: {fileID: 8808159328443877996, guid: 799f971439b17a942a2456d7b143ca3b, type: 3}
   categoriesFishLayer:
   - {fileID: 11400000, guid: d427985cd9db43a4eace125f11060ef3, type: 2}
   - {fileID: 11400000, guid: 586088770bd670544b81a4413a75a6f5, type: 2}
@@ -22,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c18f35eb6a9306840997f1e51ddcdd91, type: 2}
   - {fileID: 11400000, guid: cb630e20fa945cc42a62290aaa4a70be, type: 2}
   - {fileID: 11400000, guid: 04d0375a4a41dcb4ea7b36272d22a636, type: 2}
+  tagFishPos: {x: 0.847, y: 0.578}

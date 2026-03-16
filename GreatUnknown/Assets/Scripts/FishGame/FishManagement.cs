@@ -2,74 +2,76 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 
-
 public class FishManagement : MonoBehaviour
 {
     public static FishManagement Instance {get; private set;}
-    
+    public static bool isFishGameOn;
+
+    [Header("Fish Days")]
     [SerializeField] private FishDaysInfo fishDaysInfo;
-    [SerializeField] private TextMeshProUGUI fishCorrectText;
     
     [Header("Places")]
     [SerializeField] private GameObject fishPlace;
-    [SerializeField] private GameObject fishShowPrefab;
+    [SerializeField] private GameObject fishPrefab;
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGamePlace;
+
     [Header("Mutation")]
     [SerializeField] private FishSession session;
-    [SerializeField] private TextMeshProUGUI fishTxt;
+    [SerializeField] private GameObject wrongMessage;
+    [SerializeField] private TextMeshProUGUI wrongMessageTxt;
+    [SerializeField] private string[] wrongMessageText;
 
     [Header("Show for Debug")]
-
-    [SerializeField] List<Fish> currentFishLists = new List<Fish>();
     [SerializeField] int currentFishIndex = -1;
+    [SerializeField] List<Fish> currentFishLists = new List<Fish>();
+
+    //----------------------------- PRIVATE FIELD --------------------------------    
     private int currentFishNb = 0;
     private FishDayInfo currentFishDayInfo;
-    private bool isAnimatingOut = false;
     private int currentDay = 0;
+
+    //=============================== FISH GAME GENERAL ===========================
     public void ResetFishGame()
     {
         DestroyPreviousFish();
         currentFishIndex = -1;
         currentFishLists.Clear();
-        fishTxt.text = "";
+        //fishChoiceTxt.text = "";
+        isFishGameOn = false;
     }
-    
-    public Fish GetCurrentFish()
-    {
-    if (currentFishLists == null || currentFishLists.Count == 0)
-        return null;
-
-    if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
-        return null;
-
-    return currentFishLists[currentFishIndex];
-    }
-    
 
     public void StartFishGame()
     {
-        currentDay = GameManagement.Instance.GetNbDayPassed();
         if(currentDay>= fishDaysInfo.GetNbGame() || GameManagement.Instance.isFishGameFinished)
+        {
+            GameManagement.Instance.isFishGameFinished = true;
+            return;
+        }
+        //ACTIVATE 
+        fishGamePlace.SetActive(true);
+        workPlace.SetActive(false);
+
+        if(isFishGameOn)
         {
             return;
         }
+        isFishGameOn = true;
+        currentDay = GameManagement.Instance.GetNbDayPassed();
+        
         currentFishDayInfo = fishDaysInfo.GetCurrentFishDayInfo(currentDay);
-        GameManagement.Instance.isFishGameFinished = true;
 
-        fishGamePlace.SetActive(true);
-        workPlace.SetActive(false);
+        
         RandomFishes();
         fishPlace.GetComponent<FishState>().ResetFishGame();
     }
     
 
-    //============================================ SHOW CURRENT FISH =========================================
+    //============================================ INITIALIZE CURRENT FISH =========================================
     public void InitializeNewFish()
     {
         Debug.Log("=================== Initialize new fish");
-        isAnimatingOut = false;
-        fishCorrectText.text = "";
+        //fishChoiceTxt.text = "";
         Debug.Log("destroy");
         DestroyPreviousFish();
 
@@ -80,8 +82,10 @@ public class FishManagement : MonoBehaviour
         {
             Debug.Log("No more fish to show");
             //TODO: score fish game
+            GameManagement.Instance.isFishGameFinished = true;
             fishGamePlace.SetActive(false);
             workPlace.SetActive(true);
+            isFishGameOn = false;
             return;
         }
         
@@ -95,7 +99,7 @@ public class FishManagement : MonoBehaviour
             CategoryFishBodyPart categoryFishBody = fishBodyPart.Key;
             FishBodyPart fishBody = fishBodyPart.Value;
 
-            GameObject newFishBodyGO = Instantiate(fishShowPrefab,
+            GameObject newFishBodyGO = Instantiate(fishPrefab,
             fishPlace.transform.position,
             fishPlace.transform.rotation,
             fishPlace.transform); //maybe 0
@@ -105,7 +109,8 @@ public class FishManagement : MonoBehaviour
             currentFish.AddFishBodyPartGameObj(newFishBodyGO);
         }
     }
-    public void DestroyPreviousFish()
+
+    private void DestroyPreviousFish()
     {
         Debug.LogWarning("count in destroy: "+currentFishLists.Count);
         if(currentFishIndex < 0) return;
@@ -116,62 +121,45 @@ public class FishManagement : MonoBehaviour
         }
         Debug.LogWarning("count after destroy: "+currentFishLists.Count);
     }
+
+
+    //============================================ SPAWN NEW FISH =========================================
     
-    public bool GetIsAnimating()
-    {
-        return isAnimatingOut;
-    }
-
-    public void ClickIsMutated()    => HandleChoice(true);
-    public void ClickIsNotMutated() => HandleChoice(false);
-
-    private void HandleChoice(bool playerSaysMutated)
-    {
-        if (session == null||GetIsAnimating()) return;
-
-        Fish currentFish = GetCurrentFish();
-        if (currentFish == null) return;
-
-        bool correct = (currentFish.isMutated == playerSaysMutated);
-
-        if (correct) {
-            session.AddCorrect();
-            //DO NOTHING
-            fishTxt.color = Color.green;
-            fishTxt.text = "Correctly identified fish";
-        }
-        else{
-            //
-            fishTxt.color = Color.red;
-            fishTxt.text = "Incorrectly identified fish";
-            session.AddWrong();
-            if(session.Wrong >= 3)
-            {
-                GameManagement.Instance.ResetDay();
-                return;
-            }
-        }
-
-        fishPlace.GetComponent<FishState>().NextFish();
-    }
-    // public void NextFish(){
-    //     //if(isAnimatingOut) return;
-    //     //fishPlace.GetComponent<Animator>().SetTrigger("fish_out");
-    //     //isAnimatingOut = true;
-    // }
-    
+    //------------------------------- GET FISHES -------------------------
     private void RandomFishes()
     {
         //Initialize
         currentFishLists = new List<Fish>();
         currentFishIndex = -1;
         currentFishNb = fishDaysInfo.GetNbOfFishPerGame(currentDay);
+        int minNbOfMutatedFish = currentFishDayInfo.GetMinNbMutatedFish();
 
-        //add fishes
+        //---------- Get which Mutated + make sure more than the min Nb of Mutated Fish;
+        List<int> mutatedFishIndexList = new List<int>();
+        int mutatedFishIndex = 0;
+
+        while(mutatedFishIndexList.Count < minNbOfMutatedFish)
+        {
+            mutatedFishIndexList = new List<int>();
+            for(int i=0; i<currentFishNb; i++)
+            {
+                bool isMutate = fishDaysInfo.GetIsMutated(currentDay);
+                if (isMutate)
+                {
+                    mutatedFishIndexList.Add(i);
+                }
+            }
+        }
+        
+        //------------ Add fish body part
         for(int i = 0; i<currentFishNb; i++)
         {
-            //======= want mutated or not
-            bool isMutate = fishDaysInfo.GetIsMutated(currentDay);
+            bool isMutate = false;
+            if(mutatedFishIndex<mutatedFishIndexList.Count && i == mutatedFishIndexList[mutatedFishIndex])
+            {
+                isMutate = true;
+                mutatedFishIndex++;
+            }
 
             //======= fish type
             int randomFishTypeIndex = Random.Range(0, fishDaysInfo.GetTotalFishType());
@@ -190,26 +178,28 @@ public class FishManagement : MonoBehaviour
             ChooseBodyParts(fishType, newFish, nbMutationCurrentFish);
         }
     }
+
+    //------------------------------- GET BODY PART FISH -------------------------
     private void ChooseBodyParts(FishTypeInfo fishType, Fish newFish, int nbMutationCurrentFish)
     {
         //======= nb of mutation prepare
-        List<int> mutatedFishIndex = new List<int>();
-        int currentMutatedFishIndex = -1; // if no mutation: -1
+        List<int> mutatedFishBodyIndex = new List<int>();
+        int currentMutatedFishBodyIndex = -1; // if no mutation: -1
         for(int i=0; i<nbMutationCurrentFish; i++)
         {
-            ChooseMutatedFish(fishType, newFish, mutatedFishIndex, nbMutationCurrentFish);
-            currentMutatedFishIndex = 0;
+            ChooseMutatedFishBody(fishType, newFish, mutatedFishBodyIndex, nbMutationCurrentFish);
+            currentMutatedFishBodyIndex  = 0;
         }
-        mutatedFishIndex.Sort();
+        mutatedFishBodyIndex.Sort();
 
 
         //======== getting body part
         for(int i=0; i< fishType.categoriesFishLayer.Count; i++)
         {
             // IS MUTATED: SKIP
-            if(currentMutatedFishIndex>=0 && currentMutatedFishIndex < mutatedFishIndex.Count && mutatedFishIndex[currentMutatedFishIndex]==i)
+            if(currentMutatedFishBodyIndex >=0 && currentMutatedFishBodyIndex < mutatedFishBodyIndex.Count && mutatedFishBodyIndex[currentMutatedFishBodyIndex]==i)
             {
-                currentMutatedFishIndex++; //already assigned
+                currentMutatedFishBodyIndex++; //already assigned
             }
             else //IS NORMAL
             {
@@ -223,6 +213,8 @@ public class FishManagement : MonoBehaviour
             
         }
     }
+
+    //------------------------------- GET NATURAL/SPECIAL FISH -------------------------
     private FishBodyPart ChooseNaturalFishBodyPart(CategoryFishBodyPart fishPartCat)
     {
         bool isNormalBase = currentFishDayInfo.GetIsBaseNormal();
@@ -250,8 +242,9 @@ public class FishManagement : MonoBehaviour
         FishBodyPart fishBodyPart = fishBodyParts[Random.Range(0, fishBodyParts.Count)];
         return fishBodyPart;
     }
-    
-    private void ChooseMutatedFish(FishTypeInfo fishType, Fish newFish, List<int> mutatedFishIndex, int nbMutationCurrentFish)
+
+    //------------------------------- GET MUTATED FISH -------------------------
+    private void ChooseMutatedFishBody(FishTypeInfo fishType, Fish newFish, List<int> mutatedFishIndex, int nbMutationCurrentFish)
     {
         // ======== Choose Body Type Category
         int randMutatedPartCatIndex = 0;
@@ -293,28 +286,72 @@ public class FishManagement : MonoBehaviour
         newFish.AddFishBodyPart(mutatedPartCat, mutatedPart);
     }
 
+    //------------------------------- DIFFICULTY -------------------------
     private bool IsOnlyOneDifficultyPossible(CategoryFishBodyPart partCat, FishBodyPartDifficultyList fishBodyPartsDifficultyList)
     {
         if(partCat.GetNbPossibleMutation() == 1) return true;
         if(partCat.fishPartsMutated.GetNbFishParts(FishBPDifficulty.Easy) == 0 || partCat.fishPartsMutated.GetNbFishParts(FishBPDifficulty.Hard) == 0) return true;
         return false;
     }
+
+    //=============================== CHOICE ===========================
+    public void ClickIsMutated()    => HandleChoice(true);
+    public void ClickIsNotMutated() => HandleChoice(false);
+
+    private void HandleChoice(bool playerSaysMutated)
+    {
+        Debug.Log("Choice: "+playerSaysMutated);
+        if (session == null) return;
+
+        Fish currentFish = GetCurrentFish();
+        if (currentFish == null) return;
+
+        bool correct = (currentFish.isMutated == playerSaysMutated);
+
+        if (correct) {
+            session.AddCorrect();
+            //DO NOTHING
+            Debug.Log("Should appear: "+playerSaysMutated);
+        }
+        else{
+            //
+            Debug.Log("Should appear: "+playerSaysMutated);
+            session.AddWrong();
+            if(session.Wrong >= 3)
+            {
+                GameManagement.Instance.ResetDay();
+                return;
+            }
+            else
+            {
+                wrongMessageTxt.text = wrongMessageText[session.Wrong-1];
+                wrongMessage.GetComponent<Animator>().SetTrigger("Wrong");
+            }
+        }
+
+        fishPlace.GetComponent<FishState>().NextFish();
+    }
     
+    //=============================== HELPER ===========================
+    public Fish GetCurrentFish()
+    {
+        if (currentFishLists == null || currentFishLists.Count == 0)
+            return null;
+
+        if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
+            return null;
+
+        return currentFishLists[currentFishIndex];
+    }
+
+    //=============================== OTHER ===========================
     public void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
-        
-    }
-    private void OnValidate()
-    {
-        // fishGameInfo.?.Validate();
-    }
-    void Start()
-    {
+        DontDestroyOnLoad(gameObject); 
     }
     
 }

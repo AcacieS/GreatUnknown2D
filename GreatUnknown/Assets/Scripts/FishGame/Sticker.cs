@@ -1,26 +1,67 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Sticker : MonoBehaviour, IClickable
+public class Sticker : MonoBehaviour, IClickable, IDraggable
 {
-    private Sprite initialSticker;
+    [SerializeField] private Sprite stickerSprite;
+    [SerializeField] private Vector2 colliderStickerOnHand = new Vector2(5f, 2f);
+    private Vector3 startPosSticker;
+    private ClickHandler clickHandler;
+    private bool isBox = true;
+
+    public void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = null;
+        startPosSticker = transform.position;
+        isBox = true;
+    }
     public void Start()
     {
-        initialSticker = GetComponent<SpriteRenderer>().sprite;
+        StickerManagement.Instance.SetSticker(gameObject);
+        clickHandler = GetComponent<ClickHandler>();
     }
+    
     public void OnClick()
     {
-        if(transform.parent != null)
+        if (isBox)
         {
-            FishState fishState = transform.parent.GetComponent<FishState>();
-            if(fishState != null)
+            transform.position = clickHandler.StickerMousePos();//startPosSticker;
+            isBox = false;
+            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.size = colliderStickerOnHand; 
+            boxCollider.offset = new Vector2(boxCollider.offset.x, 0);
+            GetComponent<SpriteRenderer>().sprite = stickerSprite;
+        }
+        else
+        {
+            if(transform.parent != null)
             {
-                fishState.SetChoiceIsMutated(false);
-                transform.SetParent(null);
-                fishState.StickerRemove();
-                GetComponent<SpriteRenderer>().sprite = initialSticker;
+                FishState fishState = transform.parent.GetComponent<FishState>();
+                if(fishState != null)
+                {
+                    fishState.SetChoiceIsMutated(false);
+                    transform.SetParent(null);
+                    fishState.StickerRemove();
+                    GetComponent<SpriteRenderer>().sprite = stickerSprite;
+                }
+                //that really
+
             }
         }
         
-        //StickerManagement.Instance.ResetSticker();
     }
+    public void OnDragEnd()
+    {
+        if(transform.parent != null && transform.parent.GetComponent<FishState>() != null)
+        {
+            
+        }
+        else
+        {
+            StickerManagement.Instance.ResetSticker();
+        }
+    }
+    
+    
+
 }

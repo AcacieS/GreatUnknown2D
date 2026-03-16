@@ -335,13 +335,13 @@ public class FishManagement : MonoBehaviour
     //=============================== HELPER ===========================
     public Fish GetCurrentFish()
     {
-    if (currentFishLists == null || currentFishLists.Count == 0)
-        return null;
+        if (currentFishLists == null || currentFishLists.Count == 0)
+            return null;
 
-    if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
-        return null;
+        if (currentFishIndex < 0 || currentFishIndex >= currentFishLists.Count)
+            return null;
 
-    return currentFishLists[currentFishIndex];
+        return currentFishLists[currentFishIndex];
     }
 
     //=============================== OTHER ===========================
@@ -351,8 +351,7 @@ public class FishManagement : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
-        
+        DontDestroyOnLoad(gameObject); 
     }
     
 }

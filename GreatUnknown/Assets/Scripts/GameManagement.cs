@@ -61,6 +61,14 @@ public class GameManagement : MonoBehaviour
     }
     public void StartSlidingGame()
     {
+        if (GetNbDayLeft() == 0)
+        {
+            // The player just clicked the computer
+            // for the final terminal scene
+            // Let's show them what we've got!
+            LastDay.Instance.ItsTheFinalCountdown();
+            return;
+        }
         if (isFishGameFinished)
         {
             Debug.Log("Fish game artificially started (and it works).");

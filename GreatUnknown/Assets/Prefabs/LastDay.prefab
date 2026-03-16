@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2226735844567731496}
   - component: {fileID: 7058113494599099081}
+  - component: {fileID: 1607482606589281914}
   m_Layer: 0
   m_Name: LastDay
   m_TagString: Untagged
@@ -46,4 +47,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LastDay
   klaxonDelaySeconds: 30
   Klaxon: {fileID: 11400000, guid: a36bc016a7e48194da9f15b1b4711c25, type: 2}
+  LastDayAmbiance: {fileID: 11400000, guid: bebac891e6e325244b5d05dc28ccb8f4, type: 2}
   LastDayTerminal: {fileID: 0}
+--- !u!114 &1607482606589281914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478713569745454377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.PropertyVariants.GameObjectLocalizer
+  m_TrackedObjects:
+  - rid: 7422886928062611530
+  references:
+    version: 2
+    RefIds:
+    - rid: 7422886928062611530
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 7058113494599099081}
+        m_TrackedProperties:
+          items:
+          - rid: 7422886928062611531
+        m_UpdateType: 0
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 7422886928062611531
+      type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_Localized:
+          rid: 7422886928062611532
+        m_PropertyPath: LastDayTerminal
+    - rid: 7422886928062611532
+      type: {class: LocalizedGameObject, ns: UnityEngine.Localization, asm: Unity.Localization}
+      data:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0

@@ -23,6 +23,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
+    [SerializeField] private GameObject[] iceSlidingGames;
     [SerializeField] private GameObject Canvas;
     public void Awake()
     {
@@ -75,7 +76,8 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingTransitionComplete()
     {
         workPlace.SetActive(false);
-        iceSlidingGame.SetActive(true);
+        //iceSlidingGame.SetActive(true);
+        iceSlidingGames[nbDaysPassed].SetActive(true);
         animator.SetBool("StartingSlidingGame", false);
     }
     private void ResetDataDay()
@@ -88,7 +90,7 @@ public class GameManagement : MonoBehaviour
 
     public void ExitSlidingGame()
     {
-        iceSlidingGame.SetActive(false);
+        iceSlidingGames[nbDaysPassed].SetActive(false);
         workPlace.SetActive(true);
 
         animator.SetBool("ExitingSlidingGame", true);

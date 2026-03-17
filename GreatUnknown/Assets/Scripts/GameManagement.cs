@@ -11,7 +11,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
-    public static int nbDaysPassed = 5;
+    public static int nbDaysPassed = 0;
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
     [SerializeField] private bool isFishGameTrue = false;

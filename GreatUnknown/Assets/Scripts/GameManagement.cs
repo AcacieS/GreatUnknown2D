@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -65,8 +66,10 @@ public class GameManagement : MonoBehaviour
         {
             // The player just clicked the computer
             // for the final terminal scene
-            // Let's show them what we've got!
-            LastDay.Instance.ItsTheFinalCountdown();
+            // Let's show them what we've got...!
+            // after the transition completes, lol.
+            animator.SetBool("StartingSlidingGame", true);
+            Debug.Log("StartSlidingGame skipped for terminal");
             return;
         }
         if (isFishGameFinished)
@@ -84,9 +87,17 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingTransitionComplete()
     {
         workPlace.SetActive(false);
+        animator.SetBool("StartingSlidingGame", false);
+        if (GetNbDayLeft() == 0)
+        {
+            // The player just clicked the computer
+            // for the final terminal scene
+            // Let's show them what we've got!
+            LastDay.Instance.ItsTheFinalCountdown();
+            return;
+        }
         //iceSlidingGame.SetActive(true);
         iceSlidingGames[nbDaysPassed].SetActive(true);
-        animator.SetBool("StartingSlidingGame", false);
     }
     private void ResetDataDay()
     {
@@ -142,6 +153,9 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Day 5");
             radioScript.ShootingRadioChannel();
             //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
+            break;
+        case 5:
+            // This is handled by Assests/Scripts/Story/LastDay.cs
             break;
         default:
             Debug.Log("Nothing for now");

@@ -180,8 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e96a582a9731884e85c5f889da623f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  stickerPrefab: {fileID: 5732761883402656554, guid: 9b7a62dfbecec6e49b2a8a92f11628a5, type: 3}
-  stickerSpawnPlace: {fileID: 804128144}
+  stickerColliderPrefab: {fileID: 0}
 --- !u!114 &1141561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -413,6 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 1
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1488,6 +1491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -3588,6 +3593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -3949,6 +3956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -4278,6 +4287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -4436,7 +4447,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -449442512431211835, guid: 1c7330dd208e4cb4faef20e85cef84cc, type: 3}
+  m_Sprite: {fileID: 5618970488956191584, guid: f4da733a632164e66bf76930c7042c59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5322,6 +5333,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   waitSecondAfterTyping: 3
   dayTransitionSound: {fileID: 11400000, guid: d062b72573f1b3142a131dcd065cc457, type: 2}
+  audioSource: {fileID: 0}
 --- !u!4 &4446888471065604381
 Transform:
   m_ObjectHideFlags: 0
@@ -5567,7 +5579,7 @@ Transform:
   m_GameObject: {fileID: 7992193042460358838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.3996, y: -2.3207, z: 0}
+  m_LocalPosition: {x: -6.92, y: -2.63, z: 0}
   m_LocalScale: {x: 0.91757756, y: 0.91757756, z: 0.91757756}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5587,19 +5599,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   fishDaysInfo: {fileID: 11400000, guid: 302ab5d85aac2ee4f8cc6df892e75894, type: 2}
-  fishCorrectText: {fileID: 984492233001738737}
   fishPlace: {fileID: 201575783}
-  fishShowPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}
+  fishPrefab: {fileID: 0}
   workPlace: {fileID: 2993958904492073943}
   fishGamePlace: {fileID: 1508401526}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
-  fishTxt: {fileID: 984492233001738737}
+  wrongMessage: {fileID: 0}
+  wrongMessageTxt: {fileID: 0}
+  wrongMessageText: []
+  currentFishIndex: -1
   currentFishLists:
   - isMutated: 0
     fishType: {fileID: 0}
     fishBodyPartsGameObj: []
     fishBodyPartsList: []
-  currentFishIndex: -1
 --- !u!222 &5307165525589111068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5621,6 +5634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -5659,15 +5674,19 @@ MonoBehaviour:
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
   dayAnimation: {fileID: 4425620332833935969}
   animator: {fileID: 0}
-  workplace: {fileID: 2993958904492073943}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
   isFishGameFinished: 0
   isSlidingGameFinished: 1
-  workGame: {fileID: 2993958904492073943}
+  radioScript: {fileID: 0}
+  workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 1508401526}
   iceSlidingGame: {fileID: 0}
   Canvas: {fileID: 2532382225685698924}
+  emergencyLight: {fileID: 384416492}
+  backgroundWork: {fileID: 1455121928633171553}
+  backgroundDay3: {fileID: 7076730569839479387, guid: 7cfc6922f39fe461082bdf0a0dc476ac, type: 3}
+  backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6539,6 +6558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -6816,6 +6837,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -6854,16 +6877,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67774e1815b9354580a5159ec745b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  BGMusic: {fileID: 7595327770781537939}
   RadioOn: {fileID: 11400000, guid: b17b8991f695beb44acb2308c2503a2b, type: 2}
   RadioOff: {fileID: 11400000, guid: 8174bbcf286bc804a87af589ea0ba7a0, type: 2}
-  casualChannelsSource: []
+  BGMusic: {fileID: 7595327770781537939}
   radioChannels:
-  - radioChannel: {fileID: 11400000, guid: a525583fa5907874bba192d657d41bd1, type: 2}
+  - radioChannelSource: {fileID: 0}
+    radioChannel: {fileID: 11400000, guid: a525583fa5907874bba192d657d41bd1, type: 2}
     time: 0
-  - radioChannel: {fileID: 11400000, guid: 0c408015443d9e444aba996f5e234d88, type: 2}
+  - radioChannelSource: {fileID: 0}
+    radioChannel: {fileID: 11400000, guid: 0c408015443d9e444aba996f5e234d88, type: 2}
     time: 0
-  - radioChannel: {fileID: 11400000, guid: 187b28e5fbc452b4c8ed5d557483fefc, type: 2}
+  - radioChannelSource: {fileID: 0}
+    radioChannel: {fileID: 11400000, guid: 187b28e5fbc452b4c8ed5d557483fefc, type: 2}
+    time: 0
+  shootingCountDown: 30
+  environmentalChannel:
+    radioChannelSource: {fileID: 0}
+    radioChannel: {fileID: 0}
+    time: 0
+  shootingChannel:
+    radioChannelSource: {fileID: 0}
+    radioChannel: {fileID: 0}
     time: 0
 --- !u!114 &8336794658080182939
 MonoBehaviour:

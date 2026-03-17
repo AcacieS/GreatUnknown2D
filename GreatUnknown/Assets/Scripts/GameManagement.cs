@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class GameManagement : MonoBehaviour
 {
@@ -24,6 +26,14 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
     [SerializeField] private GameObject Canvas;
+
+    [Header ("Story")]
+    [SerializeField] private Light2D emergencyLight = null;
+    [Header ("Change Background")]
+    [SerializeField] private GameObject backgroundWork = null;
+    public Sprite backgroundDay3;
+    public Sprite backgroundDay5;
+
     public void Awake()
     {
         if(Instance == null)
@@ -119,8 +129,12 @@ public class GameManagement : MonoBehaviour
     }
     private void SpecialEventDay()
     {
+        SpriteRenderer backgroundRend= backgroundWork.GetComponent<SpriteRenderer>();
         switch(nbDaysPassed) 
         {
+        case 2: // day 3
+            backgroundRend.sprite = backgroundDay3;
+            break;
         case 3: //day 4
             // code block
             Debug.Log("Day 4");
@@ -129,9 +143,15 @@ public class GameManagement : MonoBehaviour
             break;
         case 4: //day 5
             // code block
+            backgroundRend.sprite = backgroundDay5;
             Debug.Log("Day 5");
             radioScript.ShootingRadioChannel();
             //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
+            break;
+        case 5: // day 6
+            StartCoroutine(waitEmergencyLight());
+            emergencyLight.gameObject.SetActive(true);
+
             break;
         default:
             Debug.Log("Nothing for now");
@@ -159,5 +179,9 @@ public class GameManagement : MonoBehaviour
     void Update()
     {
         
+    }
+    public IEnumerator waitEmergencyLight()
+    {
+        yield return new WaitForSeconds(20);
     }
 }

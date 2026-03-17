@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -109,6 +110,14 @@ public class GameManagement : MonoBehaviour
     animator.SetBool("ExitingSlidingGame", false);
 }
 
+    [ContextMenu("Skip to next day")]
+    public void SkipToNextDay()
+    {
+        isFishGameFinished = true;
+        isSlidingGameFinished = true;
+        NextDay();
+    }
+
 
     public void NextDay()
     {
@@ -152,6 +161,7 @@ public class GameManagement : MonoBehaviour
         case 5: // day 6
             StartCoroutine(waitEmergencyLight());
             emergencyLight.gameObject.SetActive(true);
+            LastDay.Instance.gameObject.SetActive(true);
 
             break;
         default:

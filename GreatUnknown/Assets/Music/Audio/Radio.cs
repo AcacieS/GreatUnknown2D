@@ -135,8 +135,11 @@ public class Radio : MonoBehaviour, IClickable
         //stop all radio
         Debug.Log("Shooting!!");
         isShootingStory = true;
-        previousChannelSource.Off();
-        previousChannelSource = null;
+        if (previousChannelSource != null)
+        {
+            previousChannelSource.Off();
+            previousChannelSource = null;
+        }
         
         shootingChannel.SetTimeMusic();
         shootingChannel.On();

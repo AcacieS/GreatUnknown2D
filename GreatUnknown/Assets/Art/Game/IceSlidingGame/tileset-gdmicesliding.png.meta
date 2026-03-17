@@ -171,8 +171,8 @@ TextureImporter:
       name: tileset-gdmicesliding_2
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 1280
+        x: 1282
+        y: 638
         width: 159
         height: 160
       alignment: 0
@@ -237,10 +237,10 @@ TextureImporter:
       name: tileset-gdmicesliding_5
       rect:
         serializedVersion: 2
-        x: 1279
-        y: 479
-        width: 483
-        height: 482
+        x: 1119
+        y: 1440
+        width: 160
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -325,8 +325,8 @@ TextureImporter:
       name: tileset-gdmicesliding_11
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 1440
+        x: 1280
+        y: 800
         width: 160
         height: 159
       alignment: 0
@@ -347,8 +347,8 @@ TextureImporter:
       name: tileset-gdmicesliding_9
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1439
+        x: 1440
+        y: 800
         width: 160
         height: 159
       alignment: 0
@@ -369,8 +369,8 @@ TextureImporter:
       name: tileset-gdmicesliding_10
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 1439
+        x: 1601
+        y: 800
         width: 160
         height: 159
       alignment: 0
@@ -391,8 +391,8 @@ TextureImporter:
       name: tileset-gdmicesliding_12
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 1121
+        x: 1279
+        y: 481
         width: 160
         height: 159
       alignment: 0
@@ -414,7 +414,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 1121
+        y: 1122
         width: 160
         height: 159
       alignment: 0
@@ -457,8 +457,8 @@ TextureImporter:
       name: tileset-gdmicesliding_15
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 1280
+        x: 1599
+        y: 641
         width: 160
         height: 159
       alignment: 0
@@ -471,6 +471,292 @@ TextureImporter:
       bones: []
       spriteID: e7ac2a66ad684394596efc6267383107
       internalID: 1751278003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_16
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1280
+        width: 159
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a67a40089bdb9428e12f045c68d371
+      internalID: -996931009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_17
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1120
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26cc1868c63ce5f4188865a5b0f56ea4
+      internalID: -1937465576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1121
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f304513e6c3973429818700cb61b286
+      internalID: 464226103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_19
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1121
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dba6a1f1f962ab4ab1c3b4c28214035
+      internalID: -976715031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_20
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 1280
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9d9ef8ac9d6e7408e42d18431cb68c
+      internalID: 529916390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_21
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1439
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3adf1c6976deffc47bd9394b6898db6e
+      internalID: 1113807533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1439
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44ec5b8e0400504894033a27050522c
+      internalID: 583906006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_23
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 481
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6f290ec66619e4991463ecea8b275d
+      internalID: 1166314623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_24
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 480
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36eac39579fb1454c84b292cbccb20b0
+      internalID: 335562343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_25
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 1120
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4dc3738d7373e4e8e9c66afe974b64
+      internalID: -1307416223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_26
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1120
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ca41a1f5ab9794db49ad7b3b93eae5
+      internalID: -1392688577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_27
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 1280
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af57973723e4d74439c6f6f283bbde36
+      internalID: -1634739633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1279
+        width: 160
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3c42744f9503f488521376feab7f18
+      internalID: 926512594
       vertices: []
       indices: 
       edges: []
@@ -499,7 +785,20 @@ TextureImporter:
       tileset-gdmicesliding_13: 1235856332
       tileset-gdmicesliding_14: -2077635120
       tileset-gdmicesliding_15: 1751278003
+      tileset-gdmicesliding_16: -996931009
+      tileset-gdmicesliding_17: -1937465576
+      tileset-gdmicesliding_18: 464226103
+      tileset-gdmicesliding_19: -976715031
       tileset-gdmicesliding_2: 3132496617331237991
+      tileset-gdmicesliding_20: 529916390
+      tileset-gdmicesliding_21: 1113807533
+      tileset-gdmicesliding_22: 583906006
+      tileset-gdmicesliding_23: 1166314623
+      tileset-gdmicesliding_24: 335562343
+      tileset-gdmicesliding_25: -1307416223
+      tileset-gdmicesliding_26: -1392688577
+      tileset-gdmicesliding_27: -1634739633
+      tileset-gdmicesliding_28: 926512594
       tileset-gdmicesliding_3: 5679626524371095734
       tileset-gdmicesliding_4: -5993082326726432240
       tileset-gdmicesliding_5: -8141402204533505069

@@ -71,17 +71,7 @@ public class GameManagement : MonoBehaviour
     }
     public void StartSlidingGame()
     {
-        if (GetNbDayLeft() == 0)
-        {
-            // The player just clicked the computer
-            // for the final terminal scene
-            // Let's show them what we've got...!
-            // after the transition completes, lol.
-            animator.SetBool("StartingSlidingGame", true);
-            Debug.Log("StartSlidingGame skipped for terminal");
-            return;
-        }
-        if (isFishGameFinished)
+        if (isFishGameFinished && GetNbDayPassed() != 5)
         {
             Debug.Log("Fish game artificially started (and it works).");
             //SlidingGameAnimation();
@@ -91,22 +81,11 @@ public class GameManagement : MonoBehaviour
             //Animate Ice Sliding Game.
             
         }
-        
     }
     public void OnSlidingTransitionComplete()
     {
         workPlace.SetActive(false);
         animator.SetBool("StartingSlidingGame", false);
-        if (GetNbDayLeft() == 0)
-        {
-            // The player just clicked the computer
-            // for the final terminal scene
-            // Let's show them what we've got!
-
-            // I dont know what is LastDay!!!!
-            // LastDay.Instance.ItsTheFinalCountdown();
-            return;
-        }
         //iceSlidingGame.SetActive(true);
         iceSlidingGames[nbDaysPassed].SetActive(true);
     }

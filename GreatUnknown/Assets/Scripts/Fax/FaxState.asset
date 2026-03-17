@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: FaxState
   m_EditorClassIdentifier: Assembly-CSharp::FaxState
   <UnreadCount>k__BackingField: 0
-  faxLog: []
+  faxLog:
+  - {fileID: -2689679004630660999, guid: ba36df3e0f0dade42b81daafe5dc5345, type: 3}
+  - {fileID: 1596132068409206834, guid: 013b7f48a545848429b5745d4ca09393, type: 3}
+  - {fileID: -8541723960491868186, guid: af133020cfd7f8f4693947ee52e6418b, type: 3}

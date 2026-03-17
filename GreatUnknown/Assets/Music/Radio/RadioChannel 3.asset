@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f54ef2f257d4c62498e4688b8a0d4ea9, type: 3}
-  m_Name: BGMusic
+  m_Name: RadioChannel 3
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
-  soundClip: {fileID: 8300000, guid: 42d64103d8bd50440adf2a3ba72cef4b, type: 3}
-  volume: 1
-  isLooping: 0
+  soundClip: {fileID: 8300000, guid: e7ccf8ed67f704f4c91415a8bc3025f7, type: 3}
+  volume: 0.3
+  isLooping: 1

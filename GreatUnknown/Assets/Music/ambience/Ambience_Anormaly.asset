@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f54ef2f257d4c62498e4688b8a0d4ea9, type: 3}
-  m_Name: RadioChannel 2
+  m_Name: Ambience_Anormaly
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
-  soundClip: {fileID: 8300000, guid: a6c5cec005de6564ba729efb21ff6e8f, type: 3}
-  volume: 0.3
-  isLooping: 1
+  soundClip: {fileID: 8300000, guid: 9a946232feb64394ca29e1eaace80f46, type: 3}
+  volume: 1
+  isLooping: 0

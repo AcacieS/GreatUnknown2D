@@ -8,6 +8,7 @@ public class Sticker : MonoBehaviour, IClickable, IDraggable
     private Vector3 startPosSticker;
     private ClickHandler clickHandler;
     private bool isBox = true;
+    private HoveringOutline hoveringOutline;
 
     public void Awake()
     {
@@ -19,12 +20,13 @@ public class Sticker : MonoBehaviour, IClickable, IDraggable
     {
         StickerManagement.Instance.SetSticker(gameObject);
         clickHandler = GetComponent<ClickHandler>();
+        hoveringOutline = GetComponent<HoveringOutline>();
     }
-    
     public void OnClick()
     {
         if (isBox)
         {
+            hoveringOutline.DisableOutline();
             transform.position = clickHandler.StickerMousePos();//startPosSticker;
             isBox = false;
             BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();

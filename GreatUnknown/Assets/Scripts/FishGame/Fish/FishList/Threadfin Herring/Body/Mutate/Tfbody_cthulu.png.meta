@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 37c07d7db75ebae428cad377a1576ebe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -390333544024133612
+    second: Tfbody_cthulu_0
+  - first:
+      213: -1030891550630825769
+    second: Tfbody_cthulu_1
+  - first:
+      213: -5969840578271064520
+    second: Tfbody_cthulu_2
+  - first:
+      213: 8365820464439022070
+    second: Tfbody_cthulu_3
+  - first:
+      213: 5823841289157730367
+    second: Tfbody_cthulu_4
+  - first:
+      213: 1966283304010795824
+    second: Tfbody_cthulu_5
+  - first:
+      213: 2476479720681170876
+    second: Tfbody_cthulu_6
+  - first:
+      213: -8083011395677955295
+    second: Tfbody_cthulu_7
+  - first:
+      213: 6009029423433473681
+    second: Tfbody_cthulu_8
+  - first:
+      213: 4041867934065061157
+    second: Tfbody_cthulu_9
+  - first:
+      213: 8419412197417336139
+    second: Tfbody_cthulu_10
+  - first:
+      213: -4169406160521582635
+    second: Tfbody_cthulu_11
+  - first:
+      213: 2656032710630920295
+    second: Tfbody_cthulu_12
+  - first:
+      213: 2254505217335827392
+    second: Tfbody_cthulu_13
+  - first:
+      213: -324722261291511820
+    second: Tfbody_cthulu_14
+  - first:
+      213: -15279837827697196
+    second: Tfbody_cthulu_15
+  - first:
+      213: 4512383174245496704
+    second: Tfbody_cthulu_16
+  - first:
+      213: 1575024491128252773
+    second: Tfbody_cthulu_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tfbody_cthulu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2729
+        height: 1629
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410b584b5b1459af0800000000000000
+      internalID: -390333544024133612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6c93261563cc99c4395e6b2c50ffdd3c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2729.0,"y":1629.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Tfbody_cthulu_0: -390333544024133612
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

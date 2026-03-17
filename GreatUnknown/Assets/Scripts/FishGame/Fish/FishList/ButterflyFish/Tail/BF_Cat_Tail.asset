@@ -15,8 +15,15 @@ MonoBehaviour:
   fishLayerName: Tail
   baseBodyPartFish: {fileID: 11400000, guid: 6b81de61d18195c4b83d4e6eb1fcc034, type: 2}
   isOptional: 0
-  fishPartsMutated: []
-  fishPartsNormal: []
+  fishParts:
+  - {fileID: 11400000, guid: 22f246b874d9e8f4eafa6a68fc0e80f8, type: 2}
+  - {fileID: 11400000, guid: dd1e624f25cd91c4fb35b0d92f687051, type: 2}
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
   CategoryRestriction:
     day1: 0
     day2: 0

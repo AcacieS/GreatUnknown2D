@@ -1,325 +1,73 @@
 fileFormatVersion: 2
-guid: b7850fd5d1c493543a3959b64e44b2aa
+guid: 2063f506ecd229447b1ce3414b2e786d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2460329700507981158
-    second: tfbody_0
+      213: -229264551443561764
+    second: Tfbody_0
   - first:
-      213: -2817707598926476062
-    second: tfbody_1
+      213: -806911263178572329
+    second: Tfbody_1
   - first:
-      213: 5206463923918064067
-    second: tfbody_2
+      213: -8941538074659030616
+    second: Tfbody_2
   - first:
-      213: -1766690466716654925
-    second: tfbody_3
+      213: -795643238106078328
+    second: Tfbody_3
   - first:
-      213: -5122474988713811827
-    second: tfbody_4
+      213: 7139707655830370649
+    second: Tfbody_4
   - first:
-      213: -5658979575289754217
-    second: tfbody_5
+      213: -5020717257851679117
+    second: Tfbody_5
   - first:
-      213: 5956850798893759367
-    second: tfbody_6
+      213: 7667151298236936723
+    second: Tfbody_6
   - first:
-      213: -6980264318733224805
-    second: tfbody_7
+      213: -3446745269340767393
+    second: Tfbody_7
   - first:
-      213: 5140603584815140979
-    second: tfbody_8
+      213: -5451692603659164623
+    second: Tfbody_8
   - first:
-      213: 1775256124621834495
-    second: tfbody_9
+      213: 857468343086187225
+    second: Tfbody_9
   - first:
-      213: -59842915049813399
-    second: tfbody_10
+      213: -3653373876477369071
+    second: Tfbody_10
   - first:
-      213: 8031727188064162742
-    second: tfbody_11
+      213: 1268438670978326467
+    second: Tfbody_11
   - first:
-      213: 2181995544930864861
-    second: tfbody_12
+      213: 3070509100894132251
+    second: Tfbody_12
   - first:
-      213: -5076752372003109406
-    second: tfbody_13
+      213: -8383146776873722397
+    second: Tfbody_13
   - first:
-      213: 1683066092088262038
-    second: tfbody_14
+      213: 4284809561570302995
+    second: Tfbody_14
   - first:
-      213: -6130888715650702655
-    second: tfbody_15
+      213: -3705982149224471288
+    second: Tfbody_15
   - first:
-      213: 4655879226611892404
-    second: tfbody_16
+      213: 7485693106852657858
+    second: Tfbody_16
   - first:
-      213: 3442222956405220451
-    second: tfbody_17
+      213: -7495032143555143276
+    second: Tfbody_17
   - first:
-      213: 3572362904128616703
-    second: tfbody_18
+      213: 797439054577602597
+    second: Tfbody_18
   - first:
-      213: 7162333611473813349
-    second: tfbody_19
+      213: -9057614416999767059
+    second: Tfbody_19
   - first:
-      213: -1047906878711532345
-    second: tfbody_20
+      213: -7083250009392161147
+    second: Tfbody_20
   - first:
-      213: -8151189726562427020
-    second: tfbody_21
-  - first:
-      213: 4428736525428280828
-    second: tfbody_22
-  - first:
-      213: -4367677259621544265
-    second: tfbody_23
-  - first:
-      213: -2598364813467777890
-    second: tfbody_24
-  - first:
-      213: -1699738018685823621
-    second: tfbody_25
-  - first:
-      213: 4177209636709170647
-    second: tfbody_26
-  - first:
-      213: 520360033353388607
-    second: tfbody_27
-  - first:
-      213: 8036507726224152887
-    second: tfbody_28
-  - first:
-      213: -1550020453376374880
-    second: tfbody_29
-  - first:
-      213: -6440436317275768004
-    second: tfbody_30
-  - first:
-      213: 7907524648380024148
-    second: tfbody_31
-  - first:
-      213: 285763877021770530
-    second: tfbody_32
-  - first:
-      213: -4566132732385090997
-    second: tfbody_33
-  - first:
-      213: -3528921797351878937
-    second: tfbody_34
-  - first:
-      213: 5460544681307620843
-    second: tfbody_35
-  - first:
-      213: 8978693771619299419
-    second: tfbody_36
-  - first:
-      213: 6284800407389798585
-    second: tfbody_37
-  - first:
-      213: 5662528184606840886
-    second: tfbody_38
-  - first:
-      213: 9093785635588536995
-    second: tfbody_39
-  - first:
-      213: -3394191989815751973
-    second: tfbody_40
-  - first:
-      213: -3075206100355519483
-    second: tfbody_41
-  - first:
-      213: -1740342996766295031
-    second: tfbody_42
-  - first:
-      213: -1431534289523670082
-    second: tfbody_43
-  - first:
-      213: 3568287937550122934
-    second: tfbody_44
-  - first:
-      213: -1092737636298351904
-    second: tfbody_45
-  - first:
-      213: -9022920145037322814
-    second: tfbody_46
-  - first:
-      213: 933024584677807697
-    second: tfbody_47
-  - first:
-      213: -1936816339120655744
-    second: tfbody_48
-  - first:
-      213: -788312989110755775
-    second: tfbody_49
-  - first:
-      213: 8384793855150452884
-    second: tfbody_50
-  - first:
-      213: -4748259906501745150
-    second: tfbody_51
-  - first:
-      213: 238056352964522647
-    second: tfbody_52
-  - first:
-      213: 3987700936734028034
-    second: tfbody_53
-  - first:
-      213: -8317761811982236107
-    second: tfbody_54
-  - first:
-      213: -9137298287371044553
-    second: tfbody_55
-  - first:
-      213: -592327306397826756
-    second: tfbody_56
-  - first:
-      213: -8852010934260244021
-    second: tfbody_57
-  - first:
-      213: 6102365912408277624
-    second: tfbody_58
-  - first:
-      213: -3857622252670110795
-    second: tfbody_59
-  - first:
-      213: -4463350018223794760
-    second: tfbody_60
-  - first:
-      213: -1952796465165375609
-    second: tfbody_61
-  - first:
-      213: -3575319577836279569
-    second: tfbody_62
-  - first:
-      213: 7947303419822729226
-    second: tfbody_63
-  - first:
-      213: 3059457542839496227
-    second: tfbody_64
-  - first:
-      213: 8553555962822086849
-    second: tfbody_65
-  - first:
-      213: 3810922356721932718
-    second: tfbody_66
-  - first:
-      213: -5242316941299105756
-    second: tfbody_67
-  - first:
-      213: 8866880315737961050
-    second: tfbody_68
-  - first:
-      213: 137903192497718352
-    second: tfbody_69
-  - first:
-      213: 426361444521026121
-    second: tfbody_70
-  - first:
-      213: -3126407257650648721
-    second: tfbody_71
-  - first:
-      213: 3001199275373179011
-    second: tfbody_72
-  - first:
-      213: -6698864956431445050
-    second: tfbody_73
-  - first:
-      213: -2141163542993158617
-    second: tfbody_74
-  - first:
-      213: -5641959821418096283
-    second: tfbody_75
-  - first:
-      213: -7866554349813656411
-    second: tfbody_76
-  - first:
-      213: 7649822280648723555
-    second: tfbody_77
-  - first:
-      213: 3775023845499907369
-    second: tfbody_78
-  - first:
-      213: 3012960300302903498
-    second: tfbody_79
-  - first:
-      213: -3278017897099281251
-    second: tfbody_80
-  - first:
-      213: -3141456349945286651
-    second: tfbody_81
-  - first:
-      213: -3823521408911481876
-    second: tfbody_82
-  - first:
-      213: 4396223678969503493
-    second: tfbody_83
-  - first:
-      213: -7106930741696451828
-    second: tfbody_84
-  - first:
-      213: -1190447789899798549
-    second: tfbody_85
-  - first:
-      213: 6564884581270297183
-    second: tfbody_86
-  - first:
-      213: 9102414733639757469
-    second: tfbody_87
-  - first:
-      213: 6964479618057212741
-    second: tfbody_88
-  - first:
-      213: 1234626334416666057
-    second: tfbody_89
-  - first:
-      213: 4169072806410000562
-    second: tfbody_90
-  - first:
-      213: 8508934906534011053
-    second: tfbody_91
-  - first:
-      213: 6392722735206789593
-    second: tfbody_92
-  - first:
-      213: 952579595726208390
-    second: tfbody_93
-  - first:
-      213: -2824238610249899019
-    second: tfbody_94
-  - first:
-      213: 6207301571050461390
-    second: tfbody_95
-  - first:
-      213: -6231459040004148905
-    second: tfbody_96
-  - first:
-      213: -1643987806689206357
-    second: tfbody_97
-  - first:
-      213: 5316505638150288084
-    second: tfbody_98
-  - first:
-      213: 5326785259002826134
-    second: tfbody_99
-  - first:
-      213: -1698564247722396081
-    second: tfbody_100
-  - first:
-      213: 1163969048148441761
-    second: tfbody_101
-  - first:
-      213: -8636268009847041695
-    second: tfbody_102
-  - first:
-      213: -6917346772383813904
-    second: tfbody_103
-  - first:
-      213: -6030521861003910697
-    second: tfbody_104
-  - first:
-      213: 1150214217286647403
-    second: tfbody_105
+      213: 9011268265080681495
+    second: Tfbody_21
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -415,13 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tfbody_0
+      name: Tfbody_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2368
-        height: 1151
+        width: 2729
+        height: 1629
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6651f15c3d8d42220800000000000000
-      internalID: 2460329700507981158
+      spriteID: cd20e9bea1d71dcf0800000000000000
+      internalID: -229264551443561764
       vertices: []
       indices: 
       edges: []
@@ -440,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 12287183994d51b4b908ceec99a68fb8
+    spriteID: 8909bff53cb86cf4e9aadf1dd28d1ecb
     internalID: 0
     vertices: []
     indices: 
@@ -450,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2368.0,"y":1151.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2729.0,"y":1629.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tfbody_0: 2460329700507981158
+      Tfbody_0: -229264551443561764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

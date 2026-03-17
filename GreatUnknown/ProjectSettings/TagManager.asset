@@ -46,9 +46,6 @@ TagManager:
   - name: Body
     uniqueID: 50212853
     locked: 0
-  - name: Pectoral
-    uniqueID: 4159147205
-    locked: 0
   - name: Dorsal
     uniqueID: 2621240399
     locked: 0
@@ -69,6 +66,9 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 1882186411
+    locked: 0
+  - name: Pectoral
+    uniqueID: 4159147205
     locked: 0
   - name: Foreground
     uniqueID: 1996232119

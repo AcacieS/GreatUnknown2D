@@ -13,5 +13,15 @@ MonoBehaviour:
   m_Name: FaxCatalog
   m_EditorClassIdentifier: Assembly-CSharp::FaxCatalog
   entries:
-  - id: Test
-    sprite: {fileID: -333703456, guid: fb3f0dd062493ef42a107cef6bb8d174, type: 3}
+  - id: day1_morning
+    sprite: {fileID: -2689679004630660999, guid: ba36df3e0f0dade42b81daafe5dc5345, type: 3}
+  - id: day2_morning
+    sprite: {fileID: 1596132068409206834, guid: 013b7f48a545848429b5745d4ca09393, type: 3}
+  - id: day3_morning
+    sprite: {fileID: -8541723960491868186, guid: af133020cfd7f8f4693947ee52e6418b, type: 3}
+  - id: day3_midday
+    sprite: {fileID: -5976139771704891755, guid: 68a2a875515f5884bbb0f22ff8b0d448, type: 3}
+  - id: day4_morning
+    sprite: {fileID: 577730858395313141, guid: 2a0323e8bd06d9d499fcc8f00b0e010c, type: 3}
+  - id: day5_morning
+    sprite: {fileID: -6852750274050121569, guid: 6f1cdfb5987d60543aca5f54394c9d67, type: 3}

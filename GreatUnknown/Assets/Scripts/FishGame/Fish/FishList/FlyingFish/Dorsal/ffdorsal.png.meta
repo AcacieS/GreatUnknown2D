@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: fce7f60f3c3df8a4ab7abf16addc1b2b
+guid: ba09b4387430bd14bb6075131ad8ca15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6290836914193471352
-    second: ffdorsal_0
+      213: 3086971791904058018
+    second: Ffdorsal_0
   - first:
-      213: 3249406450865960741
-    second: ffdorsal_1
+      213: -1565639413456590071
+    second: Ffdorsal_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ffdorsal_0
+      name: Ffdorsal_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8886595282572b8a0800000000000000
-      internalID: -6290836914193471352
+      spriteID: 2aaa7104d7027da20800000000000000
+      internalID: 3086971791904058018
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5ac38e21dd05f7d4e9bb3f15c61ed407
+    spriteID: 07ed9b5ee7d1d3d4094fff1d6c9f3a64
     internalID: 0
     vertices: []
     indices: 
@@ -140,7 +140,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ffdorsal_0: -6290836914193471352
+      Ffdorsal_0: 3086971791904058018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -25,6 +25,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
+    [SerializeField] private GameObject[] iceSlidingGames;
     [SerializeField] private GameObject Canvas;
 
     [Header ("Story")]
@@ -70,6 +71,16 @@ public class GameManagement : MonoBehaviour
     }
     public void StartSlidingGame()
     {
+        if (GetNbDayLeft() == 0)
+        {
+            // The player just clicked the computer
+            // for the final terminal scene
+            // Let's show them what we've got...!
+            // after the transition completes, lol.
+            animator.SetBool("StartingSlidingGame", true);
+            Debug.Log("StartSlidingGame skipped for terminal");
+            return;
+        }
         if (isFishGameFinished)
         {
             Debug.Log("Fish game artificially started (and it works).");
@@ -85,8 +96,19 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingTransitionComplete()
     {
         workPlace.SetActive(false);
-        iceSlidingGame.SetActive(true);
         animator.SetBool("StartingSlidingGame", false);
+        if (GetNbDayLeft() == 0)
+        {
+            // The player just clicked the computer
+            // for the final terminal scene
+            // Let's show them what we've got!
+
+            // I dont know what is LastDay!!!!
+            // LastDay.Instance.ItsTheFinalCountdown();
+            return;
+        }
+        //iceSlidingGame.SetActive(true);
+        iceSlidingGames[nbDaysPassed].SetActive(true);
     }
     private void ResetDataDay()
     {
@@ -98,7 +120,7 @@ public class GameManagement : MonoBehaviour
 
     public void ExitSlidingGame()
     {
-        iceSlidingGame.SetActive(false);
+        iceSlidingGames[nbDaysPassed].SetActive(false);
         workPlace.SetActive(true);
 
         animator.SetBool("ExitingSlidingGame", true);

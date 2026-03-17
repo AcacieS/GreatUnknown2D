@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: FF_DorsalDefault
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
-  bodyPartSprite: {fileID: -6290836914193471352, guid: fce7f60f3c3df8a4ab7abf16addc1b2b, type: 3}
-  percentage: 0
+  bodyPartSprite: {fileID: 3086971791904058018, guid: ba09b4387430bd14bb6075131ad8ca15, type: 3}
   isMutated: 0
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 0

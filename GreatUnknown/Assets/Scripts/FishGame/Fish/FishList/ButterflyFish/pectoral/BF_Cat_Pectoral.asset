@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8446c751ecbc96b40afc62cd3012c95f, type: 3}
+  m_Name: BF_Cat_Pectoral
+  m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
+  fishLayerName: Pectoral
+  baseBodyPartFish: {fileID: 11400000, guid: 2a8303689d9a8f54faa59bc5ac9adcac, type: 2}
+  isOptional: 0
+  fishParts:
+  - {fileID: 11400000, guid: d51d37ef09f21da40a5438ad5aab08a5, type: 2}
+  - {fileID: 11400000, guid: f72f2dfa2c96f074e87e02c67296f1a3, type: 2}
+  fishPartsMutated:
+    EasyFishParts: []
+    HardFishParts: []
+  fishPartsNormal:
+    EasyFishParts: []
+    HardFishParts: []
+  CategoryRestriction:
+    day1: 0
+    day2: 0
+    day3: 0
+    day4: 0
+    day5: 0
+  CategoryPercentage: 0
+  sortingLayer: 6

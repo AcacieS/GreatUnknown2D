@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 95659e0fa929b404dbd72b80820f0924
+guid: 8ad12362f7aeaa4419d909fea13834fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -823200919163266354
-    second: fftail_0
+      213: 4891072819204829454
+    second: Fftail_0
   - first:
-      213: 1639129200460425986
-    second: fftail_1
+      213: 8435338430085119178
+    second: Fftail_1
   - first:
-      213: -2035720458605080551
-    second: fftail_2
+      213: -1392499143967259594
+    second: Fftail_2
   - first:
-      213: 2118807046888471936
-    second: fftail_3
+      213: -8201926719261787524
+    second: Fftail_3
   - first:
-      213: 2337009055431445204
-    second: fftail_4
+      213: -661014141180798115
+    second: Fftail_4
   - first:
-      213: -5094920148757489239
-    second: fftail_5
+      213: 1673843528059086599
+    second: Fftail_5
   - first:
-      213: -2731832323134884577
-    second: fftail_6
+      213: 4563358236624428274
+    second: Fftail_6
   - first:
-      213: 6206403856516083208
-    second: fftail_7
+      213: 6016405379514660583
+    second: Fftail_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fftail_0
+      name: Fftail_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eca9f7220276394f0800000000000000
-      internalID: -823200919163266354
+      spriteID: e01b547a0d490e340800000000000000
+      internalID: 4891072819204829454
       vertices: []
       indices: 
       edges: []
@@ -146,7 +146,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d9e3be9d24b4f14a8baabb72467f0c0
+    spriteID: 429f13ae1a4beb541a8a5c72080ca4e8
     internalID: 0
     vertices: []
     indices: 
@@ -158,7 +158,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      fftail_0: -823200919163266354
+      Fftail_0: 4891072819204829454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

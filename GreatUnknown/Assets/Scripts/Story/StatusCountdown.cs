@@ -1,0 +1,35 @@
+using UnityEngine;
+using System.Collections;
+using TMPro;
+
+public class StatusCountdown : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private string template;
+    [SerializeField] private int count = 49;
+
+    void Awake()
+    {
+        template = text.text.Substring(0, text.text.Length - 2);
+    }
+
+    void OnEnable()
+    {
+        StartCoroutine(CountDown());
+    }
+
+    private IEnumerator CountDown()
+    {
+        for (;count > 0; --count)
+        {
+            if (count > 9)
+            {
+                text.text = template + count;
+            } else
+            {
+                text.text = template + "0" + count;
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
+}

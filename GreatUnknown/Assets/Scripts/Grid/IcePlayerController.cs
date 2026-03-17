@@ -14,6 +14,9 @@ public class IcePlayerController : MonoBehaviour
     [SerializeField]
     private LevelState levelState;
 
+    [SerializeField]
+    private Transform submarineVisual;
+
     private IceGrid grid;
     private Vector2Int pos;
     private Vector3 targetWorld;
@@ -28,6 +31,8 @@ public class IcePlayerController : MonoBehaviour
             restart = FindFirstObjectByType<Restart>();
         if (levelState == null)
             levelState = FindFirstObjectByType<LevelState>();
+        if (submarineVisual == null)
+            submarineVisual = transform;
     }
 
     private void Start()
@@ -46,6 +51,7 @@ public class IcePlayerController : MonoBehaviour
         pos = gridSource.PlayerStart;
         targetWorld = gridSource.GridIndexToWorldCenter(pos);
         transform.position = targetWorld;
+        FaceDirection(Vector2Int.up);
     }
 
     private void Update()
@@ -105,8 +111,24 @@ public class IcePlayerController : MonoBehaviour
         if (newPos == pos)
             return;
 
+        FaceDirection(dir);
         pos = newPos;
         targetWorld = gridSource.GridIndexToWorldCenter(pos);
         isMoving = true;
+    }
+
+    private void FaceDirection(Vector2Int dir)
+    {
+        if (submarineVisual == null)
+            return;
+
+        if (dir == Vector2Int.up)
+            submarineVisual.rotation = Quaternion.Euler(0f, 0f, 0f);
+        else if (dir == Vector2Int.right)
+            submarineVisual.rotation = Quaternion.Euler(0f, 0f, -90f);
+        else if (dir == Vector2Int.down)
+            submarineVisual.rotation = Quaternion.Euler(0f, 0f, 180f);
+        else if (dir == Vector2Int.left)
+            submarineVisual.rotation = Quaternion.Euler(0f, 0f, 90f);
     }
 }

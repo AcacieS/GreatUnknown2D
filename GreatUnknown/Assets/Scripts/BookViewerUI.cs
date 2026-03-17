@@ -9,6 +9,7 @@ public class BookViewerUI : MonoBehaviour
     [SerializeField] private List<Sprite> pages = new List<Sprite>();
 
     [Header("UI References")]
+    [SerializeField] private Image PageImage;
     [SerializeField] private Image leftPageImage;
     [SerializeField] private Image rightPageImage;
     [SerializeField] private Button prevButton;

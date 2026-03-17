@@ -15,7 +15,7 @@ public class FaxViewerUI : MonoBehaviour
     [Header("Layout")]
     [SerializeField] private int centerDepth = 4;
     [SerializeField] private Vector2 centerBehindOffset = new Vector2(18f, -6f);
-    [SerializeField] private Vector2 sideOffset = new Vector2(14f, -5f);
+    [SerializeField] private Vector2 sideOffset = new Vector2(-14f, -5f);
 
     private readonly List<Image> spawned = new();
     private int currentIndex;
@@ -47,32 +47,35 @@ public class FaxViewerUI : MonoBehaviour
         Render();
     }
 
-    private void Render()
+   private void Render()
+{
+    ClearSpawned();
+    if (state == null) return;
+
+    var log = state.FaxLog;
+    if (log.Count == 0) return;
+
+    // CENTER STACK: oldest behind, current on top
+    int firstCenterIndex = Mathf.Max(0, currentIndex - centerDepth);
+    int layers = 0;
+
+    for (int i = firstCenterIndex; i <= currentIndex; i++, layers++)
     {
-        ClearSpawned();
-        if (state == null) return;
-        var log = state.FaxLog;
-        if (log.Count == 0) return;
-
-        // --- CENTER STACK ---
-        // top = currentIndex, then previous ones behind
-        int layers = 0;
-        for (int i = currentIndex; i >= 0 && layers <= centerDepth; i--, layers++)
-        {
-            var img = SpawnPage(centerContainer, log[i]);
-            img.rectTransform.anchoredPosition = centerBehindOffset * layers;
-            img.transform.SetAsLastSibling(); // topmost should be last; this keeps current on top
-        }
-
-        // --- SIDE STACK (newer pages pushed away) ---
-        int sideLayer = 0;
-        for (int i = currentIndex + 1; i < log.Count; i++, sideLayer++)
-        {
-            var img = SpawnPage(sideContainer, log[i]);
-            img.rectTransform.anchoredPosition = sideOffset * sideLayer;
-            img.transform.SetAsLastSibling(); // newest on top if instantiated last
-        }
+        var img = SpawnPage(centerContainer, log[i]);
+        img.rectTransform.anchoredPosition = centerBehindOffset * (currentIndex - i);
+        img.transform.SetAsLastSibling();
     }
+
+    // SIDE STACK: newer pages, with nearest newer on top or reverse depending on what you want
+    int sideLayer = 0;
+    for (int i = log.Count - 1; i > currentIndex; i--, sideLayer++)
+    {
+        var img = SpawnPage(sideContainer, log[i]);
+        img.rectTransform.anchoredPosition = sideOffset * sideLayer;
+        img.transform.SetAsLastSibling();
+    }
+}
+    
 
     private Image SpawnPage(RectTransform parent, Sprite sprite)
     {

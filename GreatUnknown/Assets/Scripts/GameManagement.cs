@@ -17,6 +17,7 @@ public class GameManagement : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
     [SerializeField] private bool isFishGameTrue = false;
+    
 
     [Header("Game States")]
     public bool isFishGameFinished = false;
@@ -34,6 +35,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject fishGame;
     [SerializeField] private GameObject iceSlidingGame;
     [SerializeField] private GameObject[] iceSlidingGames;
+    [SerializeField] private IceSlidingGameSwitcher iceSlidingGameSwitcher;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private GameObject firstDayCanvas;
 
@@ -47,6 +49,8 @@ public class GameManagement : MonoBehaviour
     public Sprite backgroundDay5;
     private SpriteRenderer backgroundRend;
     
+
+    [SerializeField] private LastDay lastDay;
 
     public void Awake()
     {
@@ -64,7 +68,6 @@ public class GameManagement : MonoBehaviour
         Canvas?.SetActive(true);
         workPlace?.SetActive(true);
         fishGame?.SetActive(false);
-        iceSlidingGame?.SetActive(false);
         firstDayCanvas?.SetActive(true);
     }
 
@@ -100,7 +103,8 @@ public class GameManagement : MonoBehaviour
     {
         workPlace.SetActive(false);
         animator.SetBool("StartingSlidingGame", false);
-        iceSlidingGames[nbDaysPassed].SetActive(true);
+        iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
+        
     }
 
     private void ResetDataDay()
@@ -131,7 +135,7 @@ public class GameManagement : MonoBehaviour
 
     public void OnSlidingExitComplete()
     {
-        animator.SetBool("ExitingSlidingGame", false);
+       iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
     }
 
     public void MarkSlidingGameFinished()
@@ -218,7 +222,7 @@ public void NextDay()
         case 5: // day 6
             StartCoroutine(waitEmergencyLight());
             emergencyLight.gameObject.SetActive(true);
-            LastDay.Instance.gameObject.SetActive(true);
+            lastDay.gameObject.SetActive(true);
             break;
         default:
             Debug.Log("Nothing for now");

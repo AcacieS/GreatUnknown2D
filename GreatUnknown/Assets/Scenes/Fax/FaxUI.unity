@@ -4701,6 +4701,10 @@ MonoBehaviour:
   iceSlidingGame: {fileID: 2074042226}
   iceSlidingGames: []
   Canvas: {fileID: 2532382225685698924}
+  emergencyLight: {fileID: 0}
+  backgroundWork: {fileID: 0}
+  backgroundDay3: {fileID: 0}
+  backgroundDay5: {fileID: 0}
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0

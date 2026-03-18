@@ -13,13 +13,20 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
     public static int nbDaysPassed = 0;
+
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
     [SerializeField] private bool isFishGameTrue = false;
+
     [Header("Game States")]
     public bool isFishGameFinished = false;
-    // TODO: isSliding Game, for now assume is finished;
     public bool isSlidingGameFinished = false;
+    public bool isDayEnding = false;
+
+    [Header("Day Ending")]
+    [SerializeField] private float delayBeforeFade = 1.5f;
+    private Coroutine dayEndingCoroutine;
+
     [SerializeField] private Radio radioScript;
     
     [Header("Initialization of Game")]
@@ -31,6 +38,7 @@ public class GameManagement : MonoBehaviour
 
     [Header ("Story")]
     [SerializeField] private Light2D emergencyLight = null;
+
     [Header ("Change Background")]
     [SerializeField] private GameObject backgroundWork = null;
     public Sprite backgroundDay3;
@@ -46,6 +54,7 @@ public class GameManagement : MonoBehaviour
         fishSession.ResetSession();
         OrganizeGame();
     }
+
     private void OrganizeGame()
     {
         Canvas.SetActive(true);
@@ -53,6 +62,7 @@ public class GameManagement : MonoBehaviour
         fishGame.SetActive(false);
         iceSlidingGame.SetActive(false);
     }
+
     public void ResetDay()
     {
         ResetDataDay();
@@ -66,34 +76,40 @@ public class GameManagement : MonoBehaviour
     {
         return nbDaysPassed;
     }
+
     public int GetNbDayLeft()
     {
         return daySprites.Length - nbDaysPassed -1;
     }
+
     public void StartSlidingGame()
     {
         if (isFishGameFinished && GetNbDayPassed() != 5)
         {
             Debug.Log("Fish game artificially started (and it works).");
-            //SlidingGameAnimation();
             animator.SetBool("StartingSlidingGame", true);
-            
-            //MakeNotIceSlidingGame elemnt Dead()
-            //Animate Ice Sliding Game.
-            
         }
     }
+
     public void OnSlidingTransitionComplete()
     {
         workPlace.SetActive(false);
         animator.SetBool("StartingSlidingGame", false);
-        //iceSlidingGame.SetActive(true);
         iceSlidingGames[nbDaysPassed].SetActive(true);
     }
+
     private void ResetDataDay()
     {
         isFishGameFinished = false;
         isSlidingGameFinished = false;
+        isDayEnding = false;
+
+        if (dayEndingCoroutine != null)
+        {
+            StopCoroutine(dayEndingCoroutine);
+            dayEndingCoroutine = null;
+        }
+
         fishSession.ResetSession();
         SpecialEventDay();
     }
@@ -104,11 +120,48 @@ public class GameManagement : MonoBehaviour
         workPlace.SetActive(true);
 
         animator.SetBool("ExitingSlidingGame", true);
+
+        TryStartDayEnding();
     }
+
     public void OnSlidingExitComplete()
+    {
+        animator.SetBool("ExitingSlidingGame", false);
+    }
+
+    public void MarkSlidingGameFinished()
+    {
+        if (isSlidingGameFinished) return;
+
+        isSlidingGameFinished = true;
+        TryStartDayEnding();
+    }
+
+    private void TryStartDayEnding()
 {
-    animator.SetBool("ExitingSlidingGame", false);
+    if (isDayEnding) return;
+
+    if (!isFishGameFinished) return;
+    if (!isSlidingGameFinished) return;
+    if (workPlace == null || !workPlace.activeSelf) return;
+
+    isDayEnding = true;
+    dayEndingCoroutine = StartCoroutine(DayEndingRoutine());
 }
+
+    private IEnumerator DayEndingRoutine()
+    {
+        Debug.Log("Day ending routine started.");
+
+        yield return new WaitForSeconds(delayBeforeFade);
+
+        animator.SetTrigger("FadeOutDay");
+    }
+
+    public void OnDayFadeComplete()
+    {
+        NextDay();
+    }
 
     [ContextMenu("Skip to next day")]
     public void SkipToNextDay()
@@ -118,25 +171,19 @@ public class GameManagement : MonoBehaviour
         NextDay();
     }
 
+public void NextDay()
+{
+    nbDaysPassed++;
+    ResetDataDay();
 
-    public void NextDay()
+    if (nbDaysPassed < daySprites.Length)
     {
-        if(isFishGameFinished && isSlidingGameFinished)
-        {
-            nbDaysPassed++;
-            ResetDataDay();
-            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
-            if (isSlidingGameTrue)
-            {
-                isSlidingGameFinished = true;
-            }
-            if (isFishGameTrue)
-            {
-                isFishGameFinished = true;
-            }
-            dayAnimation.WriteText();
-        }
+        daySpriteRenderer.sprite = daySprites[nbDaysPassed];
     }
+
+    dayAnimation.WriteText();
+}
+
     private void SpecialEventDay()
     {
         SpriteRenderer backgroundRend= backgroundWork.GetComponent<SpriteRenderer>();
@@ -146,34 +193,30 @@ public class GameManagement : MonoBehaviour
             backgroundRend.sprite = backgroundDay3;
             break;
         case 3: //day 4
-            // code block
             Debug.Log("Day 4");
-            //replace 4th day channel 3. 
             radioScript.ChangeRadioChannel();
             break;
         case 4: //day 5
-            // code block
             backgroundRend.sprite = backgroundDay5;
             Debug.Log("Day 5");
             radioScript.ShootingRadioChannel();
-            //5th radio starts on ex 30s. no other channel. can close when click on. close it. no channel after.
             break;
         case 5: // day 6
             StartCoroutine(waitEmergencyLight());
             emergencyLight.gameObject.SetActive(true);
             LastDay.Instance.gameObject.SetActive(true);
-
             break;
         default:
             Debug.Log("Nothing for now");
-            //6th day radio channel is off.
             break;
         }
     }
+
     public void GetCurrentMusic()
     {
         
     }
+
     void Start()
     {
         if (isSlidingGameTrue)
@@ -186,11 +229,11 @@ public class GameManagement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
     public IEnumerator waitEmergencyLight()
     {
         yield return new WaitForSeconds(20);

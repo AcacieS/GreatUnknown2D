@@ -40,6 +40,7 @@ public class TypingEffect : MonoBehaviour
         yield return new WaitForSeconds(waitSecondAfterTyping);
         text.text = "";
         currentDayCanvas.SetActive(false);
+        GameManagement.Instance.SpecialEventDay();
     }
     public virtual void WriteText()
     {

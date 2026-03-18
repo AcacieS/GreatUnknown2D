@@ -38,6 +38,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject firstDayCanvas;
 
     [Header ("Story")]
+    [SerializeField] private FaxMachine faxMachine;
     [SerializeField] private Light2D emergencyLight = null;
 
     [Header ("Change Background")]
@@ -45,6 +46,7 @@ public class GameManagement : MonoBehaviour
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
     private SpriteRenderer backgroundRend;
+    
 
     public void Awake()
     {
@@ -114,7 +116,7 @@ public class GameManagement : MonoBehaviour
         }
 
         fishSession.ResetSession();
-        SpecialEventDay();
+        //SpecialEventDay();
     }
 
     public void ExitSlidingGame()
@@ -187,18 +189,28 @@ public void NextDay()
     dayAnimation.WriteText();
 }
     
-    private void SpecialEventDay()
+    public void SpecialEventDay()
     {
         switch(nbDaysPassed) 
         {
+        case 0:
+            Debug.Log("Day 1 FaxMachine should be there");
+            faxMachine.NewFaxMessage("day1_morning");
+            break;
+        case 1:
+            faxMachine.NewFaxMessage("day2_morning");
+            break;
         case 2: // day 3
+            faxMachine.NewFaxMessage("day3_morning");
             backgroundRend.sprite = backgroundDay3;
             break;
         case 3: //day 4
+            faxMachine.NewFaxMessage("day4_morning");
             Debug.Log("Day 4");
             radioScript.ChangeRadioChannel();
             break;
         case 4: //day 5
+            faxMachine.NewFaxMessage("day5_morning");
             backgroundRend.sprite = backgroundDay5;
             Debug.Log("Day 5");
             radioScript.ShootingRadioChannel();
@@ -230,12 +242,14 @@ public void NextDay()
             isFishGameFinished = true;
         }
         backgroundRend = backgroundWork.GetComponent<SpriteRenderer>();
+        //SpecialEventDay();
     }
 
     void Update()
     {
         
     }
+    
 
     public IEnumerator waitEmergencyLight()
     {

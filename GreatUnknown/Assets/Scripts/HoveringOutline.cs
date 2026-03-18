@@ -96,7 +96,7 @@ public class HoveringOutline : MonoBehaviour
     void SetOutline(Transform obj, bool state)
     {
         GameObject outline = hoverOutline;
-        Debug.Log("outline"+outline);
+        //Debug.Log("outline"+outline);
         if (outline == null && obj.childCount > 0)
             outline = obj.GetChild(0).gameObject;
 

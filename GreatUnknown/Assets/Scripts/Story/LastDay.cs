@@ -20,8 +20,8 @@ public class LastDay : MonoBehaviour
 
     void OnEnable()
     {
-        SoundManager.instance.PlaySound(LastDayAmbiance);
-        StartCoroutine(DelayKlaxonSound());
+        //SoundManager.instance.PlaySound(LastDayAmbiance);
+        //StartCoroutine(DelayKlaxonSound());
     }
 
     private IEnumerator DelayKlaxonSound()

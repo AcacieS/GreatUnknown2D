@@ -21,6 +21,7 @@ public class FaxMachine : MonoBehaviour, IClickable
 
     private void Awake()
     {
+        state.Clear();
         _sr = GetComponent<SpriteRenderer>();
         if (idleSprite != null) _sr.sprite = idleSprite;
     }

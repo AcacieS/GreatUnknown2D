@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: F_Mouth1
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Fin
-  bodyPartSprite: {fileID: -7506709145226339763, guid: 557d13f380196814f946cce9813046af, type: 3}
+  bodyPartSprite: {fileID: -5883345495347659627, guid: 6f6a27a9e7c826948ac11e73fcf9190b, type: 3}
   isMutated: 0
   difficulty: 1

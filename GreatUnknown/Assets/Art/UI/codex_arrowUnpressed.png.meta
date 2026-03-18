@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6f6ee5bd6b483334dad6e00d5fe33b2a
+guid: 10a3e10a49df9924d8412a41bfdd3db4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3040180568116506053
-    second: Untitled drawing (2)_0
+      213: 2782799918994917874
+    second: codexarrow-unpressed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled drawing (2)_0
+      name: codexarrow-unpressed_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 30
-        width: 646
-        height: 917
+        x: 737
+        y: 489
+        width: 370
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cd21af7e14e03a20800000000000000
-      internalID: 3040180568116506053
+      spriteID: 2f98dac48cd7e9620800000000000000
+      internalID: 2782799918994917874
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled drawing (2)_0: 3040180568116506053
+      codexarrow-unpressed_0: 2782799918994917874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

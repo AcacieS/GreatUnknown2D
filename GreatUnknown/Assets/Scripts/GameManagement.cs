@@ -35,6 +35,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject iceSlidingGame;
     [SerializeField] private GameObject[] iceSlidingGames;
     [SerializeField] private GameObject Canvas;
+    [SerializeField] private GameObject firstDayCanvas;
 
     [Header ("Story")]
     [SerializeField] private Light2D emergencyLight = null;
@@ -43,6 +44,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject backgroundWork = null;
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
+    private SpriteRenderer backgroundRend;
 
     public void Awake()
     {
@@ -57,10 +59,11 @@ public class GameManagement : MonoBehaviour
 
     private void OrganizeGame()
     {
-        Canvas.SetActive(true);
-        workPlace.SetActive(true);
-        fishGame.SetActive(false);
-        iceSlidingGame.SetActive(false);
+        Canvas?.SetActive(true);
+        workPlace?.SetActive(true);
+        fishGame?.SetActive(false);
+        iceSlidingGame?.SetActive(false);
+        firstDayCanvas?.SetActive(true);
     }
 
     public void ResetDay()
@@ -183,10 +186,9 @@ public void NextDay()
 
     dayAnimation.WriteText();
 }
-
+    
     private void SpecialEventDay()
     {
-        SpriteRenderer backgroundRend= backgroundWork.GetComponent<SpriteRenderer>();
         switch(nbDaysPassed) 
         {
         case 2: // day 3
@@ -227,6 +229,7 @@ public void NextDay()
         {
             isFishGameFinished = true;
         }
+        backgroundRend = backgroundWork.GetComponent<SpriteRenderer>();
     }
 
     void Update()

@@ -594,7 +594,7 @@ TextureImporter:
         width: 156
         height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -616,7 +616,7 @@ TextureImporter:
         width: 156
         height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -638,7 +638,7 @@ TextureImporter:
         width: 156
         height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -657,10 +657,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1281
         y: 802
-        width: 156
+        width: 157
         height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -704,7 +704,7 @@ TextureImporter:
         width: 156
         height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,6 +713,72 @@ TextureImporter:
       bones: []
       spriteID: 036388f07ec243f4e9bfc9e221af4f90
       internalID: 1751278003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_23
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 801
+        width: 157
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfcafe9944a6e144b01f60739545e2a
+      internalID: 1166314623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_24
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 799
+        width: 157
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86f22f53b7f3794da4f423a5fb3aa71
+      internalID: 335562343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset-gdmicesliding_29
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 638
+        width: 157
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19c728c9af22a649b889a8d760c4feb
+      internalID: 1507391602
       vertices: []
       indices: 
       edges: []
@@ -755,6 +821,7 @@ TextureImporter:
       tileset-gdmicesliding_26: -1392688577
       tileset-gdmicesliding_27: -1634739633
       tileset-gdmicesliding_28: 926512594
+      tileset-gdmicesliding_29: 1507391602
       tileset-gdmicesliding_3: 5679626524371095734
       tileset-gdmicesliding_4: -5993082326726432240
       tileset-gdmicesliding_5: -8141402204533505069

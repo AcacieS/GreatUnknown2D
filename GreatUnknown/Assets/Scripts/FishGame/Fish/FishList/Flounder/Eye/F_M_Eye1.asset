@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: F_M_Eye1
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Flounder Eye Mutated 1
-  bodyPartSprite: {fileID: -313465448565717282, guid: bed3886a95344504cad542ab92f1597b, type: 3}
-  percentage: 0
+  bodyPartSprite: {fileID: -3618665194103045019, guid: d3a464e9aeecf1041a721a7f74ed04a7, type: 3}
   isMutated: 1
-  restrictionFish:
-    day1: 0
-    day2: 0
-    day3: 0
-    day4: 0
-    day5: 0
+  difficulty: 0

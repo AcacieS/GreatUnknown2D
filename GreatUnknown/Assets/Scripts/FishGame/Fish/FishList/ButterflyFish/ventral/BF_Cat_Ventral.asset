@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BF_Cat_Ventral
   m_EditorClassIdentifier: Assembly-CSharp::CategoryFishBodyPart
   fishLayerName: Tail
-  baseBodyPartFish: {fileID: 11400000, guid: 42de450786f146640bbc607c62a3b390, type: 2}
+  baseBodyPartFish: {fileID: 11400000, guid: 415eadca8b797244c908dddd525c7e44, type: 2}
   isOptional: 0
   fishParts:
   - {fileID: 11400000, guid: 4d37a6bccd858d34fad0e8277ddbee6e, type: 2}

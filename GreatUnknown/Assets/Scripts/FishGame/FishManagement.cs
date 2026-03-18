@@ -316,7 +316,7 @@ public class FishManagement : MonoBehaviour
         else{
             Debug.Log("Should appear: "+playerSaysMutated);
             session.AddWrong();
-            if(session.Wrong >= 3)
+            if(session.Wrong > 3)
             {
                 GameManagement.Instance.ResetDay();
                 return;

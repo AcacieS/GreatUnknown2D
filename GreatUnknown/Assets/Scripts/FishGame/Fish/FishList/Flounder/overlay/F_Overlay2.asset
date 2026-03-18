@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce13af7192c739142b199333916a9cf2, type: 3}
+  m_Name: F_Overlay2
+  m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
+  description: Flounder Tail Default
+  bodyPartSprite: {fileID: 892948762492424636, guid: 6501448dd4b4e5b48939003c59712e60, type: 3}
+  isMutated: 0
+  difficulty: 0

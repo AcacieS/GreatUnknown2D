@@ -52,6 +52,14 @@ public class DayDebugTools : MonoBehaviour
         Debug.Log($"[DayDebugTools] After advance -> Internal = {afterInternal}, Human day = {afterHuman}");
     }
 
+    [ContextMenu("Debug/Skip To Last Day")]
+    public void SkipToLastDay()
+    {
+        while (GameManagement.nbDaysPassed < 5) {
+            AdvanceToNextDay();
+        }
+    }
+
     [ContextMenu("Debug/Log Whether LastDay Should Trigger")]
     public void LogLastDayTriggerState()
     {

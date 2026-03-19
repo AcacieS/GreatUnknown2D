@@ -16,7 +16,7 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     [SerializeField] private bool RestrictedToAxisY = false;
     [Header("Events")]
     [FormerlySerializedAs("_clicked")]
-    [SerializeField] private UnityEvent onClick;
+    public UnityEvent onClick;
     
     private IClickable _clickable;
     private BoxCollider2D _collider;

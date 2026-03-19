@@ -23635,6 +23635,7 @@ GameObject:
   - component: {fileID: 4119620549345236096}
   - component: {fileID: 2539905627560228834}
   - component: {fileID: 6875153284246808375}
+  - component: {fileID: 6875153284246808376}
   m_Layer: 0
   m_Name: computer_0
   m_TagString: Untagged
@@ -27366,7 +27367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2226735843701908652}
   - component: {fileID: 7058113493317569357}
-  - component: {fileID: 7058113493317569359}
   m_Layer: 0
   m_Name: LastDay
   m_TagString: Untagged
@@ -27575,6 +27575,28 @@ MonoBehaviour:
   hoverOutline: {fileID: 0}
   canShowOutline: 1
   stopShowOutlineForever: 0
+--- !u!95 &6875153284246808376
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936695980493919649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9b0d3a9a22b84a4a88c0dc42a13c31f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6918864115344050262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4396415719752648763, guid: 9b7a62dfbecec6e49b2a8a92f11628a5, type: 3}
@@ -27704,30 +27726,9 @@ MonoBehaviour:
   ambianceSource: {fileID: 915390340}
   klaxonSource: {fileID: 1128335656}
   LastDayTerminal: {fileID: 611432601696111410}
-  LastDayPrompt: {fileID: 5386574725864168808}
   EmergencyLightsAnimator: {fileID: 154781485}
---- !u!95 &7058113493317569359
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478713568471805101}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  ComputerAnimator: {fileID: 6875153284246808376}
+  ComputerClickHandler: {fileID: 2539905627560228834}
 --- !u!1 &7063549798539817808
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,9 @@ public class LastDay : MonoBehaviour
     [SerializeField] private AudioSource ambianceSource;
     [SerializeField] private AudioSource klaxonSource;
     [SerializeField] private GameObject LastDayTerminal;
-    [SerializeField] private GameObject LastDayPrompt;
     [SerializeField] private Animator EmergencyLightsAnimator;
+    [SerializeField] private Animator ComputerAnimator;
+    [SerializeField] private ClickHandler ComputerClickHandler;
 
     // This script lies dormant until the last day.
     void OnEnable()
@@ -41,12 +42,13 @@ public class LastDay : MonoBehaviour
 
         yield return new WaitForSeconds(promptDelaySeconds);
 
-        LastDayPrompt.SetActive(true);
+        ComputerAnimator.SetTrigger("Flash");
+        ComputerClickHandler.onClick.RemoveAllListeners();
+        ComputerClickHandler.onClick.AddListener(FinalTerminalScene);
     }
 
     public void FinalTerminalScene()
     {
-        LastDayPrompt.SetActive(false);
         LastDayTerminal.SetActive(true);
         EmergencyLightsAnimator.SetBool("On", false);
     }

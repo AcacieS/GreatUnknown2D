@@ -240,6 +240,5 @@ public class GameManagement : MonoBehaviour
         {
             isFishGameFinished = true;
         }
-        SpecialEventDay();
     }
 }

@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Remove The Bugs/Stefa Menu.unity
+    path: Assets/Scenes/RemoveTheBugs/Stefa Menu.unity
     guid: 659f65bbe1f692641b35c4d7c6b4e63f
   - enabled: 1
-    path: Assets/Scenes/Remove The Bugs/RemoveTheBugs.unity
+    path: Assets/Scenes/RemoveTheBugs/RemoveTheBugs.unity
     guid: 9eb25c276c4d5f346b0cbd8a7741abc6
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}

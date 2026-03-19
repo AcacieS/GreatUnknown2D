@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.Events;
 
 public class StatusCountdown : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private string template;
     [SerializeField] private int count = 49;
+    [SerializeField] private UnityEvent countdownTerminated;
 
     void Awake()
     {
@@ -31,5 +33,6 @@ public class StatusCountdown : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
+        countdownTerminated?.Invoke();
     }
 }

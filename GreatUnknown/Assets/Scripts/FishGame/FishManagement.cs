@@ -361,7 +361,6 @@ public class FishManagement : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject); 
     }
     
 }

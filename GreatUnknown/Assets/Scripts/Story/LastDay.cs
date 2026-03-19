@@ -5,23 +5,30 @@ using UnityEngine.UI;
 
 public class LastDay : MonoBehaviour
 {
-    public static LastDay Instance {get; private set;}
-    [SerializeField] private int klaxonDelaySeconds = 30;
+    [SerializeField] private int klaxonDelaySeconds = 3;
     [SerializeField] private int promptDelaySeconds = 5;
     [SerializeField] private AudioInfo Klaxon;
     [SerializeField] private AudioInfo LastDayAmbiance;
+    [SerializeField] private AudioSource ambianceSource;
+    [SerializeField] private AudioSource klaxonSource;
     [SerializeField] private GameObject LastDayTerminal;
-    [SerializeField] private GameObject LastDayPromptPrefab;
+    [SerializeField] private GameObject LastDayPrompt;
+    [SerializeField] private Animator EmergencyLightsAnimator;
 
-    void Awake()
-    {
-        Instance = this;
-    }
-
+    // This script lies dormant until the last day.
     void OnEnable()
     {
-        //SoundManager.instance.PlaySound(LastDayAmbiance);
-        //StartCoroutine(DelayKlaxonSound());
+        PlaySound(LastDayAmbiance, ambianceSource);
+        StartCoroutine(DelayKlaxonSound());
+    }
+
+
+    private void PlaySound(AudioInfo audioInfo, AudioSource audioSource)
+    {
+        audioSource.volume = audioInfo.volume;
+        audioSource.clip = audioInfo.soundClip;
+        audioSource.loop = audioInfo.isLooping;
+        audioSource.Play();
     }
 
     private IEnumerator DelayKlaxonSound()
@@ -29,17 +36,18 @@ public class LastDay : MonoBehaviour
         yield return new WaitForSeconds(klaxonDelaySeconds);
 
         Debug.Log("Playing the Klaxon Sound");
-        SoundManager.instance.PlaySound(Klaxon);
+        PlaySound(Klaxon, klaxonSource);
+        EmergencyLightsAnimator.SetBool("On", true);
 
         yield return new WaitForSeconds(promptDelaySeconds);
 
-        var l = Instantiate(LastDayPromptPrefab);
-        l.transform.SetParent(LastDayTerminal.gameObject.transform.parent);
-        l.GetComponent<Button>().onClick.AddListener(FinalTerminalScene);
+        LastDayPrompt.SetActive(true);
     }
 
     public void FinalTerminalScene()
     {
+        LastDayPrompt.SetActive(false);
         LastDayTerminal.SetActive(true);
+        EmergencyLightsAnimator.SetBool("On", false);
     }
 }

@@ -185,8 +185,5 @@ public class Radio : MonoBehaviour, IClickable
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
     }
-
-    
 }

@@ -472,6 +472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -487,8 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e96a582a9731884e85c5f889da623f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  stickerPrefab: {fileID: 5732761883402656554, guid: 9b7a62dfbecec6e49b2a8a92f11628a5, type: 3}
-  stickerSpawnPlace: {fileID: 4008115649917060051}
+  stickerColliderPrefab: {fileID: 0}
 --- !u!1 &7699847250371809245
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -685,7 +688,7 @@ Transform:
   m_GameObject: {fileID: 7752184161587937288}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.1, y: 0, z: 0}
+  m_LocalPosition: {x: -7.37, y: -0.22, z: 0}
   m_LocalScale: {x: 5.85, y: 10.96, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,7 +744,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7122642, g: 0.083993405, b: 0.083993405, a: 0.17254902}
+  m_Color: {r: 0.7122642, g: 0.083993405, b: 0.083993405, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -994,6 +997,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 1
+  RestrictedToAxisX: 0
+  RestrictedToAxisY: 0
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1027,6 +1032,7 @@ MonoBehaviour:
   InPos: {fileID: 6492687748861749790}
   fishPos: {fileID: 1767310007136553346}
   OutPos: {fileID: 8138350493021410109}
+  stickerOnFish: {fileID: 0}
   speed: 11
 --- !u!50 &899858211180045486
 Rigidbody2D:

@@ -38,19 +38,22 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private IceSlidingGameSwitcher iceSlidingGameSwitcher;
     [SerializeField] private GameObject Canvas;
     [SerializeField] private GameObject firstDayCanvas;
+    [SerializeField] private LastDay lastDayMB;
 
     [Header ("Story")]
     [SerializeField] private FaxMachine faxMachine;
-    [SerializeField] private Light2D emergencyLight = null;
 
     [Header ("Change Background")]
-    [SerializeField] private GameObject backgroundWork = null;
+    [SerializeField] private SpriteRenderer backgroundRend;
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
-    private SpriteRenderer backgroundRend;
-    
 
-    [SerializeField] private LastDay lastDay;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
+    private static void SetupGameCursorVeryEarly()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.SetCursor(Resources.Load<Texture2D>("MousePointer"), Vector2.zero, CursorMode.ForceSoftware);
+    }
 
     public void Awake()
     {
@@ -58,7 +61,6 @@ public class GameManagement : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
         fishSession.ResetSession();
         OrganizeGame();
     }
@@ -104,7 +106,6 @@ public class GameManagement : MonoBehaviour
         workPlace.SetActive(false);
         animator.SetBool("StartingSlidingGame", false);
         iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
-        
     }
 
     private void ResetDataDay()
@@ -120,7 +121,7 @@ public class GameManagement : MonoBehaviour
         }
 
         fishSession.ResetSession();
-        //SpecialEventDay();
+        SpecialEventDay();
     }
 
     public void ExitSlidingGame()
@@ -147,16 +148,16 @@ public class GameManagement : MonoBehaviour
     }
 
     private void TryStartDayEnding()
-{
-    if (isDayEnding) return;
+    {
+        if (isDayEnding) return;
 
-    if (!isFishGameFinished) return;
-    if (!isSlidingGameFinished) return;
-    if (workPlace == null || !workPlace.activeSelf) return;
+        if (!isFishGameFinished) return;
+        if (!isSlidingGameFinished) return;
+        if (workPlace == null || !workPlace.activeSelf) return;
 
-    isDayEnding = true;
-    dayEndingCoroutine = StartCoroutine(DayEndingRoutine());
-}
+        isDayEnding = true;
+        dayEndingCoroutine = StartCoroutine(DayEndingRoutine());
+    }
 
     private IEnumerator DayEndingRoutine()
     {
@@ -180,18 +181,18 @@ public class GameManagement : MonoBehaviour
         NextDay();
     }
 
-public void NextDay()
-{
-    nbDaysPassed++;
-    ResetDataDay();
-
-    if (nbDaysPassed < daySprites.Length)
+    public void NextDay()
     {
-        daySpriteRenderer.sprite = daySprites[nbDaysPassed];
-    }
+        nbDaysPassed++;
+        ResetDataDay();
 
-    dayAnimation.WriteText();
-}
+        if (nbDaysPassed < daySprites.Length)
+        {
+            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
+        }
+
+        dayAnimation.WriteText();
+    }
     
     public void SpecialEventDay()
     {
@@ -220,19 +221,13 @@ public void NextDay()
             radioScript.ShootingRadioChannel();
             break;
         case 5: // day 6
-            StartCoroutine(waitEmergencyLight());
-            emergencyLight.gameObject.SetActive(true);
-            lastDay.gameObject.SetActive(true);
+            // LastDay handles emergency lights and sound
+            lastDayMB.enabled = true;
             break;
         default:
             Debug.Log("Nothing for now");
             break;
         }
-    }
-
-    public void GetCurrentMusic()
-    {
-        
     }
 
     void Start()
@@ -245,18 +240,6 @@ public void NextDay()
         {
             isFishGameFinished = true;
         }
-        backgroundRend = backgroundWork.GetComponent<SpriteRenderer>();
-        //SpecialEventDay();
-    }
-
-    void Update()
-    {
-        
-    }
-    
-
-    public IEnumerator waitEmergencyLight()
-    {
-        yield return new WaitForSeconds(20);
+        SpecialEventDay();
     }
 }

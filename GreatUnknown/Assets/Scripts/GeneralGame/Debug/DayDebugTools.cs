@@ -58,7 +58,7 @@ public class DayDebugTools : MonoBehaviour
         int internalDay = GameManagement.nbDaysPassed;
         int humanDay = internalDay + 1;
 
-        bool willTriggerCurrentCode = (internalDay == 5);
+        bool willTriggerCurrentCode = internalDay == 5;
 
         Debug.Log(
             $"[DayDebugTools] Internal = {internalDay}, Human day = {humanDay}, " +

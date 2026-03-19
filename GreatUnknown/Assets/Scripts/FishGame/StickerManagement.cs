@@ -26,7 +26,8 @@ public class StickerManagement : MonoBehaviour
     {
         GameObject newStickerCollider = Instantiate(stickerColliderPrefab,
         transform.position,
-        stickerColliderPrefab.transform.rotation);
+        stickerColliderPrefab.transform.rotation,
+        transform);
         Destroy(sticker);
     }
 

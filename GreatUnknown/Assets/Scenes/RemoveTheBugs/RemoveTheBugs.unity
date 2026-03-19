@@ -22536,7 +22536,6 @@ GameObject:
   - component: {fileID: 38135415289874902}
   - component: {fileID: 4751280334405114206}
   - component: {fileID: 5380802956997312272}
-  - component: {fileID: 8967287374944226199}
   m_Layer: 0
   m_Name: GameManagement
   m_TagString: Untagged
@@ -26954,8 +26953,8 @@ Transform:
   m_GameObject: {fileID: 4922804423505089207}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6, y: -0.11, z: 0}
-  m_LocalScale: {x: 5.85, y: 10.96, z: 1}
+  m_LocalPosition: {x: 4.9686, y: 0.02, z: 0}
+  m_LocalScale: {x: 8.138326, y: 10.96, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1324059167770436435}
@@ -27523,7 +27522,7 @@ Transform:
   m_GameObject: {fileID: 8123724483010013863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: -0.12893, z: 0}
+  m_LocalPosition: {x: 15, y: -0.12893, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28811,9 +28810,9 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8967287374944226199}
-        m_TargetAssemblyTypeName: Codex, Assembly-CSharp
-        m_MethodName: ToggleBook
+      - m_Target: {fileID: 6784699333766879138}
+        m_TargetAssemblyTypeName: BookViewerUI, Assembly-CSharp
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29297,7 +29296,7 @@ Transform:
   m_GameObject: {fileID: 2915650257819945337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -0.12893, z: 0}
+  m_LocalPosition: {x: -15, y: -0.12893, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29772,19 +29771,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1955210617503848658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8967287374944226199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238527883793125815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9de055decbc8a47ac4aad5fc767df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Codex
-  bookViewerUI: {fileID: 5929427823325575871}
 --- !u!114 &9011609880586857504
 MonoBehaviour:
   m_ObjectHideFlags: 0

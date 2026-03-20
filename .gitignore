@@ -73,3 +73,6 @@
 # Temporary auto-generated Android Assets
 /GreatUnknown/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /GreatUnknown/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Mac OS
+**/.DS_Store

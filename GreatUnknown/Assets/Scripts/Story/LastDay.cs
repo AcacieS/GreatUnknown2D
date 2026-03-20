@@ -18,12 +18,16 @@ public class LastDay : MonoBehaviour
     [SerializeField] private ClickHandler ComputerClickHandler;
     [SerializeField] private string natureEndingScene;
     [SerializeField] private string industrialEndingScene;
+    [SerializeField] private MonoBehaviour[] scriptsToDisable;
 
     // This script lies dormant until the last day.
     void OnEnable()
     {
         PlaySound(LastDayAmbiance, ambianceSource);
         StartCoroutine(DelayKlaxonSound());
+	foreach (var script in scriptsToDisable) {
+		script.enabled = false;
+	}
     }
 
 

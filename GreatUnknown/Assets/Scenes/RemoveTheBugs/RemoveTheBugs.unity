@@ -27583,6 +27583,8 @@ MonoBehaviour:
   ComputerClickHandler: {fileID: 2539905627560228834}
   natureEndingScene: NatureEnding
   industrialEndingScene: IndustrialEnding
+  scriptsToDisable:
+  - {fileID: 415448446501429121}
 --- !u!1 &7063549798539817808
 GameObject:
   m_ObjectHideFlags: 0

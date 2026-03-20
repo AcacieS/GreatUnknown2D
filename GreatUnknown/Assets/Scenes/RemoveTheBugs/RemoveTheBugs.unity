@@ -557,6 +557,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
   m_PrefabInstance: {fileID: 900338001}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &224079065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: UI/Cancel
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
 --- !u!1 &404624868
 GameObject:
   m_ObjectHideFlags: 0
@@ -23317,7 +23331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClickHandler
   enableDrag: 0
   RestrictedToAxisX: 0
-  RestrictedToAxisY: 0
+  RestrictedToAxisY: 1
   onClick:
     m_PersistentCalls:
       m_Calls:
@@ -24294,7 +24308,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8670353780227712189, guid: 32c24b03dbe1aff4b88a4e3010237fc0, type: 3}
+  m_Sprite: {fileID: 2051834885656779081, guid: 7d284ac6910646540bcf6858a208ff76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -27323,6 +27337,7 @@ MonoBehaviour:
   - {fileID: -1573461115, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}
   - {fileID: -4473706887172134603, guid: 0978d12c5cc9ace4896af7080d1ddfda, type: 3}
   navigate: {fileID: 1081089284}
+  escape: {fileID: 224079065}
   leftPageImage: {fileID: 1263115764872275501}
   rightPageImage: {fileID: 8516827277513878415}
   prevButton: {fileID: 4589849357639885000}

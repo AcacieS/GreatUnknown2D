@@ -11,6 +11,7 @@ public class BookViewerUI : MonoBehaviour
 
     [Header("UI Actions")]
     [SerializeField] private InputActionReference navigate;
+    [SerializeField] private InputActionReference escape;
 
     [Header("UI References")]
     [SerializeField] private Image leftPageImage;
@@ -42,6 +43,7 @@ public class BookViewerUI : MonoBehaviour
         if (firstPageOnRight) pages.Insert(0, null);
         if (blankPageSprite != null && pages.Count % 2 == 1) pages.Add(blankPageSprite);
         navigate.action.performed += Navigate;
+        escape.action.performed += (__unused_context) => Close();
         prevButton.onClick.AddListener(Prev);
         nextButton.onClick.AddListener(Next);
         escapeButton.onClick.AddListener(Close);

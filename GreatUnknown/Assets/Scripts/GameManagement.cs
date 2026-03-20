@@ -27,6 +27,7 @@ public class GameManagement : MonoBehaviour
     [Header("Day Ending")]
     [SerializeField] private float delayBeforeFade = 1.5f;
 
+    [SerializeField] private PortholeSwitcher portholeScript;
     [SerializeField] private Radio radioScript;
     
     [Header("Initialization of Game")]
@@ -117,6 +118,7 @@ public class GameManagement : MonoBehaviour
         isDayEnding = false;
 
         fishSession.ResetSession();
+        portholeScript.OnDaySwitch(nbDaysPassed);
         SpecialEventDay();
     }
 

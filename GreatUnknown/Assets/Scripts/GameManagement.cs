@@ -26,7 +26,6 @@ public class GameManagement : MonoBehaviour
 
     [Header("Day Ending")]
     [SerializeField] private float delayBeforeFade = 1.5f;
-    private Coroutine dayEndingCoroutine;
 
     [SerializeField] private Radio radioScript;
     
@@ -110,15 +109,12 @@ public class GameManagement : MonoBehaviour
 
     private void ResetDataDay()
     {
+        StopAllCoroutines();
+        radioScript.StopAllCoroutines();
+
         isFishGameFinished = false;
         isSlidingGameFinished = false;
         isDayEnding = false;
-
-        if (dayEndingCoroutine != null)
-        {
-            StopCoroutine(dayEndingCoroutine);
-            dayEndingCoroutine = null;
-        }
 
         fishSession.ResetSession();
         SpecialEventDay();
@@ -156,7 +152,7 @@ public class GameManagement : MonoBehaviour
         if (workPlace == null || !workPlace.activeSelf) return;
 
         isDayEnding = true;
-        dayEndingCoroutine = StartCoroutine(DayEndingRoutine());
+        StartCoroutine(DayEndingRoutine());
     }
 
     private IEnumerator DayEndingRoutine()

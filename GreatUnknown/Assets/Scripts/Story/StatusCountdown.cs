@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class StatusCountdown : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private string template;
     [SerializeField] private int count = 49;
     [SerializeField] private UnityEvent countdownTerminated;
+
+    // Template is extracted from `text.text`
+    private string template;
 
     void Awake()
     {

@@ -23569,7 +23569,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
     m_PressedSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
     m_SelectedSprite: {fileID: 2782799918994917874, guid: 10a3e10a49df9924d8412a41bfdd3db4, type: 3}
-    m_DisabledSprite: {fileID: 2782799918994917874, guid: 10a3e10a49df9924d8412a41bfdd3db4, type: 3}
+    m_DisabledSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -23741,11 +23741,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   text: {fileID: 4202603339612824907}
-  template: 
-  count: 49
+  count: 40
   countdownTerminated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7058113493317569357}
+        m_TargetAssemblyTypeName: LastDay, Assembly-CSharp
+        m_MethodName: IndustrialEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2135630002196887665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26074,7 +26085,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
     m_PressedSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
     m_SelectedSprite: {fileID: 2782799918994917874, guid: 10a3e10a49df9924d8412a41bfdd3db4, type: 3}
-    m_DisabledSprite: {fileID: 2782799918994917874, guid: 10a3e10a49df9924d8412a41bfdd3db4, type: 3}
+    m_DisabledSprite: {fileID: -3230554712328036089, guid: f1423b11ffd6cb949a11924759ed0c17, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -26598,7 +26609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169705400146165976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7058113493317569357}
+        m_TargetAssemblyTypeName: LastDay, Assembly-CSharp
+        m_MethodName: IndustrialEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5342393435732839770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27728,6 +27751,8 @@ MonoBehaviour:
   EmergencyLightsAnimator: {fileID: 154781485}
   ComputerAnimator: {fileID: 6875153284246808376}
   ComputerClickHandler: {fileID: 2539905627560228834}
+  natureEndingScene: NatureEnding
+  industrialEndingScene: IndustrialEnding
 --- !u!1 &7063549798539817808
 GameObject:
   m_ObjectHideFlags: 0
@@ -27922,7 +27947,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8500162472412045455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7058113493317569357}
+        m_TargetAssemblyTypeName: LastDay, Assembly-CSharp
+        m_MethodName: NatureEnding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &7297299063347155918
 CanvasRenderer:
   m_ObjectHideFlags: 0

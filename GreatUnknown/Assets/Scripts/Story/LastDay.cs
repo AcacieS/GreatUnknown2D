@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LastDay : MonoBehaviour
@@ -15,6 +16,8 @@ public class LastDay : MonoBehaviour
     [SerializeField] private Animator EmergencyLightsAnimator;
     [SerializeField] private Animator ComputerAnimator;
     [SerializeField] private ClickHandler ComputerClickHandler;
+    [SerializeField] private string natureEndingScene;
+    [SerializeField] private string industrialEndingScene;
 
     // This script lies dormant until the last day.
     void OnEnable()
@@ -51,5 +54,15 @@ public class LastDay : MonoBehaviour
     {
         LastDayTerminal.SetActive(true);
         EmergencyLightsAnimator.SetBool("On", false);
+    }
+
+    public void NatureEnding()
+    {
+        SceneManager.LoadSceneAsync(natureEndingScene);
+    }
+
+    public void IndustrialEnding()
+    {
+        SceneManager.LoadSceneAsync(industrialEndingScene);
     }
 }

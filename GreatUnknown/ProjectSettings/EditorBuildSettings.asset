@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RemoveTheBugs/RemoveTheBugs.unity
     guid: 9eb25c276c4d5f346b0cbd8a7741abc6
+  - enabled: 1
+    path: Assets/Scenes/RemoveTheBugs/NatureEnding.unity
+    guid: f3774ffde63008642bfe010032bdf8c3
+  - enabled: 1
+    path: Assets/Scenes/RemoveTheBugs/IndustrialEnding.unity
+    guid: edf16bc13b388b348afc745519f443e7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

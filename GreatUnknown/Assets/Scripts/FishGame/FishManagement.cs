@@ -30,6 +30,7 @@ public class FishManagement : MonoBehaviour
     private int currentFishNb = 0;
     private FishDayInfo currentFishDayInfo;
     private int currentDay = 0;
+    private bool need2Mutated = false;
 
     //=============================== FISH GAME GENERAL ===========================
     public void ResetFishGame()
@@ -60,7 +61,10 @@ public class FishManagement : MonoBehaviour
         currentDay = GameManagement.Instance.GetNbDayPassed();
         
         currentFishDayInfo = fishDaysInfo.GetCurrentFishDayInfo(currentDay);
-
+        if (currentDay >= 3)
+        {
+            need2Mutated = true;
+        }
         
         RandomFishes();
         fishPlace.GetComponent<FishState>().ResetFishGame();
@@ -165,8 +169,7 @@ public class FishManagement : MonoBehaviour
             int randomFishTypeIndex = Random.Range(0, fishDaysInfo.GetTotalFishType());
 
             FishTypeInfo fishType = fishDaysInfo.GetFishInfo(randomFishTypeIndex);
-            Fish newFish = new Fish(fishType,isMutate);
-            currentFishLists.Add(newFish);
+            
 
             //======= searching for what bodyPart
             int nbMutationCurrentFish = 0;
@@ -174,6 +177,13 @@ public class FishManagement : MonoBehaviour
             {
                 nbMutationCurrentFish = Mathf.Min(fishDaysInfo.GetRandomNbMutationPerFish(currentDay), fishType.GetNbPossibleMutation());
             }
+            
+            if (nbMutationCurrentFish < 2 && need2Mutated)
+            {
+                isMutate = false;
+            }
+            Fish newFish = new Fish(fishType,isMutate);
+            currentFishLists.Add(newFish);
 
             ChooseBodyParts(fishType, newFish, nbMutationCurrentFish);
         }

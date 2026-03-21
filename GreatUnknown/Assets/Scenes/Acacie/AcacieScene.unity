@@ -24372,7 +24372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2445728081011610232
 GameObject:
   m_ObjectHideFlags: 0
@@ -24751,7 +24751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3097210867824969572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26878,6 +26878,7 @@ MonoBehaviour:
   workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 2406996170996195297}
   iceSlidingCanvas: {fileID: 0}
+  iceSlidingExitUiRoot: {fileID: 0}
   iceSlidingGameSwitcher: {fileID: 0}
   Canvas: {fileID: 2532382225685698924}
   firstDayCanvas: {fileID: 6588268269111174040}
@@ -29057,8 +29058,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1324059167770436435}
   - {fileID: 3180598542002782426}

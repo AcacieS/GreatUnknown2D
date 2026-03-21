@@ -27667,7 +27667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab495a071847bf64ca811fcf5b9249df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookViewerUI
-  pages:
+  pageSprites:
   - {fileID: -6635454064966195081, guid: 4617053a0de3d2349bd27e4af0c3f3f1, type: 3}
   - {fileID: -8765902028836893046, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
   - {fileID: 20394586, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
@@ -27687,6 +27687,7 @@ MonoBehaviour:
   escapeButton: {fileID: 1780163639}
   blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
+  lastPageOnLeft: 1
 --- !u!1 &6802591332617432314
 GameObject:
   m_ObjectHideFlags: 0
@@ -28303,7 +28304,7 @@ Transform:
   m_GameObject: {fileID: 6424326367854641149}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32, y: 0, z: -10}
+  m_LocalPosition: {x: 0.07, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29649,7 +29650,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.34
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

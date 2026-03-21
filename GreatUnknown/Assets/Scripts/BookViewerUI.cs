@@ -8,7 +8,7 @@ public class BookViewerUI : MonoBehaviour
 {
     [Header("Pages (single pages in order)")]
     [FormerlySerializedAs("pages")]
-    [SerializeField] private List<Sprite> pageSprites = new List<Sprite>();
+    [SerializeField] private List<Sprite> pageSprites = new();
 
     [Header("UI Actions")]
     [SerializeField] private InputActionReference navigate;
@@ -46,55 +46,52 @@ public class BookViewerUI : MonoBehaviour
         if (firstPageOnRight) pageSprites.Insert(0, null);
         if (lastPageOnLeft && pageSprites.Count % 2 == 0) pageSprites.Insert(pageSprites.Count - 1, blankPageSprite);
         if (pageSprites.Count % 2 == 1) pageSprites.Add(blankPageSprite);
+    }
 
-        // Listen for Events
-        navigate.action.performed += Navigate;
-        escape.action.performed += (__unused_context) => Close();
-        prevButton.onClick.AddListener(Prev);
-        nextButton.onClick.AddListener(Next);
-        escapeButton.onClick.AddListener(Close);
+    public void Start()
+    {
         Refresh();
     }
 
-    public void Open()
+    public void OnEnable()
     {
-	    gameObject.SetActive(true);
+        navigate.action.performed += Navigate;
+        escape.action.performed += Close;
+        prevButton.onClick.AddListener(Prev);
+        nextButton.onClick.AddListener(Next);
+        escapeButton.onClick.AddListener(Close);
     }
 
-    public void Close()
+    public void OnDisable()
     {
-	    gameObject.SetActive(false);
+        navigate.action.performed -= Navigate;
+        escape.action.performed -= Close;
+        prevButton.onClick.RemoveListener(Prev);
+        nextButton.onClick.RemoveListener(Next);
+        escapeButton.onClick.RemoveListener(Close);
     }
+
+    public void Open() { gameObject.SetActive(true); RandomPaperSound(); }
+    public void Close() { RandomPaperSound(); gameObject.SetActive(false); }
+    public void Close(InputAction.CallbackContext context) => Close();
 
     public void Navigate(InputAction.CallbackContext context)
     {
-        if (!gameObject.activeSelf) return;
-
-        var direction = context.ReadValue<Vector2>();
-        if (direction.x > 0) Next(); else if (direction.x < 0) Prev();
+        if (context.ReadValue<Vector2>().x < 0) Prev(); else
+        if (context.ReadValue<Vector2>().x > 0) Next();
     }
 
-    public void Next()
-    {
-	    if (CanGoNext()) { RandomPaperSound(); index++; Refresh(); }
-    }
+    public void Next() { if (CanGoNext()) { RandomPaperSound(); index++; Refresh(); } }
+    public void Prev() { if (CanGoPrev()) { RandomPaperSound(); index--; Refresh(); } }
 
-    public void Prev()
-    {
-        if (CanGoPrev()) { RandomPaperSound(); index--; Refresh(); }
-    }
-
-    private void RandomPaperSound()
-    {
-        SoundManager.instance.PlaySound("paper" + Random.Range(1, 5));
-    }
+    private void RandomPaperSound() => SoundManager.instance.PlaySound("paper" + Random.Range(1, 5));
 
     private void Refresh()
     {
         SetPage(leftPageImage, pageSprites[index * 2]);
         SetPage(rightPageImage, pageSprites[index * 2 + 1]);
-        if (prevButton != null) prevButton.interactable = CanGoPrev();
-        if (nextButton != null) nextButton.interactable = CanGoNext();
+        prevButton.interactable = CanGoPrev();
+        nextButton.interactable = CanGoNext();
     }
 
     private static void SetPage(Image img, Sprite sprite)

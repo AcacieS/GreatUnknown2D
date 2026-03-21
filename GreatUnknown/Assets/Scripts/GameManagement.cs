@@ -6,7 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManagement : MonoBehaviour
 {
-    public static GameManagement Instance {get; private set;}
+    public static GameManagement Instance { get; private set; }
+
     [SerializeField] private FishSession fishSession;
     [SerializeField] private SpriteRenderer daySpriteRenderer;
     [SerializeField] private Sprite[] daySprites;
@@ -17,7 +18,6 @@ public class GameManagement : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
     [SerializeField] private bool isFishGameTrue = false;
-    
 
     [Header("Game States")]
     public bool isFishGameFinished = false;
@@ -29,33 +29,48 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] private PortholeSwitcher portholeScript;
     [SerializeField] private Radio radioScript;
-    
+
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
-    [SerializeField] private GameObject iceSlidingGame;
-    [SerializeField] private GameObject[] iceSlidingGames;
+
+    [SerializeField] private GameObject iceSlidingCanvas;
     [SerializeField] private IceSlidingGameSwitcher iceSlidingGameSwitcher;
+
     [SerializeField] private GameObject Canvas;
     [SerializeField] private GameObject firstDayCanvas;
     [SerializeField] private LastDay lastDayMB;
 
-    [Header ("Story")]
+    [Header("Story")]
     [SerializeField] private FaxMachine faxMachine;
 
-    [Header ("Change Background")]
+    [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
 
     public void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
+
         fishSession.ResetSession();
         OrganizeGame();
+    }
+
+    void Start()
+    {
+        if (isSlidingGameTrue)
+        {
+            isSlidingGameFinished = true;
+        }
+
+        if (isFishGameTrue)
+        {
+            isFishGameFinished = true;
+        }
     }
 
     private void OrganizeGame()
@@ -64,17 +79,29 @@ public class GameManagement : MonoBehaviour
         workPlace?.SetActive(true);
         fishGame?.SetActive(false);
         firstDayCanvas?.SetActive(true);
+
+        if (iceSlidingCanvas != null)
+            iceSlidingCanvas.SetActive(false);
+
+        if (iceSlidingGameSwitcher != null)
+            iceSlidingGameSwitcher.DeactivateAll();
     }
 
     public void ResetDay()
     {
         ResetDataDay();
-        fishGame.SetActive(false);
+
+        if (fishGame != null)
+            fishGame.SetActive(false);
+
         dayAnimation.WriteText();
-        workPlace.SetActive(true);
+
+        if (workPlace != null)
+            workPlace.SetActive(true);
+
         FishManagement.Instance.ResetFishGame();
     }
-    
+
     public int GetNbDayPassed()
     {
         return nbDaysPassed;
@@ -82,29 +109,73 @@ public class GameManagement : MonoBehaviour
 
     public int GetNbDayLeft()
     {
-        return daySprites.Length - nbDaysPassed -1;
+        return daySprites.Length - nbDaysPassed - 1;
     }
 
     public void StartSlidingGame()
     {
-        if (isFishGameFinished && GetNbDayPassed() != 5)
-        {
-            Debug.Log("Fish game artificially started (and it works).");
-            animator.SetBool("StartingSlidingGame", true);
-        }
+        if (!isFishGameFinished) return;
+        if (GetNbDayPassed() == 5) return;
+        if (animator == null) return;
+
+        Debug.Log("Starting sliding game transition.");
+        animator.SetBool("StartingSlidingGame", true);
     }
 
+    // Called by SlidingTransitionRelay on the camera animator
     public void OnSlidingTransitionComplete()
     {
-        workPlace.SetActive(false);
-        animator.SetBool("StartingSlidingGame", false);
-        iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
+        if (animator != null)
+            animator.SetBool("StartingSlidingGame", false);
+
+        StartCoroutine(OpenSlidingGameRoutine());
+    }
+
+    private IEnumerator OpenSlidingGameRoutine()
+    {
+        if (workPlace != null)
+            workPlace.SetActive(false);
+    
+        if (iceSlidingCanvas != null)
+            iceSlidingCanvas.SetActive(true);
+
+        // Let the canvas fully enable before activating the day-specific sliding game
+        yield return null;
+
+        if (iceSlidingGameSwitcher != null)
+            iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
+    }
+
+    public void ExitSlidingGame()
+    {
+        if (iceSlidingGameSwitcher != null)
+            iceSlidingGameSwitcher.DeactivateCurrent();
+
+        if (animator != null)
+            animator.SetBool("ExitingSlidingGame", true);
+    }
+
+    // Called by SlidingTransitionRelay on the camera animator
+    public void OnSlidingExitComplete()
+    {
+        if (animator != null)
+            animator.SetBool("ExitingSlidingGame", false);
+
+        if (iceSlidingCanvas != null)
+            iceSlidingCanvas.SetActive(false);
+
+        if (workPlace != null)
+            workPlace.SetActive(true);
+
+        TryStartDayEnding();
     }
 
     private void ResetDataDay()
     {
         StopAllCoroutines();
-        radioScript.StopAllCoroutines();
+
+        if (radioScript != null)
+            radioScript.StopAllCoroutines();
 
         isFishGameFinished = false;
         isSlidingGameFinished = false;
@@ -115,33 +186,16 @@ public class GameManagement : MonoBehaviour
         SpecialEventDay();
     }
 
-    public void ExitSlidingGame()
-    {
-        iceSlidingGames[nbDaysPassed].SetActive(false);
-        workPlace.SetActive(true);
-
-        animator.SetBool("ExitingSlidingGame", true);
-
-        TryStartDayEnding();
-    }
-
-    public void OnSlidingExitComplete()
-    {
-       iceSlidingGameSwitcher.ActivateForDay(nbDaysPassed);
-    }
-
     public void MarkSlidingGameFinished()
     {
         if (isSlidingGameFinished) return;
 
         isSlidingGameFinished = true;
-        TryStartDayEnding();
     }
 
     private void TryStartDayEnding()
     {
         if (isDayEnding) return;
-
         if (!isFishGameFinished) return;
         if (!isSlidingGameFinished) return;
         if (workPlace == null || !workPlace.activeSelf) return;
@@ -156,7 +210,8 @@ public class GameManagement : MonoBehaviour
 
         yield return new WaitForSeconds(delayBeforeFade);
 
-        animator.SetTrigger("FadeOutDay");
+        if (animator != null)
+            animator.SetTrigger("FadeOutDay");
     }
 
     public void OnDayFadeComplete()
@@ -178,58 +233,55 @@ public class GameManagement : MonoBehaviour
         ResetDataDay();
 
         if (nbDaysPassed < daySprites.Length)
-        {
             daySpriteRenderer.sprite = daySprites[nbDaysPassed];
-        }
 
         dayAnimation.WriteText();
     }
-    
+
     public void SpecialEventDay()
     {
-        switch(nbDaysPassed) 
+        switch (nbDaysPassed)
         {
-        case 0:
-            Debug.Log("Day 1 FaxMachine should be there");
-            faxMachine.NewFaxMessage("day1_morning");
-            break;
-        case 1:
-            faxMachine.NewFaxMessage("day2_morning");
-            break;
-        case 2: // day 3
-            faxMachine.NewFaxMessage("day3_morning");
-            backgroundRend.sprite = backgroundDay3;
-            break;
-        case 3: //day 4
-            faxMachine.NewFaxMessage("day4_morning");
-            Debug.Log("Day 4");
-            radioScript.ChangeRadioChannel();
-            break;
-        case 4: //day 5
-            faxMachine.NewFaxMessage("day5_morning");
-            backgroundRend.sprite = backgroundDay5;
-            Debug.Log("Day 5");
-            radioScript.ShootingRadioChannel();
-            break;
-        case 5: // day 6
-            // LastDay handles emergency lights and sound
-            lastDayMB.enabled = true;
-            break;
-        default:
-            Debug.Log("Nothing for now");
-            break;
-        }
-    }
+            case 0:
+                Debug.Log("Day 1 FaxMachine should be there");
+                faxMachine.NewFaxMessage("day1_morning");
+                break;
 
-    void Start()
-    {
-        if (isSlidingGameTrue)
-        {
-            isSlidingGameFinished = true;
-        }
-        if (isFishGameTrue)
-        {
-            isFishGameFinished = true;
+            case 1:
+                faxMachine.NewFaxMessage("day2_morning");
+                break;
+
+            case 2: // day 3
+                faxMachine.NewFaxMessage("day3_morning");
+                if (backgroundRend != null)
+                    backgroundRend.sprite = backgroundDay3;
+                break;
+
+            case 3: // day 4
+                faxMachine.NewFaxMessage("day4_morning");
+                Debug.Log("Day 4");
+                if (radioScript != null)
+                    radioScript.ChangeRadioChannel();
+                break;
+
+            case 4: // day 5
+                faxMachine.NewFaxMessage("day5_morning");
+                if (backgroundRend != null)
+                    backgroundRend.sprite = backgroundDay5;
+                Debug.Log("Day 5");
+                if (radioScript != null)
+                    radioScript.ShootingRadioChannel();
+                break;
+
+            case 5: // day 6
+                // LastDay handles emergency lights and sound
+                if (lastDayMB != null)
+                    lastDayMB.enabled = true;
+                break;
+
+            default:
+                Debug.Log("Nothing for now");
+                break;
         }
     }
 }

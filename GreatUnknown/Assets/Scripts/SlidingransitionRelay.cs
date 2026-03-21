@@ -4,7 +4,6 @@ public class SlidingTransitionRelay : MonoBehaviour
 {
     [SerializeField] private GameManagement gameManagement;
 
-    // Called by Animation Event
     public void OnSlidingTransitionComplete()
     {
         if (gameManagement == null)
@@ -14,12 +13,11 @@ public class SlidingTransitionRelay : MonoBehaviour
         }
 
         gameManagement.OnSlidingTransitionComplete();
-        
     }
 
     public void OnSlidingExitComplete()
     {
-                if (gameManagement == null)
+        if (gameManagement == null)
         {
             Debug.LogError("GameManagement reference missing on SlidingTransitionRelay.");
             return;
@@ -27,6 +25,4 @@ public class SlidingTransitionRelay : MonoBehaviour
 
         gameManagement.OnSlidingExitComplete();
     }
-
-
 }

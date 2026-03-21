@@ -26,8 +26,6 @@ public class BookViewerUI : MonoBehaviour
     [Header("Behavior (hover for details)")]
     [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
     [SerializeField] private bool firstPageOnRight = true;
-    [Header("Sound")]
-    [SerializeField] private string[] soundNames;
     private int index = 0;
 
     private void Awake()

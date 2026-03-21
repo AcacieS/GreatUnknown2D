@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 164676907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da60807c82457ce44a280bf8a1399eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: a1fdd936752ef407c86da6506a39bb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   fishGameController: {fileID: 2111449530}
@@ -2696,17 +2696,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingTransitionRelay
   gameManagement: {fileID: 2111449530}
---- !u!114 &1968725573 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3350467918320477518, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
-  m_PrefabInstance: {fileID: 1375206400447592239}
+--- !u!1 &1886097156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa546a9de7b2f9498460aa1de7ae7a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DayTransition
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886097157}
+  m_Layer: 0
+  m_Name: Null
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886097157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886097156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.63593, y: 1.31719, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008047733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1054762214580407646, guid: 7e2e624534cff354c9664e45e7a9d2e6, type: 3}
@@ -2868,7 +2888,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5222924301889230007, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
+    - {fileID: 1155709712040620994, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 802214f5cd8a70741a750b00ffd2e6d8, type: 3}
@@ -3036,7 +3058,11 @@ PrefabInstance:
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: dayAnimation
       value: 
-      objectReference: {fileID: 1968725573}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
+      propertyPath: firstDayCanvas
+      value: 
+      objectReference: {fileID: 1886097156}
     - target: {fileID: 1376971255251970945, guid: 7a86f585395c13d488d30125c5161c69, type: 3}
       propertyPath: iceSlidingGame
       value: 
@@ -3301,3 +3327,4 @@ SceneRoots:
   - {fileID: 833333742}
   - {fileID: 164676909}
   - {fileID: 175429798}
+  - {fileID: 1886097157}

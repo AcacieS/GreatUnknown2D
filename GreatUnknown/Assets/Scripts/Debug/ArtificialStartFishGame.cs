@@ -4,6 +4,7 @@ public class FishGameDebugStarter : MonoBehaviour
 {
     [SerializeField] private GameManagement fishGameController;
 
+
     private void Awake()
     {
         // Optional auto-assign if not manually set
@@ -27,5 +28,18 @@ public class FishGameDebugStarter : MonoBehaviour
     
 
         Debug.Log("Fish game artificially started.");
+    }
+
+    [ContextMenu("ExitThatH")]
+
+    public  void ForceExitSlidingGame()
+    {
+        if(fishGameController == null)
+        {
+            Debug.LogError("FishGameController reference missing.");
+            return;
+        }
+
+        fishGameController.ExitSlidingGame();
     }
 }

@@ -34,6 +34,8 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject fishGame;
 
     [SerializeField] private GameObject iceSlidingCanvas;
+    [SerializeField] private GameObject iceSlidingExitUiRoot; // parent of the exit button
+
     [SerializeField] private IceSlidingGameSwitcher iceSlidingGameSwitcher;
 
     [SerializeField] private GameObject Canvas;
@@ -147,26 +149,33 @@ public class GameManagement : MonoBehaviour
 
     public void ExitSlidingGame()
     {
-        if (iceSlidingGameSwitcher != null)
-            iceSlidingGameSwitcher.DeactivateCurrent();
+    // Disable UI first so it cannot keep interfering
+    if (iceSlidingExitUiRoot != null)
+        iceSlidingExitUiRoot.SetActive(false);
 
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", true);
+    // Then disable the sliding canvas
+    if (iceSlidingCanvas != null)
+        iceSlidingCanvas.SetActive(false);
+
+    // Then deactivate the active day-specific sliding game
+    if (iceSlidingGameSwitcher != null)
+        iceSlidingGameSwitcher.DeactivateCurrent();
+
+    if (animator != null)
+        animator.SetBool("ExitingSlidingGame", true);
     }
 
     // Called by SlidingTransitionRelay on the camera animator
     public void OnSlidingExitComplete()
-    {
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", false);
+    {     
 
-        if (iceSlidingCanvas != null)
-            iceSlidingCanvas.SetActive(false);
+    if (animator != null)
+        animator.SetBool("ExitingSlidingGame", false);
 
-        if (workPlace != null)
-            workPlace.SetActive(true);
+    if (workPlace != null)
+        workPlace.SetActive(true);
 
-        TryStartDayEnding();
+    TryStartDayEnding();
     }
 
     private void ResetDataDay()

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PortholeSwitcher : MonoBehaviour
 {
+    [SerializeField] private Transform lastDayPortholePos;
     [SerializeField] private List<Porthole> portholes;
 
     private SpriteRenderer sprite;
@@ -22,5 +23,6 @@ public class PortholeSwitcher : MonoBehaviour
                 selected = candidate;
 
         sprite.sprite = selected.sprite;
+        if (day == 5) sprite.transform.position = lastDayPortholePos.position;
     }
 }

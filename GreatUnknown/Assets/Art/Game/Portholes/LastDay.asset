@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f5c75523d8c2bf40a5ba6dc507485f2, type: 3}
-  m_Name: Day5
+  m_Name: LastDay
   m_EditorClassIdentifier: Assembly-CSharp::Porthole
-  day: 4
-  sprite: {fileID: -8696089193556335553, guid: 89044d209d101fb42905e74490161c57, type: 3}
+  day: 5
+  sprite: {fileID: 9125136281214431994, guid: 3180afd0bb3ae4f4c89d2c77dda1a72d, type: 3}

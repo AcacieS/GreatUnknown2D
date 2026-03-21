@@ -48,13 +48,6 @@ public class GameManagement : MonoBehaviour
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
-    private static void SetupGameCursorVeryEarly()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.SetCursor(Resources.Load<Texture2D>("MousePointer"), Vector2.zero, CursorMode.ForceSoftware);
-    }
-
     public void Awake()
     {
         if(Instance == null)

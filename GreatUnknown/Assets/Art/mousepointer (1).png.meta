@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8a51fdd936f04340868004146dda502
+guid: e2cea15b09338f64fa50db27b48b2f58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8688812099686119312
-    second: porthole_anomaly_bright_0
+      213: -5999717934210605435
+    second: mousepointer (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: porthole_anomaly_bright_0
+      name: mousepointer (1)_0
       rect:
         serializedVersion: 2
-        x: 256
-        y: 316
-        width: 1365
-        height: 764
+        x: 11
+        y: 2
+        width: 169
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 078c71e3e632b6780800000000000000
-      internalID: -8688812099686119312
+      spriteID: 58e16d2a358bcbca0800000000000000
+      internalID: -5999717934210605435
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      porthole_anomaly_bright_0: -8688812099686119312
+      mousepointer (1)_0: -5999717934210605435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

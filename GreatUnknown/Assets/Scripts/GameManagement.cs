@@ -13,7 +13,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
-    private AudioSource bgSource;
+    [SerializeField] private AudioSource bgSource;
     public static int nbDaysPassed = 0;
 
     [Header("DEBUG")]
@@ -21,6 +21,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private bool isFishGameTrue = false;
 
     [Header("Game States")]
+    
     public bool isFishGameFinished = false;
     public bool isSlidingGameFinished = false;
     public bool isDayEnding = false;
@@ -238,45 +239,40 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
-  
     
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)
         {
             case 0:
-                Debug.Log("Day 1 FaxMachine should be there");
-                faxMachine.NewFaxMessage("day1_morning");
+                faxMachine?.NewFaxMessage("day1_morning");
+                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.engine);
                 break;
-
             case 1:
-                faxMachine.NewFaxMessage("day2_morning");
+                faxMachine?.NewFaxMessage("day2_morning");
                 break;
 
             case 2: // day 3
-                faxMachine.NewFaxMessage("day3_morning");
+                faxMachine?.NewFaxMessage("day3_morning");
+                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 3: // day 4
-                faxMachine.NewFaxMessage("day4_morning");
-                Debug.Log("Day 4");
-                if (radioScript != null)
-                    radioScript.ChangeRadioChannel();
+                faxMachine?.NewFaxMessage("day4_morning");
+                radioScript?.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                faxMachine.NewFaxMessage("day5_morning");
+                faxMachine?.NewFaxMessage("day5_morning");
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay5;
-                Debug.Log("Day 5");
-                if (radioScript != null)
-                    radioScript.ShootingRadioChannel();
+                radioScript?.ShootingRadioChannel();
                 break;
-
             case 5: // day 6
                 // LastDay handles emergency lights and sound
+                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
                 if (lastDayMB != null)
                     lastDayMB.enabled = true;
                 break;

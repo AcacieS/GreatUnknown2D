@@ -5,7 +5,6 @@ public class BGMusic : MonoBehaviour
     [SerializeField] private BGMusicInfo creakySource;
     [SerializeField] private BGMusicInfo anomalySource;
     [SerializeField] private BGMusicInfo engineSource;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         creakySource.AddAudioSource();

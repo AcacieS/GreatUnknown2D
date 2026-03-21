@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class BGMusicInfo
 {
     public GameObject audioSourceGO;
@@ -11,9 +13,11 @@ public class BGMusicInfo
     
     public void Activate(AudioInfo audioInfo)
     {
-        audioSourceGO.SetActive(true);
-        audioSource.GetComponent<AudioSource>().volume = audioInfo.volume;
-        audioSource.GetComponent<AudioSource>().loop = audioInfo.isLooping;
+        SoundManager.instance.PlaySound(audioInfo, SoundState.None, PlaySoundState.Play, audioSource);
+        // audioSourceGO.SetActive(true);
+        // audioSource.clip = audioInfo.soundClip;
+        // audioSource.GetComponent<AudioSource>().volume = audioInfo.volume;
+        // audioSource.GetComponent<AudioSource>().loop = audioInfo.isLooping;
     }
     public void Desactivate(AudioInfo audioInfo)
     {

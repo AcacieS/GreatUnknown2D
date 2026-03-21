@@ -84,8 +84,8 @@ public class BookViewerUI : MonoBehaviour
     
     private void RandomPaperSound()
     {
-        int randomSoundIndex = Random.Range(0, soundNames.Length);
-        SoundManager.instance.PlaySound(soundNames[randomSoundIndex]);
+        int randomSound = Random.Range(1, 5);
+        SoundManager.instance.PlaySound("paper"+randomSound);
     }
     public void Next()
     {

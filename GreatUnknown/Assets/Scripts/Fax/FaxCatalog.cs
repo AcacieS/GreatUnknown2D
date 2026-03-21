@@ -13,11 +13,10 @@ public class FaxCatalog : ScriptableObject
     }
 
     [SerializeField] private List<Entry> entries = new List<Entry>();
-
     // Runtime cache (built lazily)
     private Dictionary<string, Sprite> _map;
 
-    private void BuildMapIfNeeded()
+    public void BuildMapIfNeeded()
     {
         if (_map != null) return;
 

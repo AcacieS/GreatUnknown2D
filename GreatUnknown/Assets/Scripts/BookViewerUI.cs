@@ -26,7 +26,8 @@ public class BookViewerUI : MonoBehaviour
     [Header("Behavior (hover for details)")]
     [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
     [SerializeField] private bool firstPageOnRight = true;
-
+    [Header("Sound")]
+    [SerializeField] private string[] soundNames;
     private int index = 0;
 
     private void Awake()
@@ -80,16 +81,30 @@ public class BookViewerUI : MonoBehaviour
             Prev();
         }
     }
-
+    
+    private void RandomPaperSound()
+    {
+        int randomSoundIndex = Random.Range(0, soundNames.Length);
+        SoundManager.instance.PlaySound(soundNames[randomSoundIndex]);
+    }
     public void Next()
     {
-	if (CanGoNext()) index++;
+	    if (CanGoNext()) {
+            RandomPaperSound();
+            
+            index++;
+        }
         Refresh();
     }
+    
 
     public void Prev()
     {
-        if (CanGoPrev()) index--;
+        
+        if (CanGoPrev()) {
+            RandomPaperSound();
+            index--;
+        }
         Refresh();
     }
 

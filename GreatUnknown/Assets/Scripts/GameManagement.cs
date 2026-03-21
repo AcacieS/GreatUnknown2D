@@ -237,7 +237,12 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
+<<<<<<< Updated upstream
 
+=======
+    private AudioSource bgSource;
+    
+>>>>>>> Stashed changes
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)

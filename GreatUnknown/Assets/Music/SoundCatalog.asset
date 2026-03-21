@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3c3d05e2278fa47adaffb5cdec1524, type: 3}
+  m_Name: SoundCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::SoundCatalog
+  entries:
+  - id: paper1
+    audioInfo: {fileID: 11400000, guid: b15c5489215c2e848b3f9cde81095101, type: 2}
+  - id: paper2
+    audioInfo: {fileID: 11400000, guid: b505543989f71db43ba1b4c24a24a83a, type: 2}
+  - id: paper3
+    audioInfo: {fileID: 11400000, guid: 9b01b9fedd9580945ae432591c25dbe0, type: 2}
+  - id: paper4
+    audioInfo: {fileID: 11400000, guid: b27eff64a0e5d4c448778b8f390cc28e, type: 2}
+  - id: paper4
+    audioInfo: {fileID: 11400000, guid: b27eff64a0e5d4c448778b8f390cc28e, type: 2}
+  - id: radioOn
+    audioInfo: {fileID: 11400000, guid: f4fc5bf1498ec7c4a95142d49fa0d2e2, type: 2}
+  - id: radioOff
+    audioInfo: {fileID: 11400000, guid: 8174bbcf286bc804a87af589ea0ba7a0, type: 2}
+  - id: fishWet1
+    audioInfo: {fileID: 11400000, guid: 613b8024472ecd44e92b45956da2d953, type: 2}
+  - id: fishWet2
+    audioInfo: {fileID: 11400000, guid: 2f91513c1a74e2b4ea4078d13e8572be, type: 2}
+  - id: buttonClickMenu
+    audioInfo: {fileID: 11400000, guid: b4b2112d0a838674d8a03cd15cc39914, type: 2}

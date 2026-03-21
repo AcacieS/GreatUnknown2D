@@ -26871,7 +26871,7 @@ MonoBehaviour:
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
   dayAnimation: {fileID: 4425620332833935969}
   animator: {fileID: 8898982564341672112}
-  bgSource: {fileID: 0}
+  bgSource: {fileID: 7595327770781537940}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
   isFishGameFinished: 0
@@ -27692,11 +27692,6 @@ MonoBehaviour:
   escapeButton: {fileID: 1780163639}
   blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
-  soundNames:
-  - paper1
-  - paper2
-  - paper3
-  - paper4
 --- !u!1 &6802591332617432314
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,3 +33,9 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 2f91513c1a74e2b4ea4078d13e8572be, type: 2}
   - id: buttonClickMenu
     audioInfo: {fileID: 11400000, guid: b4b2112d0a838674d8a03cd15cc39914, type: 2}
+  - id: engine
+    audioInfo: {fileID: 11400000, guid: 92b071ff5014bb34c91c38e47789ba5c, type: 2}
+  - id: creaky
+    audioInfo: {fileID: 11400000, guid: 07d4ce81abf8c31449096db336e410d7, type: 2}
+  - id: anomaly
+    audioInfo: {fileID: 11400000, guid: bebac891e6e325244b5d05dc28ccb8f4, type: 2}

@@ -10,7 +10,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource bgSource;
+    [SerializeField] private BGMusic bgSource;
     public static int nbDaysPassed = 0;
 
     [Header("DEBUG")]
@@ -242,7 +242,7 @@ public class GameManagement : MonoBehaviour
         {
             case 0:
                 faxMachine?.NewFaxMessage("day1_morning");
-                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.engine);
+                bgSource?.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
                 faxMachine?.NewFaxMessage("day2_morning");

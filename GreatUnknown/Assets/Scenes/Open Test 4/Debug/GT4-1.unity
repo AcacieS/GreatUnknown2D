@@ -13489,6 +13489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1522130221}
   - component: {fileID: 1522130222}
+  - component: {fileID: 1522130223}
   m_Layer: 0
   m_Name: ForceIceSlide
   m_TagString: Untagged
@@ -13525,6 +13526,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDebugController
   gameManagement: {fileID: 5380802956997312272}
   debugDay: 1
+--- !u!114 &1522130223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522130219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fdd936752ef407c86da6506a39bb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishGameDebugStarter
+  fishGameController: {fileID: 5380802956997312272}
 --- !u!4 &1737838052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
@@ -24193,7 +24207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8967287374944226199}
         m_TargetAssemblyTypeName: Codex, Assembly-CSharp
-        m_MethodName: ToggleBook
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26916,6 +26930,7 @@ MonoBehaviour:
   workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 2406996170996195297}
   iceSlidingCanvas: {fileID: 1167851295}
+  iceSlidingExitUiRoot: {fileID: 0}
   iceSlidingGameSwitcher: {fileID: 8967287374944226200}
   Canvas: {fileID: 2532382225685698924}
   firstDayCanvas: {fileID: 2532382225685698924}

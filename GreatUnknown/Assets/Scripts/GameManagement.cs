@@ -13,6 +13,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
+    private AudioSource bgSource;
     public static int nbDaysPassed = 0;
 
     [Header("DEBUG")]
@@ -237,12 +238,8 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
-<<<<<<< Updated upstream
-
-=======
-    private AudioSource bgSource;
+  
     
->>>>>>> Stashed changes
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)

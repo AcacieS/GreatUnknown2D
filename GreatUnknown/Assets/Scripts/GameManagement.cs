@@ -1,8 +1,5 @@
 using System.Collections;
-using NUnit.Framework;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class GameManagement : MonoBehaviour
 {
@@ -238,8 +235,7 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
-  
-    
+
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)

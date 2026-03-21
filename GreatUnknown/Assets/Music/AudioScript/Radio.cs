@@ -10,7 +10,7 @@ public class Radio : MonoBehaviour, IClickable
     [Header("Radio SFX")]
     [SerializeField] private AudioInfo RadioOn;
     [SerializeField] private AudioInfo RadioOff;
-    [SerializeField] private AudioSource BGMusic;
+    //[SerializeField] private AudioSource BGMusic;
     [Header("Channel")]
     [SerializeField] private List<Channel> radioChannels; 
     [Header("Story Radio")]
@@ -31,16 +31,18 @@ public class Radio : MonoBehaviour, IClickable
     public void OnClick()
     {
         if (OpenCloseRadioStory()) {
-            
+            Debug.Log("Hey shooting");
             return;
         }
         if(RadioIsOn()) //so is on
         {
+            Debug.Log("Hey change radio");
             //change Channel
             Channel();
         }
         else //so is off
         {
+            Debug.Log("Hey open radio");
             OpenRadio();
         }
     }
@@ -70,6 +72,7 @@ public class Radio : MonoBehaviour, IClickable
             }
             currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
         }
+        Debug.Log("should Have play sound");
         SoundManager.instance.PlaySound(RadioOn);
 
         if (GameManagement.Instance.GetNbDayPassed() == 3 && firstTimeEnvironmentalStory)
@@ -90,14 +93,14 @@ public class Radio : MonoBehaviour, IClickable
     {
         SoundManager.instance.PlaySound(RadioOff);
         //source.volume = 0f;
-        BGMusic.volume = 0.5f;
+        //BGMusic.volume = 0.5f;
         previousChannelSource.Off();
         previousChannelSource = null;
     }
     private void OpenRadio()
     {
         Channel(false);
-        BGMusic.volume = 0f;
+        //BGMusic.volume = 0f;
     }
     public void ResetRadioDay()
     {

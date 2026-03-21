@@ -16,7 +16,6 @@ MonoBehaviour:
   baseBodyPartFish: {fileID: 0}
   isOptional: 0
   fishParts:
-  - {fileID: 11400000, guid: b6425a35a2f7a984f8cfb3b527b611a2, type: 2}
   - {fileID: 11400000, guid: cdc13b16e1a60d64c9fac53157a3170b, type: 2}
   - {fileID: 11400000, guid: d103585bf41990c42aaee2b3e8068ad6, type: 2}
   - {fileID: 11400000, guid: 6eb15e24e57857844bce39667c173a6e, type: 2}

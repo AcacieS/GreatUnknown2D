@@ -34,13 +34,13 @@ public class BookViewerUI : MonoBehaviour
     private void Awake()
     {
         // Do null checks on Awake
-        if (pageSprites == null) { Ext.Fatal("Missing pageSprites Reference", this); return; }
-        if (leftPageImage == null) { Ext.Fatal("Missing leftPageImage Reference", this); return; }
-        if (rightPageImage == null) { Ext.Fatal("Missing rightPageImage Reference", this); return; }
-        if (prevButton == null) { Ext.Fatal("Missing prevButton Reference", this); return; }
-        if (nextButton == null) { Ext.Fatal("Missing nextButton Reference", this); return; }
-        if (escapeButton == null) { Ext.Fatal("Missing escapeButton Reference", this); return; }
-        if (blankPageSprite == null) { Ext.Warning("Missing blankPageSprite Reference", this); blankPageSprite = null; }
+        if (pageSprites == null) { Ext.WarnRefAndDisable("pageSprites", this); return; }
+        if (leftPageImage == null) { Ext.WarnRefAndDisable("leftPageImage", this); return; }
+        if (rightPageImage == null) { Ext.WarnRefAndDisable("rightPageImage", this); return; }
+        if (prevButton == null) { Ext.WarnRefAndDisable("prevButton", this); return; }
+        if (nextButton == null) { Ext.WarnRefAndDisable("nextButton", this); return; }
+        if (escapeButton == null) { Ext.WarnRefAndDisable("escapeButton", this); return; }
+        if (blankPageSprite == null) { Ext.WarnRef("blankPageSprite", this); blankPageSprite = null; }
 
         // Reformat pages list (must have an even size, null's are for invisible pages)
         if (firstPageOnRight) pageSprites.Insert(0, null);

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -57,6 +58,12 @@ public class GameManagement : MonoBehaviour
             Instance = this;
         }
 
+        // Check references and warn if any are missing from the Inspector.
+        if (Canvas != null) Ext.WarnRef("Canvas", this);
+        if (workPlace != null) Ext.WarnRef("workPlace", this);
+        if (fishGame != null) Ext.WarnRef("fishGame", this);
+        if (firstDayCanvas != null) Ext.WarnRef("firstDayCanvas", this);
+
         fishSession.ResetSession();
         OrganizeGame();
     }
@@ -76,10 +83,12 @@ public class GameManagement : MonoBehaviour
 
     private void OrganizeGame()
     {
-        Canvas?.SetActive(true);
-        workPlace?.SetActive(true);
-        fishGame?.SetActive(false);
-        firstDayCanvas?.SetActive(true);
+        // Use a proper null-check (not ?.)
+        // see: https://unity.com/blog/engine-platform/custom-operator-should-we-keep-it
+        if (Canvas != null) Canvas.SetActive(true);
+        if (workPlace != null) workPlace.SetActive(true);
+        if (fishGame != null) fishGame.SetActive(false);
+        if (firstDayCanvas != null) firstDayCanvas.SetActive(true);
 
         if (iceSlidingCanvas != null)
             iceSlidingCanvas.SetActive(false);

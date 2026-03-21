@@ -2,14 +2,14 @@ using UnityEngine;
 
 public static class Ext
 {
-    public static void Fatal(string reason, MonoBehaviour script)
+    public static void WarnRefAndDisable(string field, MonoBehaviour script)
     {
-        Debug.LogError(reason);
+        Debug.LogError("[" + script.name + "] Missing " + field + " Reference");
         script.gameObject.SetActive(false);
     }
 
-    public static void Warning(string reason, MonoBehaviour script)
+    public static void WarnRef(string field, MonoBehaviour script)
     {
-        Debug.LogWarning(reason);
+        Debug.LogWarning("[" + script.name + "] Missing " + field + " Reference (optional)");
     }
 }

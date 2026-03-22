@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -8,15 +7,16 @@ public class BookViewerUI : MonoBehaviour
 {
     [Header("Pages (single pages in order)")]
     [FormerlySerializedAs("pages")]
-    [SerializeField] private List<Sprite> pageSprites = new();
+    [SerializeField] private CodexPages codexPages;
 
     [Header("UI Actions")]
     [SerializeField] private InputActionReference navigate;
     [SerializeField] private InputActionReference escape;
 
     [Header("UI References")]
-    [SerializeField] private Image leftPageImage;
-    [SerializeField] private Image rightPageImage;
+    [SerializeField] private Image pageImage;
+    //[SerializeField] private Image leftPageImage;
+    //[SerializeField] private Image rightPageImage;
     [SerializeField] private Button prevButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private Button escapeButton;
@@ -27,25 +27,26 @@ public class BookViewerUI : MonoBehaviour
     [Header("Behavior (hover for details)")]
     [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
     [SerializeField] private bool firstPageOnRight = true;
+    [SerializeField] private bool hasFirstPage = true;
     [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
     [SerializeField] private bool lastPageOnLeft = true;
+    [SerializeField] private bool hasLastPage = true;
     private int index = 0;
 
     private void Awake()
     {
         // Do null checks on Awake
-        if (pageSprites == null) { Ext.WarnRefAndDisable("pageSprites", this); return; }
-        if (leftPageImage == null) { Ext.WarnRefAndDisable("leftPageImage", this); return; }
-        if (rightPageImage == null) { Ext.WarnRefAndDisable("rightPageImage", this); return; }
+        if (codexPages == null) { Ext.WarnRefAndDisable("pageSprites", this); return; }
+        if(pageImage == null) { Ext.WarnRefAndDisable("pageImage", this); return; }
         if (prevButton == null) { Ext.WarnRefAndDisable("prevButton", this); return; }
         if (nextButton == null) { Ext.WarnRefAndDisable("nextButton", this); return; }
         if (escapeButton == null) { Ext.WarnRefAndDisable("escapeButton", this); return; }
         if (blankPageSprite == null) { Ext.WarnRef("blankPageSprite", this); blankPageSprite = null; }
 
         // Reformat pages list (must have an even size, null's are for invisible pages)
-        if (firstPageOnRight) pageSprites.Insert(0, null);
-        if (lastPageOnLeft && pageSprites.Count % 2 == 0) pageSprites.Insert(pageSprites.Count - 1, blankPageSprite);
-        if (pageSprites.Count % 2 == 1) pageSprites.Add(blankPageSprite);
+        //if (firstPageOnRight) pageSprites.Insert(0, null);
+        //if (lastPageOnLeft && pageSprites.Count % 2 == 0) pageSprites.Insert(pageSprites.Count - 1, blankPageSprite);
+        //if (pageSprites.Count % 2 == 1) pageSprites.Add(blankPageSprite);
     }
 
     public void Start()
@@ -88,8 +89,9 @@ public class BookViewerUI : MonoBehaviour
 
     private void Refresh()
     {
-        SetPage(leftPageImage, pageSprites[index * 2]);
-        SetPage(rightPageImage, pageSprites[index * 2 + 1]);
+        SetPage(pageImage, codexPages.pageSprites[index]);
+        // SetPage(leftPageImage, pageSprites[index * 2]);
+        // SetPage(rightPageImage, pageSprites[index * 2 + 1]);
         prevButton.interactable = CanGoPrev();
         nextButton.interactable = CanGoNext();
     }
@@ -100,6 +102,6 @@ public class BookViewerUI : MonoBehaviour
         img.sprite = sprite;
     }
 
-    private bool CanGoPrev() => pageSprites != null && index != 0;
-    private bool CanGoNext() => pageSprites != null && (index + 1) * 2 < pageSprites.Count;
+    private bool CanGoPrev() => codexPages.pageSprites != null && index != 0;
+    private bool CanGoNext() => codexPages.pageSprites != null && (index + 1) < codexPages.pageSprites.Count;
 }

@@ -8,6 +8,8 @@ public class FishTypeInfo : ScriptableObject
     public string fishName;
     public List<CategoryFishBodyPart> categoriesFishLayer;
     public Vector2 tagFishPos;
+    public FishPosInfo fishPosInfo;
+    public ColliderInfo colliderInfo;
     public int GetNbPossibleMutation()
     {
         int nbPossibleMutation = 0;

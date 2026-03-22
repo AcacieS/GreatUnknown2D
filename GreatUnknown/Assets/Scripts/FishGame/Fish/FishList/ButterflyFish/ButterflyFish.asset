@@ -22,3 +22,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80a2ace6f5b598d45bdcda32d4b969b6, type: 2}
   - {fileID: 11400000, guid: 48c73fd429d131943ad75fc4fccba2e3, type: 2}
   tagFishPos: {x: 0, y: 0.65}
+  fishPosInfo:
+    yPos: 0
+    fishSize: {x: 1.18, y: 1.18}
+  colliderInfo:
+    offsetPos: {x: 0.03, y: 0.025}
+    colliderSize: {x: 6, y: 4.2}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class FishManagement : MonoBehaviour
 {
@@ -78,7 +79,7 @@ public class FishManagement : MonoBehaviour
         //fishChoiceTxt.text = "";
         Debug.Log("destroy");
         DestroyPreviousFish();
-
+        
         currentFishIndex++;
         Debug.Log("currentFish Index"+currentFishIndex);
         Debug.LogWarning("count: "+currentFishLists.Count);
@@ -95,9 +96,14 @@ public class FishManagement : MonoBehaviour
         
         Fish currentFish = currentFishLists[currentFishIndex];
         FishTypeInfo fishTypeInfo = currentFish.GetFishType();
+        
+        //CHANGE FISH SHOWING WAY
+        fishPlace.GetComponent<BoxCollider2D>().size = fishTypeInfo.colliderInfo.colliderSize;
+        fishPlace.GetComponent<BoxCollider2D>().offset = fishTypeInfo.colliderInfo.offsetPos;
+        float yPos = currentFish.GetFishType().fishPosInfo.yPos;
+        fishPlace.transform.position = new Vector2(fishPlace.transform.position.x, yPos);
+        fishPlace.transform.localScale = fishTypeInfo.fishPosInfo.fishSize;
 
-        // //assign basic object
-        // fishPlace.GetComponent<SpriteRenderer>().sprite = fishTypeInfo.fishBasicBody;
         foreach (KeyValuePair<CategoryFishBodyPart, FishBodyPart> fishBodyPart in currentFish.GetFishBodyParts())
         {
             CategoryFishBodyPart categoryFishBody = fishBodyPart.Key;

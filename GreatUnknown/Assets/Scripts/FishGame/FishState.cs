@@ -10,7 +10,6 @@ public class FishState : MonoBehaviour, IDropable
     [SerializeField] private float speed = 1f;
     private ClickHandler clickHandler;
     private BoxCollider2D _collider;
-    private Fish currentFish;
     private bool choiceIsMutated = false;
     private bool isGettingIn = false;
     private bool isGettingOut = false;
@@ -75,10 +74,9 @@ public class FishState : MonoBehaviour, IDropable
         clickHandler.SetEnableDrag(false);
         if (!isInitialPos)
         {
-            transform.position = InPos.position;
+            transform.position = new Vector2(InPos.position.x, transform.position.y);
             isInitialPos = true;
-            //SetChoiceIsMutated(false);
-            //stickerObj = null;
+
             FishManagement.Instance.InitializeNewFish();
             if (stickerObj != null)
             {
@@ -89,8 +87,8 @@ public class FishState : MonoBehaviour, IDropable
             }
             _collider.enabled = true;
         }
-
-        if (Vector2.Distance(transform.position, fishPos.position) <= 0.1f)
+        
+        if (Mathf.Abs(transform.position.x - fishPos.position.x) <= 0.2f)
         {
             clickHandler.SetEnableDrag(true);
             isGettingIn = false;
@@ -98,7 +96,13 @@ public class FishState : MonoBehaviour, IDropable
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, fishPos.position,speed*Time.deltaTime);
+            Vector2 target = new Vector2(fishPos.position.x, transform.position.y);
+
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                target,
+                speed * Time.deltaTime
+            );
         }
         
     }
@@ -109,9 +113,7 @@ public class FishState : MonoBehaviour, IDropable
     private void GetOut()
     {
         clickHandler.SetEnableDrag(false);
-        Vector2 positionWithoutY = transform.position;
-        positionWithoutY.y = OutPos.position.y;
-        if (Vector2.Distance(positionWithoutY, OutPos.position) <= 0.1f)
+        if (Mathf.Abs(transform.position.x - OutPos.position.x) <= 0.1f)
         {
             if (stickerObj != null)
             {
@@ -126,9 +128,9 @@ public class FishState : MonoBehaviour, IDropable
         }
         else
         {
-            Vector2 movePos = Vector2.MoveTowards(transform.position, OutPos.position,speed*Time.deltaTime);
-            movePos.y = transform.position.y;
-            transform.position = movePos;
+            Vector2 target = new Vector2(OutPos.position.x, transform.position.y);
+
+            transform.position = Vector2.MoveTowards(transform.position, target,speed*Time.deltaTime);
         }
     }
 }

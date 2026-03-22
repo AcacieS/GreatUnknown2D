@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RemoveTheBugs/Stefa Menu.unity
+    path: Assets/Scenes/Jonathan/Jonathan Menu.unity
     guid: 1e95841c23e310640ad867884c53d964
   - enabled: 1
-    path: Assets/Scenes/RemoveTheBugs/RemoveTheBugs.unity
+    path: Assets/Scenes/Jonathan/JonathanScene.unity
     guid: 4f27ffed13fcf904881429067b5fcd9a
   - enabled: 1
-    path: Assets/Scenes/RemoveTheBugs/NatureEnding.unity
+    path: Assets/Scenes/Jonathan/NatureEnding.unity
     guid: f3774ffde63008642bfe010032bdf8c3
   - enabled: 1
-    path: Assets/Scenes/RemoveTheBugs/IndustrialEnding.unity
+    path: Assets/Scenes/Jonathan/IndustrialEnding.unity
     guid: edf16bc13b388b348afc745519f443e7
   - enabled: 1
-    path: Assets/Scenes/RemoveTheBugs/Jonathan End.unity
+    path: Assets/Scenes/Jonathan/Jonathan End.unity
     guid: a77528ded86f248488e7d412c4faf3e0
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}

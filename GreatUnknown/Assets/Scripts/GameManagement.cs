@@ -48,6 +48,7 @@ public class GameManagement : MonoBehaviour
 
     [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
+    public Sprite backgroundDay2;
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
 
@@ -63,6 +64,10 @@ public class GameManagement : MonoBehaviour
         if (workPlace != null) Ext.WarnRef("workPlace", this);
         if (fishGame != null) Ext.WarnRef("fishGame", this);
         if (firstDayCanvas != null) Ext.WarnRef("firstDayCanvas", this);
+
+
+        // For Load system
+        nbDaysPassed = SaveSystem.LoadProgress();
 
         fishSession.ResetSession();
         OrganizeGame();
@@ -249,6 +254,9 @@ public class GameManagement : MonoBehaviour
         nbDaysPassed++;
         ResetDataDay();
 
+        // For Load system
+        SaveSystem.SaveProgress(nbDaysPassed);
+
         if (nbDaysPassed < daySprites.Length)
             daySpriteRenderer.sprite = daySprites[nbDaysPassed];
 
@@ -264,6 +272,8 @@ public class GameManagement : MonoBehaviour
                 break;
             case 1:
                 faxMachine?.NewFaxMessage("day2_morning");
+                if (backgroundRend != null)
+                    backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3

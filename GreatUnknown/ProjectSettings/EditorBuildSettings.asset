@@ -7,10 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/RemoveTheBugs/Stefa Menu.unity
-    guid: 659f65bbe1f692641b35c4d7c6b4e63f
+    guid: 1e95841c23e310640ad867884c53d964
   - enabled: 1
     path: Assets/Scenes/RemoveTheBugs/RemoveTheBugs.unity
-    guid: 9eb25c276c4d5f346b0cbd8a7741abc6
+    guid: 4f27ffed13fcf904881429067b5fcd9a
   - enabled: 1
     path: Assets/Scenes/RemoveTheBugs/NatureEnding.unity
     guid: f3774ffde63008642bfe010032bdf8c3
@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/RemoveTheBugs/IndustrialEnding.unity
     guid: edf16bc13b388b348afc745519f443e7
   - enabled: 1
-    path: Assets/Scenes/Stefa.unity
-    guid: 9cd13b81cef1143eba802d335e9e3b4f
+    path: Assets/Scenes/RemoveTheBugs/Jonathan End.unity
+    guid: a77528ded86f248488e7d412c4faf3e0
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

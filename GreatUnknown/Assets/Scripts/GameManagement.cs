@@ -282,14 +282,6 @@ public class GameManagement : MonoBehaviour
         NextDay();
     }
 
-    [ContextMenu("Skip to next day")]
-    public void SkipToNextDay()
-    {
-        IsFishGameFinished = true;
-        isSlidingGameFinished = true;
-        NextDay();
-    }
-
     public void NextDay()
     {
         nbDaysPassed++;

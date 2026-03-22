@@ -37,6 +37,7 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     Vector3 mouseWorld;
     public void OnPointerDown(PointerEventData eventData)
     {
+        //Debug.Log("PointerDownGotDetected");
         if (enableDrag)
         {
             mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
@@ -44,6 +45,7 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             _offset = transform.position - mouseWorld;
         }
         onClick?.Invoke();
+        //Debug.Log("Object's Click got invoked");
         _clickable?.OnClick();
     }
     public Vector3 StickerMousePos()

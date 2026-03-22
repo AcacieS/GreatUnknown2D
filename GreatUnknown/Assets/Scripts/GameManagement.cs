@@ -197,14 +197,19 @@ public class GameManagement : MonoBehaviour
     // Disable UI first so it cannot keep interfering
     if (iceSlidingExitUiRoot != null)
         iceSlidingExitUiRoot.SetActive(false);
+        
 
     // Then disable the sliding canvas
     if (iceSlidingCanvas != null)
         iceSlidingCanvas.SetActive(false);
-
+    
+    
     // Then deactivate the active day-specific sliding game
     if (iceSlidingGameSwitcher != null)
         iceSlidingGameSwitcher.DeactivateCurrent();
+
+    if (workPlace != null) 
+      workPlace.SetActive(true);
 
     if (animator != null)
         animator.SetBool("ExitingSlidingGame", true);

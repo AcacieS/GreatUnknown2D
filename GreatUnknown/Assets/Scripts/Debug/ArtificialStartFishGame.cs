@@ -23,7 +23,7 @@ public class FishGameDebugStarter : MonoBehaviour
             return;
         }
 
-        fishGameController.isFishGameFinished = true;
+        fishGameController.IsFishGameFinished = true;
         fishGameController.StartSlidingGame();
     
 

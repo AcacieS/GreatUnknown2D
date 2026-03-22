@@ -45,9 +45,9 @@ public class FishManagement : MonoBehaviour
 
     public void StartFishGame()
     {
-        if(currentDay>= fishDaysInfo.GetNbGame() || GameManagement.Instance.isFishGameFinished)
+        if(currentDay>= fishDaysInfo.GetNbGame() || GameManagement.Instance.IsFishGameFinished)
         {
-            GameManagement.Instance.isFishGameFinished = true;
+            GameManagement.Instance.IsFishGameFinished = true;
             return;
         }
         //ACTIVATE 
@@ -87,7 +87,7 @@ public class FishManagement : MonoBehaviour
         {
             Debug.Log("No more fish to show");
             //TODO: score fish game
-            GameManagement.Instance.isFishGameFinished = true;
+            GameManagement.Instance.IsFishGameFinished = true;
             fishGamePlace.SetActive(false);
             workPlace.SetActive(true);
             isFishGameOn = false;
@@ -113,7 +113,14 @@ public class FishManagement : MonoBehaviour
             fishPlace.transform.position,
             fishPlace.transform.rotation,
             fishPlace.transform); //maybe 0
-
+            if (newFishBodyGO == null)
+            {
+                Debug.LogError("newFishBodyGO is null");
+            }
+            if (fishBody == null)
+            {
+                Debug.LogError("fishBody is null and what was the cat?"+categoryFishBody.name);
+            }
             newFishBodyGO.GetComponent<SpriteRenderer>().sprite = fishBody.bodyPartSprite;
             newFishBodyGO.GetComponent<SpriteRenderer>().sortingLayerName = categoryFishBody.sortingLayer.ToString();
             currentFish.AddFishBodyPartGameObj(newFishBodyGO);

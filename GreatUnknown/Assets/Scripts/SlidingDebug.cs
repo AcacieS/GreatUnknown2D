@@ -26,7 +26,7 @@ public class SlidingDebugController : MonoBehaviour
         Debug.Log($"[DEBUG] Forcing day = {debugDay}");
 
         // Pretend fish game is done so sliding can start
-        gameManagement.isFishGameFinished = true;
+        gameManagement.IsFishGameFinished = true;
 
         // Trigger normal flow (uses animator + relay)
         gameManagement.StartSlidingGame();

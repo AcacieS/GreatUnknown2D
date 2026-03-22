@@ -42,7 +42,7 @@ public class DayDebugTools : MonoBehaviour
 
         Debug.Log($"[DayDebugTools] Before advance -> Internal = {beforeInternal}, Human day = {beforeHuman}");
 
-        gameManagement.isFishGameFinished = true;
+        gameManagement.IsFishGameFinished = true;
         gameManagement.isSlidingGameFinished = true;
         gameManagement.NextDay();
 

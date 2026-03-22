@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManagement : MonoBehaviour
@@ -17,10 +16,27 @@ public class GameManagement : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private bool isSlidingGameTrue = false;
     [SerializeField] private bool isFishGameTrue = false;
-
-    [Header("Game States")]
+    [SerializeField] private bool activateSaveSystem = true;
     
-    public bool isFishGameFinished = false;
+    
+    public event System.Action<bool> OnFishGameFinishedChanged;
+    
+    private bool _isFishGameFinished = false;
+    [Header("Game States")]
+    public bool IsFishGameFinished
+    {
+        get { return _isFishGameFinished; }
+        set
+        {
+            if (_isFishGameFinished != value)
+            {
+                _isFishGameFinished = value;
+                OnFishGameFinishedChanged?.Invoke(value);
+            }
+        }
+    }
+    
+
     public bool isSlidingGameFinished = false;
     public bool isDayEnding = false;
 
@@ -29,10 +45,12 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] private PortholeSwitcher portholeScript;
     [SerializeField] private Radio radioScript;
+    
 
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workPlace;
     [SerializeField] private GameObject fishGame;
+    [SerializeField] private GameObject fishOnTray;
 
     [SerializeField] private GameObject iceSlidingCanvas;
     [SerializeField] private GameObject iceSlidingExitUiRoot; // parent of the exit button
@@ -40,7 +58,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private IceSlidingGameSwitcher iceSlidingGameSwitcher;
 
     [SerializeField] private GameObject Canvas;
-    [SerializeField] private GameObject firstDayCanvas;
+    [SerializeField] private GameObject firstDayStoryCanvas;
     [SerializeField] private LastDay lastDayMB;
 
     [Header("Story")]
@@ -52,6 +70,9 @@ public class GameManagement : MonoBehaviour
     public Sprite backgroundDay3;
     public Sprite backgroundDay5;
 
+    [Header("Computer")]
+    [SerializeField] private Animator computer;
+    [SerializeField] private float waitTimeComputerOpen;
     public void Awake()
     {
         if (Instance == null)
@@ -63,14 +84,18 @@ public class GameManagement : MonoBehaviour
         if (Canvas != null) Ext.WarnRef("Canvas", this);
         if (workPlace != null) Ext.WarnRef("workPlace", this);
         if (fishGame != null) Ext.WarnRef("fishGame", this);
-        if (firstDayCanvas != null) Ext.WarnRef("firstDayCanvas", this);
-
+        if (firstDayStoryCanvas != null) Ext.WarnRef("firstDayCanvas", this);
 
         // For Load system
-        nbDaysPassed = SaveSystem.LoadProgress();
+        if (activateSaveSystem)
+        {
+            nbDaysPassed = SaveSystem.LoadProgress();
+        }
+        
 
         fishSession.ResetSession();
         OrganizeGame();
+        OnFishGameFinishedChanged += HandleFishFinished;
     }
 
     void Start()
@@ -82,8 +107,10 @@ public class GameManagement : MonoBehaviour
 
         if (isFishGameTrue)
         {
-            isFishGameFinished = true;
+            IsFishGameFinished = true;
         }
+
+        
     }
 
     private void OrganizeGame()
@@ -93,13 +120,17 @@ public class GameManagement : MonoBehaviour
         if (Canvas != null) Canvas.SetActive(true);
         if (workPlace != null) workPlace.SetActive(true);
         if (fishGame != null) fishGame.SetActive(false);
-        if (firstDayCanvas != null) firstDayCanvas.SetActive(true);
+        if (nbDaysPassed==0)
+        {
+            if (firstDayStoryCanvas != null) firstDayStoryCanvas.SetActive(true);
+        }
 
         if (iceSlidingCanvas != null)
             iceSlidingCanvas.SetActive(false);
 
         if (iceSlidingGameSwitcher != null)
             iceSlidingGameSwitcher.DeactivateAll();
+        if (fishOnTray != null) fishOnTray.SetActive(true);
     }
 
     public void ResetDay()
@@ -113,7 +144,6 @@ public class GameManagement : MonoBehaviour
 
         if (workPlace != null)
             workPlace.SetActive(true);
-
         FishManagement.Instance.ResetFishGame();
     }
 
@@ -129,7 +159,7 @@ public class GameManagement : MonoBehaviour
 
     public void StartSlidingGame()
     {
-        if (!isFishGameFinished) return;
+        if (!IsFishGameFinished) return;
         if (GetNbDayPassed() == 5) return;
         if (animator == null) return;
 
@@ -199,13 +229,21 @@ public class GameManagement : MonoBehaviour
         if (radioScript != null)
             radioScript.StopAllCoroutines();
 
-        isFishGameFinished = false;
+        IsFishGameFinished = false;
         isSlidingGameFinished = false;
         isDayEnding = false;
 
         fishSession.ResetSession();
         portholeScript.OnDaySwitch(nbDaysPassed);
+        if (computer != null)
+        {
+            computer.SetBool("Open", false);
+        }
+        
+        if (fishOnTray != null) fishOnTray.SetActive(true);
+
         SpecialEventDay();
+        
     }
 
     public void MarkSlidingGameFinished()
@@ -218,10 +256,12 @@ public class GameManagement : MonoBehaviour
     private void TryStartDayEnding()
     {
         if (isDayEnding) return;
-        if (!isFishGameFinished) return;
+        if (!IsFishGameFinished) return;
         if (!isSlidingGameFinished) return;
         if (workPlace == null || !workPlace.activeSelf) return;
-
+        if(computer!=null) {
+            computer.SetBool("Open", false);
+        }
         isDayEnding = true;
         StartCoroutine(DayEndingRoutine());
     }
@@ -244,7 +284,7 @@ public class GameManagement : MonoBehaviour
     [ContextMenu("Skip to next day")]
     public void SkipToNextDay()
     {
-        isFishGameFinished = true;
+        IsFishGameFinished = true;
         isSlidingGameFinished = true;
         NextDay();
     }
@@ -281,7 +321,7 @@ public class GameManagement : MonoBehaviour
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
-                if (isFishGameFinished)
+                if (IsFishGameFinished)
                     faxMachine?.NewFaxMessage("day3_midday");
                 break;
 
@@ -308,4 +348,26 @@ public class GameManagement : MonoBehaviour
                 break;
         }
     }
+    
+    void HandleFishFinished(bool finished)
+    {
+        if (finished)
+        {
+            Debug.Log("Fish game is finished!");
+            fishOnTray.SetActive(false);
+            StartCoroutine("ComputerOpen");
+        }
+    }
+    
+    
+    private IEnumerator ComputerOpen()
+    {
+        yield return new WaitForSeconds(waitTimeComputerOpen);
+        Debug.Log("Computer opened");
+        if (computer != null)
+        {
+            computer.SetBool("Open", true);
+        }
+    }
+
 }

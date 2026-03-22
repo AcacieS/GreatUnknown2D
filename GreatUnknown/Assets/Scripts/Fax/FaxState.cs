@@ -22,8 +22,6 @@ public class FaxState : ScriptableObject
         UnreadCount++;
         NewUnread?.Invoke();
         Changed?.Invoke();
-
-        Debug.Log($"[FaxState] Added message. Total={faxLog.Count}, Unread={UnreadCount}");
     }
 
     public void MarkAllRead()

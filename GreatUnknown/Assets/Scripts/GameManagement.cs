@@ -81,10 +81,10 @@ public class GameManagement : MonoBehaviour
         }
 
         // Check references and warn if any are missing from the Inspector.
-        if (Canvas != null) Ext.WarnRef("Canvas", this);
-        if (workPlace != null) Ext.WarnRef("workPlace", this);
-        if (fishGame != null) Ext.WarnRef("fishGame", this);
-        if (firstDayStoryCanvas != null) Ext.WarnRef("firstDayCanvas", this);
+        if (Canvas == null) Ext.WarnRef("Canvas", this);
+        if (workPlace == null) Ext.WarnRef("workPlace", this);
+        if (fishGame == null) Ext.WarnRef("fishGame", this);
+        if (firstDayStoryCanvas == null) Ext.WarnRef("firstDayCanvas", this);
 
         // For Load system
         if (activateSaveSystem)

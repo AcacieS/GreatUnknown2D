@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class LoadMenu : MonoBehaviour
 {
+    [SerializeField] private string mainScene = "Stefa";
     [SerializeField] private Button[] dayButtons;
 
     void Start()
@@ -34,6 +35,6 @@ public class LoadMenu : MonoBehaviour
     {
         GameManagement.nbDaysPassed = dayIndex;
         SaveSystem.SaveProgress(dayIndex);
-        SceneManager.LoadScene("Stefa");
+        SceneManager.LoadScene(mainScene);
     }
 }

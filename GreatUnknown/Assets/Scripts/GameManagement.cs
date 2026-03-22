@@ -243,7 +243,7 @@ public class GameManagement : MonoBehaviour
         
         if (fishOnTray != null) fishOnTray.SetActive(true);
 
-        SpecialEventDay();
+        //SpecialEventDay();
         
     }
 

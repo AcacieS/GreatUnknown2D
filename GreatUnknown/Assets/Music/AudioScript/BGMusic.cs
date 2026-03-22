@@ -5,6 +5,14 @@ public class BGMusic : MonoBehaviour
     [SerializeField] private BGMusicInfo creakySource;
     [SerializeField] private BGMusicInfo anomalySource;
     [SerializeField] private BGMusicInfo engineSource;
+
+    void Awake()
+    {
+        if (creakySource == null) Ext.WarnRefAndDisable("creakySource", this);
+        if (anomalySource == null) Ext.WarnRefAndDisable("anomalySource", this);
+        if (engineSource == null) Ext.WarnRefAndDisable("engineSource", this);
+    }
+
     void Start()
     {
         creakySource.AddAudioSource();

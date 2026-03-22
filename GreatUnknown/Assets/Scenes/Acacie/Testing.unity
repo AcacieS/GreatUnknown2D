@@ -26740,6 +26740,7 @@ MonoBehaviour:
   wrongMessage: {fileID: 1745496630}
   daysWrongMsg: {fileID: 11400000, guid: 99771b75e96dd6c47b2bb9b9277babf0, type: 2}
   currentFishIndex: -1
+  need2Mutated: 0
   currentFishLists:
   - isMutated: 0
     fishType: {fileID: 0}
@@ -28323,7 +28324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpeningTyping
   currentDayCanvas: {fileID: 0}
-  typingSpeed: 0.07
+  typingSpeed: 0.00007
   waitSecondAfterTyping: 3
   firstDaySound: {fileID: 11400000, guid: 0babf824f6f5f53449519233af0bd588, type: 2}
   currentDayTransition: {fileID: 4425620332833935969}
@@ -29527,9 +29528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf3ab39526e59a4fa3a48e2595dd918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fishSounds:
-  - {fileID: 8300000, guid: db6c93fa232ae1f438a135381a4784c1, type: 3}
-  - {fileID: 8300000, guid: 8e3369672fc2b5e40a4d2e7297f8ff96, type: 3}
 --- !u!114 &8563051156702936916
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,12 @@ public class DayTransition : TypingEffect
     private void NextDay()
     {
         currentDayCanvas.SetActive(true);
-        textToShow = GameManagement.Instance.GetNbDayLeft()+" DAYS FROM THE ANOMALY";
+        if (GameManagement.Instance.GetNbDayLeft() == 0)
+            textToShow = "THE ANOMALY";
+        else if (GameManagement.Instance.GetNbDayLeft() == 1)
+            textToShow = "1 DAY FROM THE ANOMALY";
+        else
+            textToShow = GameManagement.Instance.GetNbDayLeft() + " DAYS FROM THE ANOMALY";
         audioSource.PlayOneShot(dayTransitionSound.soundClip);
         //SoundManager.instance.PlaySound(dayTransitionSound, SoundState.FadeOut);
         StopAllCoroutines();

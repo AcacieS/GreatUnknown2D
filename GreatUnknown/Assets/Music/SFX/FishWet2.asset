@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FishWet2
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 8e3369672fc2b5e40a4d2e7297f8ff96, type: 3}
-  volume: 0.5
+  volume: 0.01
   isLooping: 0

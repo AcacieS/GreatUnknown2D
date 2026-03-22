@@ -11,7 +11,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Image buttonImage;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         originalScale = transform.localScale;
         buttonImage = GetComponent<Image>();
@@ -35,7 +35,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     void OnDisable()   // Fires when the GameObject is deactivated or scene changes
     {
-        if (originalSprite == null && buttonImage != null)
+        if (originalSprite != null && buttonImage != null)
             buttonImage.sprite = originalSprite;
         transform.localScale = originalScale;
     }

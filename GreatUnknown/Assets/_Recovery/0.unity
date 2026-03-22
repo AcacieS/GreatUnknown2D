@@ -210,11 +210,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &136073078 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5810753145604278256, guid: 510bb0cc23b3b014c9aa598dc404967c, type: 3}
-  m_PrefabInstance: {fileID: 1088962921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &136073079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3086999962708994583, guid: 510bb0cc23b3b014c9aa598dc404967c, type: 3}
@@ -547,11 +542,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &156713075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
-  m_PrefabInstance: {fileID: 900338001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &156713076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
@@ -1009,11 +999,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &880538220 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
-  m_PrefabInstance: {fileID: 1975077775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &880538221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
@@ -13517,11 +13502,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1226698755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
-  m_PrefabInstance: {fileID: 1088527979}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1226698756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
@@ -13942,11 +13922,6 @@ Transform:
   - {fileID: 404624869}
   m_Father: {fileID: 8519251110529648282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1737838051 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
-  m_PrefabInstance: {fileID: 963084693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1737838052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425429626800886158, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
@@ -26517,6 +26492,7 @@ MonoBehaviour:
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
   dayAnimation: {fileID: 4425620332833935969}
   animator: {fileID: 8898982564341672112}
+  bgSource: {fileID: 0}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
   isFishGameFinished: 0
@@ -26527,13 +26503,7 @@ MonoBehaviour:
   radioScript: {fileID: 8336794658080182938}
   workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 2406996170996195297}
-  iceSlidingGame: {fileID: 2074042226}
-  iceSlidingGames:
-  - {fileID: 1226698755}
-  - {fileID: 136073078}
-  - {fileID: 1737838051}
-  - {fileID: 156713075}
-  - {fileID: 880538220}
+  iceSlidingCanvas: {fileID: 0}
   iceSlidingGameSwitcher: {fileID: 0}
   Canvas: {fileID: 2532382225685698924}
   firstDayCanvas: {fileID: 6588268269111174040}
@@ -28716,6 +28686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045b5beea1c1f074493ed7dedc681620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  soundCatalog: {fileID: 0}
 --- !u!1 &8168454107263527657
 GameObject:
   m_ObjectHideFlags: 0

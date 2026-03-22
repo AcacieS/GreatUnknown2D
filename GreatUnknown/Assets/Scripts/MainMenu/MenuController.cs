@@ -6,7 +6,6 @@ using System.Collections;
 using TMPro;
 using UnityEditor.Scripting;
 using UnityEngine.Rendering;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using Unity.VisualScripting;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -28,9 +27,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Toggle invertYToggle = null;
 
     [Header("Graphics Settings")]
-    [SerializeField] private Slider brightnessSlider = null;
-    [SerializeField] private TMP_Text brightTextValue = null;
-    [SerializeField] private float defaultBrightness = 1;
+    // [SerializeField] private Slider brightnessSlider = null;
+    // [SerializeField] private TMP_Text brightTextValue = null;
+    // [SerializeField] private float defaultBrightness = 1;
 
     [Space(10)]
     [SerializeField] private TMP_Dropdown qualityDropdown;
@@ -44,11 +43,6 @@ public class MenuController : MonoBehaviour
 
     [Header("Confirmation")]
     [SerializeField] private GameObject confirmPrompt = null;
-    
-    [Header ("Levels to load")]
-    public string newGameScene;
-    private string dayToLoad;
-    [SerializeField] private GameObject noSavedGameDialog = null;
 
     [Header ("Resolution Dropdown")]
     public TMP_Dropdown resolutionDropdown;
@@ -81,23 +75,6 @@ public class MenuController : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void NewGameYes()
-    {
-        SceneManager.LoadScene(newGameScene);
-    }
-
-    public void LoadGameYes()
-    {
-        if (PlayerPrefs.HasKey("SavedDay"))
-        {
-            dayToLoad = PlayerPrefs.GetString("SavedDay");
-            SceneManager.LoadScene(dayToLoad);
-        } else
-        {
-            noSavedGameDialog.SetActive(true);
-        }
-    
-    }
     public void ExitButton()
     {
         Application.Quit();
@@ -117,6 +94,7 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
     }
 
+    /*
     public void SetControllerSens(float sensitivity) // we get float
     {
         mainControllerSens = Mathf.RoundToInt(sensitivity); // but we need whole int
@@ -142,6 +120,7 @@ public class MenuController : MonoBehaviour
         brightnessLevel = brightness;
         brightTextValue.text = brightness.ToString("0.0");
     }
+    */
     public void SetFullScreen(bool isFullScreen)
     {
         this.isFullScreen = isFullScreen;
@@ -152,7 +131,7 @@ public class MenuController : MonoBehaviour
     }
     public void GraphicsApply()
     {
-        PlayerPrefs.SetFloat("masterBrightness",brightnessLevel);
+        //PlayerPrefs.SetFloat("masterBrightness",brightnessLevel);
         // change your brightness with ur post processing or whatever it is
 
         PlayerPrefs.SetInt("masterQuality", qualityLevel);
@@ -173,6 +152,7 @@ public class MenuController : MonoBehaviour
             volumeTextValue.text = defaultVolume.ToString("0.0");
             VolumeApply(); //save value
         }
+        /*
         if (MenuType == "Gameplay")
         {
             SensTextValue.text = defaultSens.ToString("0");
@@ -181,11 +161,12 @@ public class MenuController : MonoBehaviour
             invertYToggle.isOn = false;
             GameplayApply();
         }
+        */
         if (MenuType == "Graphics")
         {
             // Reset brightness value
-            brightnessSlider.value = defaultBrightness;
-            brightTextValue.text = defaultBrightness.ToString("0.0");
+            // brightnessSlider.value = defaultBrightness;
+            // brightTextValue.text = defaultBrightness.ToString("0.0");
 
             qualityDropdown.value = 1;
             QualitySettings.SetQualityLevel(1);

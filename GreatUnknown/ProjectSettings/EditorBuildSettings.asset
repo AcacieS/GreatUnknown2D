@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RemoveTheBugs/IndustrialEnding.unity
     guid: edf16bc13b388b348afc745519f443e7
+  - enabled: 1
+    path: Assets/Scenes/Stefa.unity
+    guid: 9cd13b81cef1143eba802d335e9e3b4f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

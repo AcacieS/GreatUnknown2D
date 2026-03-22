@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class FishManagement : MonoBehaviour
 {
+    
     public static FishManagement Instance {get; private set;}
     public static bool isFishGameOn;
 
@@ -19,9 +19,8 @@ public class FishManagement : MonoBehaviour
 
     [Header("Mutation")]
     [SerializeField] private FishSession session;
-    [SerializeField] private GameObject wrongMessage;
-    [SerializeField] private TextMeshProUGUI wrongMessageTxt;
-    [SerializeField] private string[] wrongMessageText;
+    [SerializeField] private GameObject wrongMessage; 
+    [SerializeField] private DaysWrongMessages daysWrongMsg;
 
     [Header("Show for Debug")]
     [SerializeField] int currentFishIndex = -1;
@@ -346,8 +345,9 @@ public class FishManagement : MonoBehaviour
             }
             else
             {
-                wrongMessageTxt.text = wrongMessageText[session.Wrong-1];
                 wrongMessage.GetComponent<Animator>().SetTrigger("Wrong");
+                wrongMessage.GetComponent<Image>().sprite = daysWrongMsg.GetMessage(currentDay+1, session.Wrong);// wrongMsg;
+                //wrongMsg.
             }
         }
 

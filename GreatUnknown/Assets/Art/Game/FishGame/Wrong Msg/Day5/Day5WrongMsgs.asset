@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54932ec188a535646b5bcc03e4f9e375, type: 3}
+  m_Name: Day5WrongMsgs
+  m_EditorClassIdentifier: Assembly-CSharp::WrongMessage
+  wrong1: {fileID: -1246660060892275170, guid: 370600427124f0d4fad7897c9f685b0f, type: 3}
+  wrong2: {fileID: 6353749885715136351, guid: 7965d1c109939954d9ce5dbdb972ab1a, type: 3}
+  wrong3: {fileID: 3609227568627131222, guid: 19b6e4b2920ef7a48843b9f86e0515f2, type: 3}

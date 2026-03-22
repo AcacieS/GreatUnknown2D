@@ -145,6 +145,7 @@ public class GameManagement : MonoBehaviour
         if (workPlace != null)
             workPlace.SetActive(true);
         FishManagement.Instance.ResetFishGame();
+        IsFishGameFinished = false;
     }
 
     public int GetNbDayPassed()

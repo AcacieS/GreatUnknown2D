@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: F_Eye
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Flounder Eye Default
-  bodyPartSprite: {fileID: -4182089011936541033, guid: f3c4baf5c8c72674d9cdf6b208b8828e, type: 3}
+  bodyPartSprite: {fileID: 2549753336238259226, guid: 1da49d6fce997074e8d9ea058b124c3a, type: 3}
   isMutated: 0
   difficulty: 0

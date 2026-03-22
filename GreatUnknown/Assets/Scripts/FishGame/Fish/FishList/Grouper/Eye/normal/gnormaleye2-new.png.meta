@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 92e686082a516c1408c2406ecbfe4c6b
+guid: 19168a8bde000c84cb3f3926e5904515
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1999240755530985486
-    second: tfulcer_0
-  - first:
-      213: 4363061646048865094
-    second: tfulcer_1
-  - first:
-      213: -4269095993491535088
-    second: tfulcer_2
-  - first:
-      213: 3662842946188929765
-    second: tfulcer_3
-  - first:
-      213: 4335711398360159620
-    second: tfulcer_4
+      213: 1089642618085797436
+    second: gnormaleye2-new_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tfulcer_0
+      name: gnormaleye2-new_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2368
-        height: 1151
+        width: 3508
+        height: 2480
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ff871210254144e0800000000000000
-      internalID: -1999240755530985486
+      spriteID: c3e612f10303f1f00800000000000000
+      internalID: 1089642618085797436
       vertices: []
       indices: 
       edges: []
@@ -137,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 170ca368fa0215041b4ce4285d6e8c9e
+    spriteID: 4b751be18511f5f438e817f4adb0348c
     internalID: 0
     vertices: []
     indices: 
@@ -147,9 +135,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2368.0,"y":1151.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tfulcer_0: -1999240755530985486
+      gnormaleye2-new_0: 1089642618085797436
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

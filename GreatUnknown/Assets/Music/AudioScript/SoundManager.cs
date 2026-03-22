@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        if (soundCatalog == null) Ext.WarnRefAndDisable("soundCatalog", this);
         source = GetComponent<AudioSource>();
     }
 

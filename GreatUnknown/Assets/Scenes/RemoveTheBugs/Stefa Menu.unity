@@ -9110,6 +9110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b5decbc57b8457eac0e5488eccf209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadMenu
+  mainScene: RemoveTheBugs
   dayButtons:
   - {fileID: 1454912591}
   - {fileID: 1159436738}

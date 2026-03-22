@@ -72,7 +72,7 @@ public class Radio : MonoBehaviour, IClickable
             }
             currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
         }
-        Debug.Log("should Have play sound");
+
         SoundManager.instance.PlaySound(RadioOn);
 
         if (GameManagement.Instance.GetNbDayPassed() == 3 && firstTimeEnvironmentalStory)

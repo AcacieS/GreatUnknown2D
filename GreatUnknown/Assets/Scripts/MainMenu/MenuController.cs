@@ -1,14 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 using TMPro;
-using UnityEditor.Scripting;
-using UnityEngine.Rendering;
-using Unity.VisualScripting;
 using System.Collections.Generic;
-using NUnit.Framework;
 
 public class MenuController : MonoBehaviour
 {

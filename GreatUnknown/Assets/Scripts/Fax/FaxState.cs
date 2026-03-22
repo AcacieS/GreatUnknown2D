@@ -40,6 +40,5 @@ public class FaxState : ScriptableObject
         faxLog.Clear();
         UnreadCount = 0;
         Changed?.Invoke();
-        Debug.Log("[FaxState] Cleared.");
     }
 }

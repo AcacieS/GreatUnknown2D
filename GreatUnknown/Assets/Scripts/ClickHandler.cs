@@ -24,7 +24,6 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void Start()
     {
-        Debug.Log("gameObj"+gameObject+"Collider enabled: "+_collider.enabled);
         _collider.enabled = true; 
     }
 

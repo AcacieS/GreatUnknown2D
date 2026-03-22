@@ -15,7 +15,6 @@ public class StickerManagement : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(gameObject);
     }
     
     public void ResetSticker()

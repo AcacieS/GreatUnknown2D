@@ -21,6 +21,7 @@ public class FaxMachine : MonoBehaviour, IClickable
 
     private void Awake()
     {
+        if (faxOverlayUI == null) Ext.WarnRefAndDisable("faxOverlayUI", this);
         state.Clear();
         _sr = GetComponent<SpriteRenderer>();
         if (idleSprite != null) _sr.sprite = idleSprite;
@@ -108,9 +109,6 @@ public class FaxMachine : MonoBehaviour, IClickable
         if (state != null)
             state.MarkAllRead();
 
-        Debug.Log("[FaxMachine] Clicked: stop notify + mark read (UI later).");
-        
-        if (faxOverlayUI != null)
         faxOverlayUI.Open();
     }
 

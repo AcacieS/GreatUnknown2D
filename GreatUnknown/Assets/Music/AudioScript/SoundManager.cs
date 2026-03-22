@@ -11,17 +11,10 @@ public class SoundManager : MonoBehaviour
     
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        instance = this;
         source = GetComponent<AudioSource>();
     }
+
     public AudioInfo GetSoundCatalogue(string soundName)
     {
         if (!soundCatalog.TryGet(soundName, out var audioInfo) || audioInfo==null)
@@ -92,7 +85,6 @@ public class SoundManager : MonoBehaviour
 
     private void PlayOneShotSound(AudioInfo _audioInfo, AudioSource otherSource)
     {
-        Debug.Log("Play sound");
         otherSource.PlayOneShot(_audioInfo.soundClip, _audioInfo.volume);
         otherSource.loop = _audioInfo.isLooping;
     }

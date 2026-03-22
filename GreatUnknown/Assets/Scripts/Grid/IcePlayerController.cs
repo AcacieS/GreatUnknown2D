@@ -21,16 +21,21 @@ public class IcePlayerController : MonoBehaviour
     private Vector2Int pos;
     private Vector3 targetWorld;
     private bool isMoving;
-    private bool isRespawning; // guard
+    private bool isRespawning;
+
+    public void InjectReferences(
+        IceGridFromTilemap injectedGridSource,
+        Restart injectedRestart,
+        LevelState injectedLevelState
+    )
+    {
+        gridSource = injectedGridSource;
+        restart = injectedRestart;
+        levelState = injectedLevelState;
+    }
 
     private void Awake()
     {
-        if (gridSource == null)
-            gridSource = FindFirstObjectByType<IceGridFromTilemap>();
-        if (restart == null)
-            restart = FindFirstObjectByType<Restart>();
-        if (levelState == null)
-            levelState = FindFirstObjectByType<LevelState>();
         if (submarineVisual == null)
             submarineVisual = transform;
     }
@@ -39,14 +44,29 @@ public class IcePlayerController : MonoBehaviour
     {
         if (gridSource == null)
         {
-            Debug.LogError("IcePlayerController: No IceGridFromTilemap found in scene.");
+            Debug.LogError("IcePlayerController: gridSource was not injected.");
+            enabled = false;
+            return;
+        }
+
+        if (restart == null)
+        {
+            Debug.LogError("IcePlayerController: restart was not injected.");
             enabled = false;
             return;
         }
 
         if (gridSource.Grid == null)
             gridSource.BuildGridFromTilemaps();
+
         grid = gridSource.Grid;
+
+        if (grid == null)
+        {
+            Debug.LogError("IcePlayerController: gridSource built no grid.");
+            enabled = false;
+            return;
+        }
 
         pos = gridSource.PlayerStart;
         targetWorld = gridSource.GridIndexToWorldCenter(pos);
@@ -92,7 +112,7 @@ public class IcePlayerController : MonoBehaviour
                 }
             }
 
-            return; // no input mid-move
+            return;
         }
 
         Vector2Int dir = Vector2Int.zero;

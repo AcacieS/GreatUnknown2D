@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -589,10 +589,10 @@ TextureImporter:
       name: tileset-gdmicesliding_2
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 482
-        width: 156
-        height: 157
+        x: 1438
+        y: 480
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -611,10 +611,10 @@ TextureImporter:
       name: tileset-gdmicesliding_9
       rect:
         serializedVersion: 2
-        x: 1284
-        y: 482
-        width: 156
-        height: 157
+        x: 1280
+        y: 479
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,10 +633,10 @@ TextureImporter:
       name: tileset-gdmicesliding_10
       rect:
         serializedVersion: 2
-        x: 1602
+        x: 1600
         y: 639
-        width: 156
-        height: 157
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,9 +656,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1281
-        y: 802
-        width: 157
-        height: 157
+        y: 800
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -700,9 +700,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1600
-        y: 480
-        width: 156
-        height: 157
+        y: 479
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -721,10 +721,10 @@ TextureImporter:
       name: tileset-gdmicesliding_23
       rect:
         serializedVersion: 2
-        x: 1441
-        y: 801
-        width: 157
-        height: 157
+        x: 1440
+        y: 800
+        width: 162
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -744,8 +744,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1600
-        y: 799
-        width: 157
+        y: 800
+        width: 162
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -765,9 +765,9 @@ TextureImporter:
       name: tileset-gdmicesliding_29
       rect:
         serializedVersion: 2
-        x: 1281
+        x: 1279
         y: 638
-        width: 157
+        width: 162
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

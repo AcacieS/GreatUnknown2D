@@ -91,7 +91,6 @@ public class GameManagement : MonoBehaviour
         {
             nbDaysPassed = SaveSystem.LoadProgress();
         }
-        
 
         fishSession.ResetSession();
         OrganizeGame();
@@ -109,8 +108,6 @@ public class GameManagement : MonoBehaviour
         {
             IsFishGameFinished = true;
         }
-
-        
     }
 
     private void OrganizeGame()
@@ -194,33 +191,35 @@ public class GameManagement : MonoBehaviour
 
     public void ExitSlidingGame()
     {
-    // Disable UI first so it cannot keep interfering
-    if (iceSlidingExitUiRoot != null)
-        iceSlidingExitUiRoot.SetActive(false);
+        // Disable UI first so it cannot keep interfering
+        if (iceSlidingExitUiRoot != null)
+            iceSlidingExitUiRoot.SetActive(false);
 
-    // Then disable the sliding canvas
-    if (iceSlidingCanvas != null)
-        iceSlidingCanvas.SetActive(false);
+        // Then disable the sliding canvas
+        if (iceSlidingCanvas != null)
+            iceSlidingCanvas.SetActive(false);
 
-    // Then deactivate the active day-specific sliding game
-    if (iceSlidingGameSwitcher != null)
-        iceSlidingGameSwitcher.DeactivateCurrent();
+        // Then deactivate the active day-specific sliding game
+        if (iceSlidingGameSwitcher != null)
+            iceSlidingGameSwitcher.DeactivateCurrent();
 
-    if (animator != null)
-        animator.SetBool("ExitingSlidingGame", true);
+        if (workPlace != null) 
+            workPlace.SetActive(true);
+
+        if (animator != null)
+            animator.SetBool("ExitingSlidingGame", true);
     }
 
     // Called by SlidingTransitionRelay on the camera animator
     public void OnSlidingExitComplete()
-    {     
+    {
+        if (animator != null)
+            animator.SetBool("ExitingSlidingGame", false);
 
-    if (animator != null)
-        animator.SetBool("ExitingSlidingGame", false);
+        if (workPlace != null)
+            workPlace.SetActive(true);
 
-    if (workPlace != null)
-        workPlace.SetActive(true);
-
-    TryStartDayEnding();
+        TryStartDayEnding();
     }
 
     private void ResetDataDay()

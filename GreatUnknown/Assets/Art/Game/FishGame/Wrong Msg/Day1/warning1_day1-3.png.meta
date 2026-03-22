@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ac1e117b6406a14581b8ee2ee82038c
+guid: e23073cf729deb845b989ce656ab1c1e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 963787591169105226
-    second: warning1_day1-3_0
+      213: 2718423045922409180
+    second: warning1_day1-3 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: warning1_day1-3_0
+      name: warning1_day1-3 1_0
       rect:
         serializedVersion: 2
         x: 589
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4d509235bf006d00800000000000000
-      internalID: 963787591169105226
+      spriteID: cdac0718b57c9b520800000000000000
+      internalID: 2718423045922409180
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      warning1_day1-3_0: 963787591169105226
+      warning1_day1-3 1_0: 2718423045922409180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

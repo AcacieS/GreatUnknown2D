@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AmbienceEngine
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 5882136d9129bda4c845e50e645fbb72, type: 3}
-  volume: 1
+  volume: 0.25
   isLooping: 1

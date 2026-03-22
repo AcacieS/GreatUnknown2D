@@ -281,6 +281,8 @@ public class GameManagement : MonoBehaviour
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
+                if (isFishGameFinished)
+                    faxMachine?.NewFaxMessage("day3_midday");
                 break;
 
             case 3: // day 4

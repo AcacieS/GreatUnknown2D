@@ -24060,7 +24060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 668, y: -406}
   m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &2062097205009620051
@@ -26738,11 +26738,7 @@ MonoBehaviour:
   fishGamePlace: {fileID: 2406996170996195297}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
   wrongMessage: {fileID: 1745496630}
-  wrongMessageTxt: {fileID: 1093230816}
-  wrongMessageText:
-  - We are looking over your work, looks like you just tagged a fish wrong
-  - Looks like you keep messing up!
-  - Tag another fish WRONG and you're are OUT there
+  daysWrongMsg: {fileID: 11400000, guid: 99771b75e96dd6c47b2bb9b9277babf0, type: 2}
   currentFishIndex: -1
   currentFishLists:
   - isMutated: 0

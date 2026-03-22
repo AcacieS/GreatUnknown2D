@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54932ec188a535646b5bcc03e4f9e375, type: 3}
   m_Name: Day1WrongMsgs
   m_EditorClassIdentifier: Assembly-CSharp::WrongMessage
-  wrong1: {fileID: 963787591169105226, guid: 3ac1e117b6406a14581b8ee2ee82038c, type: 3}
+  wrong1: {fileID: 2718423045922409180, guid: e23073cf729deb845b989ce656ab1c1e, type: 3}
   wrong2: {fileID: 1683671456115717311, guid: df201435d580f2b4f8b326eb1fb35dc1, type: 3}
   wrong3: {fileID: 4859062772901002676, guid: 8bc778ce2aa723149978b184b5a325d7, type: 3}

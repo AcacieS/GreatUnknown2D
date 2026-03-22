@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishBodyPart
   description: Eye Default
   bodyPartSprite: {fileID: 3384881651875935671, guid: 61267db8861e921428b1ce30c3c3eecc, type: 3}
-  isMutated: 0
+  isMutated: 1
   difficulty: 0

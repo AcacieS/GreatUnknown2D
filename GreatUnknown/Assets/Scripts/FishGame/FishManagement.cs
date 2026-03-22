@@ -24,13 +24,14 @@ public class FishManagement : MonoBehaviour
 
     [Header("Show for Debug")]
     [SerializeField] int currentFishIndex = -1;
+    [SerializeField] private bool need2Mutated = false;
     [SerializeField] List<Fish> currentFishLists = new List<Fish>();
 
     //----------------------------- PRIVATE FIELD --------------------------------    
     private int currentFishNb = 0;
     private FishDayInfo currentFishDayInfo;
     private int currentDay = 0;
-    private bool need2Mutated = false;
+    
 
     //=============================== FISH GAME GENERAL ===========================
     public void ResetFishGame()

@@ -82,10 +82,10 @@ public class FishManagement : MonoBehaviour
         if (currentFishIndex >= currentFishLists.Count)
         {
             //TODO: score fish game
-            GameManagement.Instance.IsFishGameFinished = true;
             fishGamePlace.SetActive(false);
             workPlace.SetActive(true);
             isFishGameOn = false;
+            GameManagement.Instance.IsFishGameFinished = true;
             return;
         }
 

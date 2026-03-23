@@ -21,8 +21,6 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 9b01b9fedd9580945ae432591c25dbe0, type: 2}
   - id: paper4
     audioInfo: {fileID: 11400000, guid: b27eff64a0e5d4c448778b8f390cc28e, type: 2}
-  - id: paper4
-    audioInfo: {fileID: 11400000, guid: b27eff64a0e5d4c448778b8f390cc28e, type: 2}
   - id: radioOn
     audioInfo: {fileID: 11400000, guid: f4fc5bf1498ec7c4a95142d49fa0d2e2, type: 2}
   - id: radioOff

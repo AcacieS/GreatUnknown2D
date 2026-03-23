@@ -354,9 +354,9 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Fish game is finished!");
             fishOnTray.SetActive(false);
             StartCoroutine("ComputerOpen");
-            if(nbDaysPassed == 2)
+            if(nbDaysPassed == 2 && faxMachine != null)
             {
-                faxMachine?.NewFaxMessage("day3_midday");
+                faxMachine.NewFaxMessage("day3_midday");
             }
         }
     }

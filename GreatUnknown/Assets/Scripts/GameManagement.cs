@@ -178,9 +178,14 @@ public class GameManagement : MonoBehaviour
     {
         if (workPlace != null)
             workPlace.SetActive(false);
-    
+
+        if (lightManagement != null)
+            lightManagement.SetActive(false);
+
         if (iceSlidingCanvas != null)
             iceSlidingCanvas.SetActive(true);
+
+        
 
         // Let the canvas fully enable before activating the day-specific sliding game
         yield return null;
@@ -218,6 +223,9 @@ public class GameManagement : MonoBehaviour
 
         if (workPlace != null)
             workPlace.SetActive(true);
+        
+        if (lightManagement != null)
+            lightManagement.SetActive(true);
 
         TryStartDayEnding();
     }

@@ -22,6 +22,8 @@ public class IcePlayerController : MonoBehaviour
     private Vector3 targetWorld;
     private bool isMoving;
     private bool isRespawning;
+    //For sound(plays once);
+    private bool canPlaySound = true;
 
     public void InjectReferences(
         IceGridFromTilemap injectedGridSource,
@@ -44,6 +46,7 @@ public class IcePlayerController : MonoBehaviour
     {
         if (gridSource == null)
         {
+        
             Debug.LogError("IcePlayerController: gridSource was not injected.");
             enabled = false;
             return;
@@ -85,6 +88,12 @@ public class IcePlayerController : MonoBehaviour
 
         if (isMoving)
         {
+            //Play the vroom thing once
+            if(canPlaySound) {
+                SoundManager.instance?.PlaySound("minigame_go");
+                canPlaySound = !canPlaySound;
+            }
+        
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetWorld,
@@ -94,19 +103,24 @@ public class IcePlayerController : MonoBehaviour
             if ((transform.position - targetWorld).sqrMagnitude < 0.0001f)
             {
                 transform.position = targetWorld;
+                canPlaySound = true; 
                 isMoving = false;
+
 
                 TileType landed = grid.Get(pos);
 
                 if (landed == TileType.Death && restart != null)
                 {
+                    
                     isRespawning = true;
+                    SoundManager.instance?.PlaySound("minigame_lose");
                     restart.Respawn(gameObject);
                     return;
                 }
 
                 if (landed == TileType.Goal && levelState != null)
                 {
+                    SoundManager.instance?.PlaySound("minigame_win");
                     levelState.SetGameOver();
                     return;
                 }
@@ -139,6 +153,7 @@ public class IcePlayerController : MonoBehaviour
 
     private void FaceDirection(Vector2Int dir)
     {
+        
         if (submarineVisual == null)
             return;
 

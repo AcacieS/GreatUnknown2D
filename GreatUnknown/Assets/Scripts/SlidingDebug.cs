@@ -31,4 +31,10 @@ public class SlidingDebugController : MonoBehaviour
         // Trigger normal flow (uses animator + relay)
         gameManagement.StartSlidingGame();
     }
+
+    [ContextMenu("Ice Sliding")]
+    public void SimplyMakeFishGameDone()
+    {
+        gameManagement.IsFishGameFinished = true;
+    }
 }

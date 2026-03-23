@@ -41,3 +41,9 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 058d4dbdf2ad5594b853e177eb76e515, type: 2}
   - id: faxMachine
     audioInfo: {fileID: 11400000, guid: cee3e1a158b8d7e489797530d31eca61, type: 2}
+  - id: minigame_lose
+    audioInfo: {fileID: 11400000, guid: bb3ff73f39f69344b8b2d088c2c10b74, type: 2}
+  - id: minigame_win
+    audioInfo: {fileID: 11400000, guid: b30b2e6e5fe61be4cb19364d5574510d, type: 2}
+  - id: minigame_go
+    audioInfo: {fileID: 11400000, guid: 1915faa152b4e7b43a27f8f18259f54a, type: 2}

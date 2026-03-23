@@ -1240,7 +1240,7 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7148832294861221490, guid: b12422728fefbc84bba5792c709741ae, type: 3}
+      - m_Target: {fileID: 5380802956997312272}
         m_TargetAssemblyTypeName: GameManagement, Assembly-CSharp
         m_MethodName: ExitSlidingGame
         m_Mode: 1
@@ -14263,7 +14263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1489971567
 Transform:
   m_ObjectHideFlags: 0
@@ -24682,6 +24682,8 @@ MonoBehaviour:
   centerDepth: 4
   centerBehindOffset: {x: 21, y: 0}
   sideOffset: {x: -27.9, y: 5}
+  navigate: {fileID: 0}
+  escape: {fileID: 0}
 --- !u!61 &792242976768541808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28029,11 +28031,9 @@ MonoBehaviour:
   fishGamePlace: {fileID: 2406996170996195297}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
   wrongMessage: {fileID: 0}
-  wrongMessageTxt: {fileID: 0}
-  wrongMessageText:
-  - Wow becareful
-  - Wow you are so bad last chance
+  daysWrongMsg: {fileID: 0}
   currentFishIndex: -1
+  need2Mutated: 0
   currentFishLists:
   - isMutated: 0
     fishType: {fileID: 0}
@@ -28101,9 +28101,9 @@ MonoBehaviour:
   dayAnimation: {fileID: 0}
   animator: {fileID: 8898982564341672112}
   bgSource: {fileID: 0}
-  isSlidingGameTrue: 1
+  isSlidingGameTrue: 0
   isFishGameTrue: 0
-  isFishGameFinished: 1
+  activateSaveSystem: 1
   isSlidingGameFinished: 0
   isDayEnding: 0
   delayBeforeFade: 1.5
@@ -28111,16 +28111,20 @@ MonoBehaviour:
   radioScript: {fileID: 8336794658080182938}
   workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 2406996170996195297}
+  fishOnTray: {fileID: 918778509787771582}
   iceSlidingCanvas: {fileID: 2074042226}
   iceSlidingExitUiRoot: {fileID: 0}
   iceSlidingGameSwitcher: {fileID: 8967287374944226200}
   Canvas: {fileID: 2532382225685698924}
-  firstDayCanvas: {fileID: 2532382225685698924}
+  firstDayStoryCanvas: {fileID: 0}
   lastDayMB: {fileID: 0}
   faxMachine: {fileID: 0}
   backgroundRend: {fileID: 0}
+  backgroundDay2: {fileID: 0}
   backgroundDay3: {fileID: 7076730569839479387, guid: 7cfc6922f39fe461082bdf0a0dc476ac, type: 3}
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
+  computer: {fileID: 0}
+  waitTimeComputerOpen: 0
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28725,27 +28729,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab495a071847bf64ca811fcf5b9249df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookViewerUI
-  pageSprites:
-  - {fileID: -6635454064966195081, guid: 4617053a0de3d2349bd27e4af0c3f3f1, type: 3}
-  - {fileID: -8765902028836893046, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
-  - {fileID: 20394586, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
-  - {fileID: 2268626022279149541, guid: 50533318e1ff0ed498425c110dd85823, type: 3}
-  - {fileID: -326625534, guid: 50533318e1ff0ed498425c110dd85823, type: 3}
-  - {fileID: -3111103357421002636, guid: 13fae87c3f4719d4f9599a68c7b07d65, type: 3}
-  - {fileID: -274747434, guid: 13fae87c3f4719d4f9599a68c7b07d65, type: 3}
-  - {fileID: 4536105193122176268, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}
-  - {fileID: -1573461115, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}
-  - {fileID: -4473706887172134603, guid: 0978d12c5cc9ace4896af7080d1ddfda, type: 3}
+  codexPages: {fileID: 0}
   navigate: {fileID: 0}
   escape: {fileID: 0}
-  leftPageImage: {fileID: 1263115764872275501}
-  rightPageImage: {fileID: 8516827277513878415}
+  pageImage: {fileID: 0}
   prevButton: {fileID: 4589849357639885000}
   nextButton: {fileID: 1771951775536674397}
   escapeButton: {fileID: 0}
-  blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
+  hasFirstPage: 1
   lastPageOnLeft: 1
+  hasLastPage: 1
 --- !u!1 &6802591332617432314
 GameObject:
   m_ObjectHideFlags: 0
@@ -29858,7 +29852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045b5beea1c1f074493ed7dedc681620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  soundCatalog: {fileID: 0}
+  soundCatalog: {fileID: 11400000, guid: c8762479c69d1f8478c409b6ed0a3d44, type: 2}
 --- !u!1 &8177356640343026655
 GameObject:
   m_ObjectHideFlags: 0
@@ -30407,9 +30401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf3ab39526e59a4fa3a48e2595dd918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fishSounds:
-  - {fileID: 8300000, guid: db6c93fa232ae1f438a135381a4784c1, type: 3}
-  - {fileID: 8300000, guid: 8e3369672fc2b5e40a4d2e7297f8ff96, type: 3}
 --- !u!114 &8563051156702936916
 MonoBehaviour:
   m_ObjectHideFlags: 0

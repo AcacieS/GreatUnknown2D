@@ -62,10 +62,10 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] private GameObject Canvas;
     [SerializeField] private GameObject firstDayStoryCanvas;
-    [SerializeField] private LastDay lastDayMB;
 
     [Header("Story")]
     [SerializeField] private FaxMachine faxMachine;
+    [SerializeField] private LastDay lastDayMB;
 
     [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
@@ -77,6 +77,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Animator computer;
     [SerializeField] private float waitTimeComputerOpen;
     [SerializeField] private float faxMachineWaitSeconds = 3f;
+
     public void Awake()
     {
         if (Instance == null)
@@ -85,10 +86,31 @@ public class GameManagement : MonoBehaviour
         }
 
         // Check references and warn if any are missing from the Inspector.
-        if (Canvas == null) Ext.WarnRef("Canvas", this);
-        if (workPlace == null) Ext.WarnRef("workPlace", this);
-        if (fishGame == null) Ext.WarnRef("fishGame", this);
-        if (firstDayStoryCanvas == null) Ext.WarnRef("firstDayCanvas", this);
+        if (fishSession            == null) Ext.WarnRef("fishSession", this);
+        if (daySpriteRenderer      == null) Ext.WarnRef("daySpriteRenderer", this);
+        if (daySprites             == null) Ext.WarnRef("daySprites", this);
+        if (dayAnimation           == null) Ext.WarnRef("dayAnimation", this);
+        if (animator               == null) Ext.WarnRef("animator", this);
+        if (lightManagement        == null) Ext.WarnRef("lightManagement", this);
+        if (fadeOut                == null) Ext.WarnRef("fadeOut", this);
+        if (bgSource               == null) Ext.WarnRef("bgSource", this);
+        if (portholeScript         == null) Ext.WarnRef("portholeScript", this);
+        if (radioScript            == null) Ext.WarnRef("radioScript", this);
+        if (workPlace              == null) Ext.WarnRef("workPlace", this);
+        if (fishGame               == null) Ext.WarnRef("fishGame", this);
+        if (fishOnTray             == null) Ext.WarnRef("fishOnTray", this);
+        if (iceSlidingCanvas       == null) Ext.WarnRef("iceSlidingCanvas", this);
+        if (iceSlidingExitUiRoot   == null) Ext.WarnRef("iceSlidingExitUiRoot", this);
+        if (iceSlidingGameSwitcher == null) Ext.WarnRef("iceSlidingGameSwitcher", this);
+        if (Canvas                 == null) Ext.WarnRef("Canvas", this);
+        if (firstDayStoryCanvas    == null) Ext.WarnRef("firstDayStoryCanvas", this);
+        if (lastDayMB              == null) Ext.WarnRef("lastDayMB", this);
+        if (faxMachine             == null) Ext.WarnRef("faxMachine", this);
+        if (backgroundRend         == null) Ext.WarnRef("backgroundRend", this);
+        if (backgroundDay2         == null) Ext.WarnRef("backgroundDay2", this);
+        if (backgroundDay3         == null) Ext.WarnRef("backgroundDay3", this);
+        if (backgroundDay5         == null) Ext.WarnRef("backgroundDay5", this);
+        if (computer               == null) Ext.WarnRef("computer", this);
 
         fishSession.ResetSession();
         OrganizeGame();

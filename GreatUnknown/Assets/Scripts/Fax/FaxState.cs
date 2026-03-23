@@ -17,14 +17,18 @@ public class FaxState : ScriptableObject
     {
         return faxLog.Count;
     }
-    public void AddMessage(Sprite messageSprite)
+    public bool AddMessage(Sprite messageSprite)
     {
-        if (messageSprite == null) return;
+        if (messageSprite == null) return false;
+
+        // Don't allow the same message to be printed twice.
+        if (faxLog.Contains(messageSprite)) return false;
 
         faxLog.Add(messageSprite);
         UnreadCount++;
         NewUnread?.Invoke();
         Changed?.Invoke();
+        return true;
     }
 
     public void MarkAllRead()

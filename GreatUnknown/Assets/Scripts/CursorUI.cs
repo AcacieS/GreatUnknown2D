@@ -34,7 +34,7 @@ public class CursorUI : MonoBehaviour
 
     private void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (Mouse.current != null)

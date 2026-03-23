@@ -73,20 +73,14 @@ public class FishManagement : MonoBehaviour
     }
     
 
-    //============================================ INITIALIZE CURRENT FISH =========================================
+    // ========================= INITIALIZE CURRENT FISH =========================
     public void InitializeNewFish()
     {
-        Debug.Log("=================== Initialize new fish");
-        //fishChoiceTxt.text = "";
-        Debug.Log("destroy");
         DestroyPreviousFish();
         
         currentFishIndex++;
-        Debug.Log("currentFish Index"+currentFishIndex);
-        Debug.LogWarning("count: "+currentFishLists.Count);
-        if(currentFishIndex >= currentFishLists.Count)
+        if (currentFishIndex >= currentFishLists.Count)
         {
-            Debug.Log("No more fish to show");
             //TODO: score fish game
             GameManagement.Instance.IsFishGameFinished = true;
             fishGamePlace.SetActive(false);
@@ -94,50 +88,62 @@ public class FishManagement : MonoBehaviour
             isFishGameOn = false;
             return;
         }
-        
-        Fish currentFish = currentFishLists[currentFishIndex];
+
+        for (int i = currentFishIndex; !InitializeNewFishAtIndexWrapping(i); i++)
+            DestroyFishAtIndexWrapping(i);
+    }
+
+    private bool InitializeNewFishAtIndexWrapping(int fishIndex)
+    {
+        Fish currentFish = currentFishLists[fishIndex % currentFishLists.Count];
         FishTypeInfo fishTypeInfo = currentFish.GetFishType();
-        
+    
         //CHANGE FISH SHOWING WAY
         fishPlace.GetComponent<BoxCollider2D>().size = fishTypeInfo.colliderInfo.colliderSize;
         fishPlace.GetComponent<BoxCollider2D>().offset = fishTypeInfo.colliderInfo.offsetPos;
         float yPos = currentFish.GetFishType().fishPosInfo.yPos;
         fishPlace.transform.position = new Vector2(fishPlace.transform.position.x, yPos);
         fishPlace.transform.localScale = fishTypeInfo.fishPosInfo.fishSize;
-
+    
         foreach (KeyValuePair<CategoryFishBodyPart, FishBodyPart> fishBodyPart in currentFish.GetFishBodyParts())
         {
             CategoryFishBodyPart categoryFishBody = fishBodyPart.Key;
             FishBodyPart fishBody = fishBodyPart.Value;
-
+    
             GameObject newFishBodyGO = Instantiate(fishPrefab,
-            fishPlace.transform.position,
-            fishPlace.transform.rotation,
-            fishPlace.transform); //maybe 0
+                fishPlace.transform.position,
+                fishPlace.transform.rotation,
+                fishPlace.transform); //maybe 0
             if (newFishBodyGO == null)
             {
                 Debug.LogError("newFishBodyGO is null");
+                return false;
             }
             if (fishBody == null)
             {
                 Debug.LogError("fishBody is null and what was the cat?"+categoryFishBody.name);
+                return false;
             }
             newFishBodyGO.GetComponent<SpriteRenderer>().sprite = fishBody.bodyPartSprite;
             newFishBodyGO.GetComponent<SpriteRenderer>().sortingLayerName = categoryFishBody.sortingLayer.ToString();
             currentFish.AddFishBodyPartGameObj(newFishBodyGO);
         }
+        return true;
     }
 
     private void DestroyPreviousFish()
     {
-        Debug.LogWarning("count in destroy: "+currentFishLists.Count);
+        DestroyFishAtIndexWrapping(currentFishIndex);
+    }
+
+    private void DestroyFishAtIndexWrapping(int fishIndex)
+    {
         if(currentFishIndex < 0) return;
-        Fish previousFish = currentFishLists[currentFishIndex];
+        Fish previousFish = currentFishLists[fishIndex];
         foreach(GameObject previousFishBodyPartsGO in previousFish.GetFishBodyPartsGameObj())
         {
             Destroy(previousFishBodyPartsGO);
         }
-        Debug.LogWarning("count after destroy: "+currentFishLists.Count);
     }
 
 
@@ -324,7 +330,6 @@ public class FishManagement : MonoBehaviour
 
     private void HandleChoice(bool playerSaysMutated)
     {
-        Debug.Log("Choice: "+playerSaysMutated);
         if (session == null) return;
 
         Fish currentFish = GetCurrentFish();
@@ -335,10 +340,8 @@ public class FishManagement : MonoBehaviour
         if (correct) {
             session.AddCorrect();
             //DO NOTHING
-            Debug.Log("Should appear: "+playerSaysMutated);
         }
         else{
-            Debug.Log("Should appear: "+playerSaysMutated);
             session.AddWrong();
             if(session.Wrong > 3)
             {

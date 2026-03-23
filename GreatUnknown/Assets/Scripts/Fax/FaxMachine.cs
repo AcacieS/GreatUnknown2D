@@ -34,8 +34,6 @@ public class FaxMachine : MonoBehaviour, IClickable
     /// </summary>
     public void NewFaxMessage(string messageId)
     {
-        NotifyFax();
-
         if (catalog == null)
         {
             Debug.LogError("[FaxMachine] Missing FaxCatalog reference.");
@@ -53,7 +51,11 @@ public class FaxMachine : MonoBehaviour, IClickable
             return;
         }
 
-        state.AddMessage(sprite);
+        // Check if the message could be added successfully
+        // Adding may fail if the message has already been sent.
+        if (!state.AddMessage(sprite)) return;
+
+        NotifyFax();
     }
 
     public void NotifyFax()

@@ -3,6 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 /GreatUnknown/.utmp/
+/GreatUnknown/[Aa]ssets/_Recovery/
 /GreatUnknown/[Ll]ibrary/
 /GreatUnknown/[Tt]emp/
 /GreatUnknown/[Oo]bj/

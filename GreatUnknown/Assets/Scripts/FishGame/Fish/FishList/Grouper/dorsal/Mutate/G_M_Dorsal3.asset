@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Eye Default
   bodyPartSprite: {fileID: 2408443449996809262, guid: 2d8265d3b026559408e5d0ef66de0495, type: 3}
   isMutated: 1
-  difficulty: 0
+  difficulty: 1

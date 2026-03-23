@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Flounder Eye Default
   bodyPartSprite: {fileID: 2549753336238259226, guid: 1da49d6fce997074e8d9ea058b124c3a, type: 3}
   isMutated: 0
-  difficulty: 0
+  difficulty: 1

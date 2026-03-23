@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Mouth Default
   bodyPartSprite: {fileID: -8597371235546144849, guid: 0c00dd3e2170a6f4280e5b88662c9521, type: 3}
   isMutated: 0
-  difficulty: 0
+  difficulty: 1

@@ -34,6 +34,7 @@ public class FishManagement : MonoBehaviour
     
 
     //=============================== FISH GAME GENERAL ===========================
+
     public void ResetFishGame()
     {
         DestroyPreviousFish();
@@ -385,6 +386,15 @@ public class FishManagement : MonoBehaviour
         {
             Instance = this;
         }
+
+        // Do null checks on Awake
+        if (fishDaysInfo == null) { Ext.WarnRefAndDisable("fishDaysInfo", this); return; }
+        if (fishPlace == null) { Ext.WarnRefAndDisable("fishPlace", this); return; }
+        if (fishPrefab == null) { Ext.WarnRefAndDisable("fishPrefab", this); return; }
+        if (workPlace == null) { Ext.WarnRefAndDisable("workPlace", this); return; }
+        if (fishGamePlace == null) { Ext.WarnRefAndDisable("fishGamePlace", this); return; }
+        if (session == null) { Ext.WarnRefAndDisable("session", this); return; }
+        if (wrongMessage == null) { Ext.WarnRefAndDisable("wrongMessage", this); return; }
+        if (daysWrongMsg == null) { Ext.WarnRefAndDisable("daysWrongMsg", this); return; }
     }
-    
 }

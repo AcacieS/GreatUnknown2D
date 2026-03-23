@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Flounder Eye Mutated 1
   bodyPartSprite: {fileID: -3618665194103045019, guid: d3a464e9aeecf1041a721a7f74ed04a7, type: 3}
   isMutated: 1
-  difficulty: 0
+  difficulty: 1

@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private FaxViewerUI faxViewerUI;
 
     public static PauseMenu instance {get; private set; }
+    private bool canPause = true;
     public static bool isPaused = false;
     public GameObject pauseMenuUI = null;
 
@@ -40,9 +41,10 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
                 Resume();
-            else if (!bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf)
+            else if (canPause)
                 Pause();
         }
+        canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
     }
     public void Resume()
     {

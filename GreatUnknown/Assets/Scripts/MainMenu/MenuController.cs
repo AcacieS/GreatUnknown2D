@@ -35,9 +35,10 @@ public class MenuController : MonoBehaviour
     private bool isFullScreen;
     private float brightnessLevel;
 
-
+    /*
     [Header("Confirmation")]
     [SerializeField] private GameObject confirmPrompt = null;
+    */
 
     [Header ("Resolution Dropdown")]
     public TMP_Dropdown resolutionDropdown;
@@ -86,7 +87,7 @@ public class MenuController : MonoBehaviour
     {
         // Save value of Volume in variable masterVolume
         PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
-        StartCoroutine(ConfirmationBox());
+        // StartCoroutine(ConfirmationBox());
     }
 
     /*
@@ -135,7 +136,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("masterFullScreen", (isFullScreen ? 1 : 0));
         Screen.fullScreen = isFullScreen;
 
-        StartCoroutine(ConfirmationBox());
+        // StartCoroutine(ConfirmationBox());
     }
 
     public void ResetButton(String MenuType)
@@ -176,6 +177,8 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    /*
+
     public IEnumerator ConfirmationBox()
     {
         confirmPrompt.SetActive(true);
@@ -183,4 +186,5 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(2);
         confirmPrompt.SetActive(false);
     }
+    */
 }

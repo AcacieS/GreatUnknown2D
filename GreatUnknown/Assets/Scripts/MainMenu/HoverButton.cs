@@ -14,6 +14,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Awake()
     {
         originalScale = transform.localScale;
+        Debug.Log("Original scale: " + originalScale); // check this in Console
         buttonImage = GetComponent<Image>();
         if (originalSprite == null && buttonImage != null)
             originalSprite = buttonImage.sprite;

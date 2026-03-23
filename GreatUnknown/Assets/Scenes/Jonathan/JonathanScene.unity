@@ -495,8 +495,8 @@ Transform:
   m_GameObject: {fileID: 97474867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9686, y: 0.02, z: 0}
-  m_LocalScale: {x: 8.138326, y: 10.96, z: 1}
+  m_LocalPosition: {x: 6.0598, y: 0.02, z: 0}
+  m_LocalScale: {x: 10.321025, y: 10.96, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1483270813}
@@ -11283,6 +11283,7 @@ MonoBehaviour:
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
   computer: {fileID: 0}
   waitTimeComputerOpen: 0
+  faxMachineWaitSeconds: 3
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0

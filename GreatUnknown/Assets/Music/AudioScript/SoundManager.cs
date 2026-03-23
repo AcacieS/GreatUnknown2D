@@ -86,6 +86,11 @@ public class SoundManager : MonoBehaviour
 
     private void PlayOneShotSound(AudioInfo _audioInfo, AudioSource otherSource)
     {
+        if (otherSource == null)
+        {
+            Debug.LogError("Attempt to play on a null audio source");
+            return;
+        }
         otherSource.PlayOneShot(_audioInfo.soundClip, _audioInfo.volume);
         otherSource.loop = _audioInfo.isLooping;
     }

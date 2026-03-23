@@ -36,8 +36,8 @@ public class BookViewerUI : MonoBehaviour
     private void Awake()
     {
         // Do null checks on Awake
-        if (codexPages == null) { Ext.WarnRefAndDisable("pageSprites", this); return; }
-        if(pageImage == null) { Ext.WarnRefAndDisable("pageImage", this); return; }
+        if (codexPages == null) { Ext.WarnRefAndDisable("codexPages", this); return; }
+        if (pageImage == null) { Ext.WarnRefAndDisable("pageImage", this); return; }
         if (prevButton == null) { Ext.WarnRefAndDisable("prevButton", this); return; }
         if (nextButton == null) { Ext.WarnRefAndDisable("nextButton", this); return; }
         if (escapeButton == null) { Ext.WarnRefAndDisable("escapeButton", this); return; }

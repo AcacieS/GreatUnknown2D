@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
                 Resume();
-            else if (bookViewerUI.gameObject.activeSelf && faxViewerUI.gameObject.activeSelf)
+            else if (!bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf)
                 Pause();
         }
     }

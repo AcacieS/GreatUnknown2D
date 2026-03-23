@@ -70,6 +70,7 @@ public class FaxMachine : MonoBehaviour, IClickable
             return;
         }
 
+        FaxMachineSound();
         _isBlinking = true;
         _blinkRoutine = StartCoroutine(BlinkLoop());
     }
@@ -110,10 +111,7 @@ public class FaxMachine : MonoBehaviour, IClickable
         StopNotifyFax();
 
         if (state == null) return;
-        if (state.UnreadCount > 0)
-          FaxMachineSound();
-        else
-          FaxOpenSound();
+        FaxOpenSound();
         state.MarkAllRead();
         faxOverlayUI.Open();
     }

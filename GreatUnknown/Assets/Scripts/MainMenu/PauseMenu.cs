@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] private BookViewerUI bookViewerUI;
+    [SerializeField] private FaxViewerUI faxViewerUI;
+
     public static PauseMenu instance {get; private set; }
     public static bool isPaused = false;
     public GameObject pauseMenuUI = null;
@@ -16,6 +19,9 @@ public class PauseMenu : MonoBehaviour
         } else {
             Destroy(gameObject); // Delete duplicates if we return to the start scene
         }
+
+        if (bookViewerUI == null) { Ext.WarnRefAndDisable("bookViewerUI", this); return; }
+        if (faxViewerUI == null) { Ext.WarnRefAndDisable("faxViewerUI", this); return; }
     }
 
     // Update is called once per frame
@@ -34,7 +40,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
                 Resume();
-            else 
+            else if (bookViewerUI.gameObject.activeSelf && faxViewerUI.gameObject.activeSelf)
                 Pause();
         }
     }
@@ -59,5 +65,4 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
 }

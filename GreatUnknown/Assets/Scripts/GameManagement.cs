@@ -10,6 +10,8 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
+
+    [SerializeField] private GameObject lightManagement;
     [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
     public static int nbDaysPassed = 0;

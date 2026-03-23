@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grid
   - sticker
+  - IceSlidingGame
   layers:
   - Default
   - TransparentFX

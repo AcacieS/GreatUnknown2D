@@ -38,6 +38,11 @@ public class BookViewerUI : MonoBehaviour
         if (prevButton == null) { Ext.WarnRefAndDisable("prevButton", this); return; }
         if (nextButton == null) { Ext.WarnRefAndDisable("nextButton", this); return; }
         if (escapeButton == null) { Ext.WarnRefAndDisable("escapeButton", this); return; }
+
+        if (codexPages.pageSprites == null) {
+            Debug.LogError("[BookViewerUI] codexPages.pageSprites is null");
+            gameObject.SetActive(false);
+        }
     }
 
     public void Start()
@@ -73,34 +78,22 @@ public class BookViewerUI : MonoBehaviour
         if (context.ReadValue<Vector2>().x > 0) Next();
     }
 
+    public void Prev() { if (index - 1 >= 0) { RandomPaperSound(); index--; Refresh(); } }
     public void Next() { 
-        if (CanGoNext()) 
+        if (index + 1 < codexPages.pageSprites.Count) 
         { 
             RandomPaperSound();
             index++;
             Refresh(); 
         } 
     }
-    public void Prev() { if (CanGoPrev()) { RandomPaperSound(); index--; Refresh(); } }
 
     private void RandomPaperSound() => SoundManager.instance.PlaySound("paper" + Random.Range(1, 5));
 
     private void Refresh()
     {
-        Debug.Log("index: "+index);
-        SetPage(pageImage, codexPages.pageSprites[index]);
-        // SetPage(leftPageImage, pageSprites[index * 2]);
-        // SetPage(rightPageImage, pageSprites[index * 2 + 1]);
-        prevButton.interactable = CanGoPrev();
-        nextButton.interactable = CanGoNext();
+        pageImage.sprite = codexPages.pageSprites[index];
+        prevButton.interactable = index - 1 >= 0;
+        nextButton.interactable = index + 1 < codexPages.pageSprites.Count;
     }
-
-    private static void SetPage(Image img, Sprite sprite)
-    {
-	    img.enabled = sprite != null;
-        img.sprite = sprite;
-    }
-
-    private bool CanGoPrev() => codexPages.pageSprites != null && index != 0;
-    private bool CanGoNext() => codexPages.pageSprites != null && (index + 1) < codexPages.pageSprites.Count;
 }

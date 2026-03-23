@@ -14,15 +14,15 @@ public class PauseMenu : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null && instance != this)
+        if (instance != null)
         {
-            DontDestroyOnLoad(gameObject);
-        } else {
-            Destroy(gameObject); // Delete duplicates if we return to the start scene
+            Destroy(instance); // Delete duplicates if we return to the start scene
         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        if (bookViewerUI == null) { Ext.WarnRefAndDisable("bookViewerUI", this); return; }
-        if (faxViewerUI == null) { Ext.WarnRefAndDisable("faxViewerUI", this); return; }
+        if (bookViewerUI == null) { Ext.WarnRef("bookViewerUI", this); return; }
+        if (faxViewerUI == null) { Ext.WarnRef("faxViewerUI", this); return; }
     }
 
     // Update is called once per frame
@@ -44,7 +44,14 @@ public class PauseMenu : MonoBehaviour
             else if (canPause)
                 Pause();
         }
-        canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
+
+        if (bookViewerUI != null && faxViewerUI != null)
+        {
+            canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
+        } else
+        {
+            canPause = true;
+        }
     }
     public void Resume()
     {

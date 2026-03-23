@@ -23050,6 +23050,8 @@ MonoBehaviour:
   centerDepth: 4
   centerBehindOffset: {x: 21, y: 0}
   sideOffset: {x: -27.9, y: 5}
+  navigate: {fileID: 0}
+  escape: {fileID: 0}
 --- !u!61 &792242976768541808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24495,9 +24497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   button: {fileID: 7192059963408739840}
-  text: {fileID: 7317388640679874137}
+  lockedButtonLabel: {fileID: 7317388640679874137}
   passcodeObject: {fileID: 3785503302862919508}
-  passcodeText: {fileID: 1247136200211447886}
+  passcodeTextInputField: {fileID: 1247136200211447886}
   passcode: 23567
 --- !u!224 &2655725691804648426
 RectTransform:
@@ -26366,6 +26368,8 @@ GameObject:
   - component: {fileID: 4955793551828551797}
   - component: {fileID: 5342393435732839770}
   - component: {fileID: 7421437680281986311}
+  - component: {fileID: 7421437680281986312}
+  - component: {fileID: 7421437680281986313}
   m_Layer: 0
   m_Name: alien_0
   m_TagString: Untagged
@@ -26738,12 +26742,9 @@ MonoBehaviour:
   fishGamePlace: {fileID: 2406996170996195297}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
   wrongMessage: {fileID: 1745496630}
-  wrongMessageTxt: {fileID: 1093230816}
-  wrongMessageText:
-  - We are looking over your work, looks like you just tagged a fish wrong
-  - Looks like you keep messing up!
-  - Tag another fish WRONG and you're are OUT there
+  daysWrongMsg: {fileID: 0}
   currentFishIndex: -1
+  need2Mutated: 0
   currentFishLists:
   - isMutated: 0
     fishType: {fileID: 0}
@@ -26843,6 +26844,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7421437680281986313}
+        m_TargetAssemblyTypeName: BogoAlien, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5380802956997312272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26866,10 +26879,11 @@ MonoBehaviour:
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
   dayAnimation: {fileID: 4425620332833935969}
   animator: {fileID: 8898982564341672112}
+  fadeOut: {fileID: 0}
   bgSource: {fileID: 7595327770781537940}
   isSlidingGameTrue: 1
   isFishGameTrue: 0
-  isFishGameFinished: 0
+  activateSaveSystem: 1
   isSlidingGameFinished: 0
   isDayEnding: 0
   delayBeforeFade: 1.5
@@ -26877,17 +26891,21 @@ MonoBehaviour:
   radioScript: {fileID: 8336794658080182938}
   workPlace: {fileID: 2993958904492073943}
   fishGame: {fileID: 2406996170996195297}
+  fishOnTray: {fileID: 0}
   iceSlidingCanvas: {fileID: 0}
   iceSlidingExitUiRoot: {fileID: 0}
   iceSlidingGameSwitcher: {fileID: 0}
   Canvas: {fileID: 2532382225685698924}
-  firstDayCanvas: {fileID: 6588268269111174040}
+  firstDayStoryCanvas: {fileID: 0}
   lastDayMB: {fileID: 7058113493317569357}
   faxMachine: {fileID: 1009528256374605457}
   backgroundRend: {fileID: 2144606564}
   backgroundDay2: {fileID: 0}
   backgroundDay3: {fileID: 7076730569839479387, guid: 7cfc6922f39fe461082bdf0a0dc476ac, type: 3}
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
+  computer: {fileID: 0}
+  waitTimeComputerOpen: 0
+  faxMachineWaitSeconds: 3
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27668,27 +27686,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab495a071847bf64ca811fcf5b9249df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookViewerUI
-  pageSprites:
-  - {fileID: -6635454064966195081, guid: 4617053a0de3d2349bd27e4af0c3f3f1, type: 3}
-  - {fileID: -8765902028836893046, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
-  - {fileID: 20394586, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
-  - {fileID: 2268626022279149541, guid: 50533318e1ff0ed498425c110dd85823, type: 3}
-  - {fileID: -326625534, guid: 50533318e1ff0ed498425c110dd85823, type: 3}
-  - {fileID: -3111103357421002636, guid: 13fae87c3f4719d4f9599a68c7b07d65, type: 3}
-  - {fileID: -274747434, guid: 13fae87c3f4719d4f9599a68c7b07d65, type: 3}
-  - {fileID: 4536105193122176268, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}
-  - {fileID: -1573461115, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}
-  - {fileID: -4473706887172134603, guid: 0978d12c5cc9ace4896af7080d1ddfda, type: 3}
+  codexPages: {fileID: 0}
   navigate: {fileID: 1081089284}
   escape: {fileID: 659725220}
-  leftPageImage: {fileID: 1263115764872275501}
-  rightPageImage: {fileID: 8516827277513878415}
+  pageImage: {fileID: 0}
   prevButton: {fileID: 4589849357639885000}
   nextButton: {fileID: 1771951775536674397}
   escapeButton: {fileID: 1780163639}
-  blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
+  hasFirstPage: 1
   lastPageOnLeft: 1
+  hasLastPage: 1
 --- !u!1 &6802591332617432314
 GameObject:
   m_ObjectHideFlags: 0
@@ -28270,6 +28278,115 @@ MonoBehaviour:
   hoverOutline: {fileID: 0}
   canShowOutline: 1
   stopShowOutlineForever: 0
+--- !u!82 &7421437680281986312
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893957359536619639}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 6af326fa431f1405d91cc95bacb2ca60, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7421437680281986313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893957359536619639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a37bcc9ee39f4dc891dac7297b481c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BogoAlien
 --- !u!224 &7461951994736984446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29528,9 +29645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf3ab39526e59a4fa3a48e2595dd918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  fishSounds:
-  - {fileID: 8300000, guid: db6c93fa232ae1f438a135381a4784c1, type: 3}
-  - {fileID: 8300000, guid: 8e3369672fc2b5e40a4d2e7297f8ff96, type: 3}
 --- !u!114 &8563051156702936916
 MonoBehaviour:
   m_ObjectHideFlags: 0

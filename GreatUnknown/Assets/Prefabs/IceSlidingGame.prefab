@@ -9782,7 +9782,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 5089398315953314093, guid: b92ff71a74763d048bf5eba72b002bd7, type: 3}
   Player: {fileID: 5908287610569602674}
   gridSource: {fileID: 3530221177126060551}
-  levelState: {fileID: 0}
+  levelState: {fileID: 3393717906915353134}
   iceSlidingGameSwitcher: {fileID: 0}
 --- !u!114 &1834280844768946957
 MonoBehaviour:
@@ -9822,8 +9822,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 191.94104, y: 105.2259, z: 0}
-  m_LocalScale: {x: 0.45629996, y: 0.39, z: 0.39}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5201642647349955797}
   - {fileID: 8357727893707674764}
@@ -11337,6 +11337,10 @@ PrefabInstance:
       propertyPath: gridSource
       value: 
       objectReference: {fileID: 3530221177126060551}
+    - target: {fileID: 8968756704099292746, guid: b92ff71a74763d048bf5eba72b002bd7, type: 3}
+      propertyPath: levelState
+      value: 
+      objectReference: {fileID: 3393717906915353134}
     - target: {fileID: 8968756704099292746, guid: b92ff71a74763d048bf5eba72b002bd7, type: 3}
       propertyPath: gridBehaviour
       value: 

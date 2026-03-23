@@ -28,6 +28,7 @@ public class EnableOnGameOver : MonoBehaviour
 
     private void HandleGameOver()
     {
+        Debug.Log("HandleGameOVerGotHandled");
         if (target != null)
             target.SetActive(true);
     }

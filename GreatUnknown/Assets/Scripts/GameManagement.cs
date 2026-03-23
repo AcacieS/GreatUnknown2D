@@ -317,8 +317,6 @@ public class GameManagement : MonoBehaviour
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
-                if (IsFishGameFinished)
-                    faxMachine?.NewFaxMessage("day3_midday");
                 break;
 
             case 3: // day 4
@@ -345,6 +343,8 @@ public class GameManagement : MonoBehaviour
                 break;
         }
     }
+    /*if (IsFishGameFinished)
+                    faxMachine?.NewFaxMessage("day3_midday");*/
     private IEnumerator WaitFaxMachineMorningDay(string faxMessage)
     {
         yield return new WaitForSeconds(faxMachineWaitSeconds);
@@ -358,6 +358,10 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Fish game is finished!");
             fishOnTray.SetActive(false);
             StartCoroutine("ComputerOpen");
+            if(nbDaysPassed == 2)
+            {
+                faxMachine?.NewFaxMessage("day3_midday");
+            }
         }
     }
     

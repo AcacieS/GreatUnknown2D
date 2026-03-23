@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance {get; private set; }
     private bool canPause = true;
     public static bool isPaused = false;
+    public string mainMenuScene; 
 
     void Awake()
     {
@@ -29,7 +30,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // not allowed in pausing in Main menu
-        if (SceneManager.GetActiveScene().name == "Stefa Menu")
+        if (SceneManager.GetActiveScene().name == mainMenuScene)
         {
             if (pauseMenuUI.activeSelf)
             {

@@ -9075,12 +9075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a04dfa90caa74a9c9c8132feb634ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  canUse: 0
+  canUse: 1
   menuController: {fileID: 1367058531}
   volumeTextValue: {fileID: 1168548732}
   volumeSlider: {fileID: 1151351022}
-  brightnessSlider: {fileID: 1727460280}
-  brightTextValue: {fileID: 279988198}
   qualityDropdown: {fileID: 1749763144}
   fullScreenToggle: {fileID: 134571869}
 --- !u!4 &1132010424
@@ -9110,7 +9108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b5decbc57b8457eac0e5488eccf209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadMenu
-  mainScene: Stefa
+  mainScene: JonathanScene
   dayButtons:
   - {fileID: 1454912591}
   - {fileID: 1159436738}
@@ -11617,11 +11615,6 @@ MonoBehaviour:
   volumeTextValue: {fileID: 1168548732}
   volumeSlider: {fileID: 1151351022}
   defaultVolume: 1
-  SensTextValue: {fileID: 1942201220}
-  SensSlide: {fileID: 1163227073}
-  defaultSens: 4
-  mainControllerSens: 4
-  invertYToggle: {fileID: 747749761}
   qualityDropdown: {fileID: 1749763144}
   fullScreenToggle: {fileID: 134571869}
   resolutionDropdown: {fileID: 890682599}

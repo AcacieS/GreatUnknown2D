@@ -11,9 +11,11 @@ public class LoadPrefs : MonoBehaviour
     [Header ("Volume Setting")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
+    /*
     [Header ("Brightness Settings")]
     [SerializeField] private Slider brightnessSlider = null;
     [SerializeField] private TMP_Text brightTextValue = null;
+    */
     [Header ("Quality level Setting")]
     [SerializeField] private TMP_Dropdown qualityDropdown;
     [Header ("FullScreen Setting")]
@@ -57,6 +59,7 @@ public class LoadPrefs : MonoBehaviour
                     fullScreenToggle.isOn = false;
                 }
             }
+            /*
             if (PlayerPrefs.HasKey("masterBrightness"))
             {
                 float localBrightness = PlayerPrefs.GetFloat("masterBrightness");
@@ -64,6 +67,7 @@ public class LoadPrefs : MonoBehaviour
                 brightnessSlider.value = localBrightness; 
                 // change brightness
             }
+            */
 
         }
     }

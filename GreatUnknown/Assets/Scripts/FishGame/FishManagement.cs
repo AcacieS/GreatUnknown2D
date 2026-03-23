@@ -396,5 +396,11 @@ public class FishManagement : MonoBehaviour
         if (session == null) { Ext.WarnRefAndDisable("session", this); return; }
         if (wrongMessage == null) { Ext.WarnRefAndDisable("wrongMessage", this); return; }
         if (daysWrongMsg == null) { Ext.WarnRefAndDisable("daysWrongMsg", this); return; }
+
+        // Check that fishDaysInfo is properly formatted
+        if (!fishDaysInfo.verifyFishDaysInfoIntegrity(out var whatWentWrong)) {
+            Ext.WarnAndDisable(whatWentWrong, this);
+            return;
+        }
     }
 }

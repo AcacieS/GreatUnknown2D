@@ -107,11 +107,17 @@ public class FaxMachine : MonoBehaviour, IClickable
         if(state.GetNbFax()==0) return;
         StopNotifyFax();
 
-        if (state != null)
-            state.MarkAllRead();
-
+        if (state == null) return;
+        if (state.UnreadCount > 0)
+          FaxMachineSound();
+        else
+          FaxOpenSound();
+        state.MarkAllRead();
         faxOverlayUI.Open();
     }
+
+    private void FaxMachineSound() => SoundManager.instance.PlaySound("faxMachine");
+    private void FaxOpenSound() => SoundManager.instance.PlaySound("faxOpen");
 
     // Quick manual test from Inspector
     [ContextMenu("Debug/Add Test Fax (id = TEST)")]

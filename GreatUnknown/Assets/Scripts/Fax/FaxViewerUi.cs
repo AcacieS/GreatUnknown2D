@@ -34,11 +34,12 @@ public class FaxViewerUI : MonoBehaviour
         Render();
         navigate.action.performed += Navigate;
         escape.action.performed += Close;
-        RandomPaperSound();
     }
 
     private void OnDisable()
     {
+        navigate.action.performed += Navigate;
+        escape.action.performed += Close;
         RandomPaperSound();
     }
     
@@ -52,9 +53,9 @@ public class FaxViewerUI : MonoBehaviour
 
     public void GoOlder() // Left arrow
     {
-        RandomPaperSound();
         if (state == null) return;
         if (currentIndex <= 0) return;
+        RandomPaperSound();
 
         currentIndex--;
         Render();
@@ -62,9 +63,9 @@ public class FaxViewerUI : MonoBehaviour
 
     public void GoNewer() // Right arrow
     {
-        RandomPaperSound();
         if (state == null) return;
         if (currentIndex >= state.FaxLog.Count - 1) return;
+        RandomPaperSound();
 
         currentIndex++;
         Render();

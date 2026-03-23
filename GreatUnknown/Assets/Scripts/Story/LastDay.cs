@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class LastDay : MonoBehaviour
 {
@@ -18,16 +19,14 @@ public class LastDay : MonoBehaviour
     [SerializeField] private ClickHandler ComputerClickHandler;
     [SerializeField] private string natureEndingScene;
     [SerializeField] private string industrialEndingScene;
-    [SerializeField] private MonoBehaviour[] scriptsToDisable;
+    [SerializeField] private UnityEvent LastDayEnabled;
 
     // This script lies dormant until the last day.
     void OnEnable()
     {
         PlaySound(LastDayAmbiance, ambianceSource);
         StartCoroutine(DelayKlaxonSound());
-	foreach (var script in scriptsToDisable) {
-		script.enabled = false;
-	}
+        LastDayEnabled?.Invoke();
     }
 
 

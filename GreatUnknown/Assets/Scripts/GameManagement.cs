@@ -355,7 +355,7 @@ public class GameManagement : MonoBehaviour
     private IEnumerator WaitFaxMachineMorningDay(string faxMessage)
     {
         yield return new WaitForSeconds(faxMachineWaitSeconds);
-        faxMachine?.NewFaxMessage(faxMessage);
+        faxMachine.NewFaxMessage(faxMessage);
     }
     
     void HandleFishFinished(bool finished)

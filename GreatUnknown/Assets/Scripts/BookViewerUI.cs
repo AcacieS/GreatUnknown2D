@@ -21,13 +21,6 @@ public class BookViewerUI : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button escapeButton;
 
-    [Header("Behavior (hover for details)")]
-    [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
-    [SerializeField] private bool firstPageOnRight = true;
-    [SerializeField] private bool hasFirstPage = true;
-    [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
-    [SerializeField] private bool lastPageOnLeft = true;
-    [SerializeField] private bool hasLastPage = true;
     private int index = 0;
 
     private void Awake()

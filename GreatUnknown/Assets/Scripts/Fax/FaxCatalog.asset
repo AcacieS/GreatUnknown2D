@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FaxCatalog
   entries:
   - id: day1_morning
-    sprite: {fileID: -2689679004630660999, guid: ba36df3e0f0dade42b81daafe5dc5345, type: 3}
+    sprite: {fileID: 4168491629163462814, guid: e973908b5cbf1d743ad5e7ed40288720, type: 3}
   - id: day2_morning
-    sprite: {fileID: 1596132068409206834, guid: 013b7f48a545848429b5745d4ca09393, type: 3}
+    sprite: {fileID: 1053944336572634528, guid: 894528884f9077c4bbe03747c7c85bcc, type: 3}
   - id: day3_morning
-    sprite: {fileID: -8541723960491868186, guid: af133020cfd7f8f4693947ee52e6418b, type: 3}
+    sprite: {fileID: 322913600480761878, guid: ced9e7b30a740f740a76f30ffeed0b3d, type: 3}
   - id: day3_midday
-    sprite: {fileID: -5976139771704891755, guid: 68a2a875515f5884bbb0f22ff8b0d448, type: 3}
+    sprite: {fileID: 5686857426498615183, guid: 8ad79deebed162f4ebd0cd74f84b1f5d, type: 3}
   - id: day4_morning
-    sprite: {fileID: 577730858395313141, guid: 2a0323e8bd06d9d499fcc8f00b0e010c, type: 3}
+    sprite: {fileID: 4657706705675241458, guid: 8add496f676a621429c55c792b3c3eec, type: 3}
   - id: day5_morning
-    sprite: {fileID: -6852750274050121569, guid: 6f1cdfb5987d60543aca5f54394c9d67, type: 3}
+    sprite: {fileID: 1836382595233642747, guid: d8fac63708b418748af721f7886de649, type: 3}

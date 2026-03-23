@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 013b7f48a545848429b5745d4ca09393
+guid: 8add496f676a621429c55c792b3c3eec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1596132068409206834
-    second: fax_martin_day2_morning_0
+      213: 4657706705675241458
+    second: martin_day4_morning_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fax_martin_day2_morning_0
+      name: martin_day4_morning_0
       rect:
         serializedVersion: 2
-        x: 446
-        y: 6
-        width: 752
-        height: 1068
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 238e328d8a9962610800000000000000
-      internalID: 1596132068409206834
+      spriteID: 2f74abb329f73a040800000000000000
+      internalID: 4657706705675241458
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 978db6ffffade3b4cace5f3c2cd14f1d
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +133,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":1080.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      fax_martin_day2_morning_0: 1596132068409206834
+      martin_day4_morning_0: 4657706705675241458
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

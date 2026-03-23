@@ -23127,6 +23127,8 @@ MonoBehaviour:
   centerDepth: 4
   centerBehindOffset: {x: 21, y: 0}
   sideOffset: {x: -27.9, y: 5}
+  navigate: {fileID: 0}
+  escape: {fileID: 0}
 --- !u!61 &792242976768541808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25958,7 +25960,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -26964,6 +26966,7 @@ MonoBehaviour:
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
   computer: {fileID: 6875153284246808376}
   waitTimeComputerOpen: 3
+  faxMachineWaitSeconds: 3
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27751,7 +27754,6 @@ MonoBehaviour:
   prevButton: {fileID: 4589849357639885000}
   nextButton: {fileID: 1771951775536674397}
   escapeButton: {fileID: 1780163639}
-  blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
   hasFirstPage: 1
   lastPageOnLeft: 1
@@ -28587,15 +28589,15 @@ RectTransform:
   m_GameObject: {fileID: 7600101551160487849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.1, y: 10.724194, z: 6.6903234}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 18.6, y: 10.4625, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7170970322263135739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 843, y: 1075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7714558351916597300
 SpriteRenderer:
@@ -29980,7 +29982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &9210223465135025236
 MonoBehaviour:
   m_ObjectHideFlags: 0

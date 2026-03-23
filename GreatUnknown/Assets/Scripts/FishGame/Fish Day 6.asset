@@ -15,7 +15,7 @@ MonoBehaviour:
   nbOfFish:
     minNbOfFish: 11
     maxNbOfFish: 14
-  minNbOfMutatedFish: 6
+  minNbOfMutatedFish: 0
   mutationLikeliHood:
     mutationsNbChance:
     - mutationCount: 1

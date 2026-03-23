@@ -88,12 +88,6 @@ public class GameManagement : MonoBehaviour
         if (fishGame == null) Ext.WarnRef("fishGame", this);
         if (firstDayStoryCanvas == null) Ext.WarnRef("firstDayCanvas", this);
 
-        // For Load system
-        if (activateSaveSystem)
-        {
-            nbDaysPassed = SaveSystem.LoadProgress();
-        }
-
         fishSession.ResetSession();
         OrganizeGame();
         OnFishGameFinishedChanged += HandleFishFinished;

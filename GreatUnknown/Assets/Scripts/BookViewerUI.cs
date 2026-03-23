@@ -73,13 +73,21 @@ public class BookViewerUI : MonoBehaviour
         if (context.ReadValue<Vector2>().x > 0) Next();
     }
 
-    public void Next() { if (CanGoNext()) { RandomPaperSound(); index++; Refresh(); } }
+    public void Next() { 
+        if (CanGoNext()) 
+        { 
+            RandomPaperSound();
+            index++;
+            Refresh(); 
+        } 
+    }
     public void Prev() { if (CanGoPrev()) { RandomPaperSound(); index--; Refresh(); } }
 
     private void RandomPaperSound() => SoundManager.instance.PlaySound("paper" + Random.Range(1, 5));
 
     private void Refresh()
     {
+        Debug.Log("index: "+index);
         SetPage(pageImage, codexPages.pageSprites[index]);
         // SetPage(leftPageImage, pageSprites[index * 2]);
         // SetPage(rightPageImage, pageSprites[index * 2 + 1]);

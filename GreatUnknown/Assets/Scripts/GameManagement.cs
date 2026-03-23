@@ -73,6 +73,7 @@ public class GameManagement : MonoBehaviour
     [Header("Computer")]
     [SerializeField] private Animator computer;
     [SerializeField] private float waitTimeComputerOpen;
+    [SerializeField] private float faxMachineWaitSeconds = 3f;
     public void Awake()
     {
         if (Instance == null)
@@ -294,22 +295,24 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
+
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)
         {
             case 0:
-                faxMachine?.NewFaxMessage("day1_morning");
+                StartCoroutine(WaitFaxMachineMorningDay("day1_morning"));
                 bgSource?.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
-                faxMachine?.NewFaxMessage("day2_morning");
+                StartCoroutine(WaitFaxMachineMorningDay("day2_morning"));
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3
-                faxMachine?.NewFaxMessage("day3_morning");
+                StartCoroutine(WaitFaxMachineMorningDay("day3_morning"));
+                // faxMachine?.NewFaxMessage("day3_morning");
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
@@ -318,12 +321,13 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 3: // day 4
+                StartCoroutine(WaitFaxMachineMorningDay("day4_morning"));
                 faxMachine?.NewFaxMessage("day4_morning");
                 radioScript?.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                faxMachine?.NewFaxMessage("day5_morning");
+                StartCoroutine(WaitFaxMachineMorningDay("day5_morning"));
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay5;
                 radioScript?.ShootingRadioChannel();
@@ -339,6 +343,11 @@ public class GameManagement : MonoBehaviour
                 Debug.Log("Nothing for now");
                 break;
         }
+    }
+    private IEnumerator WaitFaxMachineMorningDay(string faxMessage)
+    {
+        yield return new WaitForSeconds(faxMachineWaitSeconds);
+        faxMachine?.NewFaxMessage(faxMessage);
     }
     
     void HandleFishFinished(bool finished)

@@ -14302,7 +14302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 38, y: 19.150024}
+  m_AnchoredPosition: {x: -860, y: 19.150024}
   m_SizeDelta: {x: 742, y: 391}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1745496632
@@ -22989,6 +22989,8 @@ MonoBehaviour:
   centerDepth: 4
   centerBehindOffset: {x: 0, y: 0}
   sideOffset: {x: -50, y: 5}
+  navigate: {fileID: 0}
+  escape: {fileID: 0}
 --- !u!61 &792242976768541808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23925,7 +23927,7 @@ RectTransform:
   m_GameObject: {fileID: 6588268269111174040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5402879167437111253}
@@ -25566,15 +25568,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201Cthe sea twists our flesh. A thousand eyes, and yet not one scream\u201D\r\nThe
+  m_text: "\u201Cthe sea twists our flesh.\nA thousand eyes, \nand yet\nnot one scream\u201D\n\r\nThe
     final transmission from a stray fishing vessel near the heart of the anomaly
     shortly after its discovery\r\n\r\nThe waters nearby muffle all but the strongest
     transmissions, making unmanned probes an impossibility. The Shorelife Oceanographic
     Institute has volunteered to research this phenomenon. You are the first manned
     mission to the center of the anomaly.\r\n\r\nPress any key to continue\u2026\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9701473db3ca4e640948a801c8368a1e, type: 2}
-  m_sharedMaterial: {fileID: 798143607221678596, guid: 9701473db3ca4e640948a801c8368a1e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bda6caafe1d3bea4b8ab9aa8b075d3d0, type: 2}
+  m_sharedMaterial: {fileID: 1606593420089600274, guid: bda6caafe1d3bea4b8ab9aa8b075d3d0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25637,7 +25639,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -1.7207947, z: -404.56055, w: -551.0065}
+  m_margin: {x: 0, y: -1.7207947, z: -776.9697, w: -551.0065}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -26826,6 +26828,7 @@ MonoBehaviour:
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
   computer: {fileID: 6875153284246808376}
   waitTimeComputerOpen: 3
+  faxMachineWaitSeconds: 3
 --- !u!224 &5402879167437111253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26835,14 +26838,14 @@ RectTransform:
   m_GameObject: {fileID: 9181006597853418043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1931503851483787975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -421, y: 257}
+  m_AnchoredPosition: {x: 413, y: 293}
   m_SizeDelta: {x: 878, y: 258.4121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &5412450549933512763
@@ -27551,13 +27554,14 @@ GameObject:
   - component: {fileID: 1931503851483787975}
   - component: {fileID: 3309354006628023339}
   - component: {fileID: 7608843290488850004}
+  - component: {fileID: 7608843290488850005}
   m_Layer: 5
   m_Name: Day 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6605566211223532629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27613,7 +27617,6 @@ MonoBehaviour:
   prevButton: {fileID: 4589849357639885000}
   nextButton: {fileID: 1771951775536674397}
   escapeButton: {fileID: 1780163639}
-  blankPageSprite: {fileID: 0}
   firstPageOnRight: 1
   hasFirstPage: 1
   lastPageOnLeft: 1
@@ -28326,14 +28329,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -4913982344839117222, guid: 9b371a1eb91076f47bb5ba99380fa01c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28343,6 +28346,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7608843290488850005
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588268269111174040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d33908585032c0a4d8844ed6990bfd72, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &7613967310190105043
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29842,7 +29867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &9210223465135025236
 MonoBehaviour:
   m_ObjectHideFlags: 0

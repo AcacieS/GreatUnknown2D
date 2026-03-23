@@ -104,6 +104,7 @@ public class FaxMachine : MonoBehaviour, IClickable
     /// </summary>
     public void OnClick()
     {
+        if(state.GetNbFax()==0) return;
         StopNotifyFax();
 
         if (state != null)

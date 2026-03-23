@@ -13,7 +13,10 @@ public class FaxState : ScriptableObject
 
     public event Action Changed;
     public event Action NewUnread;
-
+    public int GetNbFax()
+    {
+        return faxLog.Count;
+    }
     public void AddMessage(Sprite messageSprite)
     {
         if (messageSprite == null) return;

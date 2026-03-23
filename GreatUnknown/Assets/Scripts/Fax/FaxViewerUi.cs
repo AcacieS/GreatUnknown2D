@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class FaxViewerUI : MonoBehaviour
@@ -17,6 +18,10 @@ public class FaxViewerUI : MonoBehaviour
     [SerializeField] private Vector2 centerBehindOffset = new Vector2(18f, -6f);
     [SerializeField] private Vector2 sideOffset = new Vector2(-14f, -5f);
 
+    [Header("UI Actions")]
+    [SerializeField] private InputActionReference navigate;
+    [SerializeField] private InputActionReference escape;
+
     private readonly List<Image> spawned = new();
     private int currentIndex;
 
@@ -27,10 +32,27 @@ public class FaxViewerUI : MonoBehaviour
             currentIndex = state.FaxLog.Count - 1;
 
         Render();
+        navigate.action.performed += Navigate;
+        escape.action.performed += Close;
+        RandomPaperSound();
     }
+
+    private void OnDisable()
+    {
+        RandomPaperSound();
+    }
+    
+    public void Navigate(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<Vector2>().x < 0) GoOlder(); else
+        if (context.ReadValue<Vector2>().x > 0) GoNewer();
+    }
+
+    public void Close(InputAction.CallbackContext context) => gameObject.transform.parent.gameObject.SetActive(false);
 
     public void GoOlder() // Left arrow
     {
+        RandomPaperSound();
         if (state == null) return;
         if (currentIndex <= 0) return;
 
@@ -40,6 +62,7 @@ public class FaxViewerUI : MonoBehaviour
 
     public void GoNewer() // Right arrow
     {
+        RandomPaperSound();
         if (state == null) return;
         if (currentIndex >= state.FaxLog.Count - 1) return;
 
@@ -47,34 +70,36 @@ public class FaxViewerUI : MonoBehaviour
         Render();
     }
 
+    private void RandomPaperSound() => SoundManager.instance.PlaySound("paper" + Random.Range(1, 5));
+
    private void Render()
-{
-    ClearSpawned();
-    if (state == null) return;
-
-    var log = state.FaxLog;
-    if (log.Count == 0) return;
-
-    // CENTER STACK: oldest behind, current on top
-    int firstCenterIndex = Mathf.Max(0, currentIndex - centerDepth);
-    int layers = 0;
-
-    for (int i = firstCenterIndex; i <= currentIndex; i++, layers++)
     {
-        var img = SpawnPage(centerContainer, log[i]);
-        img.rectTransform.anchoredPosition = centerBehindOffset * (currentIndex - i);
-        img.transform.SetAsLastSibling();
-    }
+        ClearSpawned();
+        if (state == null) return;
 
-    // SIDE STACK: newer pages, with nearest newer on top or reverse depending on what you want
-    int sideLayer = 0;
-    for (int i = log.Count - 1; i > currentIndex; i--, sideLayer++)
-    {
-        var img = SpawnPage(sideContainer, log[i]);
-        img.rectTransform.anchoredPosition = sideOffset * sideLayer;
-        img.transform.SetAsLastSibling();
+        var log = state.FaxLog;
+        if (log.Count == 0) return;
+
+        // CENTER STACK: oldest behind, current on top
+        int firstCenterIndex = Mathf.Max(0, currentIndex - centerDepth);
+        int layers = 0;
+
+        for (int i = firstCenterIndex; i <= currentIndex; i++, layers++)
+        {
+            var img = SpawnPage(centerContainer, log[i]);
+            img.rectTransform.anchoredPosition = centerBehindOffset * (currentIndex - i);
+            img.transform.SetAsLastSibling();
+        }
+
+        // SIDE STACK: newer pages, with nearest newer on top or reverse depending on what you want
+        int sideLayer = 0;
+        for (int i = log.Count - 1; i > currentIndex; i--, sideLayer++)
+        {
+            var img = SpawnPage(sideContainer, log[i]);
+            img.rectTransform.anchoredPosition = sideOffset * sideLayer;
+            img.transform.SetAsLastSibling();
+        }
     }
-}
     
 
     private Image SpawnPage(RectTransform parent, Sprite sprite)

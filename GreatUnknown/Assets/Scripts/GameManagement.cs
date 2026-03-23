@@ -180,6 +180,7 @@ public class GameManagement : MonoBehaviour
     public void StartSlidingGame()
     {
         if (!IsFishGameFinished) return;
+        if(isSlidingGameFinished) return;
         if (GetNbDayPassed() == 5) return;
         if (animator == null) return;
 

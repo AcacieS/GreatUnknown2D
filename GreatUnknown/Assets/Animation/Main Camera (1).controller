@@ -20,7 +20,7 @@ AnimatorStateMachine:
     m_Position: {x: 210, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1699776037930430487}
-    m_Position: {x: 170, y: 710, z: 0}
+    m_Position: {x: 90, y: 330, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 977980304868693671}
@@ -322,9 +322,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.3086837
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.68807995
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -462,7 +462,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IceSlideCameraNormalState 0
+  m_Name: IceSlideCameraReversed
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

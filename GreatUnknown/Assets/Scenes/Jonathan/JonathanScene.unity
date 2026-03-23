@@ -1182,6 +1182,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2359208035427963886, guid: 6156ed1ce29e4496b9936be6be48d476, type: 3}
+      propertyPath: faxViewerUI
+      value: 
+      objectReference: {fileID: 4665751268630387198}
+    - target: {fileID: 2359208035427963886, guid: 6156ed1ce29e4496b9936be6be48d476, type: 3}
+      propertyPath: bookViewerUI
+      value: 
+      objectReference: {fileID: 6784699333766879138}
     - target: {fileID: 2550353339370595983, guid: 6156ed1ce29e4496b9936be6be48d476, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 5.430786

@@ -3,21 +3,9 @@ using UnityEngine;
 
 public class FadeOutNextDayRelay : MonoBehaviour
 {
-    [SerializeField] private GameManagement gameManagement;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void FadeOutNextDay()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void FadeOutNextDay()
-    {
-        gameManagement.OnDayFadeComplete();
+        GameManagement.Instance.OnDayFadeComplete();
+        gameObject.SetActive(false);
     }
 }

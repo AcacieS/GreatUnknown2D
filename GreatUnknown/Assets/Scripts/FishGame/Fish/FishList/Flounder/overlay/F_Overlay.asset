@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Flounder Tail Default
   bodyPartSprite: {fileID: 7135995573466229756, guid: b9a577bd13e6d014ab8f47aeb22c9e51, type: 3}
   isMutated: 0
-  difficulty: 0
+  difficulty: 1

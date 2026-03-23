@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Fin
   bodyPartSprite: {fileID: 4150526617117483187, guid: 4db0e2653613e194393098c1d9bce176, type: 3}
   isMutated: 1
-  difficulty: 0
+  difficulty: 1

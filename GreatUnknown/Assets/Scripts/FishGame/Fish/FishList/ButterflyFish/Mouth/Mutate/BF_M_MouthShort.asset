@@ -15,4 +15,4 @@ MonoBehaviour:
   description: Body Large Scales
   bodyPartSprite: {fileID: -6348339640309537784, guid: 6482f453147a48a43812dc6fc5f08531, type: 3}
   isMutated: 1
-  difficulty: 1
+  difficulty: 0

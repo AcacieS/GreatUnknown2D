@@ -20,7 +20,7 @@ public class OpeningTyping: TypingEffect
             if(text.text == textToShow)
             {
                 currentDayCanvas.SetActive(false);
-                currentDayTransition.WriteText();
+                if (currentDayTransition != null) currentDayTransition.WriteText();
             }
             else
             {

@@ -39,3 +39,7 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 07d4ce81abf8c31449096db336e410d7, type: 2}
   - id: anomaly
     audioInfo: {fileID: 11400000, guid: bebac891e6e325244b5d05dc28ccb8f4, type: 2}
+  - id: faxOpen
+    audioInfo: {fileID: 11400000, guid: 058d4dbdf2ad5594b853e177eb76e515, type: 2}
+  - id: faxMachine
+    audioInfo: {fileID: 11400000, guid: cee3e1a158b8d7e489797530d31eca61, type: 2}

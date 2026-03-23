@@ -5011,7 +5011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359293526}
   m_Layer: 0
-  m_Name: ===== FishGame Place ======
+  m_Name: === FishGame Place ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5062,7 +5062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1489971567}
   m_Layer: 0
-  m_Name: ==== Music =====
+  m_Name: === Music ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7879,7 +7879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955210617503848658}
   m_Layer: 0
-  m_Name: ======= Work Place ======
+  m_Name: === Work Place ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8647,7 +8647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8519251110529648282}
   m_Layer: 0
-  m_Name: ======= GENERAL ========
+  m_Name: === GENERAL ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9083,7 +9083,7 @@ MonoBehaviour:
   backgroundDay2: {fileID: 5690511039823894635, guid: debb1b325517942fda754cb95bc1f033, type: 3}
   backgroundDay3: {fileID: 7076730569839479387, guid: 7cfc6922f39fe461082bdf0a0dc476ac, type: 3}
   backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
-  computer: {fileID: 0}
+  computer: {fileID: 6875153284246808376}
   waitTimeComputerOpen: 0
   faxMachineWaitSeconds: 3
 --- !u!224 &5402879167437111253

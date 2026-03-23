@@ -10533,14 +10533,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u201Cthe sea twists our flesh. A thousand eyes, and yet not one scream\u201D\r\nThe
+  m_text: "\u201CTHE SEA TWISTS OUR FLESH. A THOUSAND EYES, AND YET NOT ONE SCREAM\u201D\r\nThe
     final transmission from a stray fishing vessel near the heart of the anomaly
     shortly after its discovery\r\n\r\nThe waters nearby muffle all but the strongest
     transmissions, making unmanned probes an impossibility. The Shorelife Oceanographic
     Institute has volunteered to research this phenomenon. You are the first manned
-    mission to the center of the anomaly.\r\n\r\nPress any key to continue\u2026\r\n"
+    mission to the center of the anomaly.\r\n\r\nPress any key to continue\u2026"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9701473db3ca4e640948a801c8368a1e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bda6caafe1d3bea4b8ab9aa8b075d3d0, type: 2}
   m_sharedMaterial: {fileID: 798143607221678596, guid: 9701473db3ca4e640948a801c8368a1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10607,7 +10607,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -1.7207947, z: -404.56055, w: -551.0065}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &3871281375140723538
@@ -11173,10 +11173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   fishDaysInfo: {fileID: 11400000, guid: 302ab5d85aac2ee4f8cc6df892e75894, type: 2}
-  fishPlace: {fileID: 0}
+  fishPlace: {fileID: 1139935172}
   fishPrefab: {fileID: 901573124439139060, guid: 8d9346ee5fe0d7746b4f897a32994a1b, type: 3}
   workPlace: {fileID: 2993958904492073943}
-  fishGamePlace: {fileID: 0}
+  fishGamePlace: {fileID: 593097828}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
   wrongMessage: {fileID: 1745496630}
   daysWrongMsg: {fileID: 0}
@@ -11997,7 +11997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpeningTyping
   currentDayCanvas: {fileID: 0}
-  typingSpeed: 0.07
+  typingSpeed: 0.00007
   waitSecondAfterTyping: 3
   firstDaySound: {fileID: 11400000, guid: 0babf824f6f5f53449519233af0bd588, type: 2}
   currentDayTransition: {fileID: 4425620332833935969}

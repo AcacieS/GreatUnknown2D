@@ -8981,7 +8981,7 @@ MonoBehaviour:
   fishGamePlace: {fileID: 1359293525}
   session: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
   wrongMessage: {fileID: 1745496630}
-  daysWrongMsg: {fileID: 0}
+  daysWrongMsg: {fileID: 11400000, guid: 99771b75e96dd6c47b2bb9b9277babf0, type: 2}
   currentFishIndex: -1
   need2Mutated: 0
   currentFishLists:

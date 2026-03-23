@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95eaa5927508464da15288ff9477e16, type: 3}
   m_Name: CodexPages
   m_EditorClassIdentifier: Assembly-CSharp::CodexPages
-  pageSprites: []
+  pageSprites:
+  - {fileID: -8765902028836893046, guid: cc7d71cefc835cc40aff51f1b080b0e7, type: 3}
+  - {fileID: 2268626022279149541, guid: 50533318e1ff0ed498425c110dd85823, type: 3}
+  - {fileID: -4453777643960868230, guid: 66d619fccc616a9429cad836b357dc1b, type: 3}
+  - {fileID: 4536105193122176268, guid: 21ce880d5606ad54c98f7e91f24740a0, type: 3}

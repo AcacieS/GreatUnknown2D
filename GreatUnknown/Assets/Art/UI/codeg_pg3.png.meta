@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 13fae87c3f4719d4f9599a68c7b07d65
+guid: 66d619fccc616a9429cad836b357dc1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3111103357421002636
-    second: codex_pg3_0
+      213: -4453777643960868230
+    second: codeg_pg3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: codex_pg3_0
+      name: codeg_pg3_0
       rect:
         serializedVersion: 2
-        x: 202
-        y: 0
-        width: 725
-        height: 1080
+        x: 203
+        y: 4
+        width: 1460
+        height: 1076
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4706561daf323d4d0800000000000000
-      internalID: -3111103357421002636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: codex_pg3_1
-      rect:
-        serializedVersion: 2
-        x: 929
-        y: 0
-        width: 728
-        height: 1080
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 879a0a5b535328b47bd5f6f20bacffa6
-      internalID: -274747434
+      spriteID: a72e22774d00132c0800000000000000
+      internalID: -4453777643960868230
       vertices: []
       indices: 
       edges: []
@@ -147,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a7e5aa4a8e7627749b0b9887615a6c50
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -155,12 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":960.0,"y":1080.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      codex_pg3_0: -3111103357421002636
-      codex_pg3_1: -274747434
+      codeg_pg3_0: -4453777643960868230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

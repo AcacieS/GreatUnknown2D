@@ -21,9 +21,6 @@ public class BookViewerUI : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button escapeButton;
 
-    [Header("Optional UI")]
-    [SerializeField] private Sprite blankPageSprite;
-
     [Header("Behavior (hover for details)")]
     [Tooltip("If true: first page is shown on the RIGHT (left is blank). If false: first page is shown on the LEFT.")]
     [SerializeField] private bool firstPageOnRight = true;
@@ -41,12 +38,6 @@ public class BookViewerUI : MonoBehaviour
         if (prevButton == null) { Ext.WarnRefAndDisable("prevButton", this); return; }
         if (nextButton == null) { Ext.WarnRefAndDisable("nextButton", this); return; }
         if (escapeButton == null) { Ext.WarnRefAndDisable("escapeButton", this); return; }
-        if (blankPageSprite == null) { Ext.WarnRef("blankPageSprite", this); blankPageSprite = null; }
-
-        // Reformat pages list (must have an even size, null's are for invisible pages)
-        //if (firstPageOnRight) pageSprites.Insert(0, null);
-        //if (lastPageOnLeft && pageSprites.Count % 2 == 0) pageSprites.Insert(pageSprites.Count - 1, blankPageSprite);
-        //if (pageSprites.Count % 2 == 1) pageSprites.Add(blankPageSprite);
     }
 
     public void Start()

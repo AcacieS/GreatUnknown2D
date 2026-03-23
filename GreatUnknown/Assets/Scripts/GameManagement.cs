@@ -10,6 +10,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
     public static int nbDaysPassed = 0;
 
@@ -210,7 +211,6 @@ public class GameManagement : MonoBehaviour
         if (animator != null)
             animator.SetBool("ExitingSlidingGame", true);
     }
-
     // Called by SlidingTransitionRelay on the camera animator
     public void OnSlidingExitComplete()
     {
@@ -253,7 +253,7 @@ public class GameManagement : MonoBehaviour
 
         isSlidingGameFinished = true;
     }
-
+    [ContextMenu("Ending Day")]
     private void TryStartDayEnding()
     {
         if (isDayEnding) return;
@@ -273,8 +273,9 @@ public class GameManagement : MonoBehaviour
 
         yield return new WaitForSeconds(delayBeforeFade);
 
-        if (animator != null)
-            animator.SetTrigger("FadeOutDay");
+        Debug.Log("Fade Out");
+        if (fadeOut != null)
+            fadeOut.SetActive(true);//SetTrigger("FadeOutDay");
     }
 
     public void OnDayFadeComplete()

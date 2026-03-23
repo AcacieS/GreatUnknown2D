@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SFXsound : MonoBehaviour
+public class makeSound : MonoBehaviour
 {
 
     private AudioSource audioSource;
@@ -17,3 +17,4 @@ public class SFXsound : MonoBehaviour
         audioSource.Play();
     }
 }
+

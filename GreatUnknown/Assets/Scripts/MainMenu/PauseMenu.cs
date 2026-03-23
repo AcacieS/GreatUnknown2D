@@ -6,11 +6,11 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private BookViewerUI bookViewerUI;
     [SerializeField] private FaxViewerUI faxViewerUI;
+    [SerializeField] private GameObject pauseMenuUI = null;
 
     public static PauseMenu instance {get; private set; }
     private bool canPause = true;
     public static bool isPaused = false;
-    public GameObject pauseMenuUI = null;
 
     void Awake()
     {

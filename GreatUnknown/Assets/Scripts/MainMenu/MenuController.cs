@@ -12,6 +12,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 1.0f;
 
+    /*
     [Header ("GamePlay Settings")]
     [SerializeField] private TMP_Text SensTextValue = null;
     [SerializeField] private Slider SensSlide = null;
@@ -20,17 +21,17 @@ public class MenuController : MonoBehaviour
 
     [Header("Toggle Settings")]
     [SerializeField] private Toggle invertYToggle = null;
+    */
+    [Space(10)]
 
-    [Header("Graphics Settings")]
+    [Header("Quality Settings")]
     // [SerializeField] private Slider brightnessSlider = null;
     // [SerializeField] private TMP_Text brightTextValue = null;
     // [SerializeField] private float defaultBrightness = 1;
-
-    [Space(10)]
     [SerializeField] private TMP_Dropdown qualityDropdown;
+    [Header("FullScreen Settings")]
     [SerializeField] private Toggle fullScreenToggle;
-
-
+    [Space(10)]
     private int qualityLevel;
     private bool isFullScreen;
     private float brightnessLevel;

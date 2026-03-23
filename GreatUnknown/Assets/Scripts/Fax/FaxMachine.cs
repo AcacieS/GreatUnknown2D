@@ -1,7 +1,6 @@
-using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class FaxMachine : MonoBehaviour, IClickable
 {
     [Header("Data")]
@@ -10,21 +9,21 @@ public class FaxMachine : MonoBehaviour, IClickable
 
     [Header("Visuals")]
     [SerializeField] private FaxOverlayUI faxOverlayUI;
-    [SerializeField] private Sprite idleSprite;
-    [SerializeField] private Sprite blinkSpriteA;
-    [SerializeField] private Sprite blinkSpriteB;
-    [SerializeField, Min(0.02f)] private float blinkIntervalSeconds = 0.35f;
 
-    private SpriteRenderer _sr;
-    private Coroutine _blinkRoutine;
-    private bool _isBlinking;
+    private Animator _anim;
 
     private void Awake()
     {
-        if (faxOverlayUI == null) Ext.WarnRefAndDisable("faxOverlayUI", this);
+        if (catalog == null) { Ext.WarnRefAndDisable("catalog", this); return; }
+        if (state == null) { Ext.WarnRefAndDisable("state", this); return; }
+        if (faxOverlayUI == null) { Ext.WarnRefAndDisable("faxOverlayUI", this); return; }
         state.Clear();
-        _sr = GetComponent<SpriteRenderer>();
-        if (idleSprite != null) _sr.sprite = idleSprite;
+        _anim = GetComponent<Animator>();
+    }
+
+    void OnEnable()
+    {
+        _anim.SetBool("Notify", state.UnreadCount != 0);
     }
 
     /// <summary>
@@ -60,45 +59,13 @@ public class FaxMachine : MonoBehaviour, IClickable
 
     public void NotifyFax()
     {
-        if (_isBlinking) return;
-
-        if (_sr == null) _sr = GetComponent<SpriteRenderer>();
-
-        if (blinkSpriteA == null || blinkSpriteB == null)
-        {
-            Debug.LogWarning("[FaxMachine] Blink sprites not set. NotifyFax() will do nothing.");
-            return;
-        }
-
+        _anim.SetBool("Notify", true);
         FaxMachineSound();
-        _isBlinking = true;
-        _blinkRoutine = StartCoroutine(BlinkLoop());
     }
 
     public void StopNotifyFax()
     {
-        _isBlinking = false;
-
-        if (_blinkRoutine != null)
-        {
-            StopCoroutine(_blinkRoutine);
-            _blinkRoutine = null;
-        }
-
-        if (idleSprite != null && _sr != null)
-            _sr.sprite = idleSprite;
-    }
-
-    private IEnumerator BlinkLoop()
-    {
-        bool toggle = false;
-
-        while (_isBlinking)
-        {
-            _sr.sprite = toggle ? blinkSpriteA : blinkSpriteB;
-            toggle = !toggle;
-            yield return new WaitForSeconds(blinkIntervalSeconds);
-        }
+        _anim.SetBool("Notify", false);
     }
 
     /// <summary>

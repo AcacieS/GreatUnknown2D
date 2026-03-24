@@ -23,11 +23,12 @@ MonoBehaviour:
   fishPartsMutated:
     EasyFishParts:
     - {fileID: 11400000, guid: 9b200dff166bc7b48bb8e6d5e9771cda, type: 2}
-    - {fileID: 11400000, guid: 894b74714e9827a4b888daf5d5771939, type: 2}
     HardFishParts:
     - {fileID: 11400000, guid: 0d2d4201a25b0f94088257213d43a306, type: 2}
   fishPartsNormal:
-    EasyFishParts: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 0787befa9601282449fef170b23efc85, type: 2}
+    - {fileID: 11400000, guid: 78ce505f34556444cbcdac1fca8489a8, type: 2}
     HardFishParts: []
   CategoryRestriction:
     day1: 0

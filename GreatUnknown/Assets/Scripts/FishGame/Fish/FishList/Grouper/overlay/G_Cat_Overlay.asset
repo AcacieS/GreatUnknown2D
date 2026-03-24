@@ -20,10 +20,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e73dc82eb3a2b2445babeb06dd411dc8, type: 2}
   - {fileID: 11400000, guid: 9567e2ec8581b2547beee12de46bb6f8, type: 2}
   fishPartsMutated:
-    EasyFishParts: []
-    HardFishParts: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 3b7d160ba15650b4cb65eba7ff492675, type: 2}
+    HardFishParts:
+    - {fileID: 11400000, guid: e73dc82eb3a2b2445babeb06dd411dc8, type: 2}
   fishPartsNormal:
-    EasyFishParts: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 9567e2ec8581b2547beee12de46bb6f8, type: 2}
     HardFishParts: []
   CategoryRestriction:
     day1: 0

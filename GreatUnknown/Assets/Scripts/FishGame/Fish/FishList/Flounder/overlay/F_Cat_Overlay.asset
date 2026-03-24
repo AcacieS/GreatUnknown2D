@@ -21,11 +21,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a647a9a4752fd04ebb00122ebb91e36, type: 2}
   - {fileID: 11400000, guid: dd4b2d5fdb9341944a9fb5d451f2890c, type: 2}
   fishPartsMutated:
-    EasyFishParts: []
-    HardFishParts: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: 3898411c20a2d5042a1f74ef55617573, type: 2}
+    HardFishParts:
+    - {fileID: 11400000, guid: c5cf5953e3fbb2741966f6eff291e224, type: 2}
   fishPartsNormal:
-    EasyFishParts: []
-    HardFishParts: []
+    EasyFishParts:
+    - {fileID: 11400000, guid: dd4b2d5fdb9341944a9fb5d451f2890c, type: 2}
+    HardFishParts:
+    - {fileID: 11400000, guid: 0a647a9a4752fd04ebb00122ebb91e36, type: 2}
   CategoryRestriction:
     day1: 0
     day2: 0

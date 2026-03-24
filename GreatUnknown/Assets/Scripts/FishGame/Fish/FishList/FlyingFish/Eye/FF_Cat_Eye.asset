@@ -24,6 +24,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bef0e6faf0746164a89fc8dc1aebabf2, type: 2}
     HardFishParts:
     - {fileID: 11400000, guid: 7d3c1952203daf842a43d250ef22c94c, type: 2}
+    - {fileID: 11400000, guid: 73eac4cf87693d841af5ffdd8a9fb76d, type: 2}
   fishPartsNormal:
     EasyFishParts: []
     HardFishParts: []

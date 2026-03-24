@@ -22,7 +22,7 @@ public class DayTransition : TypingEffect
         else
             textToShow = GameManagement.Instance.GetNbDayLeft() + " DAYS FROM THE ANOMALY";
         SoundManager.instance.PlaySound("dayTransition", SoundState.None, PlaySoundState.Play, audioSource);
-
+        Debug.Log("Play sound");
         //audioSource.PlayOneShot(dayTransitionSound.soundClip);
         //SoundManager.instance.PlaySound(dayTransitionSound, SoundState.FadeOut);
         StopAllCoroutines();

@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        PlaySound(audioInfo, changePreviousState, PlaySoundState.PlayOneShot, otherSource);
+        PlaySound(audioInfo, changePreviousState, playSoundState, otherSource);
     }
     public void PlaySound(AudioClip _sound, AudioSource otherSource = null)
     {

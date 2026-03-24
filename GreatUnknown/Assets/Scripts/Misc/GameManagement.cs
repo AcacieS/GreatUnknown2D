@@ -258,7 +258,7 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingExitComplete()
     {
         if (animator != null)
-            animator.SetBool("ExitingSlidingGame", isSlidingGameFinished);
+            animator.SetBool("ExitingSlidingGame", isSlidingGameFinished); 
 
         if (workPlace != null)
             workPlace.SetActive(true);
@@ -307,6 +307,7 @@ public class GameManagement : MonoBehaviour
         if (!isSlidingGameFinished) return;
         if (workPlace == null || !workPlace.activeSelf) return;
         if(computer!=null) {
+            Debug.Log("Closed down the computer (was that supposed to happen?)");
             computer.SetBool("Open", false);
         }
         isDayEnding = true;

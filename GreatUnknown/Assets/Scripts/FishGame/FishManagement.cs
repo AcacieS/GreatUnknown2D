@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class FishManagement : MonoBehaviour
 {
@@ -377,9 +378,12 @@ public class FishManagement : MonoBehaviour
         {
             foreach(CategoryFishBodyPart catFishBodyPart in fishTypeInfo.categoriesFishLayer)
             {
+                Undo.RecordObject(catFishBodyPart, "Recorded fish body part");
                 catFishBodyPart.InitializeFishParts();
             }
+            
         }
+        
     }
 
     //=============================== OTHER ===========================

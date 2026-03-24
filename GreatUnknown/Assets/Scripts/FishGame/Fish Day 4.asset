@@ -20,15 +20,15 @@ MonoBehaviour:
     mutationsNbChance:
     - mutationCount: 1
       percentage: 25
-      easiness: 35
+      easiness: 45.8
     - mutationCount: 2
       percentage: 50
-      easiness: 25
+      easiness: 46.3
     - mutationCount: 3
       percentage: 25
-      easiness: 10
+      easiness: 47.9
   mutationChance:
-    percentage: 80
+    percentage: 60
   normalLikeliHood:
     percentage: 25
   normalEasyChance:

@@ -28,7 +28,7 @@ MonoBehaviour:
       percentage: 15
       easiness: 50
   mutationChance:
-    percentage: 75
+    percentage: 50
   normalLikeliHood:
     percentage: 35
   normalEasyChance:

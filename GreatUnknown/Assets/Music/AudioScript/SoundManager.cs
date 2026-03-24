@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
         }
         return audioInfo;
     }
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, SoundState changePreviousState = SoundState.None, PlaySoundState playSoundState = PlaySoundState.PlayOneShot, AudioSource otherSource = null)
     {
         if (!soundCatalog.TryGet(soundName, out var audioInfo) || audioInfo==null)
         {
@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        PlaySound(audioInfo);
+        PlaySound(audioInfo, changePreviousState, PlaySoundState.PlayOneShot, otherSource);
     }
     public void PlaySound(AudioClip _sound, AudioSource otherSource = null)
     {

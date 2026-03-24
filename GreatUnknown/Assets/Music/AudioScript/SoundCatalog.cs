@@ -29,6 +29,16 @@ public class SoundCatalog : ScriptableObject
             _map[e.id] = e.audioInfo; // last one wins if duplicates
         }
     }
+    [ContextMenu("Refresh Dictionary")]
+    public void RefreshDictionary()
+    {
+        _map = new Dictionary<string, AudioInfo>(StringComparer.Ordinal);
+        foreach (var e in entries)
+        {
+            if (string.IsNullOrWhiteSpace(e.id) || e.audioInfo == null) continue;
+            _map[e.id] = e.audioInfo; // last one wins if duplicates
+        }
+    }
 
     [ContextMenu("Update Map of Sound")]
     public void AddNewElements()

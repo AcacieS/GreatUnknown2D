@@ -47,3 +47,5 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: b30b2e6e5fe61be4cb19364d5574510d, type: 2}
   - id: minigame_go
     audioInfo: {fileID: 11400000, guid: 1915faa152b4e7b43a27f8f18259f54a, type: 2}
+  - id: openingStory
+    audioInfo: {fileID: 11400000, guid: 0babf824f6f5f53449519233af0bd588, type: 2}

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class OpeningTyping: TypingEffect
 {
-    [SerializeField] private AudioInfo firstDaySound;
     [SerializeField] private TypingEffect currentDayTransition;
     private AudioSource audioSource;
     
@@ -11,7 +10,7 @@ public class OpeningTyping: TypingEffect
     {
         base.Start();
         textToShow = text.text;
-        SoundManager.instance.PlaySound(firstDaySound, SoundState.None, PlaySoundState.Play, audioSource);
+        SoundManager.instance.PlaySound("openingStory", SoundState.None, PlaySoundState.Play, audioSource);
         text.text = "";
         WriteText();
     }

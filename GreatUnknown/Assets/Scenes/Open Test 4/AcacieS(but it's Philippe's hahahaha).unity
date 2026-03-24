@@ -1564,14 +1564,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: == IceSliding Place ==
       objectReference: {fileID: 0}
-    - target: {fileID: 504912468033466800, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 895780994348784293, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1137374302755968509, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.07
@@ -1612,10 +1604,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2135954432395710860, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2643056589159359956, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_TileAssetArray.Array.data[0].m_Data
       value: 
       objectReference: {fileID: 1023510307}
+    - target: {fileID: 2809111323201338908, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809111323201338908, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809111323201338908, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809111323201338908, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.23
+      objectReference: {fileID: 0}
     - target: {fileID: 4073697217602902632, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: 'toClose.Array.data[0]'
       value: 
@@ -1628,6 +1640,10 @@ PrefabInstance:
       propertyPath: m_TileAssetArray.Array.data[0].m_Data
       value: 
       objectReference: {fileID: 1771787972}
+    - target: {fileID: 6905465276242756139, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

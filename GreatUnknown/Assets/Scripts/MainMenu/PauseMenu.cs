@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
         Application.Quit();
     }
 
-    #region Action Bindings for ICutsceneActions
+    #region Action Bindings for IPauseActions
 
     public void OnTogglePause(InputAction.CallbackContext context)
     {
@@ -93,13 +93,13 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
 
     void OnEnable()
     {
-        controlMaps.Cutscene.Enable();
+        controlMaps.Pause.Enable();
     }
 
     void OnDisable()
     {
-        controlMaps.Cutscene.Disable();
+        controlMaps.Pause.Disable();
     }
 
-    #endregion Action Bindings for ICutsceneActions
+    #endregion Action Bindings for IPauseActions
 }

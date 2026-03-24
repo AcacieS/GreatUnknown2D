@@ -117,7 +117,6 @@ public class FishState : MonoBehaviour, IDropable
         {
             if (stickerObj != null)
             {
-                Debug.LogWarning("Reset sticker get out");
                 StickerManagement.Instance.ResetSticker();
                 stickerObj = null;
                 SetChoiceIsMutated(false);

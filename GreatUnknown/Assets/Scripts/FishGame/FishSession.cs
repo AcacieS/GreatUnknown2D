@@ -20,13 +20,11 @@ public class FishSession : ScriptableObject
     {
         Correct++;
         Changed?.Invoke();
-        Debug.Log("Correct now: " + Correct);
     }
 
     public void AddWrong()
     {
         Wrong++;
         Changed?.Invoke();
-        Debug.Log("Wrong now: " + Wrong);
     }
 }

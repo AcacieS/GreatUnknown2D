@@ -10,6 +10,9 @@ public class FaxCatalog : ScriptableObject
     {
         public string id;     // e.g. "Day1_LetterA"
         public Sprite sprite; // the letter sprite
+        [Range(0, 5)]
+        public int day;
+        public bool availableAtStart = true;
     }
 
     [SerializeField] private List<Entry> entries = new List<Entry>();
@@ -32,5 +35,14 @@ public class FaxCatalog : ScriptableObject
     {
         BuildMapIfNeeded();
         return _map.TryGetValue(id, out sprite);
+    }
+
+    public List<string> GetStartingOnDay(int day)
+    {
+        List<string> messages = new();
+        foreach (var entry in entries)
+            if (entry.day < day || (entry.day == day && entry.availableAtStart)
+                messages.Add(entry.id);
+        return messages;
     }
 }

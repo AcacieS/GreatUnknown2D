@@ -273,6 +273,8 @@ public class GameManagement : MonoBehaviour
     private void ResetDataDay()
     {
         StopAllCoroutines();
+        if (faxMachine != null)
+            faxMachine.SendStartingFaxMessages(nbDaysPassed);
 
         if (radioScript != null)
             radioScript.StopAllCoroutines();

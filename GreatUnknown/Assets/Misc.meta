@@ -1,10 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:GreatUnknown/Assets/Jonathan's'SceneisTooGoatedSorryAcacie.unity.meta
 guid: d4bbb74ef2f55ea05b6483f055efd55b
 ========
 guid: 8797adc75bea98eac809b8f9ce9dd618
 folderAsset: yes
 >>>>>>>> f8f9f1e (Main Staging):GreatUnknown/Assets/Misc.meta
+=======
+guid: 8797adc75bea98eac809b8f9ce9dd618
+folderAsset: yes
+>>>>>>> main-staging
 DefaultImporter:
   externalObjects: {}
   userData: 

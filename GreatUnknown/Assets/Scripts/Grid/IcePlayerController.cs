@@ -135,23 +135,19 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             return;
         }
 
-        switch (dir)
+        if (dir == Vector2Int.up || 
+            dir == Vector2Int.down ||
+            dir == Vector2Int.left ||
+            dir == Vector2Int.right)
         {
-            case Vector2Int.up:
-            case Vector2Int.down:
-            case Vector2Int.left:
-            case Vector2Int.right:
-                Vector2Int newPos = grid.Slide(pos, dir);
-                if (newPos == pos)
-                    return;
-
-                FaceDirection(dir);
-                pos = newPos;
-                targetWorld = gridSource.GridIndexToWorldCenter(pos);
-                isMoving = true;
-                break;
-            default:
+            Vector2Int newPos = grid.Slide(pos, dir);
+            if (newPos == pos)
                 return;
+
+            FaceDirection(dir);
+            pos = newPos;
+            targetWorld = gridSource.GridIndexToWorldCenter(pos);
+            isMoving = true;
         }
     }
 

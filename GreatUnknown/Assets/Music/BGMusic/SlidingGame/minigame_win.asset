@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: minigame_win
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: ad13b8df7c1c81f47bebad94474e575e, type: 3}
-  volume: 0.392
+  volume: 0.618
   isLooping: 0

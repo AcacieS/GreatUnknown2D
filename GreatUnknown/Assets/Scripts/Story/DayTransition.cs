@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class DayTransition : TypingEffect
 {
-    [SerializeField] private AudioInfo dayTransitionSound;
     [SerializeField] private AudioSource audioSource;
     public override void WriteText()
     {
@@ -22,7 +21,9 @@ public class DayTransition : TypingEffect
             textToShow = "1 DAY FROM THE ANOMALY";
         else
             textToShow = GameManagement.Instance.GetNbDayLeft() + " DAYS FROM THE ANOMALY";
-        audioSource.PlayOneShot(dayTransitionSound.soundClip);
+        SoundManager.instance.PlaySound("dayTransition", SoundState.None, PlaySoundState.Play, audioSource);
+
+        //audioSource.PlayOneShot(dayTransitionSound.soundClip);
         //SoundManager.instance.PlaySound(dayTransitionSound, SoundState.FadeOut);
         StopAllCoroutines();
         StartCoroutine(TypeText());

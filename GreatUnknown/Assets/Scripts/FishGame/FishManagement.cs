@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 
@@ -368,20 +368,6 @@ public class FishManagement : MonoBehaviour
 
         return currentFishLists[currentFishIndex];
     }
-    [ContextMenu("Regenerate Fish Body List")]
-    void GenerateFish()
-    {
-        foreach(FishTypeInfo fishTypeInfo in fishDaysInfo.GetFishInfos())
-        {
-            foreach(CategoryFishBodyPart catFishBodyPart in fishTypeInfo.categoriesFishLayer)
-            {
-                Undo.RecordObject(catFishBodyPart, "Recorded fish body part");
-                catFishBodyPart.InitializeFishParts();
-            }
-            
-        }
-        
-    }
 
     //=============================== OTHER ===========================
     public void Awake()
@@ -406,5 +392,10 @@ public class FishManagement : MonoBehaviour
             Ext.WarnAndDisable(whatWentWrong, this);
             return;
         }
+    }
+    
+    public FishDaysInfo GetFishDaysInfo()
+    {
+        return fishDaysInfo;
     }
 }

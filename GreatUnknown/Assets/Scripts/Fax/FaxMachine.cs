@@ -41,6 +41,14 @@ public class FaxMachine : MonoBehaviour, IClickable
     {
         _anim.SetBool("Notify", state.UnreadCount != 0);
     }
+    
+    public void SendStartingFaxMessages(int day)
+    {
+        foreach (string id in catalog.GetStartingOnDay(day))
+        {
+            NewFaxMessage(id);
+        }
+    }
 
     /// <summary>
     /// Phase 1 entry point:

@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Stefa Menu");
+        SceneManager.LoadScene(mainMenuScene);
     }
     public void ExitGame()
     {

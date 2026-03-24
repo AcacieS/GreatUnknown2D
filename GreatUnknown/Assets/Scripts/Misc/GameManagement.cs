@@ -6,6 +6,20 @@ public class GameManagement : MonoBehaviour
 {
     public static GameManagement Instance { get; private set; }
 
+    // While we decide whether or not to support options, force 1920x1080.
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    public static void ForceScreenTo16by9()
+    {
+        foreach (var res in Screen.resolutions)
+        {
+            if (res.width == 1920 && res.height == 1080)
+            {
+                Screen.SetResolution(res.width, res.height, true);
+            }
+        }
+        Screen.SetResolution(1920, 1080, true);
+    }
+
     [SerializeField] private FishSession fishSession;
     [SerializeField] private SpriteRenderer daySpriteRenderer;
     [SerializeField] private Sprite[] daySprites;

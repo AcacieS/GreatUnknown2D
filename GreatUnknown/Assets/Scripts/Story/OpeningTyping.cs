@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(AudioSource))]
 public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
 {
     [SerializeField] private TypingEffect currentDayTransition;

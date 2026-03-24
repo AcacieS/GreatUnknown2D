@@ -17,7 +17,9 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     [Header("Events")]
     [FormerlySerializedAs("_clicked")]
     public UnityEvent onClick;
-    
+
+    public const int DRAG_MARGIN = 10;
+     
     private IClickable _clickable;
     private BoxCollider2D _collider;
     private IDraggable _draggable;
@@ -56,7 +58,15 @@ public class ClickHandler: MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         if(!enableDrag) return;
-        mouseWorld = _camera.ScreenToWorldPoint(eventData.position);
+
+        // Clamp mouse to screen 1920x1080
+        var mouseScreen = eventData.position;
+        if (mouseScreen.x < DRAG_MARGIN) mouseScreen.x = DRAG_MARGIN;
+        if (mouseScreen.x > 1919) mouseScreen.x = 1919 - DRAG_MARGIN;
+        if (mouseScreen.y < DRAG_MARGIN) mouseScreen.y = DRAG_MARGIN;
+        if (mouseScreen.y > 1079) mouseScreen.y = 1079 - DRAG_MARGIN;
+
+        mouseWorld = _camera.ScreenToWorldPoint(mouseScreen);
         mouseWorld.z = 0f;
         if(RestrictedToAxisX)
         {

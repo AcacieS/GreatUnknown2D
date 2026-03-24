@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class FishSound : MonoBehaviour, IClickable
 {
-public void OnClick()
-{
-    int wetFishIndex = Random.Range(1, 3);
-
-    if (SoundManager.instance == null)
+    public void OnClick()
     {
-        Debug.LogWarning("FishSound: SoundManager.instance is null.");
-        return;
-    }
+        int wetFishIndex = Random.Range(1, 3);
 
-    SoundManager.instance.PlaySound("fishWet" + wetFishIndex);
-}
+        if (SoundManager.instance == null)
+        {
+            Debug.LogError("FishSound: SoundManager.instance is null.");
+            return;
+        }
+
+        SoundManager.instance.PlaySound("fishWet" + wetFishIndex);
+    }
 }

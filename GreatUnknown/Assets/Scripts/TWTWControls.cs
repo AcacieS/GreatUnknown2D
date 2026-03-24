@@ -1372,6 +1372,34 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Pointer"",
+            ""id"": ""0196071b-341d-4683-a55c-ca5380f77fbc"",
+            ""actions"": [
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""056ea923-5d35-48f9-b8b1-5baa1cc5208e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8dc384bc-297f-45e6-a462-a56d4d0ca85c"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1474,6 +1502,9 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         // IceSliding
         m_IceSliding = asset.FindActionMap("IceSliding", throwIfNotFound: true);
         m_IceSliding_Move = m_IceSliding.FindAction("Move", throwIfNotFound: true);
+        // Pointer
+        m_Pointer = asset.FindActionMap("Pointer", throwIfNotFound: true);
+        m_Pointer_Point = m_Pointer.FindAction("Point", throwIfNotFound: true);
     }
 
     ~@TWTWControls()
@@ -1484,6 +1515,7 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Pause.enabled, "This will cause a leak and performance issues, TWTWControls.Pause.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Cutscene.enabled, "This will cause a leak and performance issues, TWTWControls.Cutscene.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_IceSliding.enabled, "This will cause a leak and performance issues, TWTWControls.IceSliding.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Pointer.enabled, "This will cause a leak and performance issues, TWTWControls.Pointer.Disable() has not been called.");
     }
 
     /// <summary>
@@ -2340,6 +2372,102 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="IceSlidingActions" /> instance referencing this action map.
     /// </summary>
     public IceSlidingActions @IceSliding => new IceSlidingActions(this);
+
+    // Pointer
+    private readonly InputActionMap m_Pointer;
+    private List<IPointerActions> m_PointerActionsCallbackInterfaces = new List<IPointerActions>();
+    private readonly InputAction m_Pointer_Point;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Pointer".
+    /// </summary>
+    public struct PointerActions
+    {
+        private @TWTWControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PointerActions(@TWTWControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Pointer/Point".
+        /// </summary>
+        public InputAction @Point => m_Wrapper.m_Pointer_Point;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Pointer; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PointerActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PointerActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PointerActions" />
+        public void AddCallbacks(IPointerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PointerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PointerActionsCallbackInterfaces.Add(instance);
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="PointerActions" />
+        private void UnregisterCallbacks(IPointerActions instance)
+        {
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PointerActions.UnregisterCallbacks(IPointerActions)" />.
+        /// </summary>
+        /// <seealso cref="PointerActions.UnregisterCallbacks(IPointerActions)" />
+        public void RemoveCallbacks(IPointerActions instance)
+        {
+            if (m_Wrapper.m_PointerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="PointerActions.AddCallbacks(IPointerActions)" />
+        /// <seealso cref="PointerActions.RemoveCallbacks(IPointerActions)" />
+        /// <seealso cref="PointerActions.UnregisterCallbacks(IPointerActions)" />
+        public void SetCallbacks(IPointerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PointerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PointerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="PointerActions" /> instance referencing this action map.
+    /// </summary>
+    public PointerActions @Pointer => new PointerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2627,5 +2755,20 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Pointer" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PointerActions.AddCallbacks(IPointerActions)" />
+    /// <seealso cref="PointerActions.RemoveCallbacks(IPointerActions)" />
+    public interface IPointerActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Point" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPoint(InputAction.CallbackContext context);
     }
 }

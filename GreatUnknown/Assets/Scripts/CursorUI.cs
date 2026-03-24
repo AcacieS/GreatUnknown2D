@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class CursorUI : MonoBehaviour
+public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
 {
     private static CursorUI instance; //singleton
     // RectTransform of the Image (the fish sprite), set in Awake automatically
@@ -12,6 +12,7 @@ public class CursorUI : MonoBehaviour
     private RectTransform canvasRectTransform; //parent
     // Null if Screen Space Overlay, otherwise the canvas's assigned camera
     private Camera canvasCamera;
+    private TWTWControls controlMaps;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class CursorUI : MonoBehaviour
         cursorTransform = GetComponent<RectTransform>(); // from current object
         // Find and store canvas references on first run
         RefreshCanvasReferences();
+
+        controlMaps = new TWTWControls();
+        controlMaps.Pointer.AddCallbacks(this);
+        controlMaps.Pointer.Enable();
     }
 
     private void OnEnable()
@@ -37,8 +42,6 @@ public class CursorUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        if (Mouse.current != null)
-            PositionCursor(Mouse.current.position.ReadValue());
     }
 
 
@@ -59,12 +62,6 @@ public class CursorUI : MonoBehaviour
         {
             PositionCursor(Mouse.current.position.ReadValue());
         }
-    }
-
-    private void Update()
-    {
-        if (Mouse.current == null) return;
-        PositionCursor(Mouse.current.position.ReadValue());
     }
 
     private void RefreshCanvasReferences()
@@ -111,4 +108,16 @@ public class CursorUI : MonoBehaviour
         // Instantiate it — Awake() on the prefab handles the rest
         Instantiate(prefab);
     }
+
+    #region Action Bindings for IPointerActions
+
+    public void OnPoint(InputAction.CallbackContext context)
+        => PositionCursor(context.ReadValue<Vector2>());
+
+    void OnDestroy()
+    {
+        controlMaps.Dispose();
+    }
+
+    #endregion Action Bindings for IPointerActions
 }

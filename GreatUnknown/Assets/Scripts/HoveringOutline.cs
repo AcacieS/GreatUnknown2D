@@ -2,52 +2,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HoveringOutline : MonoBehaviour
+public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
 {
-    // [SerializeField] private GameObject hoverOutline;
-    // Vector3 mousePosition;
-    // RaycastHit2D raycastHit2D;
-    // Transform prevHoverObject, nextHoverObject;
-    // private GameObject currentObject;
-
-    // private void Start()
-    // {
-    //     currentObject = gameObject;
-    // }
-
-    // void Update()
-    // {
-    //     mousePosition = Mouse.current.position.ReadValue();
-    //     Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
-
-    //     prevHoverObject = nextHoverObject;
-        
-    //     raycastHit2D = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
-
-    //     nextHoverObject = (raycastHit2D.collider != null) ? raycastHit2D.collider.transform : null;
-        
-    //     if (nextHoverObject && nextHoverObject.childCount == 0)
-    //         nextHoverObject = nextHoverObject.parent;
-
-    //     if (nextHoverObject) {
-    //         if (prevHoverObject && prevHoverObject.gameObject == currentObject)
-    //         {
-    //             prevHoverObject.transform.GetChild(0).gameObject.SetActive(false);
-    //         }
-    //         if (nextHoverObject.gameObject == currentObject) {
-    //             nextHoverObject.transform.GetChild(0).gameObject.SetActive(true);
-    //         }
-            
-                
-    //     } else {
-    //         if (prevHoverObject && prevHoverObject.gameObject == currentObject)
-    //         {
-    //             prevHoverObject.transform.GetChild(0).gameObject.SetActive(false);
-    //         } 
-    //     }
-        
-    // }
     [SerializeField] private GameObject hoverOutline; // optional manual assignment
+
     public bool canShowOutline = true;
     public bool stopShowOutlineForever = false;
     Vector3 mousePosition;
@@ -56,15 +14,16 @@ public class HoveringOutline : MonoBehaviour
 
     private GameObject currentObject;
 
+    private TWTWControls controlMaps;
+
     private void Start()
     {
         currentObject = gameObject;
     }
 
-    void Update()
+    void UpdateOutline(Vector2 mousePosition)
     {
         if(stopShowOutlineForever) return;
-        mousePosition = Mouse.current.position.ReadValue();
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
 
         prevHoverObject = nextHoverObject;
@@ -103,6 +62,7 @@ public class HoveringOutline : MonoBehaviour
         if (outline != null)
             outline.SetActive(state);
     }
+
     public void DisableOutline()
     {
         stopShowOutlineForever = true;
@@ -110,10 +70,36 @@ public class HoveringOutline : MonoBehaviour
         SetOutline(transform, false);
     }
 
-    // Example function to enable outline again
     public void EnableOutline()
     {
         canShowOutline = true;
     }
-    
+
+    #region Action Bindings for IPointerActions
+
+    void Awake()
+    {
+        controlMaps = new TWTWControls();
+        controlMaps.Pointer.AddCallbacks(this);
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+        => UpdateOutline(context.ReadValue<Vector2>());
+
+    void OnDestroy()
+    {
+        controlMaps.Dispose();
+    }
+
+    void OnEnable()
+    {
+        controlMaps.Pointer.Enable();
+    }
+
+    void OnDisable()
+    {
+        controlMaps.Pointer.Disable();
+    }
+
+    #endregion Action Bindings for IPointerActions
 }

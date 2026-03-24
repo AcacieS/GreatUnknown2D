@@ -1286,6 +1286,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Pointer",
+            "id": "0196071b-341d-4683-a55c-ca5380f77fbc",
+            "actions": [
+                {
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "056ea923-5d35-48f9-b8b1-5baa1cc5208e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8dc384bc-297f-45e6-a462-a56d4d0ca85c",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

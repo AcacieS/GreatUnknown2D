@@ -23,10 +23,10 @@ MonoBehaviour:
       easiness: 45.8
     - mutationCount: 2
       percentage: 50
-      easiness: 46.3
+      easiness: 0
     - mutationCount: 3
       percentage: 25
-      easiness: 47.9
+      easiness: 41.6
   mutationChance:
     percentage: 60
   normalLikeliHood:

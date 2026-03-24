@@ -40,7 +40,7 @@ MonoBehaviour:
   - id: faxOpen
     audioInfo: {fileID: 11400000, guid: 058d4dbdf2ad5594b853e177eb76e515, type: 2}
   - id: faxMachine
-    audioInfo: {fileID: 11400000, guid: cee3e1a158b8d7e489797530d31eca61, type: 2}
+    audioInfo: {fileID: 11400000, guid: ae652aa9c9c6a824f835714679c45ee2, type: 2}
   - id: minigame_lose
     audioInfo: {fileID: 11400000, guid: bb3ff73f39f69344b8b2d088c2c10b74, type: 2}
   - id: minigame_win

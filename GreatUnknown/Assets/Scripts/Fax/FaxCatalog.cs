@@ -11,8 +11,9 @@ public class FaxCatalog : ScriptableObject
         public string id;     // e.g. "Day1_LetterA"
         public Sprite sprite; // the letter sprite
         [Range(0, 5)]
+        [Tooltip("Use internal day numbers 0-5 to address one of six days")]
         public int day;
-        public bool availableAtStart = true;
+        public bool availableAtStart;
     }
 
     [SerializeField] private List<Entry> entries = new List<Entry>();
@@ -41,7 +42,7 @@ public class FaxCatalog : ScriptableObject
     {
         List<string> messages = new();
         foreach (var entry in entries)
-            if (entry.day < day || (entry.day == day && entry.availableAtStart)
+            if (entry.day < day || (entry.day == day && entry.availableAtStart))
                 messages.Add(entry.id);
         return messages;
     }

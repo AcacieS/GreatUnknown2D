@@ -367,6 +367,8 @@ public class GameManagement : MonoBehaviour
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
                 if (lastDayMB != null)
                     lastDayMB.enabled = true;
+                IsFishGameFinished = true;
+                isSlidingGameFinished = true;
                 break;
 
             default:
@@ -388,6 +390,8 @@ public class GameManagement : MonoBehaviour
         {
             Debug.Log("Fish game is finished!");
             fishOnTray.SetActive(false);
+
+            if(nbDaysPassed==5) return;
             StartCoroutine("ComputerOpen");
             if(nbDaysPassed == 2 && faxMachine != null)
             {

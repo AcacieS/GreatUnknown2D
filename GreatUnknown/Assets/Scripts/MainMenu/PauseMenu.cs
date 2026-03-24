@@ -1,13 +1,16 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
 {
+    [SerializeField] private InputActionReference escapeActionReference;
     [SerializeField] private BookViewerUI bookViewerUI;
     [SerializeField] private FaxViewerUI faxViewerUI;
     [SerializeField] private GameObject pauseMenuUI = null;
 
+    private TWTWControls controlMaps;
     public static PauseMenu instance {get; private set; }
     private bool canPause = true;
     public static bool isPaused = false;
@@ -21,6 +24,9 @@ public class PauseMenu : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        controlMaps = new TWTWControls();
+        controlMaps.Pause.AddCallbacks(this);
 
         if (bookViewerUI == null) { Ext.WarnRef("bookViewerUI", this); return; }
         if (faxViewerUI == null) { Ext.WarnRef("faxViewerUI", this); return; }
@@ -37,13 +43,6 @@ public class PauseMenu : MonoBehaviour
                 pauseMenuUI.SetActive(false);
                 return;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-                Resume();
-            else if (canPause)
-                Pause();
         }
 
         if (bookViewerUI != null && faxViewerUI != null)
@@ -76,4 +75,31 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    #region Action Bindings for ICutsceneActions
+
+    public void OnTogglePause(InputAction.CallbackContext context)
+    {
+        if (isPaused)
+            Resume();
+        else if (canPause)
+            Pause();
+    }
+
+    void OnDestroy()
+    {
+        controlMaps.Dispose();
+    }
+
+    void OnEnable()
+    {
+        controlMaps.Cutscene.Enable();
+    }
+
+    void OnDisable()
+    {
+        controlMaps.Cutscene.Disable();
+    }
+
+    #endregion Action Bindings for ICutsceneActions
 }

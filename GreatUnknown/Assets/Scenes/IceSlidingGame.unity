@@ -343,11 +343,11 @@ PrefabInstance:
       objectReference: {fileID: 325491104}
     - target: {fileID: 6981198308239409215, guid: bb1261144e4e6a0439c95edcdcfa9064, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 126.11325
+      value: 125.57
       objectReference: {fileID: 0}
     - target: {fileID: 6981198308239409215, guid: bb1261144e4e6a0439c95edcdcfa9064, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 66.657295
+      value: 70.3
       objectReference: {fileID: 0}
     - target: {fileID: 6981198308239409215, guid: bb1261144e4e6a0439c95edcdcfa9064, type: 3}
       propertyPath: m_LocalPosition.z
@@ -477,11 +477,11 @@ PrefabInstance:
       objectReference: {fileID: 736055095}
     - target: {fileID: 3804778911722029254, guid: 7faef8b33b1d7164fb4219cf968d515b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 125.98807
+      value: 125.6
       objectReference: {fileID: 0}
     - target: {fileID: 3804778911722029254, guid: 7faef8b33b1d7164fb4219cf968d515b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 66.72947
+      value: 70.7
       objectReference: {fileID: 0}
     - target: {fileID: 3804778911722029254, guid: 7faef8b33b1d7164fb4219cf968d515b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1185,6 +1185,10 @@ PrefabInstance:
     - target: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
       propertyPath: m_Name
       value: IceSlidingGame (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705365932781265014, guid: 1f615b1ef4ed6614fb447baf23603260, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

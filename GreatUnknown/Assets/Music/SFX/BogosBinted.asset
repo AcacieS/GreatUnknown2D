@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f54ef2f257d4c62498e4688b8a0d4ea9, type: 3}
-  m_Name: FaxOpen
+  m_Name: BogosBinted
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
-  soundClip: {fileID: 8300000, guid: a9bf91b56ad83dc4f923c0f684036f9f, type: 3}
-  volume: 0.112
+  soundClip: {fileID: 8300000, guid: 6af326fa431f1405d91cc95bacb2ca60, type: 3}
+  volume: 0.5
   isLooping: 0

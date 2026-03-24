@@ -51,3 +51,5 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 0babf824f6f5f53449519233af0bd588, type: 2}
   - id: dayTransition
     audioInfo: {fileID: 11400000, guid: d062b72573f1b3142a131dcd065cc457, type: 2}
+  - id: bogosbinted
+    audioInfo: {fileID: 11400000, guid: 05ecb07cd58eee24b97c1aa4732ab1b4, type: 2}

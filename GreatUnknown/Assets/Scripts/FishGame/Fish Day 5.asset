@@ -19,19 +19,19 @@ MonoBehaviour:
   mutationLikeliHood:
     mutationsNbChance:
     - mutationCount: 1
-      percentage: 25
-      easiness: 15
+      percentage: 35
+      easiness: 15.8
     - mutationCount: 2
-      percentage: 25
-      easiness: 15
+      percentage: 35
+      easiness: 19.3
     - mutationCount: 3
       percentage: 25
-      easiness: 10
+      easiness: 14.7
     - mutationCount: 4
-      percentage: 25
-      easiness: 5
+      percentage: 10
+      easiness: 15.8
   mutationChance:
-    percentage: 80
+    percentage: 70
   normalLikeliHood:
     percentage: 15
   normalEasyChance:

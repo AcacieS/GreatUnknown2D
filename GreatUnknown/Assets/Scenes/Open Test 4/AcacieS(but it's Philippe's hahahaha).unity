@@ -1984,10 +1984,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: == IceSliding Place ==
       objectReference: {fileID: 0}
-    - target: {fileID: 895780994348784293, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1137374302755968509, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.07
@@ -2027,14 +2023,6 @@ PrefabInstance:
     - target: {fileID: 1137374302755968509, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135954432395710860, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135954432395710860, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
-      propertyPath: m_TagString
-      value: IceSlidingGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

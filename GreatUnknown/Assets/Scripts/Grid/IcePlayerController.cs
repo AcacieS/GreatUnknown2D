@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class IcePlayerController : MonoBehaviour
+public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingActions
 {
     [SerializeField]
     private IceGridFromTilemap gridSource;
@@ -25,6 +26,9 @@ public class IcePlayerController : MonoBehaviour
     //For sound(plays once);
     private bool canPlaySound = true;
 
+    private TWTWControls controlMaps;
+    private Vector2Int dir = Vector2Int.zero;
+
     public void InjectReferences(
         IceGridFromTilemap injectedGridSource,
         Restart injectedRestart,
@@ -40,6 +44,9 @@ public class IcePlayerController : MonoBehaviour
     {
         if (submarineVisual == null)
             submarineVisual = transform;
+
+        controlMaps = new TWTWControls();
+        controlMaps.IceSliding.AddCallbacks(this);
     }
 
     private void Start()
@@ -111,7 +118,6 @@ public class IcePlayerController : MonoBehaviour
 
                 if (landed == TileType.Death && restart != null)
                 {
-                    
                     isRespawning = true;
                     SoundManager.instance?.PlaySound("minigame_lose");
                     restart.Respawn(gameObject);
@@ -129,26 +135,24 @@ public class IcePlayerController : MonoBehaviour
             return;
         }
 
-        Vector2Int dir = Vector2Int.zero;
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            dir = Vector2Int.up;
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            dir = Vector2Int.down;
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            dir = Vector2Int.left;
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            dir = Vector2Int.right;
-        else
-            return;
+        switch (dir)
+        {
+            case Vector2Int.up:
+            case Vector2Int.down:
+            case Vector2Int.left:
+            case Vector2Int.right:
+                Vector2Int newPos = grid.Slide(pos, dir);
+                if (newPos == pos)
+                    return;
 
-        Vector2Int newPos = grid.Slide(pos, dir);
-        if (newPos == pos)
-            return;
-
-        FaceDirection(dir);
-        pos = newPos;
-        targetWorld = gridSource.GridIndexToWorldCenter(pos);
-        isMoving = true;
+                FaceDirection(dir);
+                pos = newPos;
+                targetWorld = gridSource.GridIndexToWorldCenter(pos);
+                isMoving = true;
+                break;
+            default:
+                return;
+        }
     }
 
     private void FaceDirection(Vector2Int dir)
@@ -166,4 +170,28 @@ public class IcePlayerController : MonoBehaviour
         else if (dir == Vector2Int.left)
             submarineVisual.rotation = Quaternion.Euler(0f, 0f, 90f);
     }
+
+    #region Action Bindings for IIceSlidingActions
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        dir = Vector2Int.RoundToInt(context.ReadValue<Vector2>());
+    }
+
+    void OnDestroy()
+    {
+        controlMaps.Dispose();
+    }
+
+    void OnEnable()
+    {
+        controlMaps.IceSliding.Enable();
+    }
+
+    void OnDisable()
+    {
+        controlMaps.IceSliding.Disable();
+    }
+
+    #endregion Action Bindings for IIceSlidingActions
 }

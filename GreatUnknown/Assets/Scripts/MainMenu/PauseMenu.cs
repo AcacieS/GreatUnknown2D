@@ -80,10 +80,13 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
 
     public void OnTogglePause(InputAction.CallbackContext context)
     {
-        if (isPaused)
-            Resume();
-        else if (canPause)
-            Pause();
+        if (context.started)
+        {
+            if (isPaused)
+                Resume();
+            else if (canPause)
+                Pause();
+        }
     }
 
     void OnDestroy()

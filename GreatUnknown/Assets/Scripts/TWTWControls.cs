@@ -1223,6 +1223,155 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""IceSliding"",
+            ""id"": ""3feb870b-95d9-4aca-9f14-a7af87820d08"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""892fd096-2ae5-4b11-a728-9ae150b18a21"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0ad311c4-96eb-422e-bdc2-8adc99309890"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""7fcb8bf8-6c27-4ccd-9356-28a4b7c4d47f"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0d3fbf22-0e3f-4fa2-b628-4e887a04e2c8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""97448b62-5851-4949-87f6-5b611c669985"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0f57201e-ab88-4204-b22d-027d4cb2ba3c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""66d09787-f079-4459-b620-b516d9e22eb2"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""32023269-6ff5-4a55-947a-1159deb7260e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""72d9931e-d170-4c0b-a2c2-2c8950d5eadd"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ee401bc9-b186-444c-9069-39742b9db59d"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c0c85033-daf8-4b63-aa77-1e3db139dc4d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""71bc35cd-624e-4dfd-9b95-81257bb11f63"",
+                    ""path"": ""<XRController>/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""368d6113-a462-4b49-b888-c8aed6bd310f"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1322,6 +1471,9 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         // Cutscene
         m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
         m_Cutscene_Skip = m_Cutscene.FindAction("Skip", throwIfNotFound: true);
+        // IceSliding
+        m_IceSliding = asset.FindActionMap("IceSliding", throwIfNotFound: true);
+        m_IceSliding_Move = m_IceSliding.FindAction("Move", throwIfNotFound: true);
     }
 
     ~@TWTWControls()
@@ -1331,6 +1483,7 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Game.enabled, "This will cause a leak and performance issues, TWTWControls.Game.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Pause.enabled, "This will cause a leak and performance issues, TWTWControls.Pause.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Cutscene.enabled, "This will cause a leak and performance issues, TWTWControls.Cutscene.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_IceSliding.enabled, "This will cause a leak and performance issues, TWTWControls.IceSliding.Disable() has not been called.");
     }
 
     /// <summary>
@@ -2091,6 +2244,102 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="CutsceneActions" /> instance referencing this action map.
     /// </summary>
     public CutsceneActions @Cutscene => new CutsceneActions(this);
+
+    // IceSliding
+    private readonly InputActionMap m_IceSliding;
+    private List<IIceSlidingActions> m_IceSlidingActionsCallbackInterfaces = new List<IIceSlidingActions>();
+    private readonly InputAction m_IceSliding_Move;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "IceSliding".
+    /// </summary>
+    public struct IceSlidingActions
+    {
+        private @TWTWControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public IceSlidingActions(@TWTWControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "IceSliding/Move".
+        /// </summary>
+        public InputAction @Move => m_Wrapper.m_IceSliding_Move;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_IceSliding; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="IceSlidingActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(IceSlidingActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="IceSlidingActions" />
+        public void AddCallbacks(IIceSlidingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_IceSlidingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_IceSlidingActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="IceSlidingActions" />
+        private void UnregisterCallbacks(IIceSlidingActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="IceSlidingActions.UnregisterCallbacks(IIceSlidingActions)" />.
+        /// </summary>
+        /// <seealso cref="IceSlidingActions.UnregisterCallbacks(IIceSlidingActions)" />
+        public void RemoveCallbacks(IIceSlidingActions instance)
+        {
+            if (m_Wrapper.m_IceSlidingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="IceSlidingActions.AddCallbacks(IIceSlidingActions)" />
+        /// <seealso cref="IceSlidingActions.RemoveCallbacks(IIceSlidingActions)" />
+        /// <seealso cref="IceSlidingActions.UnregisterCallbacks(IIceSlidingActions)" />
+        public void SetCallbacks(IIceSlidingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_IceSlidingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_IceSlidingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="IceSlidingActions" /> instance referencing this action map.
+    /// </summary>
+    public IceSlidingActions @IceSliding => new IceSlidingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -2363,5 +2612,20 @@ public partial class @TWTWControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSkip(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "IceSliding" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="IceSlidingActions.AddCallbacks(IIceSlidingActions)" />
+    /// <seealso cref="IceSlidingActions.RemoveCallbacks(IIceSlidingActions)" />
+    public interface IIceSlidingActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMove(InputAction.CallbackContext context);
     }
 }

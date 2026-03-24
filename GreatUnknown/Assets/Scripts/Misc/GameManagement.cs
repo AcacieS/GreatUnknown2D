@@ -258,7 +258,7 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingExitComplete()
     {
         if (animator != null)
-            animator.SetBool("ExitingSlidingGame", isSlidingGameFinished); 
+            animator.SetBool("ExitingSlidingGame", false); 
 
         if (workPlace != null)
             workPlace.SetActive(true);

@@ -51,7 +51,9 @@ public class TypingEffect2 : MonoBehaviour
         yield return new WaitForSeconds(waitSecondAfterTyping);
         text.text = "";
 
-        if (toClose != null)
+        if(GameManagement.Instance !=null) GameManagement.Instance.ExitSlidingGame();
+
+        else if(toClose != null)
         {
             foreach (GameObject go in toClose)
             {

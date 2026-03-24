@@ -23,6 +23,7 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
     private Vector3 targetWorld;
     private bool isMoving;
     private bool isRespawning;
+
     //For sound(plays once);
     private bool canPlaySound = true;
 
@@ -53,7 +54,6 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
     {
         if (gridSource == null)
         {
-        
             Debug.LogError("IcePlayerController: gridSource was not injected.");
             enabled = false;
             return;
@@ -96,11 +96,12 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
         if (isMoving)
         {
             //Play the vroom thing once
-            if(canPlaySound) {
+            if (canPlaySound)
+            {
                 SoundManager.instance?.PlaySound("minigame_go");
                 canPlaySound = !canPlaySound;
             }
-        
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetWorld,
@@ -110,9 +111,8 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             if ((transform.position - targetWorld).sqrMagnitude < 0.0001f)
             {
                 transform.position = targetWorld;
-                canPlaySound = true; 
+                canPlaySound = true;
                 isMoving = false;
-
 
                 TileType landed = grid.Get(pos);
 
@@ -135,14 +135,22 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             return;
         }
 
-        if (dir == Vector2Int.up || 
-            dir == Vector2Int.down ||
-            dir == Vector2Int.left ||
-            dir == Vector2Int.right)
+        if (
+            dir == Vector2Int.up
+            || dir == Vector2Int.down
+            || dir == Vector2Int.left
+            || dir == Vector2Int.right
+        )
         {
+            if (levelState != null && !levelState.CanSpendMove())
+                return;
+
             Vector2Int newPos = grid.Slide(pos, dir);
             if (newPos == pos)
                 return;
+
+            if (levelState != null)
+                levelState.SpendMove();
 
             FaceDirection(dir);
             pos = newPos;
@@ -153,7 +161,6 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
 
     private void FaceDirection(Vector2Int dir)
     {
-        
         if (submarineVisual == null)
             return;
 

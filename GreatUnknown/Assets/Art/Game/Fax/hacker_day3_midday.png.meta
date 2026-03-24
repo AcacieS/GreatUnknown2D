@@ -103,9 +103,9 @@ TextureImporter:
       name: hacker_day3_midday_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 536
         y: 0
-        width: 1920
+        width: 843
         height: 1080
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fish Day 3
   m_EditorClassIdentifier: Assembly-CSharp::FishDayInfo
   nbOfFish:
-    minNbOfFish: 7
+    minNbOfFish: 9
     maxNbOfFish: 10
   minNbOfMutatedFish: 3
   mutationLikeliHood:

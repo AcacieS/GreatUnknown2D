@@ -20,12 +20,12 @@ MonoBehaviour:
     mutationsNbChance:
     - mutationCount: 1
       percentage: 35
-      easiness: 15.8
+      easiness: 0
     - mutationCount: 2
-      percentage: 35
-      easiness: 19.3
+      percentage: 40
+      easiness: 16.4
     - mutationCount: 3
-      percentage: 25
+      percentage: 20
       easiness: 14.7
     - mutationCount: 4
       percentage: 10

@@ -574,7 +574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2047797644035271601, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329187435001684743, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2882092953791550544, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
       propertyPath: m_TileColorArray.Array.size
@@ -1152,6 +1156,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.74
       objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 200.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -34.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5188541418199269499, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5232624096838053027, guid: fb3cc20fed5b16c438e0adc978dafe30, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.27
@@ -1334,6 +1362,10 @@ PrefabInstance:
     - target: {fileID: 4120745109403005246, guid: 7faef8b33b1d7164fb4219cf968d515b, type: 3}
       propertyPath: m_Name
       value: IceSlidingGame (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120745109403005246, guid: 7faef8b33b1d7164fb4219cf968d515b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1570,15 +1570,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 366435135610470368, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.62
+      value: 8.96
       objectReference: {fileID: 0}
     - target: {fileID: 366435135610470368, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.62
+      value: 8.96
       objectReference: {fileID: 0}
     - target: {fileID: 366435135610470368, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.62
+      value: 8.96
       objectReference: {fileID: 0}
     - target: {fileID: 366435135610470368, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1623,6 +1623,30 @@ PrefabInstance:
     - target: {fileID: 1137374302755968509, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715567406881462600, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2135954432395710860, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_IsActive
@@ -1734,7 +1758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483436091686130195, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073697217602902632, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: 'toClose.Array.data[0]'
@@ -1751,6 +1775,14 @@ PrefabInstance:
     - target: {fileID: 6905465276242756139, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231213563169401822, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618111408084933158, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -654.96
       objectReference: {fileID: 0}
     - target: {fileID: 7989503986514344725, guid: 2f2fe6fc5d6fb1644a042842f2a65998, type: 3}
       propertyPath: m_IsActive
@@ -24266,6 +24298,8 @@ MonoBehaviour:
   centerContainer: {fileID: 7700512209026272932}
   sideContainer: {fileID: 4397328463137767864}
   pagePrefab: {fileID: 42278806954996251, guid: 05d25656a1fdbc7458eaa98797abcd24, type: 3}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
   centerDepth: 4
   centerBehindOffset: {x: 0, y: 0}
   sideOffset: {x: -50, y: 5}
@@ -27413,7 +27447,6 @@ MonoBehaviour:
   currentDayCanvas: {fileID: 224143363063137517}
   typingSpeed: 0.05
   waitSecondAfterTyping: 3
-  dayTransitionSound: {fileID: 11400000, guid: d062b72573f1b3142a131dcd065cc457, type: 2}
   audioSource: {fileID: 1093998035}
 --- !u!4 &4446888471065604381
 Transform:
@@ -28082,9 +28115,6 @@ MonoBehaviour:
   lightManagement: {fileID: 0}
   fadeOut: {fileID: 0}
   bgSource: {fileID: 7595327770781537940}
-  isSlidingGameTrue: 1
-  isFishGameTrue: 0
-  activateSaveSystem: 0
   isSlidingGameFinished: 0
   isDayEnding: 0
   delayBeforeFade: 1.5
@@ -28107,6 +28137,8 @@ MonoBehaviour:
   computer: {fileID: 6875153284246808376}
   waitTimeComputerOpen: 3
   faxMachineWaitSeconds: 3
+  setSlidingGameFinishedTrueOnStart: 1
+  setFishGameFinishedTrueOnStart: 0
 --- !u!114 &5380802956997312273
 MonoBehaviour:
   m_ObjectHideFlags: 0

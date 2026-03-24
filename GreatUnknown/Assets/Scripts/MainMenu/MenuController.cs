@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 public class MenuController : MonoBehaviour
 {
     [Header ("General Setting")]
-    [SerializeField] private bool useLoad = false; // should we load prefs or not
+    [SerializeField] private bool useSavedValues = false; // should we load prefs or not
     [Header ("Overall Volume settings")]
     [SerializeField] private AudioMixer mixer = null;
     [SerializeField] private TMP_Text volumeTextValue = null;
@@ -59,7 +59,7 @@ public class MenuController : MonoBehaviour
 
     void Awake()
     {
-        if (useLoad)
+        if (useSavedValues)
         {
             if (PlayerPrefs.HasKey("masterVolume"))
             {
@@ -147,12 +147,6 @@ public class MenuController : MonoBehaviour
     public void ExitButton()
     {
         Application.Quit();
-    }
-
-    public void SetVolume(float volume)
-    {
-        AudioListener.volume = volume;
-        volumeTextValue.text = volume.ToString("0.0");
     }
 
     public void SetVolume()

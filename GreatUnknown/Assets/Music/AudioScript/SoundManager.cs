@@ -25,6 +25,16 @@ public class SoundManager : MonoBehaviour
         }
         return audioInfo;
     }
+    public void PlaySound(string soundName)
+    {
+        if (!soundCatalog.TryGet(soundName, out var audioInfo) || audioInfo==null)
+        {
+            Debug.LogError($"[Sound Machine] Unknown sound id '{soundName}'. Add it to Sound Catalog.");
+            return;
+        }
+
+        PlaySound(audioInfo);
+    }
     public void PlaySound(string soundName, SoundState changePreviousState = SoundState.None, PlaySoundState playSoundState = PlaySoundState.PlayOneShot, AudioSource otherSource = null)
     {
         if (!soundCatalog.TryGet(soundName, out var audioInfo) || audioInfo==null)

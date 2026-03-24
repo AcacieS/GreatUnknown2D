@@ -103,12 +103,12 @@ TextureImporter:
       name: codex_pg4_0
       rect:
         serializedVersion: 2
-        x: 203
-        y: 4
-        width: 1460
-        height: 1076
+        x: 192
+        y: 0
+        width: 1476
+        height: 1080
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5c3912937e29e5e4d8cf39a89bc42d9b
     internalID: 0
     vertices: []
     indices: 

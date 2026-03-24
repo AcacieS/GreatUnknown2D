@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
 
         if(changePreviousState == SoundState.FadeOut)
         {
-            FadeOut(1f, _audioInfo, playSoundState, otherSource);
+            FadeOut(1f,playSoundState, otherSource, _audioInfo);
         }
         else
         {
@@ -94,17 +94,24 @@ public class SoundManager : MonoBehaviour
         otherSource.PlayOneShot(_audioInfo.soundClip, _audioInfo.volume);
         otherSource.loop = _audioInfo.isLooping;
     }
-
-    public void FadeOut(float duration, AudioInfo _audioInfo, PlaySoundState playSoundState, AudioSource otherSource = null)
+    public void FadeOut(float duration, AudioSource otherSource = null)
     {
         if (otherSource == null)
         {
             otherSource = source;
         }
-        StartCoroutine(FadeOutCoroutine(duration, _audioInfo, playSoundState,otherSource));
+        StartCoroutine(FadeOutCoroutine(duration, PlaySoundState.None, otherSource, false, null));
+    }
+    public void FadeOut(float duration, PlaySoundState playSoundState, AudioSource otherSource = null, bool isPlayingAnother=true, AudioInfo _audioInfo=null)
+    {
+        if (otherSource == null)
+        {
+            otherSource = source;
+        }
+        StartCoroutine(FadeOutCoroutine(duration, playSoundState,otherSource, isPlayingAnother, _audioInfo));
     }
 
-    private IEnumerator FadeOutCoroutine(float duration, AudioInfo _audioInfo, PlaySoundState playSoundState,AudioSource sourceToFade)
+    private IEnumerator FadeOutCoroutine(float duration, PlaySoundState playSoundState,AudioSource sourceToFade, bool isPlayingAnother, AudioInfo _audioInfo)
     {
         float startVolume = sourceToFade.volume;
 
@@ -115,17 +122,21 @@ public class SoundManager : MonoBehaviour
             sourceToFade.volume = Mathf.Lerp(startVolume, 0f, time / duration);
             yield return null;
         }
-
+        
         sourceToFade.volume = 0f;
         sourceToFade.Stop();
-        if(playSoundState == PlaySoundState.Play)
+        if (isPlayingAnother)
         {
-            PlayNormalSound(_audioInfo, sourceToFade);
+            if(playSoundState == PlaySoundState.Play)
+            {
+                PlayNormalSound(_audioInfo, sourceToFade);
+            }
+            else
+            {
+                PlayOneShotSound(_audioInfo, sourceToFade);
+            }
+            sourceToFade.volume = 1f;
         }
-        else
-        {
-            PlayOneShotSound(_audioInfo, sourceToFade);
-        }
-        sourceToFade.volume = 1f;
+        
     }
 }

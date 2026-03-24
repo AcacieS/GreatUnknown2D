@@ -20,7 +20,7 @@ public class ComputerAnimationState : MonoBehaviour
         if (GameManagement.Instance != null)
             isComputerOpen = false;
         else
-            isComputerOpen = GameManagement.Instance.IsFishGameFinished;
+            isComputerOpen = !(!GameManagement.Instance.IsFishGameFinished || GameManagement.Instance.isSlidingGameFinished);
 
         computerAnimator.SetBool("Open", isComputerOpen);
     }

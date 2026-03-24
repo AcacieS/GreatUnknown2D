@@ -117,8 +117,8 @@ public class FaxViewerUI : MonoBehaviour
             img.transform.SetAsLastSibling();
         }
 
-        leftButton.interactable = currentIndex < state.FaxLog.Count - 1;
-        rightButton.interactable = currentIndex > 0;
+        leftButton.interactable = currentIndex > 0;
+        rightButton.interactable = currentIndex < state.FaxLog.Count - 1;
     }
     
 

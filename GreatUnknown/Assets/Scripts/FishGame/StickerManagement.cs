@@ -27,7 +27,7 @@ public class StickerManagement : MonoBehaviour
         transform.position,
         stickerColliderPrefab.transform.rotation,
         transform);
+        SoundManager.instance.PlaySound("fishWet" + Random.Range(1, 3));
         Destroy(sticker);
     }
-
 }

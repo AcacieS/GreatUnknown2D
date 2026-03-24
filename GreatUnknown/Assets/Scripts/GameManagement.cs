@@ -131,7 +131,7 @@ public class GameManagement : MonoBehaviour
             IsFishGameFinished = true;
         }
 
-        if (nbDaysPassed >= 0) ResetDay();
+        if (nbDaysPassed != 0) ResetDay();
     }
 
     private void OrganizeGame()

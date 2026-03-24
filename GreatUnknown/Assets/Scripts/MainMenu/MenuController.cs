@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Collections;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 public class MenuController : MonoBehaviour
 {
-    [Header ("Volume settings")]
+    [Header ("General Setting")]
+    [SerializeField] private bool useLoad = false; // should we load prefs or not
+    [Header ("Overall Volume settings")]
+    [SerializeField] private AudioMixer mixer = null;
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 1.0f;
+    [Header ("Music settings")]
+    [SerializeField] private Slider musicSlider = null;
+    [SerializeField] private TMP_Text musicTextValue = null;
+    [Header ("SFX settings")]
+    [SerializeField] private Slider SFXslider = null;
+    [SerializeField] private TMP_Text SFXTextValue = null;
 
     /*
     [Header ("GamePlay Settings")]
@@ -35,6 +44,9 @@ public class MenuController : MonoBehaviour
     private int qualityLevel;
     private bool isFullScreen;
     private float brightnessLevel;
+    private float OverallVolume;
+    private float musicVolume;
+    private float SFXvolume;
 
     /*
     [Header("Confirmation")]
@@ -45,8 +57,68 @@ public class MenuController : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     private Resolution[] resolutions;
 
+    void Awake()
+    {
+        if (useLoad)
+        {
+            if (PlayerPrefs.HasKey("masterVolume"))
+            {
+                float localVolume = PlayerPrefs.GetFloat("masterVolume");
+                volumeSlider.value = localVolume;
+                volumeTextValue.text = localVolume.ToString("0.0");
+                
+                float localMusic = PlayerPrefs.GetFloat("masterMusic");
+                musicSlider.value = localMusic;
+                musicTextValue.text = localMusic.ToString("0.0");
+
+                float localSFX = PlayerPrefs.GetFloat("masterSFX");
+                SFXslider.value = localSFX;
+                SFXTextValue.text = localSFX.ToString("0.0");
+            }
+            else
+            {
+                ResetButton("Audio");
+            }
+
+            if (PlayerPrefs.HasKey("masterQuality"))
+            {
+                int localQuality = PlayerPrefs.GetInt("masterQuality");
+
+                qualityDropdown.value = localQuality;
+                QualitySettings.SetQualityLevel(localQuality);
+            }
+            if (PlayerPrefs.HasKey("masterFullScreen"))
+            {
+                int localFullScreen = PlayerPrefs.GetInt("masterFullScreen");
+                if (localFullScreen == 1)
+                {
+                    Screen.fullScreen = true;
+                    fullScreenToggle.isOn = true;
+                } else
+                {
+                    Screen.fullScreen = false;
+                    fullScreenToggle.isOn = false;
+                }
+            }
+            /*
+            if (PlayerPrefs.HasKey("masterBrightness"))
+            {
+                float localBrightness = PlayerPrefs.GetFloat("masterBrightness");
+
+                brightnessSlider.value = localBrightness; 
+                // change brightness
+            }
+            */
+
+        }
+    }
+
     void Start()
     {
+        SetSFXVolume();
+        SetMusicVolume();
+        SetVolume();
+        
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -80,14 +152,35 @@ public class MenuController : MonoBehaviour
     public void SetVolume(float volume)
     {
         AudioListener.volume = volume;
-
         volumeTextValue.text = volume.ToString("0.0");
+    }
+
+    public void SetVolume()
+    {
+        float volume = volumeSlider.value;
+        mixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        volumeTextValue.text = volume.ToString("0.0");
+    }
+    public void SetMusicVolume()
+    {
+        float volume = musicSlider.value;
+        mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        musicTextValue.text = volume.ToString("0.0");
+    }
+
+    public void SetSFXVolume()
+    {
+        float volume = SFXslider.value;
+        mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        SFXTextValue.text = volume.ToString("0.0");
     }
 
     public void VolumeApply()
     {
         // Save value of Volume in variable masterVolume
-        PlayerPrefs.SetFloat("masterVolume", AudioListener.volume);
+        PlayerPrefs.SetFloat("masterVolume", OverallVolume);
+        PlayerPrefs.SetFloat("masterMusic", musicVolume);
+        PlayerPrefs.SetFloat("masterSFX", SFXvolume);
         // StartCoroutine(ConfirmationBox());
     }
 
@@ -144,9 +237,17 @@ public class MenuController : MonoBehaviour
     {
         if (MenuType == "Audio")
         {
-            AudioListener.volume = defaultVolume;
             volumeSlider.value = defaultVolume;
             volumeTextValue.text = defaultVolume.ToString("0.0");
+
+            musicSlider.value = defaultVolume;
+            musicTextValue.text = defaultVolume.ToString("0.0");
+
+            SFXslider.value = defaultVolume;
+            SFXTextValue.text = defaultVolume.ToString("0.0");
+            SetVolume();
+            SetMusicVolume();
+            SetSFXVolume();
             VolumeApply(); //save value
         }
         /*

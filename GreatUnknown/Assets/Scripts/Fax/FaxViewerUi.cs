@@ -11,7 +11,9 @@ public class FaxViewerUI : MonoBehaviour
     [Header("UI")]
     [SerializeField] private RectTransform centerContainer;
     [SerializeField] private RectTransform sideContainer;
-    [SerializeField] private Image pagePrefab; // prefab with Image
+    [SerializeField] private Image pagePrefab;
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
 
     [Header("Layout")]
     [SerializeField] private int centerDepth = 4;
@@ -24,6 +26,20 @@ public class FaxViewerUI : MonoBehaviour
 
     private readonly List<Image> spawned = new();
     private int currentIndex;
+
+    void Awake()
+    {
+        if (state == null) { Ext.WarnRefAndDisable("state", this); return; }
+        if (centerContainer == null) { Ext.WarnRefAndDisable("centerContainer", this); return; }
+        if (sideContainer == null) { Ext.WarnRefAndDisable("sideContainer", this); return; }
+        if (pagePrefab == null) { Ext.WarnRefAndDisable("pagePrefab", this); return; }
+        if (leftButton == null) { Ext.WarnRefAndDisable("leftButton", this); return; }
+        if (rightButton == null) { Ext.WarnRefAndDisable("rightButton", this); return; }
+        if (centerBehindOffset == null) { Ext.WarnRefAndDisable("centerBehindOffset", this); return; }
+        if (sideOffset == null) { Ext.WarnRefAndDisable("sideOffset", this); return; }
+        if (navigate == null) { Ext.WarnRefAndDisable("navigate", this); return; }
+        if (escape == null) { Ext.WarnRefAndDisable("escape", this); return; }
+    }
 
     private void OnEnable()
     {
@@ -100,6 +116,9 @@ public class FaxViewerUI : MonoBehaviour
             img.rectTransform.anchoredPosition = sideOffset * sideLayer;
             img.transform.SetAsLastSibling();
         }
+
+        leftButton.interactable = currentIndex < state.FaxLog.Count - 1;
+        rightButton.interactable = currentIndex > 0;
     }
     
 

@@ -15,8 +15,6 @@ public class BookViewerUI : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private Image pageImage;
-    //[SerializeField] private Image leftPageImage;
-    //[SerializeField] private Image rightPageImage;
     [SerializeField] private Button prevButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private Button escapeButton;

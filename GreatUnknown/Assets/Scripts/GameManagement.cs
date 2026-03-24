@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManagement : MonoBehaviour
 {
@@ -15,11 +16,6 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
     public static int nbDaysPassed = 0;
-
-    [Header("DEBUG")]
-    [SerializeField] private bool isSlidingGameTrue = false;
-    [SerializeField] private bool isFishGameTrue = false;
-    [SerializeField] private bool activateSaveSystem = true;
     
     
     public event System.Action<bool> OnFishGameFinishedChanged;
@@ -117,14 +113,20 @@ public class GameManagement : MonoBehaviour
         OnFishGameFinishedChanged += HandleFishFinished;
     }
 
+    [Header("DEBUG")]
+    [FormerlySerializedAs("isSlidingGameTrue")]
+    [SerializeField] private bool setSlidingGameFinishedTrueOnStart = false;
+    [FormerlySerializedAs("isFishGameTrue")]
+    [SerializeField] private bool setFishGameFinishedTrueOnStart = false;
+
     void Start()
     {
-        if (isSlidingGameTrue)
+        if (setSlidingGameFinishedTrueOnStart)
         {
             isSlidingGameFinished = true;
         }
 
-        if (isFishGameTrue)
+        if (setFishGameFinishedTrueOnStart)
         {
             IsFishGameFinished = true;
         }
@@ -237,7 +239,8 @@ public class GameManagement : MonoBehaviour
         if (animator != null)
             animator.SetBool("ExitingSlidingGame", true);
     }
-    // Called by SlidingTransitionRelay on the camera animator
+
+    /** Called by SlidingTransitionRelay on the camera animator */
     public void OnSlidingExitComplete()
     {
         if (animator != null)
@@ -272,9 +275,6 @@ public class GameManagement : MonoBehaviour
         }
         
         if (fishOnTray != null) fishOnTray.SetActive(true);
-
-        //SpecialEventDay();
-        
     }
 
     public void MarkSlidingGameFinished()
@@ -283,6 +283,7 @@ public class GameManagement : MonoBehaviour
 
         isSlidingGameFinished = true;
     }
+
     [ContextMenu("Ending Day")]
     private void TryStartDayEnding()
     {
@@ -366,6 +367,8 @@ public class GameManagement : MonoBehaviour
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
                 if (lastDayMB != null)
                     lastDayMB.enabled = true;
+                IsFishGameFinished = true;
+                isSlidingGameFinished = true;
                 break;
 
             default:
@@ -387,6 +390,8 @@ public class GameManagement : MonoBehaviour
         {
             Debug.Log("Fish game is finished!");
             fishOnTray.SetActive(false);
+
+            if(nbDaysPassed==5) return;
             StartCoroutine("ComputerOpen");
             if(nbDaysPassed == 2 && faxMachine != null)
             {

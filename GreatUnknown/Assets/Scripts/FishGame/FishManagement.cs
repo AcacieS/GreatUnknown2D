@@ -47,28 +47,25 @@ public class FishManagement : MonoBehaviour
 
     public void StartFishGame()
     {
-        if(currentDay>= fishDaysInfo.GetNbGame() || GameManagement.Instance.IsFishGameFinished)
+        currentDay = GameManagement.Instance.GetNbDayPassed();
+
+        if (currentDay >= fishDaysInfo.GetNbGame() || GameManagement.Instance.IsFishGameFinished)
         {
             GameManagement.Instance.IsFishGameFinished = true;
             return;
         }
-        //ACTIVATE 
+
         fishGamePlace.SetActive(true);
         workPlace.SetActive(false);
 
-        if(isFishGameOn)
-        {
+        if (isFishGameOn)
             return;
-        }
+
         isFishGameOn = true;
-        currentDay = GameManagement.Instance.GetNbDayPassed();
-        
+
         currentFishDayInfo = fishDaysInfo.GetCurrentFishDayInfo(currentDay);
-        if (currentDay >= 3)
-        {
-            need2Mutated = true;
-        }
-        
+        need2Mutated = currentDay >= 3;
+
         RandomFishes();
         fishPlace.GetComponent<FishState>().ResetFishGame();
     }

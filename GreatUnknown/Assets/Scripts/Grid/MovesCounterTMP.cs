@@ -8,14 +8,29 @@ public class MovesCounterTMP : MonoBehaviour
     [SerializeField] private string prefix = "Moves: ";
     [SerializeField] private string zeroMessage = "This path is too long! Restart the game";
 
+    [Header("Zero message transform")]
+    [SerializeField] private Vector3 positionForMessage;
+    [SerializeField] private Vector3 scaleForMessage;
+
     private TextMeshProUGUI text;
+    private RectTransform rectTransform;
+
+    private Vector3 initialPosition;
+    private Vector3 initialScale;
+
+    private bool isShowingZeroMessage = false;
 
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+        rectTransform = GetComponent<RectTransform>();
 
         if (levelState == null)
             levelState = FindObjectOfType<LevelState>();
+
+        // cache initial transform
+        initialPosition = rectTransform.anchoredPosition;
+        initialScale = rectTransform.localScale;
     }
 
     private void OnEnable()
@@ -34,8 +49,27 @@ public class MovesCounterTMP : MonoBehaviour
 
     private void Update()
     {
-        // lightweight polling (safe here since it's just text)
         Refresh();
+    }
+
+    private void DisplayZeroMessage()
+    {
+        text.text = zeroMessage;
+
+        rectTransform.anchoredPosition = positionForMessage;
+        rectTransform.localScale = scaleForMessage;
+
+        isShowingZeroMessage = true;
+    }
+
+    private void RestoreNormalState(int moves)
+    {
+        text.text = prefix + moves;
+
+        rectTransform.anchoredPosition = initialPosition;
+        rectTransform.localScale = initialScale;
+
+        isShowingZeroMessage = false;
     }
 
     private void Refresh()
@@ -47,11 +81,15 @@ public class MovesCounterTMP : MonoBehaviour
 
         if (moves <= 0)
         {
-            text.text = zeroMessage;
+            if (!isShowingZeroMessage)
+                DisplayZeroMessage();
         }
         else
         {
-            text.text = prefix + moves;
+            if (isShowingZeroMessage)
+                RestoreNormalState(moves);
+            else
+                text.text = prefix + moves;
         }
     }
 }

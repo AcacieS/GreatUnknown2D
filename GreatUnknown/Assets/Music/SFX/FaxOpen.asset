@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FaxOpen
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: a9bf91b56ad83dc4f923c0f684036f9f, type: 3}
-  volume: 0.191
+  volume: 0.112
   isLooping: 0

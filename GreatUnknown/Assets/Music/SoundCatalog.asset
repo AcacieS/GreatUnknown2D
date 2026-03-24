@@ -49,3 +49,5 @@ MonoBehaviour:
     audioInfo: {fileID: 11400000, guid: 1915faa152b4e7b43a27f8f18259f54a, type: 2}
   - id: openingStory
     audioInfo: {fileID: 11400000, guid: 0babf824f6f5f53449519233af0bd588, type: 2}
+  - id: dayTransition
+    audioInfo: {fileID: 11400000, guid: d062b72573f1b3142a131dcd065cc457, type: 2}

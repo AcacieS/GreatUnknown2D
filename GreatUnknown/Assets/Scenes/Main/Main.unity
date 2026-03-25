@@ -9636,14 +9636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   fishSession: {fileID: 11400000, guid: de2422c2470ce534d9718ca6ffb0484c, type: 2}
-  daySpriteRenderer: {fileID: 1091832649245563720}
-  daySprites:
-  - {fileID: 833873733825027819, guid: b4cbcba25e3bc914598209d8f60fd81a, type: 3}
-  - {fileID: -6950865905177198931, guid: 80069101ec3201e4e8f3beab69bf8d6b, type: 3}
-  - {fileID: -5001917897843312119, guid: 434b0650edf1240488b07e5c8a594456, type: 3}
-  - {fileID: -4329382853265178440, guid: 1334fd18a7b822e4c9aae45858918ddd, type: 3}
-  - {fileID: 4909560085436170216, guid: 4383e95bdaf514a49b2bb6264a7d45fa, type: 3}
-  - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
   dayAnimation: {fileID: 4425620332833935969}
   animator: {fileID: 8898982564341672112}
   lightManagement: {fileID: 154781483}
@@ -10964,7 +10956,7 @@ MonoBehaviour:
   - radioChannelSource: {fileID: 911275213}
     radioChannel: {fileID: 11400000, guid: 187b28e5fbc452b4c8ed5d557483fefc, type: 2}
     time: 0
-  shootingCountDown: 10
+  shootingCountDown: 23
   environmentalChannel:
     radioChannelSource: {fileID: 924537240}
     radioChannel: {fileID: 11400000, guid: 1053328636804aa48a1495a09acc8479, type: 2}

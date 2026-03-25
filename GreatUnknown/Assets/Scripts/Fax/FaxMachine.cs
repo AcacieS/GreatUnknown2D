@@ -14,6 +14,9 @@ public class FaxMachine : MonoBehaviour, IClickable
     [SerializeField]
     private FaxOverlayUI faxOverlayUI;
 
+    [SerializeField]
+    private AudioSource printerSource;
+
     private Animator _anim;
 
     private void Awake()
@@ -41,7 +44,7 @@ public class FaxMachine : MonoBehaviour, IClickable
     {
         _anim.SetBool("Notify", state.UnreadCount != 0);
     }
-    
+
     public void SendStartingFaxMessages(int day)
     {
         foreach (string id in catalog.GetStartingOnDay(day))
@@ -119,7 +122,7 @@ public class FaxMachine : MonoBehaviour, IClickable
         faxOverlayUI.Open();
     }
 
-    private void FaxMachineSound() => SoundManager.instance.PlaySound("faxMachine");
+    private void FaxMachineSound() => SoundManager.instance.PlaySound("faxMachine", otherSource: printerSource);
 
     private void FaxOpenSound() => SoundManager.instance.PlaySound("faxOpen");
 

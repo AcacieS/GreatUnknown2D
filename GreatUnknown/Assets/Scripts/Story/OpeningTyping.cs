@@ -25,8 +25,8 @@ public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
         if(text.text == textToShow)
         {
             SoundManager.instance.FadeOut(1f, audioSource);
-            currentDayCanvas.SetActive(false);
             if (currentDayTransition != null) currentDayTransition.WriteText();
+            currentDayCanvas.SetActive(false);
         }
         else
         {
@@ -47,7 +47,11 @@ public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
 
     #region Action Bindings for ICutsceneActions
 
-    public void OnSkip(InputAction.CallbackContext context) => FinishText();
+    public void OnSkip(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            FinishText();
+    }
 
     void OnDestroy()
     {

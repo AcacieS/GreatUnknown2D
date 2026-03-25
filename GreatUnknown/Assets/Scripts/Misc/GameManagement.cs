@@ -171,6 +171,9 @@ public class GameManagement : MonoBehaviour
 
     public void ResetDay()
     {
+        if (faxMachine != null)
+            faxMachine.ClearAllFaxMessages();
+
         ResetDataDay();
 
         if (fishGame != null)
@@ -260,7 +263,7 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingExitComplete()
     {
         if (animator != null)
-            animator.SetBool("ExitingSlidingGame", isSlidingGameFinished); 
+            animator.SetBool("ExitingSlidingGame", false); 
 
         if (workPlace != null)
             workPlace.SetActive(true);
@@ -274,8 +277,6 @@ public class GameManagement : MonoBehaviour
     private void ResetDataDay()
     {
         StopAllCoroutines();
-        if (faxMachine != null)
-            faxMachine.SendStartingFaxMessages(nbDaysPassed);
 
         if (radioScript != null)
             radioScript.StopAllCoroutines();
@@ -349,43 +350,32 @@ public class GameManagement : MonoBehaviour
     
     public void SpecialEventDay()
     {
+        StartCoroutine(WaitFaxMachineMorningDay());
         switch (nbDaysPassed)
         {
             case 0:
-                StartCoroutine(WaitFaxMachineMorningDay("day1_morning"));
-                bgSource?.PlayNewBGMusic(BGMusicType.engine);
+                if (bgSource != null) bgSource.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
-                StartCoroutine(WaitFaxMachineMorningDay("day2_morning"));
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay2;
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3
-                StartCoroutine(WaitFaxMachineMorningDay("day3_morning"));
-                // faxMachine?.NewFaxMessage("day3_morning");
-                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay3;
+                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 3: // day 4
-                StartCoroutine(WaitFaxMachineMorningDay("day4_morning"));
-                faxMachine?.NewFaxMessage("day4_morning");
-                radioScript?.ChangeRadioChannel();
+                if (radioScript != null) radioScript.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                StartCoroutine(WaitFaxMachineMorningDay("day5_morning"));
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay5;
-                radioScript?.ShootingRadioChannel();
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay5;
+                if (radioScript != null) radioScript.ShootingRadioChannel();
                 break;
             case 5: // day 6
-                // LastDay handles emergency lights and sound
-                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
-                if (lastDayMB != null)
-                    lastDayMB.enabled = true;
+                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
+                if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
                 break;
@@ -395,12 +385,11 @@ public class GameManagement : MonoBehaviour
                 break;
         }
     }
-    /*if (IsFishGameFinished)
-                    faxMachine?.NewFaxMessage("day3_midday");*/
-    private IEnumerator WaitFaxMachineMorningDay(string faxMessage)
+
+    private IEnumerator WaitFaxMachineMorningDay()
     {
         yield return new WaitForSeconds(faxMachineWaitSeconds);
-        faxMachine.NewFaxMessage(faxMessage);
+        faxMachine.SendStartingFaxMessages(nbDaysPassed);
     }
     
     void HandleFishFinished(bool finished)

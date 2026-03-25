@@ -5402,7 +5402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -250.61148, y: 3.1899981}
+  m_AnchoredPosition: {x: -263.5, y: -14.6}
   m_SizeDelta: {x: 390.2754, y: 60.677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &567829445
@@ -14450,7 +14450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -176.18646, y: 3.1900024}
+  m_AnchoredPosition: {x: -205.9, y: 16.764}
   m_SizeDelta: {x: 241.42542, y: 60.6773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482567795
@@ -14473,7 +14473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music
+  m_text: Music/Radio
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9d3bc58ed01f549ca9e25899468f6def, type: 2}
   m_sharedMaterial: {fileID: -6586670969047046193, guid: 9d3bc58ed01f549ca9e25899468f6def, type: 2}
@@ -14539,7 +14539,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -54.958313, w: 0}
+  m_margin: {x: -136.86774, y: 0, z: -54.958313, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -19049,7 +19049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -176.18646, y: 3.1900024}
+  m_AnchoredPosition: {x: -164.7, y: 16.764}
   m_SizeDelta: {x: 241.42542, y: 60.6773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884154173

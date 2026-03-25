@@ -142,7 +142,7 @@ public class MenuController : MonoBehaviour
     public void SetResolution(int ResolutionIndex)
     {
         Resolution resolution = resolutions[ResolutionIndex];
-        //Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
     public void ExitButton()
@@ -268,7 +268,7 @@ public class MenuController : MonoBehaviour
             Screen.fullScreen = false;
 
             Resolution currentResolution = Screen.currentResolution;
-            //Screen.SetResolution(currentResolution.width, currentResolution.height,Screen.fullScreen);
+            Screen.SetResolution(currentResolution.width, currentResolution.height,Screen.fullScreen);
             resolutionDropdown.value = resolutions.Length; // last is max, like the screen
             GraphicsApply();
         }

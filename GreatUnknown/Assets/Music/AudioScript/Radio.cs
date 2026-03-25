@@ -155,6 +155,10 @@ public class Radio : MonoBehaviour, IClickable
     
     public void ShootingRadioChannel()
     {
+        if (channel3 == null)
+        {
+            channel3 = radioChannels[2];
+        }
         channel3.SetTimeMusic(channel3TimeDay3);
         radioChannels[2] = channel3;
         StopAllCoroutines();

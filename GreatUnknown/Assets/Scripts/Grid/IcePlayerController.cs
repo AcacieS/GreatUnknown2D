@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class IcePlayerController : MonoBehaviour
 {
@@ -48,6 +47,7 @@ public class IcePlayerController : MonoBehaviour
             submarineVisual = transform;
 
         controlMaps = new TWTWControls();
+        controlMaps.Player.Enable();
         moveAction = controlMaps.Player.Move;
     }
 

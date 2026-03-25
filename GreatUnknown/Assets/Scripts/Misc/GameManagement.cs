@@ -350,7 +350,7 @@ public class GameManagement : MonoBehaviour
     {
         StartCoroutine(WaitFaxMachineMorningDay());
 
-        //if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
+        if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
         if (bgSource != null) bgSource.PlayNewBGMusic();
         if (bgSource != null) bgSource.StopBGMusic();

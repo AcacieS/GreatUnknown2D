@@ -348,15 +348,10 @@ public class GameManagement : MonoBehaviour
     public void SpecialEventDay()
     {
         StartCoroutine(WaitFaxMachineMorningDay());
-// <<<<<<< HEAD
-        if (nbDaysPassed < daySprites.Length)
-            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
-// ||||||| parent of c8fb222 (add calendar switching | Main)
-// =======
+
         if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
 
-// >>>>>>> c8fb222 (add calendar switching | Main)
         switch (nbDaysPassed)
         {
             case 0:

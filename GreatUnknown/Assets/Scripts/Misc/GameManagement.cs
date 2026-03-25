@@ -348,33 +348,28 @@ public class GameManagement : MonoBehaviour
         switch (nbDaysPassed)
         {
             case 0:
-                bgSource?.PlayNewBGMusic(BGMusicType.engine);
+                if (bgSource != null) bgSource.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay2;
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3
-                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay3;
+                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 3: // day 4
-                radioScript?.ChangeRadioChannel();
+                if (radioScript != null) radioScript.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                if (backgroundRend != null)
-                    backgroundRend.sprite = backgroundDay5;
-                radioScript?.ShootingRadioChannel();
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay5;
+                if (radioScript != null) radioScript.ShootingRadioChannel();
                 break;
             case 5: // day 6
-                // LastDay handles emergency lights and sound
-                bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
-                if (lastDayMB != null)
-                    lastDayMB.enabled = true;
+                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
+                if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
                 break;

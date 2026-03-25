@@ -8,10 +8,10 @@ public class Channel
     [SerializeField] private AudioInfo radioChannel; 
     [SerializeField] private float time;
     
-    private void SaveTime(AudioSource source)
+    public void SaveTime()
     {
-        if (source.clip != null)
-        time = source.time;
+        if (radioChannelSource.clip != null)
+        time = radioChannelSource.time;
     }
     public bool IsFinish()
     {
@@ -31,9 +31,17 @@ public class Channel
         radioChannelSource.loop = newRadioChannel.isLooping;
         radioChannel = newRadioChannel;
     }
-
+    public float GetTime()
+    {
+        return time;
+    }
+    public void SetTimeSavedMusic()
+    {
+        radioChannelSource.time = Mathf.Clamp(time, 0f, radioChannelSource.clip.length - 0.01f);
+    }
     public void SetTimeMusic(float newTime = 0f)
     {
+        Debug.Log("time is set to that value");
         radioChannelSource.time = Mathf.Clamp(newTime, 0f, radioChannelSource.clip.length - 0.01f);
     }
     public void Off()
@@ -42,7 +50,12 @@ public class Channel
     }
     public void On()
     {
+        Debug.Log("volume of radioChannel  "+radioChannel.volume+"and time: "+time);
         SetVolume(radioChannel.volume);
+        if (!radioChannelSource.isPlaying)
+        {
+            radioChannelSource.Play();
+        }
     }
     private void SetVolume(float volume = 0f)
     {
@@ -69,10 +82,10 @@ public class Channel
     {
         if (previousChannel!=null)
         {
-            previousChannel.SaveTime(radioChannelSource);
+            previousChannel.SaveTime();
         }
         Debug.Log("pLAY CHANNEL");
-        SoundManager.instance.PlaySound(radioChannel, SoundState.None, PlaySoundState.Play, radioChannelSource);
         radioChannelSource.time = Mathf.Clamp(time, 0f, radioChannelSource.clip.length - 0.01f);
+        SoundManager.instance.PlaySound(radioChannel, SoundState.None, PlaySoundState.Play, radioChannelSource);
     }
 }

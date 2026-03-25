@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class Radio : MonoBehaviour, IClickable
 {
     public static Radio Instance {get; private set;}
-    private AudioSource source;
     [Header("Radio SFX")]
     [SerializeField] private AudioInfo RadioOn;
     [SerializeField] private AudioInfo RadioOff;
-    //[SerializeField] private AudioSource BGMusic;
     [Header("Channel")]
     [SerializeField] private List<Channel> radioChannels; 
     [Header("Story Radio")]
@@ -22,11 +19,40 @@ public class Radio : MonoBehaviour, IClickable
     //----- Story variable 
     private bool isShootingStory = false;
     private Channel channel3 = null;
+    private float channel3TimeDay3 = 0;
     private bool firstTimeEnvironmentalStory = true;
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
+    }
+    public void Save()
+    {
+        // foreach(Channel radioChannel in radioChannels)
+        // {
+        //     radioChannel.SaveTime();
+        // }
+    }
+    public void Reset()
+    {
+        // if(GameManagement.Instance.GetNbDayPassed()==2 && channel3!=null && radioChannels[2] == environmentalChannel)
+        // {
+        //     radioChannels[2] = channel3;
+        // }
+
+        if (GameManagement.Instance.GetNbDayPassed() == 3)
+        {
+            firstTimeEnvironmentalStory = true;
+        }
+
+        if (GameManagement.Instance.GetNbDayPassed() == 4)
+        {
+            StopAllCoroutines();
+            isShootingStory = false;
+        }
+        foreach(Channel radioChannel in radioChannels)
+        {
+            //radioChannel.SetTimeSavedMusic();
+        }
     }
     public void OnClick()
     {
@@ -72,15 +98,15 @@ public class Radio : MonoBehaviour, IClickable
             }
             currentChannelIndex = (currentChannelIndex + 1) % radioChannels.Count;
         }
-
+        
         SoundManager.instance.PlaySound(RadioOn);
 
         if (GameManagement.Instance.GetNbDayPassed() == 3 && firstTimeEnvironmentalStory)
         {
-            environmentalChannel.SetTimeMusic(0f);
+            environmentalChannel.SetTimeMusic();
             firstTimeEnvironmentalStory = false;
         }
-
+        Debug.Log("radioChannels should play");
         radioChannels[currentChannelIndex].On();
         if (previousChannelSource != null)
         {
@@ -102,30 +128,34 @@ public class Radio : MonoBehaviour, IClickable
         Channel(false);
         //BGMusic.volume = 0f;
     }
-    public void ResetRadioDay()
-    {
-        
-    }
-    public void SaveRadios()
-    {
-        
-    }
     
     //-------------------------------- STORY ----------------------
     public void ChangeRadioChannel()
     {
-        if(previousChannelSource == radioChannels[2])
+        if(channel3==null && previousChannelSource == radioChannels[2])
         {
             previousChannelSource.Off();
         }
-
-        channel3 = radioChannels[2];
+        
+        if(channel3==null) {
+            channel3 = radioChannels[2];
+            channel3TimeDay3 = channel3.GetTime();
+        }
+        
         radioChannels[2] = environmentalChannel;
+        environmentalChannel.SetTimeMusic();
         Debug.Log("Hey channel 3 is removed");
+        if (previousChannelSource == channel3)
+        {
+            environmentalChannel.On();
+            firstTimeEnvironmentalStory = false;
+            previousChannelSource = environmentalChannel;
+        }
     }
     
     public void ShootingRadioChannel()
     {
+        channel3.SetTimeMusic(channel3TimeDay3);
         radioChannels[2] = channel3;
         StopAllCoroutines();
         StartCoroutine(StartCountDownShooting());

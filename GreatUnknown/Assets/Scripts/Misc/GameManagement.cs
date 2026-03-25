@@ -29,6 +29,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject lightManagement;
     [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
+    [SerializeField] private Radio radio;
     public static int nbDaysPassed = 0;
     
     
@@ -181,6 +182,7 @@ public class GameManagement : MonoBehaviour
             workPlace.SetActive(true);
         FishManagement.Instance.ResetFishGame();
         IsFishGameFinished = false;
+        radio.Reset();
     }
 
     public int GetNbDayPassed()
@@ -290,6 +292,7 @@ public class GameManagement : MonoBehaviour
         }
         
         if (fishOnTray != null) fishOnTray.SetActive(true);
+        radio?.Save();
     }
 
     public void MarkSlidingGameFinished()
@@ -343,7 +346,7 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
-
+    
     public void SpecialEventDay()
     {
         switch (nbDaysPassed)

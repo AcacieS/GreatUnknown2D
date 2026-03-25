@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private InputActionReference escapeActionReference;
     [SerializeField] private BookViewerUI bookViewerUI;
     [SerializeField] private FaxViewerUI faxViewerUI;
     [SerializeField] private GameObject pauseMenuUI = null;

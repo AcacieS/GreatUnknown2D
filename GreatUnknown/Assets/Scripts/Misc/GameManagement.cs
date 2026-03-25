@@ -170,6 +170,9 @@ public class GameManagement : MonoBehaviour
 
     public void ResetDay()
     {
+        if (faxMachine != null)
+            faxMachine.ClearAllFaxMessages();
+
         ResetDataDay();
 
         if (fishGame != null)

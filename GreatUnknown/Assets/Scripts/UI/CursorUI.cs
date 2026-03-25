@@ -39,7 +39,7 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
 
     private void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -76,11 +76,6 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
                 : parentCanvas.worldCamera;
         }
     }
-
-    private void OnPointerPositionChanged(InputAction.CallbackContext ctx)
-    {
-        PositionCursor(ctx.ReadValue<Vector2>());
-    }
     
     void PositionCursor(Vector2 mousePosition)
     {
@@ -93,6 +88,7 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
             cursorTransform.anchoredPosition = localPoint;
         }  
     }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void SpawnIfMissing()
     {

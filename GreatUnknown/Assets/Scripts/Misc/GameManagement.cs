@@ -193,7 +193,7 @@ public class GameManagement : MonoBehaviour
 
     public int GetNbDayLeft()
     {
-        return daySprites.Length - nbDaysPassed - 1;
+        return 6 - nbDaysPassed - 1;
     }
 
     public void StartSlidingGame()

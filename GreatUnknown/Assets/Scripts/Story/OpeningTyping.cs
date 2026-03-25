@@ -46,4 +46,9 @@ public class OpeningTyping: TypingEffect
 
         if (currentDayTransition == null) { Ext.WarnRefAndDisable("currentDayTransition", this); return; }
     }
+
+    void OnDestroy()
+    {
+        controlCallback.Dispose();
+    }
 }

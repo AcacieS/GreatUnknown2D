@@ -312,7 +312,7 @@ public class GameManagement : MonoBehaviour
 
         Debug.Log("Fade Out");
         if (fadeOut != null)
-            fadeOut.SetActive(true);//SetTrigger("FadeOutDay");
+            fadeOut.SetActive(true);
     }
 
     public void OnDayFadeComplete()

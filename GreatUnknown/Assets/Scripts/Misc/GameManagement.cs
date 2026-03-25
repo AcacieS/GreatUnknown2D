@@ -8,7 +8,8 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] private FishSession fishSession;
     [SerializeField] private TypingEffect dayAnimation;
-    [SerializeField] private Animator animator;
+    [FormerlySerializedAs("animator")]
+    [SerializeField] private Animator cameraAnimator;
 
     [SerializeField] private GameObject lightManagement;
     [SerializeField] private GameObject fadeOut;
@@ -85,7 +86,7 @@ public class GameManagement : MonoBehaviour
         // Check references and warn if any are missing from the Inspector.
         if (fishSession            == null) Ext.WarnRef("fishSession", this);
         if (dayAnimation           == null) Ext.WarnRef("dayAnimation", this);
-        if (animator               == null) Ext.WarnRef("animator", this);
+        if (cameraAnimator               == null) Ext.WarnRef("cameraAnimator", this);
         if (lightManagement        == null) Ext.WarnRef("lightManagement", this);
         if (fadeOut                == null) Ext.WarnRef("fadeOut", this);
         if (bgSource               == null) Ext.WarnRef("bgSource", this);
@@ -189,18 +190,19 @@ public class GameManagement : MonoBehaviour
         if (!IsFishGameFinished) return;
         if (isSlidingGameFinished) return;
         if (GetNbDayPassed() == 5) return;
-        if (animator == null) return;
+        if (cameraAnimator == null) return;
 
         Debug.Log("Starting sliding game transition.");
-        animator.SetBool("StartingSlidingGame", true);
+        cameraAnimator.SetBool("StartingSlidingGame", true);
+        SoundManager.instance.PlaySound("computerOpen");
     }
 
-    // Called by SlidingTransitionRelay on the camera animator
+    // Called by SlidingTransitionRelay on cameraAnimator
     public void OnSlidingTransitionComplete()
     {
-        if (animator != null)
-            animator.SetBool("StartingSlidingGame", false);
-
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("StartingSlidingGame", false);
+        
         StartCoroutine(OpenSlidingGameRoutine());
     }
 
@@ -241,15 +243,15 @@ public class GameManagement : MonoBehaviour
         if (workPlace != null)
             workPlace.SetActive(true);
 
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", true);
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("ExitingSlidingGame", true);
     }
 
-    /** Called by SlidingTransitionRelay on the camera animator */
+    /** Called by SlidingTransitionRelay on the camera cameraAnimator */
     public void OnSlidingExitComplete()
     {
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", false);
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("ExitingSlidingGame", false);
 
         if (workPlace != null)
             workPlace.SetActive(true);
@@ -407,5 +409,4 @@ public class GameManagement : MonoBehaviour
             computer.SetBool("Open", true);
         }
     }
-
 }

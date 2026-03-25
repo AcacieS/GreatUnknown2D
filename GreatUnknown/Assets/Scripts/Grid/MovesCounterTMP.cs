@@ -26,7 +26,7 @@ public class MovesCounterTMP : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
 
         if (levelState == null)
-            levelState = FindObjectOfType<LevelState>();
+            levelState = FindAnyObjectByType<LevelState>();
 
         // cache initial transform
         initialPosition = rectTransform.anchoredPosition;

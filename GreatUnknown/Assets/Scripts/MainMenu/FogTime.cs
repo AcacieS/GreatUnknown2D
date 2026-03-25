@@ -15,4 +15,9 @@ public class FogTime : MonoBehaviour
     {
         if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", Time.unscaledTime);
     }
+
+    void OnDisable()
+    {
+        if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", 0);
+    }
 }

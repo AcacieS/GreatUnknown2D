@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
-public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingActions
+public class IcePlayerController : MonoBehaviour
 {
     [SerializeField]
     private IceGridFromTilemap gridSource;
@@ -28,7 +29,7 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
     private bool canPlaySound = true;
 
     private TWTWControls controlMaps;
-    private Vector2Int dir = Vector2Int.zero;
+    private InputAction moveAction;
 
     public void InjectReferences(
         IceGridFromTilemap injectedGridSource,
@@ -47,7 +48,7 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             submarineVisual = transform;
 
         controlMaps = new TWTWControls();
-        controlMaps.IceSliding.AddCallbacks(this);
+        moveAction = controlMaps.Player.Move;
     }
 
     private void Start()
@@ -135,28 +136,23 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             return;
         }
 
-        if (
-            dir == Vector2Int.up
-            || dir == Vector2Int.down
-            || dir == Vector2Int.left
-            || dir == Vector2Int.right
-        )
-        {
-            if (levelState != null && !levelState.CanSpendMove())
-                return;
+        var dir = Vector2Int.RoundToInt(moveAction.ReadValue<Vector2>());
+        if (dir.magnitude != 1) return; // 0 or 2+ Keys Pressed, return.
 
-            Vector2Int newPos = grid.Slide(pos, dir);
-            if (newPos == pos)
-                return;
+        if (levelState != null && !levelState.CanSpendMove())
+            return;
 
-            if (levelState != null)
-                levelState.SpendMove();
+        Vector2Int newPos = grid.Slide(pos, dir);
+        if (newPos == pos)
+            return;
 
-            FaceDirection(dir);
-            pos = newPos;
-            targetWorld = gridSource.GridIndexToWorldCenter(pos);
-            isMoving = true;
-        }
+        if (levelState != null)
+            levelState.SpendMove();
+
+        FaceDirection(dir);
+        pos = newPos;
+        targetWorld = gridSource.GridIndexToWorldCenter(pos);
+        isMoving = true;
     }
 
     private void FaceDirection(Vector2Int dir)
@@ -174,27 +170,12 @@ public class IcePlayerController : MonoBehaviour, TWTWControls.IIceSlidingAction
             submarineVisual.rotation = Quaternion.Euler(0f, 0f, 90f);
     }
 
-    #region Action Bindings for IIceSlidingActions
-
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        dir = Vector2Int.RoundToInt(context.ReadValue<Vector2>());
-    }
+    #region Action Bindings
 
     void OnDestroy()
     {
         controlMaps.Dispose();
     }
 
-    void OnEnable()
-    {
-        controlMaps.IceSliding.Enable();
-    }
-
-    void OnDisable()
-    {
-        controlMaps.IceSliding.Disable();
-    }
-
-    #endregion Action Bindings for IIceSlidingActions
+    #endregion Action Bindings
 }

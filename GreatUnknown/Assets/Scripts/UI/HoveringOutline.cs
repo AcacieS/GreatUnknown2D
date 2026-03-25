@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
+public class HoveringOutline : MonoBehaviour
 {
     [SerializeField] private GameObject hoverOutline; // optional manual assignment
 
@@ -13,17 +13,15 @@ public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
 
     private GameObject currentObject;
 
-    private TWTWControls controlMaps;
-
     private void Start()
     {
         currentObject = gameObject;
     }
 
-    void UpdateOutline(Vector2 mousePosition)
+    void Update ()
     {
         if (stopShowOutlineForever) return;
-        Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
+        Ray mouseRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         prevHoverObject = nextHoverObject;
 
@@ -72,32 +70,4 @@ public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
     {
         canShowOutline = true;
     }
-
-    #region Action Bindings for IPointerActions
-
-    void Awake()
-    {
-        controlMaps = new TWTWControls();
-        controlMaps.Pointer.AddCallbacks(this);
-    }
-
-    public void OnPoint(InputAction.CallbackContext context)
-        => UpdateOutline(context.ReadValue<Vector2>());
-
-    void OnDestroy()
-    {
-        controlMaps.Dispose();
-    }
-
-    void OnEnable()
-    {
-        controlMaps.Pointer.Enable();
-    }
-
-    void OnDisable()
-    {
-        controlMaps.Pointer.Disable();
-    }
-
-    #endregion Action Bindings for IPointerActions
 }

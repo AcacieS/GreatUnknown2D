@@ -79,9 +79,9 @@ public class FishDaysInfo : ScriptableObject
     {
         bool correct = true;
         errorReason = null;
-        if (list == null || list.Count == 0)
+        if (list == null)
         {
-            errorReason = "FishBodyPart List missing or empty\n";
+            errorReason = "FishBodyPart List is null\n";
             return false;
         }
         foreach (FishBodyPart part in list)

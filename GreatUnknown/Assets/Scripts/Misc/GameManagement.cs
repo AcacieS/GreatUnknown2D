@@ -272,7 +272,6 @@ public class GameManagement : MonoBehaviour
         isDayEnding = false;
 
         fishSession.ResetSession();
-        portholeScript.OnDaySwitch(nbDaysPassed);
         if (computer != null)
         {
             computer.SetBool("Open", false);
@@ -342,6 +341,7 @@ public class GameManagement : MonoBehaviour
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
         if (bgSource != null) bgSource.PlayNewBGMusic();
         if (bgSource != null) bgSource.StopBGMusic();
+        portholeScript.OnDaySwitch(nbDaysPassed);
         switch (nbDaysPassed)
         {
             case 0:

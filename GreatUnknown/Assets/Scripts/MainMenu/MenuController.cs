@@ -160,6 +160,7 @@ public class MenuController : MonoBehaviour
     {
         float volume = musicSlider.value;
         mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("MenuMusicVolume",Mathf.Log10(volume) * 20);
         musicTextValue.text = volume.ToString("0.0");
     }
 
@@ -167,6 +168,8 @@ public class MenuController : MonoBehaviour
     {
         float volume = SFXslider.value;
         mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("SubmarineVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("DayTransitionVolume", Mathf.Log10(volume) * 20);
         SFXTextValue.text = volume.ToString("0.0");
     }
 

@@ -56,7 +56,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 0.3773585, g: 0.3542186, b: 0.3542186, a: 0.47058824}
-    - _FogSpeed1: {r: 0.04, g: 0.04, b: 0, a: 0}
-    - _FogSpeed2: {r: -0.03, g: 0.03, b: 0, a: 0}
+    - _FogSpeed1: {r: 0.02, g: 0.02, b: 0, a: 0}
+    - _FogSpeed2: {r: 0.09, g: 0.09, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

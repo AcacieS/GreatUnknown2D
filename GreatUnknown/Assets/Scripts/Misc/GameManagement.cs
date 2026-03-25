@@ -111,8 +111,6 @@ public class GameManagement : MonoBehaviour
         fishSession.ResetSession();
         OrganizeGame();
         OnFishGameFinishedChanged += HandleFishFinished;
-
-        Screen.SetResolution(1920, 1080, true);
     }
 
     [Header("DEBUG")]

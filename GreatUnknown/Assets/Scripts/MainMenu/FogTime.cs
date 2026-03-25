@@ -4,15 +4,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class FogTime : MonoBehaviour
 {
-    private int fogTimeProperty;
+    private Material fogMaterial;
 
-    void Awake()
+    void Start()
     {
-        fogTimeProperty = Shader.PropertyToID("_FogTime");
+        fogMaterial = GetComponent<RawImage>().material;
     }
 
     void Update()
     {
-        Shader.SetGlobalFloat(fogTimeProperty, Time.unscaledTime);
+        if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", Time.unscaledTime);
     }
 }

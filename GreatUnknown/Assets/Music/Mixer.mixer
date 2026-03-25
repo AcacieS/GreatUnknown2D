@@ -215,6 +215,7 @@ AudioMixerController:
     - abfa916326a53994ca3c30749838e31d
     - 8ef3392494b2df543bd8333600ede2dc
     - 9e634d9bd61ae0e478d74f7d9437de3a
+    - 76672b13f0da46f43a20801f539c3c0d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -285,6 +286,25 @@ AudioMixerSnapshotController:
     ee78b6bdc4a61af4c8f1ff78e2de9582: 1.7142845
     3f6cbc0fd492ae94a8e161f8c7c4cfe0: -80
   m_TransitionOverrides: {}
+--- !u!243 &536373355625015835
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PrintNoise
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 76672b13f0da46f43a20801f539c3c0d
+  m_Children: []
+  m_Volume: a663fb0d42b4b614abff3f701fe430ba
+  m_Pitch: 30bf02be6c386334e935654fec29f94e
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 2545485791856122775}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &599104823589867263
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -336,7 +356,8 @@ AudioMixerGroupController:
   m_Name: SFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: abfa916326a53994ca3c30749838e31d
-  m_Children: []
+  m_Children:
+  - {fileID: 536373355625015835}
   m_Volume: 3fc32ff718d371b47ba013171b06d281
   m_Pitch: 6b5417d7d262fec4b958d4e3dd159038
   m_Send: 00000000000000000000000000000000
@@ -358,6 +379,20 @@ AudioMixerEffectController:
   m_MixLevel: 6a6f59b7c65dd2642a92dfd43068774a
   m_Parameters: []
   m_SendTarget: {fileID: -5039556503998381084}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &2545485791856122775
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: f75e46275d7b9df4fbfe56ea3f6831f2
+  m_EffectName: Attenuation
+  m_MixLevel: 2c8cabc1be3df1947a7de213cbfc3a43
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
 --- !u!244 &2911747314787335692

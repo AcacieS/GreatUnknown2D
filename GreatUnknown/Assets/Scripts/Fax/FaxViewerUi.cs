@@ -61,6 +61,7 @@ public class FaxViewerUI : MonoBehaviour
     
     public void Navigate(InputAction.CallbackContext context)
     {
+        if (!gameObject.activeInHierarchy) return;
         if (context.ReadValue<Vector2>().x < 0) GoNewer(); else
         if (context.ReadValue<Vector2>().x > 0) GoOlder();
     }

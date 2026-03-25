@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DailyTransitionAudio
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 881e10c5f96f7a54696c7a1ef5fa0baa, type: 3}
-  volume: 0.28
+  volume: 0.24
   isLooping: 0

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Fog
+  m_Name: FogMateria
   m_Shader: {fileID: -6465566751694194690, guid: 32d3d178342144e24901ac96a003945b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
     - _FogDensity: 0.5
     - _FogSize1: 30
     - _FogSize2: 15
-    - _FogTime: 699.42926
+    - _FogTime: 47.552692
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -53,10 +53,9 @@ Material:
     - _StencilWriteMask: 255
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
-    - _UnscaledTime: 0
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColor: {r: 0.2830189, g: 0.2763439, b: 0.2763439, a: 1}
+    - _FogColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
     - _FogSpeed1: {r: 0.03, g: 0.03, b: 0, a: 0}
     - _FogSpeed2: {r: -0.03, g: 0.03, b: 0, a: 0}
   m_BuildTextureStacks: []

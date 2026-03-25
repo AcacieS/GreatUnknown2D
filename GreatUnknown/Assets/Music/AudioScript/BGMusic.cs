@@ -1,57 +1,47 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BGMusic : MonoBehaviour
 {
-    [SerializeField] private BGMusicInfo creakySource;
-    [SerializeField] private BGMusicInfo anomalySource;
-    [SerializeField] private BGMusicInfo engineSource;
+    [SerializeField] private BGMusicsInfo bgMusics;
+    // [SerializeField] private BGMusicInfo creakySource;
+    // [SerializeField] private BGMusicInfo anomalySource;
+    // [SerializeField] private BGMusicInfo engineSource;
 
     void Awake()
     {
-        if (creakySource == null) Ext.WarnRefAndDisable("creakySource", this);
-        if (anomalySource == null) Ext.WarnRefAndDisable("anomalySource", this);
-        if (engineSource == null) Ext.WarnRefAndDisable("engineSource", this);
+        for(int i=0; i<bgMusics.musicInfos.Count; i++)
+        {
+            BGMusicInfo bgMusicInfo = bgMusics.musicInfos[i];
+            bgMusicInfo.AddAudioSourceGO(transform.GetChild(i).gameObject);
+        }
+        // if (creakySource == null) Ext.WarnRefAndDisable("creakySource", this);
+        // if (anomalySource == null) Ext.WarnRefAndDisable("anomalySource", this);
+        // if (engineSource == null) Ext.WarnRefAndDisable("engineSource", this);
     }
 
     void Start()
     {
-        creakySource.AddAudioSource();
-        anomalySource.AddAudioSource();
-        engineSource.AddAudioSource();
+        // creakySource.AddAudioSource();
+        // anomalySource.AddAudioSource();
+        // engineSource.AddAudioSource();
+        
     }
     
-    public void PlayNewBGMusic(BGMusicType musicInfo)
+    public void PlayNewBGMusic()
     {
-        AudioInfo audioInfo = SoundManager.instance.GetSoundCatalogue(musicInfo.ToString());
-        switch (musicInfo)
+        foreach(BGMusicInfo bgMusicInfo in bgMusics.musicInfos)
         {
-            case BGMusicType.anomaly:
-                anomalySource.Activate(audioInfo);
-                break;
-            case BGMusicType.engine:
-                engineSource.Activate(audioInfo);
-                break;
-            case BGMusicType.creaky:
-                creakySource.Activate(audioInfo);
-                break;
-            
+            AudioInfo audioInfo = SoundManager.instance.GetSoundCatalogue(bgMusicInfo.audioName);
+            bgMusicInfo.Activate(audioInfo);
         }
         
     }
-    public void StopBGMusic(BGMusicType musicInfo)
+    public void StopBGMusic()
     {
-        AudioInfo audioInfo = SoundManager.instance.GetSoundCatalogue(musicInfo.ToString());
-        switch (musicInfo)
+        foreach(BGMusicInfo bgMusicInfo in bgMusics.musicInfos)
         {
-            case BGMusicType.anomaly:
-                anomalySource.Desactivate(audioInfo);
-                break;
-            case BGMusicType.engine:
-                engineSource.Desactivate(audioInfo);
-                break;
-            case BGMusicType.creaky:
-                creakySource.Desactivate(audioInfo);
-                break;
+            bgMusicInfo.Desactivate();
         }
 
     }

@@ -29,10 +29,10 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private BGMusic bgSource;
     [SerializeField] private Radio radio;
     public static int nbDaysPassed = 0;
-    
-    
+
+
     public event System.Action<bool> OnFishGameFinishedChanged;
-    
+
     private bool _isFishGameFinished = false;
     [Header("Game States")]
     public bool IsFishGameFinished
@@ -47,7 +47,7 @@ public class GameManagement : MonoBehaviour
             }
         }
     }
-    
+
 
     public bool isSlidingGameFinished = false;
     public bool isDayEnding = false;
@@ -57,7 +57,7 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] private PortholeSwitcher portholeScript;
     [SerializeField] private Radio radioScript;
-    
+
 
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workPlace;
@@ -154,7 +154,7 @@ public class GameManagement : MonoBehaviour
         if (Canvas != null) Canvas.SetActive(true);
         if (workPlace != null) workPlace.SetActive(true);
         if (fishGame != null) fishGame.SetActive(false);
-        if (nbDaysPassed==0)
+        if (nbDaysPassed == 0)
         {
             if (firstDayStoryCanvas != null) firstDayStoryCanvas.SetActive(true);
         }
@@ -199,7 +199,7 @@ public class GameManagement : MonoBehaviour
     public void StartSlidingGame()
     {
         if (!IsFishGameFinished) return;
-        if(isSlidingGameFinished) return;
+        if (isSlidingGameFinished) return;
         if (GetNbDayPassed() == 5) return;
         if (animator == null) return;
 
@@ -227,7 +227,7 @@ public class GameManagement : MonoBehaviour
         if (iceSlidingCanvas != null)
             iceSlidingCanvas.SetActive(true);
 
-        
+
 
         // Let the canvas fully enable before activating the day-specific sliding game
         yield return null;
@@ -250,7 +250,7 @@ public class GameManagement : MonoBehaviour
         if (iceSlidingGameSwitcher != null)
             iceSlidingGameSwitcher.DeactivateCurrent();
 
-        if (workPlace != null) 
+        if (workPlace != null)
             workPlace.SetActive(true);
 
         if (animator != null)
@@ -261,11 +261,11 @@ public class GameManagement : MonoBehaviour
     public void OnSlidingExitComplete()
     {
         if (animator != null)
-            animator.SetBool("ExitingSlidingGame", false); 
+            animator.SetBool("ExitingSlidingGame", false);
 
         if (workPlace != null)
             workPlace.SetActive(true);
-        
+
         if (lightManagement != null)
             lightManagement.SetActive(true);
 
@@ -289,7 +289,7 @@ public class GameManagement : MonoBehaviour
         {
             computer.SetBool("Open", false);
         }
-        
+
         if (fishOnTray != null) fishOnTray.SetActive(true);
         radio?.Save();
     }
@@ -308,7 +308,8 @@ public class GameManagement : MonoBehaviour
         if (!IsFishGameFinished) return;
         if (!isSlidingGameFinished) return;
         if (workPlace == null || !workPlace.activeSelf) return;
-        if(computer!=null) {
+        if (computer != null)
+        {
             Debug.Log("Closed down the computer (was that supposed to happen?)");
             computer.SetBool("Open", false);
         }
@@ -344,7 +345,7 @@ public class GameManagement : MonoBehaviour
 
         dayAnimation.WriteText();
     }
-    
+
     public void SpecialEventDay()
     {
         StartCoroutine(WaitFaxMachineMorningDay());
@@ -357,6 +358,7 @@ public class GameManagement : MonoBehaviour
             case 0:
                 if (bgSource != null) bgSource.PlayNewBGMusic(BGMusicType.engine);
                 break;
+
             case 1:
                 break;
 
@@ -371,6 +373,7 @@ public class GameManagement : MonoBehaviour
             case 4: // day 5
                 if (radioScript != null) radioScript.ShootingRadioChannel();
                 break;
+
             case 5: // day 6
                 if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
@@ -389,7 +392,7 @@ public class GameManagement : MonoBehaviour
         yield return new WaitForSeconds(faxMachineWaitSeconds);
         faxMachine.SendStartingFaxMessages(nbDaysPassed);
     }
-    
+
     void HandleFishFinished(bool finished)
     {
         if (finished)
@@ -397,16 +400,16 @@ public class GameManagement : MonoBehaviour
             Debug.Log("Fish game is finished!");
             fishOnTray.SetActive(false);
 
-            if(nbDaysPassed==5) return;
+            if (nbDaysPassed == 5) return;
             StartCoroutine("ComputerOpen");
-            if(nbDaysPassed == 2 && faxMachine != null)
+            if (nbDaysPassed == 2 && faxMachine != null)
             {
                 faxMachine.NewFaxMessage("day3_midday");
             }
         }
     }
-    
-    
+
+
     private IEnumerator ComputerOpen()
     {
         yield return new WaitForSeconds(waitTimeComputerOpen);

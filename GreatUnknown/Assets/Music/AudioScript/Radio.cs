@@ -39,12 +39,12 @@ public class Radio : MonoBehaviour, IClickable
         //     radioChannels[2] = channel3;
         // }
 
-        if (GameManagement.Instance.GetNbDayPassed() == 3)
+        if (GameManagement.Instance.GetNbDayPassed() == 3) //day 4
         {
             firstTimeEnvironmentalStory = true;
         }
 
-        if (GameManagement.Instance.GetNbDayPassed() == 4)
+        if (GameManagement.Instance.GetNbDayPassed() == 4) //day 5
         {
             StopAllCoroutines();
             isShootingStory = false;
@@ -56,6 +56,11 @@ public class Radio : MonoBehaviour, IClickable
     }
     public void OnClick()
     {
+        if (GameManagement.Instance.GetNbDayLeft()==0)
+        {
+            SoundManager.instance.PlaySound(RadioOff);
+            return;
+        }
         if (OpenCloseRadioStory()) {
             Debug.Log("Hey shooting");
             return;
@@ -114,6 +119,13 @@ public class Radio : MonoBehaviour, IClickable
         }
         previousChannelSource = radioChannels[currentChannelIndex];
     }
+    public void CloseAllChannelRadio()
+    {
+        if (previousChannelSource != null)
+        {
+            previousChannelSource.Off();
+        }
+    }
 
     private void CloseRadio()
     {
@@ -132,19 +144,19 @@ public class Radio : MonoBehaviour, IClickable
     //-------------------------------- STORY ----------------------
     public void ChangeRadioChannel()
     {
-        if(channel3==null && previousChannelSource == radioChannels[2])
+        if (channel3 == null)
         {
-            previousChannelSource.Off();
-        }
-        
-        if(channel3==null) {
+            if(previousChannelSource == radioChannels[2])
+            {
+                previousChannelSource.Off();
+            }
             channel3 = radioChannels[2];
             channel3TimeDay3 = channel3.GetTime();
         }
         
         radioChannels[2] = environmentalChannel;
         environmentalChannel.SetTimeMusic();
-        Debug.Log("Hey channel 3 is removed");
+
         if (previousChannelSource == channel3)
         {
             environmentalChannel.On();
@@ -155,12 +167,21 @@ public class Radio : MonoBehaviour, IClickable
     
     public void ShootingRadioChannel()
     {
-        if (channel3 == null)
+        if (channel3 == null) //for skipping day
         {
             channel3 = radioChannels[2];
+            channel3TimeDay3 = channel3.GetTime();
         }
+
         channel3.SetTimeMusic(channel3TimeDay3);
         radioChannels[2] = channel3;
+
+        if(previousChannelSource == environmentalChannel) { //playing radio 3
+            environmentalChannel.Off();
+            radioChannels[2].On();
+            previousChannelSource = radioChannels[2];
+        }
+
         StopAllCoroutines();
         StartCoroutine(StartCountDownShooting());
     }
@@ -175,7 +196,7 @@ public class Radio : MonoBehaviour, IClickable
         if (previousChannelSource != null)
         {
             previousChannelSource.Off();
-            previousChannelSource = null;
+            previousChannelSource = shootingChannel;
         }
         
         shootingChannel.SetTimeMusic();

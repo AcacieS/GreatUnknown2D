@@ -376,6 +376,7 @@ public class GameManagement : MonoBehaviour
 
             case 5: // day 6
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
+                if (radioScript != null) radioScript.CloseAllChannelRadio();
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
                 break;

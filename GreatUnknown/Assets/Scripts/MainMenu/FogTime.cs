@@ -8,16 +8,13 @@ public class FogTime : MonoBehaviour
 
     void Start()
     {
-        fogMaterial = GetComponent<RawImage>().material;
+        RawImage rawImage = GetComponent<RawImage>();
+        fogMaterial = new Material(rawImage.material);
+        rawImage.material = fogMaterial;
     }
 
     void Update()
     {
         if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", Time.unscaledTime);
-    }
-
-    void OnDisable()
-    {
-        if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", 0);
     }
 }

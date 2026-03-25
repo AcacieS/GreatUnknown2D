@@ -21,8 +21,6 @@ public class GameManagement : MonoBehaviour
     }
 
     [SerializeField] private FishSession fishSession;
-    [SerializeField] private SpriteRenderer daySpriteRenderer;
-    [SerializeField] private Sprite[] daySprites;
     [SerializeField] private TypingEffect dayAnimation;
     [SerializeField] private Animator animator;
 
@@ -80,9 +78,11 @@ public class GameManagement : MonoBehaviour
 
     [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
-    public Sprite backgroundDay2;
-    public Sprite backgroundDay3;
-    public Sprite backgroundDay5;
+    [SerializeField] private Sprite[] backgroundsByDay;
+
+    [Header("Change Background")]
+    [SerializeField] private SpriteRenderer calendarRend;
+    [SerializeField] private Sprite[] calendarByDay;
 
     [Header("Computer")]
     [SerializeField] private Animator computer;
@@ -98,8 +98,6 @@ public class GameManagement : MonoBehaviour
 
         // Check references and warn if any are missing from the Inspector.
         if (fishSession            == null) Ext.WarnRef("fishSession", this);
-        if (daySpriteRenderer      == null) Ext.WarnRef("daySpriteRenderer", this);
-        if (daySprites             == null) Ext.WarnRef("daySprites", this);
         if (dayAnimation           == null) Ext.WarnRef("dayAnimation", this);
         if (animator               == null) Ext.WarnRef("animator", this);
         if (lightManagement        == null) Ext.WarnRef("lightManagement", this);
@@ -118,9 +116,9 @@ public class GameManagement : MonoBehaviour
         if (lastDayMB              == null) Ext.WarnRef("lastDayMB", this);
         if (faxMachine             == null) Ext.WarnRef("faxMachine", this);
         if (backgroundRend         == null) Ext.WarnRef("backgroundRend", this);
-        if (backgroundDay2         == null) Ext.WarnRef("backgroundDay2", this);
-        if (backgroundDay3         == null) Ext.WarnRef("backgroundDay3", this);
-        if (backgroundDay5         == null) Ext.WarnRef("backgroundDay5", this);
+        if (backgroundsByDay       == null) Ext.WarnRef("backgroundsByDay", this);
+        if (calendarRend           == null) Ext.WarnRef("calendarRend", this);
+        if (calendarByDay          == null) Ext.WarnRef("calendarByDay", this);
         if (computer               == null) Ext.WarnRef("computer", this);
 
         fishSession.ResetSession();
@@ -340,10 +338,9 @@ public class GameManagement : MonoBehaviour
         ResetDataDay();
 
         // For Load system
-        SaveSystem.SaveProgress(nbDaysPassed);
-
-        if (nbDaysPassed < daySprites.Length)
-            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
+        int currentDaySaved = SaveSystem.LoadProgress();
+        if (nbDaysPassed > currentDaySaved)
+            SaveSystem.SaveProgress(nbDaysPassed);
 
         dayAnimation.WriteText();
     }
@@ -351,18 +348,25 @@ public class GameManagement : MonoBehaviour
     public void SpecialEventDay()
     {
         StartCoroutine(WaitFaxMachineMorningDay());
+// <<<<<<< HEAD
+        if (nbDaysPassed < daySprites.Length)
+            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
+// ||||||| parent of c8fb222 (add calendar switching | Main)
+// =======
+        if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
+        if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
+
+// >>>>>>> c8fb222 (add calendar switching | Main)
         switch (nbDaysPassed)
         {
             case 0:
                 if (bgSource != null) bgSource.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
-                if (backgroundRend != null) backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3
                 if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
-                if (backgroundRend != null) backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 3: // day 4
@@ -370,7 +374,6 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 4: // day 5
-                if (backgroundRend != null) backgroundRend.sprite = backgroundDay5;
                 if (radioScript != null) radioScript.ShootingRadioChannel();
                 break;
             case 5: // day 6

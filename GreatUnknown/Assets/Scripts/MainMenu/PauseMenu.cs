@@ -71,10 +71,6 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScene);
     }
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
 
     #region Action Bindings for IPauseActions
 

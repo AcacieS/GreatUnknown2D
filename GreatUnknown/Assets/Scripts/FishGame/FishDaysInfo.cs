@@ -57,19 +57,19 @@ public class FishDaysInfo : ScriptableObject
                 errorReason += "\tIn Category " + cat.fishLayerName + "\n";
 
                 listCheck = verifyFishBodyPartList(cat.fishPartsMutated.GetFishParts(FishBPDifficulty.Easy), out listCheckError);
-                if (!listCheck) { correct = false; errorReason += listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Mutated Easy Parts: " + listCheckError; }
 
                 listCheck = verifyFishBodyPartList(cat.fishPartsMutated.GetFishParts(FishBPDifficulty.Hard), out listCheckError);
-                if (!listCheck) { correct = false; errorReason += listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Mutated Hard Parts: " + listCheckError; }
 
                 listCheck = verifyFishBodyPartList(cat.fishPartsNormal.GetFishParts(FishBPDifficulty.Easy), out listCheckError);
-                if (!listCheck) { correct = false; errorReason += listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Normal Easy Parts: " + listCheckError; }
 
                 listCheck = verifyFishBodyPartList(cat.fishPartsNormal.GetFishParts(FishBPDifficulty.Hard), out listCheckError);
-                if (!listCheck) { correct = false; errorReason += listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Normal Hard Parts: " + listCheckError; }
 
                 listCheck = verifyFishBodyPartList(cat.fishParts, out listCheckError);
-                if (!listCheck) { correct = false; errorReason += listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\tWhile Checking Fish Parts" + listCheckError; }
             } 
         }
         return correct;
@@ -78,18 +78,17 @@ public class FishDaysInfo : ScriptableObject
     public bool verifyFishBodyPartList(List<FishBodyPart> list, out string errorReason)
     {
         bool correct = true;
-        errorReason = "";
-        if (list == null || list.Count == 0) {
-            errorReason = "\t\tFishBodyPart List missing or empty\n";
+        errorReason = null;
+        if (list == null || list.Count == 0)
+        {
+            errorReason = "FishBodyPart List missing or empty\n";
             return false;
         }
         foreach (FishBodyPart part in list)
         {
-            if (part == null) {
-                correct = false;
-                errorReason += "\t\tPart Missing\n";
-            }
+            if (part == null) correct = false;
         }
+        if (!correct) errorReason = "FishBodyPart List contains null(s)";
         return correct;
     }
 }

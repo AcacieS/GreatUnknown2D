@@ -45,7 +45,11 @@ Material:
     - _FogDensity: 0.5
     - _FogSize1: 30
     - _FogSize2: 15
+<<<<<<< Updated upstream
     - _FogTime: 171.78731
+=======
+    - _FogTime: 29.73832
+>>>>>>> Stashed changes
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0

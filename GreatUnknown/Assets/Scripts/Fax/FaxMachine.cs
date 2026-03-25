@@ -47,9 +47,9 @@ public class FaxMachine : MonoBehaviour, IClickable
 
     public void SendStartingFaxMessages(int day)
     {
-        foreach (string id in catalog.GetStartingOnDay(day))
+        foreach (FaxCatalog.Entry message in catalog.GetMessagesForMorning(day))
         {
-            NewFaxMessage(id);
+            NewFaxMessage(message.id, message.day == day);
         }
     }
 
@@ -58,7 +58,7 @@ public class FaxMachine : MonoBehaviour, IClickable
     /// 1) NotifyFax() -> blinking
     /// 2) Resolve sprite -> push into FaxLog
     /// </summary>
-    public void NewFaxMessage(string messageId)
+    public void NewFaxMessage(string messageId, bool notify = true)
     {
         if (catalog == null)
         {
@@ -82,7 +82,7 @@ public class FaxMachine : MonoBehaviour, IClickable
         if (!state.AddMessage(sprite))
             return;
 
-        NotifyFax();
+        if (notify) NotifyFax();
     }
 
     public void NotifyFax()

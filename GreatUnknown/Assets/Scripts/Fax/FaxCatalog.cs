@@ -38,12 +38,12 @@ public class FaxCatalog : ScriptableObject
         return _map.TryGetValue(id, out sprite);
     }
 
-    public List<string> GetStartingOnDay(int day)
+    public List<Entry> GetMessagesForMorning(int day)
     {
-        List<string> messages = new();
+        List<Entry> messages = new();
         foreach (var entry in entries)
             if (entry.day < day || (entry.day == day && entry.availableAtStart))
-                messages.Add(entry.id);
+                messages.Add(entry);
         return messages;
     }
 }

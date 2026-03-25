@@ -350,20 +350,20 @@ public class GameManagement : MonoBehaviour
     {
         StartCoroutine(WaitFaxMachineMorningDay());
 
-        if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
+        //if (backgroundRend != null) backgroundRend.sprite = backgroundsByDay[nbDaysPassed];
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
-
+        if (bgSource != null) bgSource.PlayNewBGMusic();
+        if (bgSource != null) bgSource.StopBGMusic();
         switch (nbDaysPassed)
         {
             case 0:
-                if (bgSource != null) bgSource.PlayNewBGMusic(BGMusicType.engine);
+                
                 break;
 
             case 1:
                 break;
 
             case 2: // day 3
-                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 break;
 
             case 3: // day 4
@@ -375,7 +375,6 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 5: // day 6
-                if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;

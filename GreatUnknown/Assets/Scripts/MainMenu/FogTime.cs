@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RawImage))]
 public class FogTime : MonoBehaviour
 {
     private Material fogMaterial;
@@ -13,6 +14,6 @@ public class FogTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fogMaterial.SetFloat("_FogTime", Time.unscaledTime);
+        if (fogMaterial != null) fogMaterial.SetFloat("_FogTime", Time.unscaledTime);
     }
 }

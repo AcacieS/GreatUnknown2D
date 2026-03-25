@@ -272,8 +272,6 @@ public class GameManagement : MonoBehaviour
     private void ResetDataDay()
     {
         StopAllCoroutines();
-        if (faxMachine != null)
-            faxMachine.SendStartingFaxMessages(nbDaysPassed);
 
         if (radioScript != null)
             radioScript.StopAllCoroutines();
@@ -346,34 +344,28 @@ public class GameManagement : MonoBehaviour
 
     public void SpecialEventDay()
     {
+        StartCoroutine(WaitFaxMachineMorningDay());
         switch (nbDaysPassed)
         {
             case 0:
-                StartCoroutine(WaitFaxMachineMorningDay("day1_morning"));
                 bgSource?.PlayNewBGMusic(BGMusicType.engine);
                 break;
             case 1:
-                StartCoroutine(WaitFaxMachineMorningDay("day2_morning"));
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay2;
                 break;
 
             case 2: // day 3
-                StartCoroutine(WaitFaxMachineMorningDay("day3_morning"));
-                // faxMachine?.NewFaxMessage("day3_morning");
                 bgSource?.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.creaky);
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 3: // day 4
-                StartCoroutine(WaitFaxMachineMorningDay("day4_morning"));
-                faxMachine?.NewFaxMessage("day4_morning");
                 radioScript?.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                StartCoroutine(WaitFaxMachineMorningDay("day5_morning"));
                 if (backgroundRend != null)
                     backgroundRend.sprite = backgroundDay5;
                 radioScript?.ShootingRadioChannel();
@@ -392,12 +384,11 @@ public class GameManagement : MonoBehaviour
                 break;
         }
     }
-    /*if (IsFishGameFinished)
-                    faxMachine?.NewFaxMessage("day3_midday");*/
-    private IEnumerator WaitFaxMachineMorningDay(string faxMessage)
+
+    private IEnumerator WaitFaxMachineMorningDay()
     {
         yield return new WaitForSeconds(faxMachineWaitSeconds);
-        faxMachine.NewFaxMessage(faxMessage);
+        faxMachine.SendStartingFaxMessages(nbDaysPassed);
     }
     
     void HandleFishFinished(bool finished)

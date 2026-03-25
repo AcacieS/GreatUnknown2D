@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class FishManagement : MonoBehaviour
 {
@@ -88,7 +87,9 @@ public class FishManagement : MonoBehaviour
         }
 
         for (int i = currentFishIndex; !InitializeNewFishAtIndexWrapping(i); i++)
-            DestroyFishAtIndexWrapping(i);
+        {
+            fishPlace.transform.DetachChildren();
+        }
     }
 
     private bool InitializeNewFishAtIndexWrapping(int fishIndex)

@@ -8,7 +8,6 @@ public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
 
     public bool canShowOutline = true;
     public bool stopShowOutlineForever = false;
-    Vector3 mousePosition;
     RaycastHit2D raycastHit2D;
     Transform prevHoverObject, nextHoverObject;
 
@@ -23,7 +22,7 @@ public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
 
     void UpdateOutline(Vector2 mousePosition)
     {
-        if(stopShowOutlineForever) return;
+        if (stopShowOutlineForever) return;
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
 
         prevHoverObject = nextHoverObject;
@@ -43,7 +42,6 @@ public class HoveringOutline : MonoBehaviour, TWTWControls.IPointerActions
             {
                 SetOutline(nextHoverObject, true);
             }
-                
         }
         else
         {

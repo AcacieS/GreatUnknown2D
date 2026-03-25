@@ -13,10 +13,13 @@ public class FishState : MonoBehaviour, IDropable
     private bool choiceIsMutated = false;
     private bool isGettingIn = false;
     private bool isGettingOut = false;
+    private FishSound fishSound;
     private void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
         clickHandler = GetComponent<ClickHandler>();
+        fishSound = GetComponent<FishSound>();
+        
     }
     public bool GetChoiceIsMutated()
     {
@@ -37,6 +40,7 @@ public class FishState : MonoBehaviour, IDropable
     {
         if(droppedObject.tag == "sticker")
         {
+            fishSound.PlayRandomWetSound();
             Fish currentFish = FishManagement.Instance.GetCurrentFish();
             Vector2 tagPos = currentFish.GetFishType().tagFishPos;
 

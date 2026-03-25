@@ -5,6 +5,10 @@ public class FishSound : MonoBehaviour, IClickable
 {
     public void OnClick()
     {
+        PlayRandomWetSound();
+    }
+    public void PlayRandomWetSound()
+    {
         int wetFishIndex = Random.Range(1, 3);
 
         if (SoundManager.instance == null)

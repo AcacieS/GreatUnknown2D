@@ -15,12 +15,10 @@ MonoBehaviour:
   fishLayerName: Mouth
   baseBodyPartFish: {fileID: 11400000, guid: c136df15350631948a59ec88fe1d2a77, type: 2}
   isOptional: 0
-  fishParts:
-  - {fileID: 11400000, guid: 3209af21526924d428abde0aab166435, type: 2}
+  fishParts: []
   fishPartsMutated:
     EasyFishParts: []
-    HardFishParts:
-    - {fileID: 11400000, guid: 3209af21526924d428abde0aab166435, type: 2}
+    HardFishParts: []
   fishPartsNormal:
     EasyFishParts: []
     HardFishParts: []

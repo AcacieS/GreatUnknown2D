@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.Serialization;
 
 public class LevelState : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class LevelState : MonoBehaviour
     [SerializeField] private bool useLimitedMoves = false;
     [SerializeField] private int maxMoves = 10;
     [SerializeField] private TextMeshProUGUI movesText;
-    
+
     [Header("Light blink")]
-    [SerializeField] private GameObject light;
+    [FormerlySerializedAs("light")]
+    [SerializeField] private GameObject lightGO;
 
     public int RemainingMoves { get; private set; }
 
@@ -61,15 +63,14 @@ public class LevelState : MonoBehaviour
     public void IndicationOfRestart()
     {
         BlinkText lightBlinky;
-        if(light==null) return; 
-        lightBlinky = light.GetComponent<BlinkText>();
+        if (lightGO == null) return;
+        lightBlinky = lightGO.GetComponent<BlinkText>();
         if (lightBlinky == null) Debug.Log("lightBlinkythereisnone");
-
     }
 
     public void SetOutOfMoves()
     {
-        
+        // TODO: maybe, at some point
     }
 
     public void SetGameOver()

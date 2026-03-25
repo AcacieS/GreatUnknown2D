@@ -29,7 +29,7 @@ public class TypingEffect : MonoBehaviour
             text.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
-        FinishText();
+        if (GetType() != typeof(OpeningTyping)) FinishText();
     }
     public virtual void FinishText()
     {

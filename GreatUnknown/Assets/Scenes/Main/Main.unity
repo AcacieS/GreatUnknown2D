@@ -9649,7 +9649,7 @@ MonoBehaviour:
   lightManagement: {fileID: 154781483}
   fadeOut: {fileID: 1419420879}
   bgSource: {fileID: 7595327770781537940}
-  radio: {fileID: 0}
+  radio: {fileID: 8336794658080182938}
   isSlidingGameFinished: 0
   isDayEnding: 0
   delayBeforeFade: 1.5
@@ -9681,9 +9681,6 @@ MonoBehaviour:
   - {fileID: -4329382853265178440, guid: 1334fd18a7b822e4c9aae45858918ddd, type: 3}
   - {fileID: 4909560085436170216, guid: 4383e95bdaf514a49b2bb6264a7d45fa, type: 3}
   - {fileID: 4675688059336736540, guid: 5114380ec8b347f42b3e52bcaca61bd1, type: 3}
-  backgroundDay2: {fileID: 5690511039823894635, guid: debb1b325517942fda754cb95bc1f033, type: 3}
-  backgroundDay3: {fileID: 7076730569839479387, guid: 7cfc6922f39fe461082bdf0a0dc476ac, type: 3}
-  backgroundDay5: {fileID: -8343117978926797086, guid: 603f2193d70774379b496619601d34bc, type: 3}
   computer: {fileID: 6875153284246808376}
   waitTimeComputerOpen: 0
   faxMachineWaitSeconds: 3

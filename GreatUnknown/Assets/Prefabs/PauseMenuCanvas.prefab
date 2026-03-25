@@ -1419,6 +1419,7 @@ GameObject:
   - component: {fileID: 5682104141850738547}
   - component: {fileID: 7573800054308128766}
   - component: {fileID: 1513512916347475022}
+  - component: {fileID: 9004045218947057180}
   m_Layer: 5
   m_Name: Fog (5)
   m_TagString: Untagged
@@ -1480,6 +1481,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &9004045218947057180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241837856887777721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &1279980654329801552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,7 +2491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1956636035576373170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2989,9 +3002,9 @@ RectTransform:
   - {fileID: 3142539766217315527}
   m_Father: {fileID: 1956636035576373170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -415}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1678674721505109343
@@ -3279,6 +3292,7 @@ GameObject:
   - component: {fileID: 2498832657613517037}
   - component: {fileID: 6057731373433574279}
   - component: {fileID: 992443329002725694}
+  - component: {fileID: 4346868853172196446}
   m_Layer: 5
   m_Name: Fog (4)
   m_TagString: Untagged
@@ -3340,6 +3354,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &4346868853172196446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625548929556812672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &2669452215582293794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,9 +4177,9 @@ RectTransform:
   - {fileID: 4660922446245666191}
   m_Father: {fileID: 1956636035576373170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -915}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5567240506488967276
@@ -4311,9 +4337,9 @@ RectTransform:
   - {fileID: 6025585639611458302}
   m_Father: {fileID: 1956636035576373170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -165}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &403643492328034022
@@ -5011,6 +5037,7 @@ GameObject:
   - component: {fileID: 6649576211276149553}
   - component: {fileID: 4301615581411372441}
   - component: {fileID: 1029572963497243876}
+  - component: {fileID: 7346120987768073513}
   m_Layer: 5
   m_Name: Fog (2)
   m_TagString: Untagged
@@ -5072,6 +5099,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &7346120987768073513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996953130924322493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &4064427622980976712
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,6 +6258,8 @@ GameObject:
   - component: {fileID: 5907722136696484610}
   - component: {fileID: 3848086635438629987}
   - component: {fileID: 1765054221854556696}
+  - component: {fileID: 3470980369005587175}
+  - component: {fileID: 6416949731936600467}
   m_Layer: 5
   m_Name: Fog (3)
   m_TagString: Untagged
@@ -6242,7 +6283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -540.30005}
+  m_AnchoredPosition: {x: 960, y: -539.7}
   m_SizeDelta: {x: 1920, y: 1079.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3848086635438629987
@@ -6280,6 +6321,38 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &3470980369005587175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191551212769391412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &6416949731936600467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191551212769391412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &5299880841457361503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6430,6 +6503,7 @@ GameObject:
   - component: {fileID: 209744378648665369}
   - component: {fileID: 161894651535831344}
   - component: {fileID: 2359208035427963886}
+  - component: {fileID: 5370629020739665006}
   m_Layer: 5
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
@@ -6542,6 +6616,18 @@ MonoBehaviour:
   faxViewerUI: {fileID: 0}
   pauseMenuUI: {fileID: 2159617662230949868}
   mainMenuScene: Menu
+--- !u!114 &5370629020739665006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5317870188911474072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &5417112505811197453
 GameObject:
   m_ObjectHideFlags: 0
@@ -10104,9 +10190,9 @@ RectTransform:
   - {fileID: 3370593838152824343}
   m_Father: {fileID: 1956636035576373170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -665}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5028254231473180953
@@ -10401,6 +10487,7 @@ GameObject:
   - component: {fileID: 4799742994282444296}
   - component: {fileID: 2480901418936359846}
   - component: {fileID: 1490176041124454429}
+  - component: {fileID: 9150295721613334215}
   m_Layer: 5
   m_Name: Fog (2)
   m_TagString: Untagged
@@ -10462,6 +10549,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &9150295721613334215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028746338278840055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c053e7442484019948462830ba7e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogTime
 --- !u!1 &9143355571918273396
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,7 +34,7 @@ public class LoadMenu : MonoBehaviour
     void StartFromDay(int dayIndex)
     {
         GameManagement.nbDaysPassed = dayIndex;
-        SaveSystem.SaveProgress(dayIndex);
+        // SaveSystem.SaveProgress(dayIndex);
         SceneManager.LoadScene(mainScene);
     }
 }

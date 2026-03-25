@@ -340,10 +340,9 @@ public class GameManagement : MonoBehaviour
         ResetDataDay();
 
         // For Load system
-        SaveSystem.SaveProgress(nbDaysPassed);
-
-        if (nbDaysPassed < daySprites.Length)
-            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
+        int currentDaySaved = SaveSystem.LoadProgress();
+        if (nbDaysPassed > currentDaySaved)
+            SaveSystem.SaveProgress(nbDaysPassed);
 
         dayAnimation.WriteText();
     }
@@ -351,6 +350,8 @@ public class GameManagement : MonoBehaviour
     public void SpecialEventDay()
     {
         StartCoroutine(WaitFaxMachineMorningDay());
+        if (nbDaysPassed < daySprites.Length)
+            daySpriteRenderer.sprite = daySprites[nbDaysPassed];
         switch (nbDaysPassed)
         {
             case 0:
@@ -367,6 +368,7 @@ public class GameManagement : MonoBehaviour
 
             case 3: // day 4
                 if (radioScript != null) radioScript.ChangeRadioChannel();
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay3;
                 break;
 
             case 4: // day 5
@@ -375,6 +377,7 @@ public class GameManagement : MonoBehaviour
                 break;
             case 5: // day 6
                 if (bgSource != null) bgSource.GetComponent<BGMusic>().PlayNewBGMusic(BGMusicType.anomaly);
+                if (backgroundRend != null) backgroundRend.sprite = backgroundDay5;
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;

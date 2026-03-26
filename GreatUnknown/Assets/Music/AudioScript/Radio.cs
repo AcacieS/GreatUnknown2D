@@ -181,27 +181,11 @@ public class Radio : MonoBehaviour, IClickable
             radioChannels[2].On();
             previousChannelSource = radioChannels[2];
         }
-
-        StopAllCoroutines();
-        StartCoroutine(StartCountDownShooting());
-    }
-    
-    
-    private IEnumerator StartCountDownShooting()
-    {
-        yield return new WaitForSeconds(shootingCountDown);
-        //stop all radio
-        Debug.Log("Shooting!!");
-        isShootingStory = true;
-        if (previousChannelSource != null)
-        {
-            previousChannelSource.Off();
-            previousChannelSource = shootingChannel;
-        }
         
-        shootingChannel.SetTimeMusic();
-        shootingChannel.On();
+        GameManagement.Instance.CallStartCountDownShooting(shootingCountDown);
     }
+    
+    
     private bool OpenCloseRadioStory()
     {
         if (isShootingStory)
@@ -236,6 +220,20 @@ public class Radio : MonoBehaviour, IClickable
             OpenRadio();
         }
     }
+    public void PlayShooting()
+    {
+        Debug.Log("Should be playing shooting");
+        isShootingStory = true;
+        if (previousChannelSource != null)
+        {
+            previousChannelSource.Off();
+            previousChannelSource = shootingChannel;
+        }
+        
+        shootingChannel.SetTimeMusic();
+        shootingChannel.PlayRadio();
+    }
+        
     
     public void Awake()
     {

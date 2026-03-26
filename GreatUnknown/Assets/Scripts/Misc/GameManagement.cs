@@ -398,4 +398,21 @@ public class GameManagement : MonoBehaviour
             computer.SetBool("Open", true);
         }
     }
+    private Coroutine shootingCoroutine;
+    public void CallStartCountDownShooting(float shootingCountDown){
+        Debug.Log("Start Count Down shooting");
+         // Stop previous coroutine if it exists
+        if (shootingCoroutine != null)
+        {
+            StopCoroutine(shootingCoroutine);
+        }
+        shootingCoroutine =StartCoroutine(StartCountDownShooting(shootingCountDown));
+    }
+    public IEnumerator StartCountDownShooting(float shootingCountDown)
+    {
+        yield return new WaitForSeconds(shootingCountDown);
+        //stop all radio
+        Debug.Log("Shooting!!");
+        radio?.PlayShooting();
+    }
 }

@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (instance != null)
         {
-            Destroy(instance); // Delete duplicates if we return to the start scene
+            Destroy(instance.gameObject); // Delete duplicates if we return to the start scene
         }
         instance = this;
         DontDestroyOnLoad(gameObject);

@@ -19,6 +19,7 @@ public class FishState : MonoBehaviour, IDropable
         _collider = GetComponent<BoxCollider2D>();
         clickHandler = GetComponent<ClickHandler>();
         fishSound = GetComponent<FishSound>();
+        StickerManagement.Instance.SetFishState(this.gameObject);
     }
     public bool GetChoiceIsMutated()
     {
@@ -47,7 +48,7 @@ public class FishState : MonoBehaviour, IDropable
             SetChoiceIsMutated(true);
             // Make it a child of this object
             droppedObject.transform.SetParent(transform);
-
+            Debug.Log("dropped Object: "+droppedObject.transform.parent);
             // Reset local position so it aligns perfectly
             droppedObject.transform.localPosition = tagPos;
             stickerObj = droppedObject;

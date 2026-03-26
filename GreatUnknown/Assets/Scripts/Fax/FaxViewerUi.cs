@@ -51,7 +51,7 @@ public class FaxViewerUI : MonoBehaviour
         navigate.action.performed += Navigate;
         escape.action.performed += Close;
     }
-
+    
     private void OnDisable()
     {
         navigate.action.performed += Navigate;

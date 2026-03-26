@@ -1,42 +1,28 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
 
-[RequireComponent(typeof(VideoPlayer), typeof(RawImage))]
+[RequireComponent(typeof(VideoPlayer))]
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] private float endPause = 1.5f;
-    private CustomRenderTexture texture;
-    private VideoPlayer player;
-    private RawImage output;
+    [SerializeField] private Canvas canvas;
+    private VideoPlayer cutscene;
 
     void Awake()
     {
-        player = GetComponent<VideoPlayer>();
-        output = GetComponent<RawImage>();
-
-        texture = new CustomRenderTexture(Screen.width, Screen.height);
-        texture.initializationColor = new Color(0, 0, 0, 1);
-
-        player.targetTexture = texture;
-        output.texture = texture;
+        cutscene = GetComponent<VideoPlayer>();
+        cutscene.loopPointReached += (unusedSource) => StartCoroutine(OnCutsceneFinish());
     }
 
     void OnEnable()
     {
-        player.loopPointReached += OnCutsceneFinish;
+        canvas.gameObject.SetActive(false);
     }
 
-    void OnDisable()
+    private IEnumerator OnCutsceneFinish()
     {
-        player.loopPointReached -= OnCutsceneFinish;
-    }
-    
-    private void OnCutsceneFinish(VideoPlayer p) => StartCoroutine(EndGameRoutine());
-
-    private IEnumerator EndGameRoutine()
-    {
+        canvas.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(endPause);
         Application.Quit();
     }

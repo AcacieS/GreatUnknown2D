@@ -299,7 +299,6 @@ public class GameManagement : MonoBehaviour
     private IEnumerator DayEndingRoutine()
     {
         Debug.Log("Day ending routine started.");
-        if (radio != null) radio.CloseAllChannelRadio();
         yield return new WaitForSeconds(delayBeforeFade);
 
         Debug.Log("Fade Out");

@@ -4,6 +4,7 @@
 #
 /GreatUnknown/.utmp/
 /GreatUnknown/[Aa]ssets/_Recovery*
+/GreatUnknown/Assets/AddressableAssetsData/*
 /GreatUnknown/[Ll]ibrary/
 /GreatUnknown/[Tt]emp/
 /GreatUnknown/[Oo]bj/

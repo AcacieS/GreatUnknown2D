@@ -14,7 +14,6 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject lightManagement;
     [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
-    [SerializeField] private Radio radio;
     public static int nbDaysPassed = 0;
 
 
@@ -42,9 +41,6 @@ public class GameManagement : MonoBehaviour
     [Header("Day Ending")]
     [SerializeField] private float delayBeforeFade = 1.5f;
 
-    [SerializeField] private PortholeSwitcher portholeScript;
-    [SerializeField] private Radio radioScript;
-
 
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workPlace;
@@ -60,8 +56,11 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject firstDayStoryCanvas;
 
     [Header("Story")]
+    [SerializeField] private Radio radio;
     [SerializeField] private FaxMachine faxMachine;
     [SerializeField] private LastDay lastDayMB;
+    [FormerlySerializedAs("portholeScript")]
+    [SerializeField] private PortholeSwitcher porthole;
 
     [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
@@ -86,12 +85,12 @@ public class GameManagement : MonoBehaviour
         // Check references and warn if any are missing from the Inspector.
         if (fishSession            == null) Ext.WarnRef("fishSession", this);
         if (dayAnimation           == null) Ext.WarnRef("dayAnimation", this);
-        if (cameraAnimator               == null) Ext.WarnRef("cameraAnimator", this);
+        if (cameraAnimator         == null) Ext.WarnRef("cameraAnimator", this);
         if (lightManagement        == null) Ext.WarnRef("lightManagement", this);
         if (fadeOut                == null) Ext.WarnRef("fadeOut", this);
         if (bgSource               == null) Ext.WarnRef("bgSource", this);
-        if (portholeScript         == null) Ext.WarnRef("portholeScript", this);
-        if (radioScript            == null) Ext.WarnRef("radioScript", this);
+        if (porthole               == null) Ext.WarnRef("porthole", this);
+        if (radio                  == null) Ext.WarnRef("radio", this);
         if (workPlace              == null) Ext.WarnRef("workPlace", this);
         if (fishGame               == null) Ext.WarnRef("fishGame", this);
         if (fishOnTray             == null) Ext.WarnRef("fishOnTray", this);
@@ -264,27 +263,20 @@ public class GameManagement : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (radioScript != null)
-            radioScript.StopAllCoroutines();
+        if (radio != null) radio.StopAllCoroutines();
 
         IsFishGameFinished = false;
         isSlidingGameFinished = false;
         isDayEnding = false;
 
         fishSession.ResetSession();
-        if (computer != null)
-        {
-            computer.SetBool("Open", false);
-        }
-
+        if (computer != null) computer.SetBool("Open", false);
         if (fishOnTray != null) fishOnTray.SetActive(true);
-        radio?.Save();
+        if (radio != null) radio.Save();
     }
 
     public void MarkSlidingGameFinished()
     {
-        if (isSlidingGameFinished) return;
-
         isSlidingGameFinished = true;
     }
 
@@ -307,7 +299,7 @@ public class GameManagement : MonoBehaviour
     private IEnumerator DayEndingRoutine()
     {
         Debug.Log("Day ending routine started.");
-
+        if (radio != null) radio.CloseAllChannelRadio();
         yield return new WaitForSeconds(delayBeforeFade);
 
         Debug.Log("Fade Out");
@@ -341,7 +333,7 @@ public class GameManagement : MonoBehaviour
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
         if (bgSource != null) bgSource.PlayNewBGMusic();
         if (bgSource != null) bgSource.StopBGMusic();
-        portholeScript.OnDaySwitch(nbDaysPassed);
+        if (porthole != null) porthole.OnDaySwitch(nbDaysPassed);
         switch (nbDaysPassed)
         {
             case 0:
@@ -355,16 +347,16 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 3: // day 4
-                if (radioScript != null) radioScript.ChangeRadioChannel();
+                if (radio != null) radio.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                if (radioScript != null) radioScript.ShootingRadioChannel();
+                if (radio != null) radio.ShootingRadioChannel();
                 break;
 
             case 5: // day 6
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
-                if (radioScript != null) radioScript.CloseAllChannelRadio();
+                if (radio != null) radio.CloseAllChannelRadio();
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
                 break;

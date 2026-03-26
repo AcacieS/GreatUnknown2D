@@ -46,6 +46,8 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // No to menu scene
+        if (SceneManager.GetActiveScene().name == mainMenuScene) return;
         bool canPause = true;
         if (bookViewerUI != null && faxViewerUI != null)
         {

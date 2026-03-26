@@ -30,6 +30,7 @@ public class FishManagement : MonoBehaviour
 
     [Header("Fired")]
     [SerializeField] private GameObject firedMessage;
+    [SerializeField] private GameObject fadeOutFired;
 
     //----------------------------- PRIVATE FIELD --------------------------------    
     private int currentFishNb = 0;
@@ -403,6 +404,6 @@ public class FishManagement : MonoBehaviour
         firedMessage.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         firedMessage.SetActive(false);
-        GameManagement.Instance.ResetDay();
+        fadeOutFired.SetActive(true);
     }
 }

@@ -42,20 +42,30 @@ public class Channel
     public void SetTimeMusic(float newTime = 0f)
     {
         Debug.Log("time is set to that value");
+        if(radioChannelSource.clip==null) return;
         radioChannelSource.time = Mathf.Clamp(newTime, 0f, radioChannelSource.clip.length - 0.01f);
     }
     public void Off()
     {
         SetVolume(0f);
     }
+    
     public void On()
     {
         Debug.Log("volume of radioChannel  "+radioChannel.volume+"and time: "+time);
         SetVolume(radioChannel.volume);
         if (!radioChannelSource.isPlaying)
         {
+            Debug.Log("is it playing? no then now should be played");
             radioChannelSource.Play();
         }
+    }
+    public void PlayRadio()
+    {
+        Debug.Log("Play shooting now");
+        radioChannelSource.clip = radioChannel.soundClip;
+        SetVolume(radioChannel.volume);
+        radioChannelSource.Play();
     }
     private void SetVolume(float volume = 0f)
     {

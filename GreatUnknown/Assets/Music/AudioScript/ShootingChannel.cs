@@ -1,8 +1,11 @@
 using System;
-using UnityEngine;
 
 [Serializable]
 public class ShootingChannel: Channel
 {
-    //private float isShootingStory = false;
+    public bool isShootingStory = false;
+    public void Reset()
+    {
+        isShootingStory = false;
+    }
 }

@@ -40,7 +40,11 @@ public class PauseMenu : MonoBehaviour
 
     void OnChangeScene(Scene previous, Scene next)
     {
-        if (next.name == mainMenuScene) Destroy(gameObject);
+        if (next.name == mainMenuScene)
+        {
+            SceneManager.activeSceneChanged -= OnChangeScene;
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

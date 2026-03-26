@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Klaxon
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: bbb74add67b2e9c4991ab50d624f0078, type: 3}
-  volume: 0.429
+  volume: 0.42
   isLooping: 1

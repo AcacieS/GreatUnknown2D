@@ -30,4 +30,10 @@ public class StickerManagement : MonoBehaviour
         SoundManager.instance.PlaySound("fishWet" + Random.Range(1, 3));
         Destroy(sticker);
     }
+    
+    void OnDisable()
+    {
+        if(sticker.transform.parent == this) return;
+        ResetSticker();
+    }
 }

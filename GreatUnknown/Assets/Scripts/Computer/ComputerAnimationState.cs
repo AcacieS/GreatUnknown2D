@@ -17,7 +17,7 @@ public class ComputerAnimationState : MonoBehaviour
     void OnEnable()
     {
         bool isComputerOpen;
-        if (GameManagement.Instance != null)
+        if (GameManagement.Instance == null)
             isComputerOpen = false;
         else
             isComputerOpen = !(!GameManagement.Instance.IsFishGameFinished || GameManagement.Instance.isSlidingGameFinished);

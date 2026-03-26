@@ -15,6 +15,8 @@ public class DayTransition : TypingEffect
     private void NextDay()
     {
         currentDayCanvas.SetActive(true);
+        GameObject submarine = submarineDays[GameManagement.Instance.GetNbDayPassed()];
+        submarine.SetActive(true);
         if (GameManagement.Instance.GetNbDayLeft() == 0)
             textToShow = "THE ANOMALY";
         else if (GameManagement.Instance.GetNbDayLeft() == 1)

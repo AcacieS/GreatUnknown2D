@@ -23,6 +23,11 @@ public class PortholeSwitcher : MonoBehaviour
                 selected = candidate;
 
         sprite.sprite = selected.sprite;
-        if (day == 5) sprite.transform.position = lastDayPortholePos.position;
+        if (day == 5) 
+        {
+            // Don't sway the sub on day 6
+            sprite.GetComponent<Animator>().enabled = false;
+            sprite.transform.position = lastDayPortholePos.position;
+        }
     }
 }

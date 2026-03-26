@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 [RequireComponent(typeof(AudioSource))]
-public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
+public class OpeningTyping: TypingEffect
 {
     [SerializeField] private TypingEffect currentDayTransition;
     private AudioSource audioSource;
-    private TWTWControls controlMaps;
+    private IDisposable controlCallback = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -18,8 +20,10 @@ public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
         textToShow = text.text;
         text.text = "";
         WriteText();
+        controlCallback = InputSystem.onAnyButtonPress.Call(FinishText);
     }
 
+    public void FinishText(InputControl unusedControl) => FinishText();
     public override void FinishText()
     {
         if(text.text == textToShow)
@@ -27,6 +31,7 @@ public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
             SoundManager.instance.FadeOut(1f, audioSource);
             if (currentDayTransition != null) currentDayTransition.WriteText();
             currentDayCanvas.SetActive(false);
+            if (controlCallback != null) controlCallback.Dispose();
         }
         else
         {
@@ -39,34 +44,11 @@ public class OpeningTyping: TypingEffect, TWTWControls.ICutsceneActions
         base.Awake();
         audioSource = GetComponent<AudioSource>();
 
-        controlMaps = new TWTWControls();
-        controlMaps.Cutscene.AddCallbacks(this);
-    
         if (currentDayTransition == null) { Ext.WarnRefAndDisable("currentDayTransition", this); return; }
-    }
-
-    #region Action Bindings for ICutsceneActions
-
-    public void OnSkip(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            FinishText();
     }
 
     void OnDestroy()
     {
-        controlMaps.Dispose();
+        controlCallback.Dispose();
     }
-
-    void OnEnable()
-    {
-        controlMaps.Cutscene.Enable();
-    }
-
-    void OnDisable()
-    {
-        controlMaps.Cutscene.Disable();
-    }
-
-    #endregion Action Bindings for ICutsceneActions
 }

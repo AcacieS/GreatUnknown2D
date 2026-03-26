@@ -43,11 +43,7 @@ public class MenuController : MonoBehaviour
     [Space(10)]
     private int qualityLevel;
     private bool isFullScreen;
-    private float brightnessLevel;
-    private float OverallVolume;
-    private float musicVolume;
-    private float SFXvolume;
-
+    //private float brightnessLevel;
     /*
     [Header("Confirmation")]
     [SerializeField] private GameObject confirmPrompt = null;
@@ -65,14 +61,19 @@ public class MenuController : MonoBehaviour
             {
                 float localVolume = PlayerPrefs.GetFloat("masterVolume");
                 volumeSlider.value = localVolume;
-                volumeTextValue.text = localVolume.ToString("0.0");
                 
                 float localMusic = PlayerPrefs.GetFloat("masterMusic");
                 musicSlider.value = localMusic;
-                musicTextValue.text = localMusic.ToString("0.0");
 
                 float localSFX = PlayerPrefs.GetFloat("masterSFX");
                 SFXslider.value = localSFX;
+
+                SetVolume();
+                SetMusicVolume();
+                SetSFXVolume();
+
+                volumeTextValue.text = localVolume.ToString("0.0");
+                musicTextValue.text = localMusic.ToString("0.0");
                 SFXTextValue.text = localSFX.ToString("0.0");
             }
             else
@@ -159,6 +160,7 @@ public class MenuController : MonoBehaviour
     {
         float volume = musicSlider.value;
         mixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("MenuMusicVolume",Mathf.Log10(volume) * 20);
         musicTextValue.text = volume.ToString("0.0");
     }
 
@@ -166,15 +168,17 @@ public class MenuController : MonoBehaviour
     {
         float volume = SFXslider.value;
         mixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("SubmarineVolume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("DayTransitionVolume", Mathf.Log10(volume) * 20);
         SFXTextValue.text = volume.ToString("0.0");
     }
 
     public void VolumeApply()
     {
         // Save value of Volume in variable masterVolume
-        PlayerPrefs.SetFloat("masterVolume", OverallVolume);
-        PlayerPrefs.SetFloat("masterMusic", musicVolume);
-        PlayerPrefs.SetFloat("masterSFX", SFXvolume);
+        PlayerPrefs.SetFloat("masterVolume", volumeSlider.value);
+        PlayerPrefs.SetFloat("masterMusic", musicSlider.value);
+        PlayerPrefs.SetFloat("masterSFX", SFXslider.value);
         // StartCoroutine(ConfirmationBox());
     }
 

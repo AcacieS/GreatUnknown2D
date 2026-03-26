@@ -7,6 +7,7 @@ public class TypingEffect : MonoBehaviour
     protected TextMeshProUGUI text;
     protected string textToShow;
     [SerializeField] protected GameObject currentDayCanvas;
+    [SerializeField] protected GameObject[] submarineDays;
     [SerializeField] protected float typingSpeed = 0.05f;
     [SerializeField] protected float waitSecondAfterTyping = 3f;
     public virtual void Start()
@@ -40,6 +41,9 @@ public class TypingEffect : MonoBehaviour
         yield return new WaitForSeconds(waitSecondAfterTyping);
         text.text = "";
         currentDayCanvas.SetActive(false);
+        GameObject submarine = submarineDays[GameManagement.Instance.GetNbDayPassed()];
+        submarine.SetActive(false);
+
         GameManagement.Instance.SpecialEventDay();
     }
     public virtual void WriteText()

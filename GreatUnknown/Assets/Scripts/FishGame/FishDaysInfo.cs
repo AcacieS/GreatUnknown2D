@@ -69,7 +69,7 @@ public class FishDaysInfo : ScriptableObject
                 if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Normal Hard Parts: " + listCheckError; }
 
                 listCheck = verifyFishBodyPartList(cat.fishParts, out listCheckError);
-                if (!listCheck) { correct = false; errorReason += "\tWhile Checking Fish Parts" + listCheckError; }
+                if (!listCheck) { correct = false; errorReason += "\t\tWhile Checking Fish Parts" + listCheckError; }
             } 
         }
         return correct;
@@ -79,9 +79,9 @@ public class FishDaysInfo : ScriptableObject
     {
         bool correct = true;
         errorReason = null;
-        if (list == null || list.Count == 0)
+        if (list == null)
         {
-            errorReason = "FishBodyPart List missing or empty\n";
+            errorReason = "FishBodyPart List is null\n";
             return false;
         }
         foreach (FishBodyPart part in list)

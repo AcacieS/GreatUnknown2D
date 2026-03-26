@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
+public class CursorUI : MonoBehaviour
 {
     private static CursorUI instance; //singleton
     // RectTransform of the Image (the fish sprite), set in Awake automatically
@@ -12,7 +12,6 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
     private RectTransform canvasRectTransform; //parent
     // Null if Screen Space Overlay, otherwise the canvas's assigned camera
     private Camera canvasCamera;
-    private TWTWControls controlMaps;
 
     private void Awake()
     {
@@ -31,10 +30,6 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
         cursorTransform = GetComponent<RectTransform>(); // from current object
         // Find and store canvas references on first run
         RefreshCanvasReferences();
-
-        controlMaps = new TWTWControls();
-        controlMaps.Pointer.AddCallbacks(this);
-        controlMaps.Pointer.Enable();
     }
 
     private void OnEnable()
@@ -89,6 +84,11 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
         }  
     }
 
+    void Update()
+    {
+        PositionCursor(Mouse.current.position.ReadValue());
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void SpawnIfMissing()
     {
@@ -104,16 +104,4 @@ public class CursorUI : MonoBehaviour, TWTWControls.IPointerActions
         // Instantiate it — Awake() on the prefab handles the rest
         Instantiate(prefab);
     }
-
-    #region Action Bindings for IPointerActions
-
-    public void OnPoint(InputAction.CallbackContext context)
-        => PositionCursor(context.ReadValue<Vector2>());
-
-    void OnDestroy()
-    {
-        controlMaps.Dispose();
-    }
-
-    #endregion Action Bindings for IPointerActions
 }

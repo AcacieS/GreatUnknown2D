@@ -1,56 +1,65 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
+using System;
+using NUnit.Framework;
+using System.Linq.Expressions;
 
-public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
+public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private InputActionReference escapeActionReference;
     [SerializeField] private BookViewerUI bookViewerUI;
     [SerializeField] private FaxViewerUI faxViewerUI;
     [SerializeField] private GameObject pauseMenuUI = null;
 
-    private TWTWControls controlMaps;
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioSource pauseMenuMusic;
+
     public static PauseMenu instance {get; private set; }
-    private bool canPause = true;
     public static bool isPaused = false;
-    public string mainMenuScene; 
+    public string mainMenuScene;
+
+    private float savedSFX, savedSubmarine, savedPrintNoise, savedMusic, savedRadio, savedDayTransition; 
+
+    private Boolean isSubMenuOpen = false;
 
     void Awake()
     {
         if (instance != null)
         {
-            Destroy(instance); // Delete duplicates if we return to the start scene
+            Destroy(instance.gameObject); // Delete duplicates if we return to the start scene
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        controlMaps = new TWTWControls();
-        controlMaps.Pause.AddCallbacks(this);
+        SceneManager.activeSceneChanged += OnChangeScene;
 
         if (bookViewerUI == null) { Ext.WarnRef("bookViewerUI", this); return; }
         if (faxViewerUI == null) { Ext.WarnRef("faxViewerUI", this); return; }
     }
 
+    void OnChangeScene(Scene previous, Scene next)
+    {
+        if (next.name == mainMenuScene) Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // not allowed in pausing in Main menu
-        if (SceneManager.GetActiveScene().name == mainMenuScene)
-        {
-            if (pauseMenuUI.activeSelf)
-            {
-                pauseMenuUI.SetActive(false);
-                return;
-            }
-        }
-
+        // No to menu scene
+        if (SceneManager.GetActiveScene().name == mainMenuScene) return;
+        bool canPause = true;
         if (bookViewerUI != null && faxViewerUI != null)
         {
             canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
-        } else
+        }
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            canPause = true;
+            if (isPaused && !isSubMenuOpen) // ignore escape if submenu is open
+                Resume();
+            else if (canPause)
+                Pause();
         }
     }
 
@@ -59,46 +68,62 @@ public class PauseMenu : MonoBehaviour, TWTWControls.IPauseActions
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        pauseMenuMusic.Stop();
+        RestoreVolume();
     }
+
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        pauseMenuMusic.Play();
+        MuteVolume();
     }
+
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        RestoreVolume();
         SceneManager.LoadScene(mainMenuScene);
     }
 
-    #region Action Bindings for IPauseActions
-
-    public void OnTogglePause(InputAction.CallbackContext context)
+    public void SubMenuOpen()
     {
-        if (context.started)
-        {
-            if (isPaused)
-                Resume();
-            else if (canPause)
-                Pause();
-        }
+        isSubMenuOpen = true;
     }
 
-    void OnDestroy()
+    public void SubMenuClose()
     {
-        controlMaps.Dispose();
+        isSubMenuOpen = false;
     }
 
-    void OnEnable()
-    {
-        controlMaps.Pause.Enable();
-    }
 
-    void OnDisable()
+    void MuteVolume()
     {
-        controlMaps.Pause.Disable();
-    }
+        mixer.GetFloat("SFXVolume", out savedSFX);
+        mixer.GetFloat("DayTransitionVolume", out savedDayTransition);
+        mixer.GetFloat("MusicVolume", out savedMusic);
+        mixer.GetFloat("PrintNoiseVolume", out savedPrintNoise);
+        mixer.GetFloat("RadioVolume", out savedRadio);
+        mixer.GetFloat("SubmarineVolume", out savedSubmarine);
 
-    #endregion Action Bindings for IPauseActions
+        float muted = Mathf.Log10(0.0001f) * 20; // -80db
+
+        mixer.SetFloat("SFXVolume", muted);
+        mixer.SetFloat("DayTransitionVolume", muted);
+        mixer.SetFloat("MusicVolume", muted);
+        mixer.SetFloat("PrintNoiseVolume", muted);
+        mixer.SetFloat("RadioVolume", muted);
+        mixer.SetFloat("SubmarineVolume", muted);
+    }
+    void RestoreVolume()
+    {
+        mixer.SetFloat("SFXVolume", savedSFX);
+        mixer.SetFloat("DayTransitionVolume", savedDayTransition);
+        mixer.SetFloat("MusicVolume", savedMusic);
+        mixer.SetFloat("PrintNoiseVolume", savedPrintNoise);
+        mixer.SetFloat("RadioVolume", savedRadio);
+        mixer.SetFloat("SubmarineVolume", savedSubmarine);
+    }
 }

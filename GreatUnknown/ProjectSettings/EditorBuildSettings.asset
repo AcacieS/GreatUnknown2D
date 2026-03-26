@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Main/Menu.unity
-    guid: cdfea633f2948e01cb51db79c3bd2b9d
+    guid: e8c503ea33c1743a6aebbb82374f45a0
   - enabled: 1
     path: Assets/Scenes/Main/Main.unity
     guid: 777007ce453f985c98ef14e2a4e7801f
@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Nature.unity
     guid: bccc056065beafb97818cbea5c8e2e42
-  - enabled: 1
-    path: Assets/Scenes/Main/Thanks.unity
-    guid: 80ec77bf552b85cf8915ec9d02565d9b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: a62d7b23cfbb441d6b87aed0067b3be2, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

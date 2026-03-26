@@ -6,28 +6,14 @@ public class GameManagement : MonoBehaviour
 {
     public static GameManagement Instance { get; private set; }
 
-    // While we decide whether or not to support options, force 1920x1080.
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static void ForceScreenTo16by9()
-    {
-        foreach (var res in Screen.resolutions)
-        {
-            if (res.width == 1920 && res.height == 1080)
-            {
-                Screen.SetResolution(res.width, res.height, true);
-            }
-        }
-        Screen.SetResolution(1920, 1080, true);
-    }
-
     [SerializeField] private FishSession fishSession;
     [SerializeField] private TypingEffect dayAnimation;
-    [SerializeField] private Animator animator;
+    [FormerlySerializedAs("animator")]
+    [SerializeField] private Animator cameraAnimator;
 
     [SerializeField] private GameObject lightManagement;
     [SerializeField] private GameObject fadeOut;
     [SerializeField] private BGMusic bgSource;
-    [SerializeField] private Radio radio;
     public static int nbDaysPassed = 0;
 
 
@@ -55,9 +41,6 @@ public class GameManagement : MonoBehaviour
     [Header("Day Ending")]
     [SerializeField] private float delayBeforeFade = 1.5f;
 
-    [SerializeField] private PortholeSwitcher portholeScript;
-    [SerializeField] private Radio radioScript;
-
 
     [Header("Initialization of Game")]
     [SerializeField] private GameObject workPlace;
@@ -73,8 +56,11 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private GameObject firstDayStoryCanvas;
 
     [Header("Story")]
+    [SerializeField] private Radio radio;
     [SerializeField] private FaxMachine faxMachine;
     [SerializeField] private LastDay lastDayMB;
+    [FormerlySerializedAs("portholeScript")]
+    [SerializeField] private PortholeSwitcher porthole;
 
     [Header("Change Background")]
     [SerializeField] private SpriteRenderer backgroundRend;
@@ -99,12 +85,12 @@ public class GameManagement : MonoBehaviour
         // Check references and warn if any are missing from the Inspector.
         if (fishSession            == null) Ext.WarnRef("fishSession", this);
         if (dayAnimation           == null) Ext.WarnRef("dayAnimation", this);
-        if (animator               == null) Ext.WarnRef("animator", this);
+        if (cameraAnimator         == null) Ext.WarnRef("cameraAnimator", this);
         if (lightManagement        == null) Ext.WarnRef("lightManagement", this);
         if (fadeOut                == null) Ext.WarnRef("fadeOut", this);
         if (bgSource               == null) Ext.WarnRef("bgSource", this);
-        if (portholeScript         == null) Ext.WarnRef("portholeScript", this);
-        if (radioScript            == null) Ext.WarnRef("radioScript", this);
+        if (porthole               == null) Ext.WarnRef("porthole", this);
+        if (radio                  == null) Ext.WarnRef("radio", this);
         if (workPlace              == null) Ext.WarnRef("workPlace", this);
         if (fishGame               == null) Ext.WarnRef("fishGame", this);
         if (fishOnTray             == null) Ext.WarnRef("fishOnTray", this);
@@ -201,18 +187,19 @@ public class GameManagement : MonoBehaviour
         if (!IsFishGameFinished) return;
         if (isSlidingGameFinished) return;
         if (GetNbDayPassed() == 5) return;
-        if (animator == null) return;
+        if (cameraAnimator == null) return;
 
         Debug.Log("Starting sliding game transition.");
-        animator.SetBool("StartingSlidingGame", true);
+        cameraAnimator.SetBool("StartingSlidingGame", true);
+        SoundManager.instance.PlaySound("computerOpen");
     }
 
-    // Called by SlidingTransitionRelay on the camera animator
+    // Called by SlidingTransitionRelay on cameraAnimator
     public void OnSlidingTransitionComplete()
     {
-        if (animator != null)
-            animator.SetBool("StartingSlidingGame", false);
-
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("StartingSlidingGame", false);
+        
         StartCoroutine(OpenSlidingGameRoutine());
     }
 
@@ -253,15 +240,15 @@ public class GameManagement : MonoBehaviour
         if (workPlace != null)
             workPlace.SetActive(true);
 
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", true);
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("ExitingSlidingGame", true);
     }
 
-    /** Called by SlidingTransitionRelay on the camera animator */
+    /** Called by SlidingTransitionRelay on the camera cameraAnimator */
     public void OnSlidingExitComplete()
     {
-        if (animator != null)
-            animator.SetBool("ExitingSlidingGame", false);
+        if (cameraAnimator != null)
+            cameraAnimator.SetBool("ExitingSlidingGame", false);
 
         if (workPlace != null)
             workPlace.SetActive(true);
@@ -276,28 +263,20 @@ public class GameManagement : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (radioScript != null)
-            radioScript.StopAllCoroutines();
+        if (radio != null) radio.StopAllCoroutines();
 
         IsFishGameFinished = false;
         isSlidingGameFinished = false;
         isDayEnding = false;
 
         fishSession.ResetSession();
-        portholeScript.OnDaySwitch(nbDaysPassed);
-        if (computer != null)
-        {
-            computer.SetBool("Open", false);
-        }
-
+        if (computer != null) computer.SetBool("Open", false);
         if (fishOnTray != null) fishOnTray.SetActive(true);
-        radio?.Save();
+        if (radio != null) radio.Save();
     }
 
     public void MarkSlidingGameFinished()
     {
-        if (isSlidingGameFinished) return;
-
         isSlidingGameFinished = true;
     }
 
@@ -320,12 +299,11 @@ public class GameManagement : MonoBehaviour
     private IEnumerator DayEndingRoutine()
     {
         Debug.Log("Day ending routine started.");
-
         yield return new WaitForSeconds(delayBeforeFade);
 
         Debug.Log("Fade Out");
         if (fadeOut != null)
-            fadeOut.SetActive(true);//SetTrigger("FadeOutDay");
+            fadeOut.SetActive(true);
     }
 
     public void OnDayFadeComplete()
@@ -354,6 +332,7 @@ public class GameManagement : MonoBehaviour
         if (calendarRend != null) calendarRend.sprite = calendarByDay[nbDaysPassed];
         if (bgSource != null) bgSource.PlayNewBGMusic();
         if (bgSource != null) bgSource.StopBGMusic();
+        if (porthole != null) porthole.OnDaySwitch(nbDaysPassed);
         switch (nbDaysPassed)
         {
             case 0:
@@ -367,15 +346,16 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 3: // day 4
-                if (radioScript != null) radioScript.ChangeRadioChannel();
+                if (radio != null) radio.ChangeRadioChannel();
                 break;
 
             case 4: // day 5
-                if (radioScript != null) radioScript.ShootingRadioChannel();
+                if (radio != null) radio.ShootingRadioChannel();
                 break;
 
             case 5: // day 6
                 if (lastDayMB != null) lastDayMB.gameObject.SetActive(true);
+                if (radio != null) radio.CloseAllChannelRadio();
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
                 break;
@@ -418,5 +398,4 @@ public class GameManagement : MonoBehaviour
             computer.SetBool("Open", true);
         }
     }
-
 }

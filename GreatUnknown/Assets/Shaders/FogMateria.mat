@@ -45,7 +45,7 @@ Material:
     - _FogDensity: 0.5
     - _FogSize1: 30
     - _FogSize2: 15
-    - _FogTime: 47.552692
+    - _FogTime: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -55,8 +55,8 @@ Material:
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-    - _FogSpeed1: {r: 0.03, g: 0.03, b: 0, a: 0}
-    - _FogSpeed2: {r: -0.03, g: 0.03, b: 0, a: 0}
+    - _FogColor: {r: 0.3773585, g: 0.3542186, b: 0.3542186, a: 0.47058824}
+    - _FogSpeed1: {r: 0.02, g: 0.02, b: 0, a: 0}
+    - _FogSpeed2: {r: 0.09, g: 0.09, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

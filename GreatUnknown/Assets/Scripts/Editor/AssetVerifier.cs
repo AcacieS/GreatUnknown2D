@@ -11,7 +11,7 @@ public class AssetVerifier : AssetPostprocessor
             var path = AssetDatabase.GUIDToAssetPath(guid);
             var fishDaysInfo = AssetDatabase.LoadAssetByGUID<FishDaysInfo>(guid);
             if (!fishDaysInfo.verifyFishDaysInfoIntegrity(out var whatWentWrong))
-            Debug.LogError("[AssetVerifier] Problem(s) found in asset " + path + "\n" + whatWentWrong);
+            Debug.LogWarning("[AssetVerifier] Problem(s) found in asset " + path + "\n" + whatWentWrong);
         }
     }
 }

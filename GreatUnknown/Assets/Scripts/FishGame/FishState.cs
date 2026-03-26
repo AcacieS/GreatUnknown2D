@@ -19,7 +19,6 @@ public class FishState : MonoBehaviour, IDropable
         _collider = GetComponent<BoxCollider2D>();
         clickHandler = GetComponent<ClickHandler>();
         fishSound = GetComponent<FishSound>();
-        
     }
     public bool GetChoiceIsMutated()
     {
@@ -78,16 +77,16 @@ public class FishState : MonoBehaviour, IDropable
         clickHandler.SetEnableDrag(false);
         if (!isInitialPos)
         {
+            SetChoiceIsMutated(false);
             transform.position = new Vector2(InPos.position.x, transform.position.y);
             isInitialPos = true;
 
             FishManagement.Instance.InitializeNewFish();
             if (stickerObj != null)
             {
-                Debug.LogWarning("Reset sticker get in");
+                Debug.LogWarning("--Reset sticker get in");
                 StickerManagement.Instance.ResetSticker();
                 stickerObj = null;
-                SetChoiceIsMutated(false);
             }
             _collider.enabled = true;
         }
@@ -122,8 +121,8 @@ public class FishState : MonoBehaviour, IDropable
             if (stickerObj != null)
             {
                 StickerManagement.Instance.ResetSticker();
-                stickerObj = null;
                 SetChoiceIsMutated(false);
+                stickerObj = null;
             }
             isGettingOut = false;
             isGettingIn = true;

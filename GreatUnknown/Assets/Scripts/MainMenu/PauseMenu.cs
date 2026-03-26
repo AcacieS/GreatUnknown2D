@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioSource pauseMenuMusic;
 
     public static PauseMenu instance {get; private set; }
-    private bool canPause = true;
     public static bool isPaused = false;
     public string mainMenuScene;
 
@@ -33,21 +32,24 @@ public class PauseMenu : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        SceneManager.activeSceneChanged += OnChangeScene;
+
         if (bookViewerUI == null) { Ext.WarnRef("bookViewerUI", this); return; }
         if (faxViewerUI == null) { Ext.WarnRef("faxViewerUI", this); return; }
+    }
+
+    void OnChangeScene(Scene previous, Scene next)
+    {
+        if (next.name == mainMenuScene) Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // not allowed in pausing in Main menu
-        if (SceneManager.GetActiveScene().name == mainMenuScene)
+        bool canPause = true;
+        if (bookViewerUI != null && faxViewerUI != null)
         {
-            if (pauseMenuUI.activeSelf)
-            {
-                pauseMenuUI.SetActive(false);
-                return;
-            }
+            canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
         }
 
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -56,14 +58,6 @@ public class PauseMenu : MonoBehaviour
                 Resume();
             else if (canPause)
                 Pause();
-        }
-
-        if (bookViewerUI != null && faxViewerUI != null)
-        {
-            canPause = !bookViewerUI.gameObject.activeSelf && !faxViewerUI.transform.parent.gameObject.activeSelf;
-        } else
-        {
-            canPause = true;
         }
     }
 
@@ -100,7 +94,6 @@ public class PauseMenu : MonoBehaviour
     {
         isSubMenuOpen = false;
     }
-
 
 
     void MuteVolume()

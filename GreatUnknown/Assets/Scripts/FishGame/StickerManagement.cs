@@ -19,6 +19,7 @@ public class StickerManagement : MonoBehaviour
     
     public void ResetSticker()
     {
+
         SpawnNewStickerCollider();
     }
     public void SpawnNewStickerCollider()
@@ -31,8 +32,8 @@ public class StickerManagement : MonoBehaviour
         Destroy(sticker);
     }
 
-    void OnDisable()
-    {
-        ResetSticker();
-    }
+    // void OnDisable()
+    // {
+    //     ResetSticker();
+    // }
 }

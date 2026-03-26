@@ -47,7 +47,6 @@ public class IcePlayerController : MonoBehaviour
             submarineVisual = transform;
 
         controlMaps = new TWTWControls();
-        controlMaps.Player.Enable();
         moveAction = controlMaps.Player.Move;
     }
 
@@ -171,6 +170,16 @@ public class IcePlayerController : MonoBehaviour
     }
 
     #region Action Bindings
+
+    void OnEnable()
+    {
+        controlMaps.Player.Enable();
+    }
+
+    void OnDisable()
+    {
+        controlMaps.Player.Disable();
+    }
 
     void OnDestroy()
     {

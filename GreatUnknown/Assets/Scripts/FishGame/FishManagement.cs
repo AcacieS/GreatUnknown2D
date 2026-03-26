@@ -348,10 +348,7 @@ public class FishManagement : MonoBehaviour
             session.AddWrong();
             if(session.Wrong > 3)
             {
-                firedMessage.SetActive(true);
                 StartCoroutine(FiredCoroutine());
-                firedMessage.SetActive(false);
-                GameManagement.Instance.ResetDay();
                 return;
             }
             else
@@ -403,6 +400,9 @@ public class FishManagement : MonoBehaviour
 
     private IEnumerator FiredCoroutine()
     {
+        firedMessage.SetActive(true);
         yield return new WaitForSeconds(1.5f);
+        firedMessage.SetActive(false);
+        GameManagement.Instance.ResetDay();
     }
 }

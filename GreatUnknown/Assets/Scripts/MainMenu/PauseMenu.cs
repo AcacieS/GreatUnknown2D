@@ -130,4 +130,9 @@ public class PauseMenu : MonoBehaviour
         mixer.SetFloat("RadioVolume", savedRadio);
         mixer.SetFloat("SubmarineVolume", savedSubmarine);
     }
+
+    void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= OnChangeScene;
+    }
 }

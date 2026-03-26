@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,9 @@ public class FishManagement : MonoBehaviour
     [SerializeField] int currentFishIndex = -1;
     [SerializeField] private bool need2Mutated = false;
     [SerializeField] List<Fish> currentFishLists = new List<Fish>();
+
+    [Header("Fired")]
+    [SerializeField] private GameObject firedMessage;
 
     //----------------------------- PRIVATE FIELD --------------------------------    
     private int currentFishNb = 0;
@@ -344,7 +348,7 @@ public class FishManagement : MonoBehaviour
             session.AddWrong();
             if(session.Wrong > 3)
             {
-                GameManagement.Instance.ResetDay();
+                StartCoroutine(FiredCoroutine());
                 return;
             }
             else
@@ -392,5 +396,13 @@ public class FishManagement : MonoBehaviour
     public FishDaysInfo GetFishDaysInfo()
     {
         return fishDaysInfo;
+    }
+
+    private IEnumerator FiredCoroutine()
+    {
+        firedMessage.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        firedMessage.SetActive(false);
+        GameManagement.Instance.ResetDay();
     }
 }

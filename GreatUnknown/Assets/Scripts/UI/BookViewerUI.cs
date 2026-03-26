@@ -19,6 +19,10 @@ public class BookViewerUI : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button escapeButton;
 
+    [Header("ConditionsNotToClick")]
+
+    [SerializeField] private GameObject DayXLeft;
+
     private int index = 0;
 
     private void Awake()
@@ -59,7 +63,14 @@ public class BookViewerUI : MonoBehaviour
         escapeButton.onClick.RemoveListener(Close);
     }
 
-    public void Open() { gameObject.SetActive(true); RandomPaperSound(); }
+    public void Open() { 
+        if(DayXLeft != null)
+        {
+            if(DayXLeft.activeSelf) return;
+        }
+        gameObject.SetActive(true);
+        RandomPaperSound();
+        }
     public void Close() { RandomPaperSound(); gameObject.SetActive(false); }
     public void Close(InputAction.CallbackContext context) => Close();
 

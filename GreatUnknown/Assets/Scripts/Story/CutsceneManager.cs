@@ -5,25 +5,30 @@ using UnityEngine.Video;
 [RequireComponent(typeof(VideoPlayer))]
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private float endPause = 1.5f;
     [SerializeField] private Canvas canvas;
     private VideoPlayer cutscene;
 
     void Awake()
     {
         cutscene = GetComponent<VideoPlayer>();
-        cutscene.loopPointReached += (unusedSource) => StartCoroutine(OnCutsceneFinish());
     }
 
     void OnEnable()
     {
-        canvas.gameObject.SetActive(false);
+        canvas.gameObject.SetActive(true);
+        cutscene.started += OnCutsceneStart;
+        cutscene.loopPointReached += OnCutsceneFinish;
+        cutscene.errorReceived += OnCutsceneError;
     }
 
-    private IEnumerator OnCutsceneFinish()
+    void OnDisable()
     {
-        canvas.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(endPause);
-        Application.Quit();
+        cutscene.started -= OnCutsceneStart;
+        cutscene.loopPointReached -= OnCutsceneFinish;
+        cutscene.errorReceived += OnCutsceneError;
     }
+
+    private void OnCutsceneStart(VideoPlayer p) => canvas.gameObject.SetActive(false);
+    private void OnCutsceneFinish(VideoPlayer p) => Application.Quit();
+    private void OnCutsceneError(VideoPlayer p, string e) => Application.Quit();
 }

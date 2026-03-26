@@ -18,14 +18,17 @@ public class CutsceneManager : MonoBehaviour
         canvas.gameObject.SetActive(true);
         cutscene.started += OnCutsceneStart;
         cutscene.loopPointReached += OnCutsceneFinish;
+        cutscene.errorReceived += OnCutsceneError;
     }
 
     void OnDisable()
     {
         cutscene.started -= OnCutsceneStart;
         cutscene.loopPointReached -= OnCutsceneFinish;
+        cutscene.errorReceived += OnCutsceneError;
     }
 
     private void OnCutsceneStart(VideoPlayer p) => canvas.gameObject.SetActive(false);
     private void OnCutsceneFinish(VideoPlayer p) => Application.Quit();
+    private void OnCutsceneError(VideoPlayer p, string e) => Application.Quit();
 }

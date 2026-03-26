@@ -403,6 +403,6 @@ public class FishManagement : MonoBehaviour
         firedMessage.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         firedMessage.SetActive(false);
-        gameObject.SetActive(false);
+        GameManagement.Instance.ResetDay();
     }
 }

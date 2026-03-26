@@ -188,7 +188,7 @@ public class Radio : MonoBehaviour, IClickable
     
     private bool OpenCloseRadioStory()
     {
-        if (isShootingStory)
+        if (isShootingStory && GameManagement.Instance.GetNbDayPassed()==4)
         {
             if(shootingChannel.GetChannelVolume() == 0.0f) //so is off
             {
@@ -219,6 +219,10 @@ public class Radio : MonoBehaviour, IClickable
         {
             OpenRadio();
         }
+    }
+    public void ResetShooting()
+    {
+        isShootingStory = false;
     }
     public void PlayShooting()
     {

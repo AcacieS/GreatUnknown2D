@@ -350,7 +350,10 @@ public class GameManagement : MonoBehaviour
                 break;
 
             case 4: // day 5
-                if (radio != null) radio.ShootingRadioChannel();
+                if (radio != null) {
+                    radio.ResetShooting();
+                    radio.ShootingRadioChannel();
+                }
                 break;
 
             case 5: // day 6
@@ -358,6 +361,7 @@ public class GameManagement : MonoBehaviour
                 if (radio != null) radio.CloseAllChannelRadio();
                 IsFishGameFinished = true;
                 isSlidingGameFinished = true;
+                
                 break;
 
             default:

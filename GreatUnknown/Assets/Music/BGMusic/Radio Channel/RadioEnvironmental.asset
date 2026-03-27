@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RadioEnvironmental
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 288f6c5c69eeda74f8021e1d7c97bb98, type: 3}
-  volume: 0.16
+  volume: 0.145
   isLooping: 1

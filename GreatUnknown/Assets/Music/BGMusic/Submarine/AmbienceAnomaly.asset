@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AmbienceAnomaly
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: b087c863ffd974f46ab0125d095bf050, type: 3}
-  volume: 0.07
+  volume: 0.06
   isLooping: 1

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ComputerOpen
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 794b4930ca941407e8f70ee2a6c3b426, type: 3}
-  volume: 0.375
+  volume: 0.4875
   isLooping: 0

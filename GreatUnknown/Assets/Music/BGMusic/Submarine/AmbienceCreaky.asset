@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AmbienceCreaky
   m_EditorClassIdentifier: Assembly-CSharp::AudioInfo
   soundClip: {fileID: 8300000, guid: 15125108037bf784893ac4aa9821ce5f, type: 3}
-  volume: 0.24
+  volume: 0.312
   isLooping: 1
